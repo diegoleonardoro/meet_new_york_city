@@ -1,0 +1,3943 @@
+<!DOCTYPE html>
+<html>
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+<head>
+
+    <link rel="stylesheet" href="./style.css" />
+    <meta charset="utf-8">
+    <title>CB2 BX Social Platform</title>
+    <div id="userName"></div>
+
+
+</head>
+
+
+<body>
+
+    <!--
+    <textarea id="story" name="story" rows="5" cols="33">
+It was a dark and stormy night...
+</textarea>
+    -->
+
+
+    <!-- First Section -->
+
+    <h3 class="headingQuestion" id="firstQuestionHeading">What Type of building is this?</h3>
+
+
+    <!-- Second Section -->
+    <h3 class="headingQuestion residential" id="residential">Which of the following apply to you and this
+        place?</h3>
+
+    <!-- Third Section -->
+    <h3 class="headingQuestion currentlyLiveThere" id="currentlyLiveThere">How long have you lived there?</h3>
+    <h3 class="headingQuestion usedToLiveHere" id="usedToLiveHere">How long ago did you live there?</h3>
+    <h3 class="headingQuestion neverLivedThere" id="neverLivedThere">Did someoone you know or knew lves or use to
+        live there?</h3>
+
+
+
+    <!-- Fourth Section -->
+    <h3 class="headingQuestion howHappyLastYrs" id="howHappyLastYrs">How happy do you feel living there?</h3>
+    <h3 class="headingQuestion howHappyManytYrs" id="howHappyManytYrs">Wow! That is a long time! How happy do you
+        feel living there? </h3>
+    <h3 class="headingQuestion howHappyUsedToLiveThereFewYrs" id="howHappyUsedToLiveThereFewYrs">Overall, how happy did
+        you
+        feel while you were living
+        there?</h3>
+    <h3 class="headingQuestion howHappyUsedToLiveThereLongAgo" id="howHappyUsedToLiveThereLongAgo">Wow! That is a long
+        time! how
+        happy did you feel while
+        you lived there?</h3>
+    <h3 class="headingQuestion someoneElseIknewLivedThere" id="someoneElseIknewLivedThere">What was or is your
+        relationship
+        with that person?</h3>
+    <h3 class="headingQuestion someoneElseIdidNotKnowLivedThere" id="someoneElseIdidNotKnowLivedThere">Why is this
+        place relevant
+        to you?</h3>
+
+
+    <!-- Fifht Section -->
+
+    <h3 class="headingQuestion whySoHappy" id="whySoHappy"> That's wonderful! What makes this place so
+        amazing to live in?</h3>
+    <h3 class="headingQuestion whyNotSoHappy" id="whyNotSoHappy">Sorry to hear that! What has made you not so
+        happy living in this place?</h3>
+    <h3 class="headingQuestion whyUnhappy" id="whyUnhappy">Sorry to hear that! What has made you unhappy
+        living in this place?</h3>
+    <h3 class="headingQuestion why_SoHappyPast" id="why_SoHappyPast">That's wonderful! What made that place so
+        wonderful to live in?</h3>
+    <h3 class="headingQuestion whyNotSoHappyPast" id="whyNotSoHappyPast"> Sorry to hear that! What made you not so
+        happy while living there?</h3>
+    <h3 class="headingQuestion why_UnhappyPast" id="why_UnhappyPast"> Sorry to hear that! What made you unhappy
+        while living there?</h3>
+    <h3 class="headingQuestion tellAboutFriend" id="tellAboutFriend">Interesting!
+        Would you want to tell us about that friendship?</h3>
+    <h3 class="headingQuestion tellAboutRelative" id="tellAboutRelative"> Interesting! Would you want to tell us
+        about that relative?</h3>
+    <h3 class="headingQuestion tellAboutOther" id="tellAboutOther">Interesting! Would you want to tell us about
+        that person?</h3>
+
+    <h3 class="headingQuestion someoneElseIdidNotKnowLivedThereThanksForSharingThat" id="someoneElseIdidNotKnowLivedThereThanksForSharingThat">Thanks
+        for sharing that! </h3><!-- END-->
+
+
+    <!-- Sixth Section -->
+    <h3 class="headingQuestion seeYourselgLivingThere" id="seeYourselgLivingThere">Do you see yourself living there in
+        the near future? </h3>
+    <h3 class="headingQuestion whyNotLivingThereAnyMore" id="whyNotLivingThereAnyMore">Why are you not living there
+        anymore? </h3>
+    <h3 class="headingQuestion friendStillLivingThere" id="friendStillLivingThere"> Is your friend still living there?</h3>
+    <h3 class="headingQuestion relativeStillLivingThere" id="relativeStillLivingThere">Is that relative still living
+        there?</h3>
+    <h3 class="headingQuestion personStillLivingThere" id="personStillLivingThere"> Is that person still living there?</h3>
+
+
+    <!-- Seventh Section -->
+    <h3 class="headingQuestion whyThinkWillBeLivingThere" id="whyThinkWillBeLivingThere">What makes you think that you
+        will be living there in the
+        future?</h3>
+    <h3 class="headingQuestion whyThinkWontBeLivingThere" id="whyThinkWontBeLivingThere">What makes you think that you
+        won't be living there in the
+        future?</h3>
+    <h3 class="headingQuestion stillLiveInTheSameHood" id="stillLiveInTheSameHood">Are you still living in the same
+        neighborhood?</h3>
+    <h3 class="headingQuestion willHeSheBeLivingThere" id="willHeSheBeLivingThere">Do you think he/she will be living
+        there in the near future?</h3>
+    <h3 class="headingQuestion whyHeSheNotLivingThereAnymore" id="whyHeSheNotLivingThereAnymore">Why is he/she not
+        living
+        there anymore?</h3>
+
+
+    <!-- Eight Section -->
+    <h3 class="headingQuestion rentOrOwn" id="rentOrOwn">Which of the following two options apply to you?</h3>
+    <h3 class="headingQuestion whatsTheNewAddress" id="whatsTheNewAddress">What is your new address?</h3>
+    <h3 class="headingQuestion whereHeSheLivingNow" id="whereHeSheLivingNow">Where is he/she living now?</h3>
+    <h3 class="headingQuestion whyThinkHeSheWillBeLivingThere" id="whyThinkHeSheWillBeLivingThere">What makes you think
+        that
+        he/she will be living there in
+        the near future?</h3>
+    <h3 class="headingQuestion whyThinkHeSheWontBeLivingThere" id="whyThinkHeSheWontBeLivingThere">What makes you think
+        that
+        he/she will not be living
+        there in the near future?</h3>
+
+
+
+
+    <div id="divImage">
+        <img src="https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/PinClipart.com_sports-day-clipart_1542093.png"
+            alt="Girl in a jacket" width="40" height="10" id="arrowNextSection">
+
+        <p id="arrowText">Next</p>
+    </div>
+
+
+
+
+    <form id="form_">
+
+
+        <section>
+            <!--  ➢➢➢➢➢➢➢➢➢ userName ←←←←←←  -->
+            <div class="labelDiv field-address labelDivText show">
+                <div class="filterDiv field-name filterDivText">
+                    <input type="text" name="userName" required />
+                    <div class="underline"></div>
+                    <label> Name </label>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section>
+            <!--  ➢➢➢➢➢➢➢➢➢ address ←←←←←←  -->
+            <div class="labelDiv buildingType labelDivText">
+                <div class="filterDiv field-address filterDivText">
+                    <input type="text" name="address" required />
+                    <div class="underline"></div>
+                    <label> Address </label>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <section class="ul">
+
+            <li class="labelDiv residential labelDivCheckBox">
+                <label class="filterDiv buildingType check-box filterDivTextCheckBox" for="f-option">Residential</label>
+                <input class="inputCheckBox" type="radio" value="residential" name="propertyType" id="f-option">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv commercial labelDivCheckBox">
+                <!--  ➢➢➢➢➢➢➢➢➢ propertyType ←←←←←←  -->
+                <label class="filterDiv buildingType check-box filterDivTextCheckBox" for="s-option">Commercial</label>
+                <input class="inputCheckBox" type="radio" value="commercial" name="propertyType" id="s-option">
+                </input>
+                <div class="check"></div>
+            </li>
+
+        </section>
+
+
+
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE RESIDENTIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+
+
+
+
+        <section class="ul">
+
+
+            <!-- Which of the following apply to you and this place? -->
+            <li class="labelDiv currentlyLiveThere labelDivCheckBox">
+                <label class="filterDiv residential filterDivTextCheckBox" for="f-option_residential"> I currently live
+                    there</label>
+                <input class="inputCheckBox" type="radio" value="Currently live there" name="currentRelationToPlace" id="f-option_residential"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Which of the following apply to you and this place? -->
+            <li class="labelDiv usedToLiveHere labelDivCheckBox">
+                <label class="filterDiv residential filterDivTextCheckBox" for="s-option_residential"> I used to live
+                    there</label>
+                <input class="inputCheckBox" type="radio" value="Used to live there" name="currentRelationToPlace" id="s-option_residential"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Which of the following apply to you and this place? -->
+            <li class="labelDiv neverLivedThere labelDivCheckBox">
+                <label class="filterDiv residential filterDivTextCheckBox" for="t-option_residential"> I never live
+                    there</label>
+                <input class="inputCheckBox" type="radio" value="Never lived there" name="currentRelationToPlaces" id="t-option_residential"></input>
+                <div class="check"></div>
+            </li>
+
+
+        </section>
+
+
+
+        <section class="ul">
+
+
+
+            <!-- How long have you been living there? -->
+            <li class="labelDiv howHappyLastYrs labelDivCheckBox">
+                <label class="filterDiv currentlyLiveThere filterDivTextCheckBox" for="f-option_commercial_currentlyLiveThere">
+                    For less than 5 years</label>
+                <input class="inputCheckBox" type="radio" value="For less than 5 years" name="relationToPlaceLength" id="f-option_commercial_currentlyLiveThere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long have you been living there? -->
+            <li class="labelDiv howHappyLastYrs labelDivCheckBox">
+                <label class="filterDiv currentlyLiveThere filterDivTextCheckBox" for="s-option_commercial_currentlyLiveThere">
+                    Between 5 and 10 years</label>
+                <input class="inputCheckBox" type="radio" value="Between 5 and 10 years" name="relationToPlaceLength"
+                    id="s-option_commercial_currentlyLiveThere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long have you been living there? -->
+            <li class="labelDiv howHappyLastYrs labelDivCheckBox">
+                <label class="filterDiv currentlyLiveThere filterDivTextCheckBox" for="t-option_commercial_currentlyLiveThere">
+                    Between 11 and 20 years</label>
+                <input class="inputCheckBox" type="radio" value="Between 11 and 20 years" name="relationToPlaceLength"
+                    id="t-option_commercial_currentlyLiveThere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long have you been living there? -->
+            <li class="labelDiv howHappyManytYrs labelDivCheckBox">
+                <label class="filterDiv currentlyLiveThere filterDivTextCheckBox" for="fourth-option_commercial_currentlyLiveThere">
+                    Between 21 and 30 years</label>
+                <input class="inputCheckBox" type="radio" value="Between 21 and 30 year" name="relationToPlaceLength"
+                    id="fourth-option_commercial_currentlyLiveThere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long have you been living there? -->
+            <li class="labelDiv howHappyManytYrs labelDivCheckBox">
+                <label class="filterDiv currentlyLiveThere filterDivTextCheckBox" for="fifth-option_commercial_currentlyLiveThere">
+                    For more than 31 years </label>
+                <input class="inputCheckBox" type="radio" value="For more than 31 years" name="relationToPlaceLength"
+                    id="fifth-option_commercial_currentlyLiveThere"></input>
+                <div class="check"></div>
+            </li>
+
+
+
+
+            <!-- How long ago did you live there? -->
+            <li class="labelDiv howHappyUsedToLiveThereFewYrs labelDivCheckBox">
+                <label class="filterDiv usedToLiveHere filterDivTextCheckBox" for="f-option_commercial_usedToLiveHere">
+                    Less than a year ago</label>
+                <input class="inputCheckBox" type="radio" value="Less than a year ago" name="relationToPlaceLength" id="f-option_commercial_usedToLiveHere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long ago did you live there? -->
+            <li class="labelDiv howHappyUsedToLiveThereFewYrs labelDivCheckBox">
+                <label class="filterDiv usedToLiveHere filterDivTextCheckBox" for="s-option_commercial_usedToLiveHere">
+                    Between 1 and 5 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Between 1 and 5 years ago" name="relationToPlaceLength"
+                    id="s-option_commercial_usedToLiveHere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long ago did you live there? -->
+            <li class="labelDiv howHappyUsedToLiveThereFewYrs labelDivCheckBox">
+                <label class="filterDiv usedToLiveHere filterDivTextCheckBox" for="t-option_commercial_usedToLiveHere">
+                    Between 6 and 10 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Between 6 and 10 years ago" name="relationToPlaceLength"
+                    id="t-option_commercial_usedToLiveHere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long ago did you live there? -->
+            <li class="labelDiv howHappyUsedToLiveThereFewYrs labelDivCheckBox">
+                <label class="filterDiv usedToLiveHere filterDivTextCheckBox" for="fourth-option_commercial_usedToLiveHere">
+                    Between 11 and 20 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Between 11 and 20 years ago" name="relationToPlaceLength"
+                    id="fourth-option_commercial_usedToLiveHere"></input>
+                <div class="check"></div>
+            </li>
+
+            <!-- How long ago did you live there? -->
+            <li class="labelDiv howHappyUsedToLiveThereLongAgo labelDivCheckBox">
+                <label class="filterDiv usedToLiveHere filterDivTextCheckBox" for="fifth-option_commercial_usedToLiveHere">
+                    Between 21 and 30 years ago</label>
+                <input class="inputCheckBox" type="radio" value="Between 21 and 30 years ago" name="relationToPlaceLength"
+                    id="fifth-option_commercial_usedToLiveHere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long ago did you live there? -->
+            <li class="labelDiv howHappyUsedToLiveThereLongAgo labelDivCheckBox">
+                <label class="filterDiv usedToLiveHere filterDivTextCheckBox" for="sixth-option_commercial_usedToLiveHere">
+                    More then 30 years ago</label>
+                <input class="inputCheckBox" type="radio" value="More then 30 years ago" name="relationToPlaceLength"
+                    id="sixth-option_commercial_usedToLiveHere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!--  Did someone you know or knew lives or used to live there? -->
+            <li class="labelDiv someoneElseIknewLivedThere labelDivCheckBox">
+                <!-- I added this class name -->
+                <label class="filterDiv neverLivedThere filterDivTextCheckBox" for="f-option_neverLivedThere"> Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="someoneElseLivesOrLivedThere" id="f-option_neverLivedThere"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!--  Did someone you know or knew lives or used to live there? -->
+            <li class="labelDiv someoneElseIdidNotKnowLivedThere labelDivCheckBox">
+                <label class="filterDiv neverLivedThere filterDivTextCheckBox" for="s-option_neverLivedThere"> No
+                </label>
+                <input class="inputCheckBox" type="radio" value="No" name="someoneElseLivesOrLivedThere" id="s-option_neverLivedThere"></input>
+                <div class="check"></div>
+            </li>
+
+
+
+        </section>
+
+
+
+        <section class="ul">
+
+            <!-- How happy do you feel living there? -->
+            <li class="labelDiv whySoHappy labelDivCheckBox">
+                <label class="filterDiv howHappyLastYrs filterDivTextCheckBox" for="f-option_howHappyLastYrs"> Happy
+                </label>
+                <input class="inputCheckBox" type="radio" value="Happy" name="placeRelationshipSatisfaction" id="f-option_howHappyLastYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+            <!-- How happy do you feel living there? -->
+            <li class="labelDiv whyNotSoHappy_ labelDivCheckBox">
+                <label class="filterDiv howHappyLastYrs filterDivTextCheckBox" for="s-option_howHappyLastYrs"> Not so
+                    happy</label>
+                <input class="inputCheckBox" type="radio" value="Not so happy" name="placeRelationshipSatisfaction" id="s-option_howHappyLastYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How happy do you feel living there? -->
+            <li class="labelDiv whyUnhappy labelDivCheckBox">
+                <label class="filterDiv howHappyLastYrs filterDivTextCheckBox" for="t-option_howHappyLastYrs"> Unhappy
+                </label>
+                <input class="inputCheckBox" type="radio" value="Unhappy" name="placeRelationshipSatisfaction" id="t-option_howHappyLastYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+
+            <!-- Wow! That is a long time! And how happy do you feel living there? -->
+            <li class="labelDiv whySoHappy labelDivCheckBox">
+                <label class="filterDiv howHappyManytYrs filterDivTextCheckBox" for="f-option_howHappyManytYrs"> Happy
+                </label>
+                <input class="inputCheckBox" type="radio" value="Happy" name="placeRelationshipSatisfaction" id="f-option_howHappyManytYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Wow! That is a long time! And how happy do you feel living there? -->
+            <li class="labelDiv whyNotSoHappy_ labelDivCheckBox">
+                <label class="filterDiv howHappyManytYrs filterDivTextCheckBox" for="s-option_howHappyManytYrs"> Not so
+                    happy</label>
+                <input class="inputCheckBox" type="radio" value="Not so happy" name="placeRelationshipSatisfaction" id="s-option_howHappyManytYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+            <!-- Wow! That is a long time! And how happy do you feel living there? -->
+            <li class="labelDiv whyUnhappy labelDivCheckBox">
+                <label class="filterDiv howHappyManytYrs filterDivTextCheckBox" for="t-option_howHappyManytYrs">
+                    Unhappy </label>
+                <input class="inputCheckBox" type="radio" value="Unhappy" name="placeRelationshipSatisfaction" id="t-option_howHappyManytYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Overall, how happy were you while you lived there?  -->
+            <li class="labelDiv why_SoHappyPast labelDivCheckBox">
+                <label class="filterDiv howHappyUsedToLiveThereFewYrs filterDivTextCheckBox" for="f-option_howHappyUsedToLiveThereFewYrs">
+                    Happy </label>
+                <input class="inputCheckBox" type="radio" value="Happy" name="placeRelationshipSatisfaction" id="f-option_howHappyUsedToLiveThereFewYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Overall, how happy were you while you lived there?  -->
+            <li class="labelDiv whyNotSoHappyPast labelDivCheckBox">
+                <label class="filterDiv howHappyUsedToLiveThereFewYrs filterDivTextCheckBox" for="s-option_howHappyUsedToLiveThereFewYrs">
+                    Not so happy </label>
+                <input class="inputCheckBox" type="radio" value="Not so happy" name="placeRelationshipSatisfaction" id="s-option_howHappyUsedToLiveThereFewYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Overall, how happy were you while you lived there?  -->
+            <li class="labelDiv why_UnhappyPast labelDivCheckBox">
+                <label class="filterDiv howHappyUsedToLiveThereFewYrs filterDivTextCheckBox" for="t-option_howHappyUsedToLiveThereFewYrs">
+                    Unhappy</label>
+                <input class="inputCheckBox" type="radio" value="Unhappy" name="placeRelationshipSatisfaction" id="t-option_howHappyUsedToLiveThereFewYrs">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Wow that is a long time ago! And how happy were you while you lived there?  -->
+            <li class="labelDiv why_SoHappyPast labelDivCheckBox">
+                <label class="filterDiv howHappyUsedToLiveThereLongAgo filterDivTextCheckBox" for="f-option_howHappyUsedToLiveThereLongAgo">
+                    Happy</label>
+                <input class="inputCheckBox" type="radio" value="Happy" name="placeRelationshipSatisfaction" id="f-option_howHappyUsedToLiveThereLongAgo">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Wow that is a long time ago! And how happy were you while you lived there?  -->
+            <li class="labelDiv whyNotSoHappyPast labelDivCheckBox">
+                <label class="filterDiv howHappyUsedToLiveThereLongAgo filterDivTextCheckBox" for="s-option_howHappyUsedToLiveThereLongAgo">
+                    Not so happy</label>
+                <input class="inputCheckBox" type="radio" value="Not so happy" name="placeRelationshipSatisfaction" id="s-option_howHappyUsedToLiveThereLongAgo">
+                </input>
+                <div class="check"></div>
+            </li>
+
+            <!-- Wow that is a long time ago! And how happy were you while you lived there?  -->
+            <li class="labelDiv why_UnhappyPast labelDivCheckBox">
+                <label class="filterDiv howHappyUsedToLiveThereLongAgo filterDivTextCheckBox" for="t-option_howHappyUsedToLiveThereLongAgo">
+                    Unhappy</label>
+                <input class="inputCheckBox" type="radio" value="Unhappy" name="placeRelationshipSatisfaction" id="t-option_howHappyUsedToLiveThereLongAgo">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+            <!-- What was or is your relationship to that person?-->
+
+            <li class="labelDiv tellAboutFriend labelDivCheckBox">
+                <label class="filterDiv someoneElseIknewLivedThere filterDivTextCheckBox" for="f-option_someoneElseIknewLivedThere">
+                    Friend</label>
+                <input class="inputCheckBox" type="radio" value="Friend" name="relationshipToPerson" id="f-option_someoneElseIknewLivedThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- What was or is your relationship to that person?-->
+            <!--  ➢➢➢➢➢➢➢➢➢ relationshipToPerson ←←←←←← -->
+            <li class="labelDiv tellAboutRelative labelDivCheckBox">
+                <label class="filterDiv someoneElseIknewLivedThere filterDivTextCheckBox" for="s-option_someoneElseIknewLivedThere">
+                    Relative </label>
+                <input class="inputCheckBox" type="radio" value="Relative" name="relationshipToPerson" id="s-option_someoneElseIknewLivedThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- What was or is your relationship to that person?-->
+            <li class="labelDiv tellAboutOther labelDivCheckBox">
+                <label class="filterDiv someoneElseIknewLivedThere filterDivTextCheckBox" for="t-option_someoneElseIknewLivedThere">
+                    Other</label>
+                <input class="inputCheckBox" type="radio" value="Other" name="relationshipToPerson" id="t-option_someoneElseIknewLivedThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Why is this place important to you?-->
+            <div class="labelDiv someoneElseIdidNotKnowLivedThereThanksForSharingThat labelDivText">
+                Why is this place important to you?
+                <div class="filterDiv someoneElseIdidNotKnowLivedThere filterDivText ">
+                    <input type="text" name="relevanceOfPlace"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+        <section class="ul">
+
+            <!-- That's wonderful! What makes this place so amazing to live in?-->
+            <div class="labelDiv seeYourselgLivingThere labelDivText">
+                That's wonderful! What makes this place so amazing to live in?
+                <div class="filterDiv whySoHappy filterDivText">
+                    <input type="text" name="reasonForSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+
+            <!-- Sorry to hear that! What has made you not so happy living in this place?-->
+
+            <div class="labelDiv seeYourselgLivingThere labelDivText">
+                Sorry to hear that! What has made you not so happy living in this place?
+                <div class="filterDiv whyNotSoHappy_ filterDivText">
+                    <input type="text" name="reasonForSatisfaction"> </input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Sorry to hear that! What has made you unhappy living in this place?-->
+            <div class="labelDiv seeYourselgLivingThere labelDivText">
+                Sorry to hear that! What has made you unhappy living in this place?
+                <div class="filterDiv whyUnhappy filterDivText">
+                    <input type="text" name="reasonForSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- That's wonderful! What made that place so wonderful to live in? -->
+            <div class="labelDiv whyNotLivingThereAnyMore labelDivText">
+                That's wonderful! What made that place so wonderful to live in?
+                <div class="filterDiv why_SoHappyPast filterDivText">
+                    <input type="text" name="reasonForSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- Sorry to hear that! What made you not so happy while living there? -->
+            <div class="labelDiv whyNotLivingThereAnyMore labelDivText">
+                Sorry to hear that! What made you not so happy while living there?
+                <div class="filterDiv whyNotSoHappyPast filterDivText">
+                    <input type="text" name="reasonForSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- Sorry to hear that! What made you unhappy while living there? -->
+            <div class="labelDiv whyNotLivingThereAnyMore labelDivText">
+                Sorry to hear that! What made you unhappy while living there?
+                <div class="filterDiv why_UnhappyPast filterDivText">
+                    <input type="text" name="reasonForSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- Interesting! Would you want to tell us about that friend? -->
+            <div class="labelDiv friendStillLivingThere labelDivText">
+                Interesting! Would you want to tell us about that friend?
+                <div class="filterDiv tellAboutFriend filterDivText">
+                    <input type="text" name="someonelseInformation"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- Interesting! Would you want to tell us about that relative? -->
+            <div class="labelDiv relativeStillLivingThere labelDivText">
+                Interesting! Would you want to tell us about that relative?
+                <div class="filterDiv tellAboutRelative filterDivText">
+                    <input type="text" name="someonelseInformation"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- Interesting! Would you want to tell us about that person? -->
+            <div class="labelDiv personStillLivingThere labelDivText">
+                Interesting! Would you want to tell us about that person?
+                <div class="filterDiv tellAboutOther filterDivText">
+                    <input type="text" name="someonelseInformation"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+
+            <!---------------- Thanks for sharing that! -->
+
+
+        </section>
+
+
+        <section class="ul">
+
+            <!-- Do you see yourself living there in the near future? -->
+            <li class="labelDiv whyThinkWillBeLivingThere labelDivCheckBox">
+                <label class="filterDiv seeYourselgLivingThere filterDivTextCheckBox" for="f-option_seeYourselgLivingThere">
+                    Yes </label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="seeYourselfLivingThere" id="f-option_seeYourselgLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Do you see yourself living there in the near future? -->
+            <li class="labelDiv whyThinkWontBeLivingThere labelDivCheckBox">
+                <label class="filterDiv seeYourselgLivingThere filterDivTextCheckBox" for="s-option_seeYourselgLivingThere">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="seeYourselfLivingThere" id="s-option_seeYourselgLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Why are you not living there anymore? -->
+            <div class="labelDiv stillLiveInTheSameHood labelDivText">
+                Why are you not living there anymore?
+                <div class="filterDiv whyNotLivingThereAnyMore filterDivText">
+                    <input type="text" name="resonNotLivingThereAnymore"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!-- Is your friend still living there? -->
+            <li class="labelDiv willHeSheBeLivingThere labelDivCheckBox">
+                <label class="filterDiv friendStillLivingThere filterDivTextCheckBox" for="f-option_friendStillLivingThere">
+                    Yes </label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="relatedPersonStillLivesThere" id="f-option_friendStillLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Is your friend still living there? -->
+            <li class="labelDiv whyHeSheNotLivingThereAnymore labelDivCheckBox">
+                <label class="filterDiv friendStillLivingThere filterDivTextCheckBox" for="s-option_friendStillLivingThere">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="relatedPersonStillLivesThere" id="s-option_friendStillLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Is that relative still living there? -->
+            <li class="labelDiv willHeSheBeLivingThere labelDivCheckBox">
+                <label class="filterDiv relativeStillLivingThere filterDivTextCheckBox" for="f-option_relativeStillLivingThere">
+                    Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="relatedPersonStillLivesThere" id="f-option_relativeStillLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Is that relative still living there? -->
+            <li class="labelDiv whyHeSheNotLivingThereAnymore labelDivCheckBox">
+                <label class="filterDiv relativeStillLivingThere filterDivTextCheckBox" for="s-option_relativeStillLivingThere">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="relatedPersonStillLivesThere" id="s-option_relativeStillLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Is that person still living there? -->
+            <li class="labelDiv willHeSheBeLivingThere labelDivCheckBox">
+                <label class="filterDiv personStillLivingThere filterDivTextCheckBox" for="f-option_personStillLivingThere">
+                    Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="relatedPersonStillLivesThere" id="f-option_personStillLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+            <!-- Is that person still living there? -->
+            <li class="labelDiv whyHeSheNotLivingThereAnymore labelDivCheckBox">
+                <label class="filterDiv personStillLivingThere filterDivTextCheckBox" for="s-option_personStillLivingThere">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="relatedPersonStillLivesThere" id="s-option_personStillLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+        </section>
+
+
+
+
+        <section class="ul">
+            <!-- What makes you think that you will be living there in the future?-->
+            <div class="labelDiv rentOrOwn labelDivText">
+                What makes you think that you will be living there in the future?
+                <div class="filterDiv whyThinkWillBeLivingThere filterDivText">
+                    <input type="text" name="explanationFutureLivingThere"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- What makes you think that you won't be living there in the future?-->
+            <div class="labelDiv rentOrOwn labelDivText">
+                What makes you think that you won't be living there in the future?
+                <div class="filterDiv whyThinkWontBeLivingThere filterDivText">
+                    <input type="text" name="explanationFutureLivingThere"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- Are you still living in the same neighborhood?-->
+            <li class="labelDiv whatsTheNewAddress labelDivCheckBox">
+                <label class="filterDiv stillLiveInTheSameHood filterDivTextCheckBox" for="f-option_stillLiveInTheSameHood">
+                    Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="stillLivesInNeighborhood" id="f-option_stillLiveInTheSameHood">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Are you still living in the same neighborhood?-->
+            <li class="labelDiv whatsTheNewAddress labelDivCheckBox">
+                <label class="filterDiv stillLiveInTheSameHood filterDivTextCheckBox" for="s-option_stillLiveInTheSameHood">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="stillLivesInNeighborhood" id="s-option_stillLiveInTheSameHood">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Do you think he/she will be living there in the near future? -->
+            <li class="labelDiv whyThinkHeSheWillBeLivingThere labelDivCheckBox">
+                <label class="filterDiv willHeSheBeLivingThere filterDivTextCheckBox" for="f-option_willHeSheBeLivingThere">
+                    Yes </label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="relatedPersonWillLiveInThatPlace" id="f-option_willHeSheBeLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Do you think he/she will be living there in the near future?-->
+            <li class="labelDiv whyThinkHeSheWontBeLivingThere labelDivCheckBox">
+                <label class="filterDiv willHeSheBeLivingThere filterDivTextCheckBox" for="s-option_willHeSheBeLivingThere">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="relatedPersonWillLiveInThatPlace" id="s-option_willHeSheBeLivingThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Why is he/she not living there anymore? -->
+            <div class="labelDiv whereHeSheLivingNow labelDivText">
+                Why is he/she not living there anymore?
+                <div class="filterDiv whyHeSheNotLivingThereAnymore filterDivText">
+                    <input type="text" name="whyRelatedPersonNotThere"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!--
+            <li class="labelDiv whereHeSheLivingNow labelDivCheckBox">
+                <label class="filterDiv whyHeSheNotLivingThereAnymore filterDivTextCheckBox" for="f-option_whyHeSheNotLivingThereAnymore">
+                    Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name=" " id="f-option_whyHeSheNotLivingThereAnymore">
+                </input>
+                <div class="check"></div>
+            </li>
+            -->
+
+
+        </section>
+
+
+
+
+        <section class="ul">
+
+
+
+            <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+            <!-- Which of the following two options apply to you?-->
+            <li class="labelDiv nghbrhdStsfactnScale labelDivCheckBox">
+                <label class="filterDiv rentOrOwn filterDivTextCheckBox" for="f-option_rentOrOwn"> I own this place
+                </label>
+                <input class="inputCheckBox" type="radio" value="I own this place" name="ownOrRent" id="f-option_rentOrOwn">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- Which of the following two options apply to you?-->
+            <li class="labelDiv nghbrhdStsfactnScale labelDivCheckBox">
+                <label class="filterDiv rentOrOwn filterDivTextCheckBox" for="s-option_rentOrOwn"> I rent this place</label>
+                <input class="inputCheckBox" type="radio" value="I rent this place" name="ownOrRent" id="s-option_rentOrOwn">
+                </input>
+                <div class="check"></div>
+            </li>
+
+            <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+
+            <!-- What is your new address?-->
+            <div class="labelDiv nghbrhdChngeStsfactnScale labelDivText">
+                What is your new address?-
+                <div class="filterDiv whatsTheNewAddress filterDivText">
+                    <input type="text" name="newAddress"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- Where is he/she living now? -->
+            <div class="labelDiv otherPrsonNghbrhdChngeStsfactnScale labelDivText">
+                Where is he/she living now?
+                <div class="filterDiv whereHeSheLivingNow filterDivText">
+                    <input type="text" name="whereRelatedPersonNowLiving"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- What makes you think that he/she will be living there in the near future? -->
+            <div class="labelDiv otherPrsonCurrntNghbrhdStsfactnScale labelDivText">
+                What makes you think that he/she will be living there in the near future?
+                <div class="filterDiv whyThinkHeSheWillBeLivingThere filterDivText">
+                    <input type="text" name="reasonRelatedPersonFutureInPlace"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- What makes you think that he/she will not be living there in the near future? -->
+            <div class="labelDiv otherPrsonCurrntNghbrhdStsfactnScale labelDivText">
+                What makes you think that he/she will not be living there in the near future?
+                <div class="filterDiv whyThinkHeSheWontBeLivingThere filterDivText">
+                    <input type="text" name="reasonRelatedPersonFutureInPlace"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+        <section class="labelDiv labelDivCheckBox likertScale">
+
+            <div class="filterDiv nghbrhdStsfactnScale">
+
+                <h1>Rate how you feel with the following aspects of your neighborhood</h1>
+
+                <label>Public transportation</label>
+                <fieldset id="nghbrhdSatisfactionPublicTransport">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmStsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                value="Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatStsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDistsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtrmDistsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                value="Extremely dissatisfied ">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+
+                <label>Public spaces</label>
+                <fieldset id="nghbrhdSatisfactionPublicSpaces">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmStsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                value=" Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatStsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDistsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtrmDistsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                value="Extremely dissatisfied ">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+                <label>Neighbors</label>
+                <fieldset id="nghbrhdSatisfactionNeighbors">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmStsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                value=" Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatStsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDistsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtrmDistsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                value="Extremely dissatisfied ">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+
+                <label>Noise</label>
+                <fieldset id="nghbrhdSatisfactionNoise">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmStsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                value=" Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatStsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralNoise" type="radio" name="nghbrhdSatisfactionNoise" value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDistsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtrmDistsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                value="Extremely dissatisfied ">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+                <label>Green Spaces</label>
+                <fieldset id="nghbrhdSatisfactionGreenSpaces">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmStsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                value=" Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatStsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDistsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtrmDistsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                value="Extremely dissatisfied ">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <section class="labelDiv labelDivCheckBox likertScale">
+
+
+            <div class="filterDiv nghbrhdChngeStsfactnScale">
+
+                <h1>Comparing your previous neighborhood to your current neighborhood, how much do you agree or
+                    disagree with the following statements</h1>
+
+                <label>In my new neighborhood, I now have a better public transportation</label>
+                <fieldset id="betterPublicTransInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgreeBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatAgreeBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagreeBetterPublicTansport" type="radio"
+                                name="betterPublicTransInNewNeighborhood" value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtrmDisagreeBetterPublicTansport" type="radio"
+                                name="betterPublicTransInNewNeighborhood" value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+
+                <label>My new neighborhood has better public spaces</label>
+                <fieldset id="betterPublicSpacesInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtrmDisagreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+                <label>In my new neighborhood, I have better relations with my neighbors</label>
+                <fieldset id="betterNeighborRelationsInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmeWhatAgreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtremeDisagreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+                <label>My new neighborhood feels safer than my previous neighborhood</label>
+                <fieldset id="betterSafetyInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgreeBetter_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmeWhatAgreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtremeDisagreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+                <label>My new neighborhood has better green spaces</label>
+                <fieldset id="betterGreenSpacesInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmeWhatAgreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtremeDisagreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+        <section class="labelDiv labelDivCheckBox likertScale">
+
+            <div class="filterDiv otherPrsonNghbrhdChngeStsfactnScale">
+
+                <h1>Thinking about the person who used to live in that place, how much do you agree or disagree with
+                    the following statements</h1>
+
+
+                <label>He/she enjoys a better transportation system in his/her new neighborhood</label>
+                <fieldset id="otherPersonBetterPublicTransInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Transportation" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatgree_Other_Person_Better_Transportation" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutral_Other_Person_Better_Transportation" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhat_Disagree_Other_Person_Better_Transportation" type="radio"
+                                name="otherPersonBetterPublicTransInNewNeighborhood" value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtreme_Disagree_Other_Person_Better_Transportation" type="radio"
+                                name="otherPersonBetterPublicTransInNewNeighborhood" value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
+                                value="Do not know">
+                            <!--  >>>>>>>>>>>>>>>> -->
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+                <label>He/she has better public spaces in his/her new neighborhood</label>
+                <fieldset id="otherPersonBetterPublicSpacesInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Public_Spaces" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatAgree_Other_Person_Better_Public_Spaces" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutral_Other_Person_Better_Public_Spaces" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Public_Spaces" type="radio"
+                                name="otherPersonBetterPublicSpacesInNewNeighborhood" value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Public_Spaces" type="radio"
+                                name="otherPersonBetterPublicSpacesInNewNeighborhood" value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
+                                value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+
+                <label>He/she has better better relations with his/her neighbors in his/her new neighborhood</label>
+                <fieldset id="otherPersonBetterNeighborRelationsInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Neighbor_Relations" type="radio"
+                                name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatAgree_Other_Person_Better_Neighbor_Relations" type="radio"
+                                name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutral_Other_Person_Better_Neighbor_Relations" type="radio" name="otherPersonBetterNeighborRelationsInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Neighbor_Relations" type="radio"
+                                name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Neighbor_Relations" type="radio"
+                                name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonBetterNeighborRelationsInNewNeighborhood"
+                                value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+                <label>His/her new neighborhood feels safer </label>
+                <fieldset id="otherPersonBetterSafetyInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatAgree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutral_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+
+                <label>He/she has better green spaces in her new neighborhood </label>
+                <fieldset id="otherPersonBetterGreenSpacesInNewNeighborhood">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Green_Spaces" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
+                                value="Extremely agree">
+                            <label> Extremely agree</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatAgree_Other_Person_Better_Green_Spaces" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
+                                value="Somewhat agree">
+                            <label> Somewhat agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutral_Other_Person_Better_Green_Spaces" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
+                                value="Neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Green_Spaces" type="radio"
+                                name="otherPersonBetterGreenSpacesInNewNeighborhood" value="Somewhat disagree">
+                            <label> Somewhat disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Green_Spaces" type="radio"
+                                name="otherPersonBetterGreenSpacesInNewNeighborhood" value="Extremely disagree ">
+                            <label> Extremely disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
+                                value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+        <section class="labelDiv labelDivCheckBox likertScale">
+
+
+            <div class="filterDiv otherPrsonCurrntNghbrhdStsfactnScale">
+
+                <h1>Thinking about the person who lives in that place, how do you think he/she feels about the
+                    following aspects of his/her neighborhood?</h1>
+
+                <label>Public transportation</label>
+                <fieldset id="otherPersonPublicTransporSatisfactionLevel">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremeStisfied_Public_Transportation" type="radio"
+                                name="otherPersonPublicTransporSatisfactionLevel" value="Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatStisfied_Public_Transportation" type="radio"
+                                name="otherPersonPublicTransporSatisfactionLevel" value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_Neutral_Public_Transportation" type="radio" name="otherPersonPublicTransporSatisfactionLevel"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatDissatisfied_Public_Transportation" type="radio"
+                                name="otherPersonPublicTransporSatisfactionLevel" value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremeDissatisfied_Public_Transportation" type="radio"
+                                name="otherPersonPublicTransporSatisfactionLevel" value="Extremely dissatisfied">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonPublicTransporSatisfactionLevel"
+                                value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+                <label>Public spaces</label>
+                <fieldset id="otherPersonPublicSpacesSatisfactionLevel">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremeStisfied_Public_Spaces_" type="radio" name="otherPersonPublicSpacesSatisfactionLevel"
+                                value="Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatStisfied_Public_Spaces_" type="radio" name="otherPersonPublicSpacesSatisfactionLevel"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_Neutral_Public_Spaces_" type="radio" name="otherPersonPublicSpacesSatisfactionLevel"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatDissatisfied_Public_Spaces_" type="radio"
+                                name="otherPersonPublicSpacesSatisfactionLevel" value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremeDissatisfied_Public_Spaces_" type="radio" name="otherPersonPublicSpacesSatisfactionLevel"
+                                value="Extremely dissatisfied">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonPublicSpacesSatisfactionLevel"
+                                value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+
+
+                <label>Neighbors</label>
+                <fieldset id="otherPersonNeighborsSatisfactionLevel">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremeStisfied_Neighbors" type="radio" name="otherPersonNeighborsSatisfactionLevel"
+                                value="Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatStisfied_Neighbors" type="radio" name="otherPersonNeighborsSatisfactionLevel"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_Neutral_Neighbors" type="radio" name="otherPersonNeighborsSatisfactionLevel"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatDisatisfied_Neighbors" type="radio" name="otherPersonNeighborsSatisfactionLevel"
+                                value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremelyDissatisfied_Neighbors" type="radio" name="otherPersonNeighborsSatisfactionLevel"
+                                value="Extremely dissatisfied">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonNeighborsSatisfactionLevel"
+                                value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+
+
+                <label>Noise</label>
+                <fieldset id="otherPersonNoiseSatisfactionLevel">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremeStisfied_Noise_" type="radio" name="otherPersonNoiseSatisfactionLevel"
+                                value="Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatStisfied_Noise_" type="radio" name="otherPersonNoiseSatisfactionLevel"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_Neutral_Noise_" type="radio" name="otherPersonNoiseSatisfactionLevel"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatDisatisfied_Noise_" type="radio" name="otherPersonNoiseSatisfactionLevel"
+                                value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremelyDissatisfied_Noise_" type="radio" name="otherPersonNoiseSatisfactionLevel"
+                                value="Extremely dissatisfied">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonNoiseSatisfactionLevel" value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+                <label>Green Spaces</label>
+                <fieldset id="otherPersonGreenSpacesSatisfactionLevel">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremeStisfied_Green_Spaces_" type="radio" name="otherPersonGreenSpacesSatisfactionLevel"
+                                value="Extremely satisfied">
+                            <label> Extremely satisfied</label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatStisfied_Green_Spaces_" type="radio" name="otherPersonGreenSpacesSatisfactionLevel"
+                                value="Somewhat satisfied">
+                            <label> Somewhat satisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_Neutral_Green_Spaces_" type="radio" name="otherPersonGreenSpacesSatisfactionLevel"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_SomewhatDissatisfied_Green_Spaces_" type="radio" name="otherPersonGreenSpacesSatisfactionLevel"
+                                value="Somewhat dissatisfied">
+                            <label> Somewhat dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyOtherPerson_ExtremelyDissatisfied_Green_Spaces_" type="radio"
+                                name="otherPersonGreenSpacesSatisfactionLevel" value="Extremely dissatisfied">
+                            <label> Extremely dissatisfied </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv ____" type="radio" name="otherPersonGreenSpacesSatisfactionLevel"
+                                value="Do not know">
+                            <label> I don't know </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+        </section>
+
+
+
+        <section class="ul">
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely satisfied with the public transportation of your neighborhood?
+                <div class="filterDiv whyExtrmStsfdTransport filterDivText">
+                    <input type="text" name="justifyPublicTransportSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat satisfied with the public transportation of your neighborhood?
+                <div class="filterDiv whySmwhatStsfdTransport filterDivText">
+                    <input type="text" name="justifyPublicTransportSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral with the public transportation of your neighborhood?
+                <div class="filterDiv whyNeutralTransport filterDivText">
+                    <input type="text" name="justifyPublicTransportSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat dissatisfied with the public transportation of your neighborhood?
+                <div class="filterDiv whySmwhatDistsfdTransport filterDivText">
+                    <input type="text" name="justifyPublicTransportSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely dissatisfied with the public transportation of your neighborhood?
+                <div class="filterDiv whyExtrmDistsfdTransport filterDivText">
+                    <input type="text" name="justifyPublicTransportSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely satisfied with the public spaces of your neighborhood?
+                <div class="filterDiv whyExtrmStsfdPublicSpaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat satisfied with the public spaces of your neighborhood?
+                <div class="filterDiv whySmwhatStsfdPublicSpaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral with the public spaces of your neighborhood?
+                <div class="filterDiv whyNeutralPublicSpaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat dissatisfied with the public spaces of your neighborhood?
+                <div class="filterDiv whySmwhatDistsfdPublicSpaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely dissatisfied with the public spaces of your neighborhood?
+                <div class="filterDiv whyExtrmDistsfdPublicSpaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely satisfied with the neighbors of your neighborhood?
+                <div class="filterDiv whyExtrmStsfdNeighbors filterDivText">
+                    <input type="text" name="justifyNeighborsSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat satisfied with the neighbors of your neighborhood?
+                <div class="filterDiv whySmwhatStsfdNeighbors filterDivText">
+                    <input type="text" name="justifyNeighborsSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral with the neighborsof your neighborhood?
+                <div class="filterDiv whyNeutralNeighbors filterDivText">
+                    <input type="text" name="justifyNeighborsSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat dissatisfied with the neighbors of your neighborhood?
+                <div class="filterDiv whySmwhatDistsfdNeighbors filterDivText">
+                    <input type="text" name="justifyNeighborsSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely dissatisfied with the neighbors of your neighborhood?
+                <div class="filterDiv whyExtrmDistsfdNeighbors filterDivText">
+                    <input type="text" name="justifyNeighborsSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely satisfied with the noise of your neighborhood?
+                <div class="filterDiv whyExtrmStsfdNoise filterDivText">
+                    <input type="text" name="justifyNoiseSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat satisfied with the noise of your neighborhood?
+                <div class="filterDiv whySmwhatStsfdNoise filterDivText">
+                    <input type="text" name="justifyNoiseSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral with the noise your neighborhood?
+                <div class="filterDiv whyNeutralNoise filterDivText">
+                    <input type="text" name="justifyNoiseSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat dissatisfied with the noise of your neighborhood?
+                <div class="filterDiv whySmwhatDistsfdNoise filterDivText">
+                    <input type="text" name="justifyNoiseSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely dissatisfied with the noise of your neighborhood?
+                <div class="filterDiv whyExtrmDistsfdNoise filterDivText">
+                    <input type="text" name="justifyNoiseSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely satisfied with the green spaces of your neighborhood?
+                <div class="filterDiv whyExtrmStsfdGreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat satisfied with the green spaces of your neighborhood?
+                <div class="filterDiv whySmwhatStsfdGreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral with the green spaces your neighborhood?
+                <div class="filterDiv whyNeutralGreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel somewhat dissatisfied with the green spaces of your neighborhood?
+                <div class="filterDiv whySmwhatDistsfdGreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel extremely dissatisfied with the green spaces of your neighborhood?
+                <div class="filterDiv whyExtrmDistsfdGreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfaction"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+
+
+
+
+
+
+        </section>
+
+
+
+        <section class="ul">
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that you have better public transport in your current neighborhood?
+                <div class="filterDiv whyExtrmAgreeBetterPublicTansport filterDivText">
+                    <input type="text" name="justifyPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that you have better public transport in your current neighborhood?
+                <div class="filterDiv whySmwhatAgreeBetterPublicTansport filterDivText">
+                    <input type="text" name="justifyPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that you have better public transport in your current neighborhood?
+                <div class="filterDiv whyNeutralBetterPublicTansport filterDivText">
+                    <input type="text" name="justifyPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that you have better public transport in your current neighborhood?
+                <div class="filterDiv whySmwhatDisagreeBetterPublicTansport filterDivText">
+                    <input type="text" name="justifyPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that you have better public transport in your current neighborhood?
+                <div class="filterDiv whyExtrmDisagreeBetterPublicTansport filterDivText">
+                    <input type="text" name="justifyPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that you have better public spaces in your current neighborhood?
+                <div class="filterDiv whyExtrmAgreeBetterPublic_Spaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that you have better public spaces in your current neighborhood?
+                <div class="filterDiv whySmwhatAgreeBetterPublic_Spaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that you have better public spaces in your current neighborhood?
+                <div class="filterDiv whyNeutralAgreeBetterPublic_Spaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that you have better public spaces in your current neighborhood?
+                <div class="filterDiv whySmwhatDisagreeBetterPublic_Spaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that you have better public spaces in your current neighborhood?
+                <div class="filterDiv whyExtrmDisagreeBetterPublic_Spaces filterDivText">
+                    <input type="text" name="justifyPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that you have better relations with your neighbors in your current
+                neighborhood?
+                <div class="filterDiv whyExtrmAgreeBetterNeighbor_Relations filterDivText">
+                    <input type="text" name="justifyNeighborsRelationsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that you have better relations with your neighbors in your current
+                neighborhood?
+                <div class="filterDiv whySmeWhatAgreeBetterNeighbor_Relations filterDivText">
+                    <input type="text" name="justifyNeighborsRelationsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that you have better relations with your neighbors in your current
+                neighborhood?
+                <div class="filterDiv whyNeutralBetterNeighbor_Relations filterDivText">
+                    <input type="text" name="justifyNeighborsRelationsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that you have better relations with your neighbors in your current
+                neighborhood?
+                <div class="filterDiv whySmwhatDisagreeBetterNeighbor_Relations filterDivText">
+                    <input type="text" name="justifyNeighborsRelationsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that you have better relations with your neighbors in your current
+                neighborhood?
+                <div class="filterDiv whyExtremeDisagreeBetterNeighbor_Relations filterDivText">
+                    <input type="text" name="justifyNeighborsRelationsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that the safety in your current neighborhood is better?
+                <div class="filterDiv whyExtrmAgreeBetter_Safety filterDivText">
+                    <input type="text" name="justifySafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that the safety in your current neighborhood is better?
+                <div class="filterDiv whySmeWhatAgreeBetterNeighbor_Safety filterDivText">
+                    <input type="text" name="justifySafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that the safety in your current neighborhood is better?
+                <div class="filterDiv whyNeutralBetterNeighbor_Safety filterDivText">
+                    <input type="text" name="justifySafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that the safety in your current neighborhood is better?
+                <div class="filterDiv whySmwhatDisagreeBetterNeighbor_Safety filterDivText">
+                    <input type="text" name="justifySafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that the safety in your current neighborhood is better?
+                <div class="filterDiv whyExtremeDisagreeBetterNeighbor_Safety filterDivText">
+                    <input type="text" name="justifySafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that you have better green spaces in your current neighborhood?
+                <div class="filterDiv whyExtrmAgreeBetter_GreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that you have better green spaces in your current neighborhood?
+                <div class="filterDiv whySmeWhatAgreeBetter_GreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that you have better green spacesin your current neighborhood?
+                <div class="filterDiv whyNeutralBetter_GreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree you have better green spaces in your current neighborhood?
+                <div class="filterDiv whySmwhatDisagreeBetter_GreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that you have better green spaces in your current neighborhood?
+                <div class="filterDiv whyExtremeDisagreeBetter_GreenSpaces filterDivText">
+                    <input type="text" name="justifyGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+        <section>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that the person who used to live in this place now ejoys a better public
+                transportation?
+                <div class="filterDiv whyExtrmAgree_Other_Person_Better_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that the person who used to live in this place now ejoys a better public
+                transportation?
+                <div class="filterDiv whySmwhatgree_Other_Person_Better_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that the person who used to live in this place now ejoys a better public
+                transportation?
+                <div class="filterDiv whyNeutral_Other_Person_Better_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that the person who used to live in this place now ejoys a better public
+                transportation?
+                <div class="filterDiv whySmwhat_Disagree_Other_Person_Better_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that the person who used to live in this place now ejoys a better public
+                transportation?
+                <div class="filterDiv whyExtreme_Disagree_Other_Person_Better_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that the person who used to live in this place now ejoys a better public
+                spaces?
+                <div class="filterDiv whyExtrmAgree_Other_Person_Better_Public_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that the person who used to live in this place now ejoys a better public
+                spaces?
+                <div class="filterDiv whySmwhatAgree_Other_Person_Better_Public_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that the person who used to live in this place now ejoys a better public
+                spaces?
+                <div class="filterDiv whyNeutral_Other_Person_Better_Public_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that the person who used to live in this place now ejoys a better public
+                spaces?
+                <div class="filterDiv whySmwhatDisagree_Other_Person_Better_Public_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that the person who used to live in this place now ejoys a better public
+                spaces?
+                <div class="filterDiv whyExtremeDisagree_Other_Person_Better_Public_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that the person who used to live in this place now has better relations with
+                his/her neighbors?
+                <div class="filterDiv whyExtrmAgree_Other_Person_Better_Neighbor_Relations filterDivText">
+                    <input type="text" name="justifyOtherPersonNeighborsRelatnsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that the person who used to live in this place now has better relations with
+                his/her
+                neighborss?
+                <div class="filterDiv whySmwhatAgree_Other_Person_Better_Neighbor_Relations filterDivText">
+                    <input type="text" name="justifyOtherPersonNeighborsRelatnsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that the person who used to live in this place now has better relations with
+                his/her
+                neighbors?
+                <div class="filterDiv whyNeutral_Other_Person_Better_Neighbor_Relations filterDivText">
+                    <input type="text" name="justifyOtherPersonNeighborsRelatnsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that the person who used to live in this place has better relations with
+                his/her neighbors?
+                <div class="filterDiv whySmwhatDisagree_Other_Person_Better_Neighbor_Relations filterDivText">
+                    <input type="text" name="justifyOtherPersonNeighborsRelatnsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that the person who used to live in this place now has better relations
+                with his/her neighbors?
+                <div class="filterDiv whyExtremeDisagree_Other_Person_Better_Neighbor_Relations filterDivText">
+                    <input type="text" name="justifyOtherPersonNeighborsRelatnsSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that the person who used to live in this place feels safer in his/her
+                current neighborhood?
+                <div class="filterDiv whyExtrmAgree_Other_Person_Better_Safety filterDivText">
+                    <input type="text" name="justifyOtherPersonSafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that the person who used to live in this place feels safer in his/her current
+                neighborhood?
+                <div class="filterDiv whySmwhatAgree_Other_Person_Better_Safety filterDivText">
+                    <input type="text" name="justifyOtherPersonSafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that the person who used to live in this place feels safer in his/her current
+                neighborhood?
+                <div class="filterDiv whyNeutral_Other_Person_Better_Safety filterDivText">
+                    <input type="text" name="justifyOtherPersonSafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that the person who used to live in this place feels safer in his/her
+                current
+                neighborhood?
+                <div class="filterDiv whySmwhatDisagree_Other_Person_Better_Safety filterDivText">
+                    <input type="text" name="justifyOtherPersonSafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that the person who used to live in this place feels safer in his/her
+                current neighborhood?
+                <div class="filterDiv whyExtremeDisagree_Other_Person_Better_Safety filterDivText">
+                    <input type="text" name="justifyOtherPersonSafetySatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely agree that the person who used to live in this place enjoys better green spaces in
+                his/her current neighborhood?
+                <div class="filterDiv whyExtrmAgree_Other_Person_Better_Green_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat agree that the person who used to live in this place enjoys better green spaces in
+                his/her
+                current neighborhood?
+                <div class="filterDiv whySmwhatAgree_Other_Person_Better_Green_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you feel neutral that the person who used to live in this place enjoys better green spaces in
+                his/her current neighborhood?
+                <div class="filterDiv whyNeutral_Other_Person_Better_Green_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you somewhat disagree that the person who used to live in this place enjoys better green spaces
+                in his/her current neighborhood?
+                <div class="filterDiv whySmwhatDisagree_Other_Person_Better_Green_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you extremely disagree that the person who used to live in this place enjoys better green spaces
+                in his/her current neighborhood?
+                <div class="filterDiv whyExtremeDisagree_Other_Person_Better_Green_Spaces filterDivText">
+                    <input type="text" name="justifyOtherPersonGreenSpacesSatisfactCurrentVsPrevNeigh"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+        <section class="ul">
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely satisfied about the public
+                transportation of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_ExtremeStisfied_Public_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransportSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat satisfied about the public
+                transportation of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_SomewhatStisfied_Public_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransportSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels neutral about the public transportation
+                of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_Neutral_Public_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransportSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat dissatisfied about the public
+                transportation of his/her neighborhood?
+
+                <div class="filterDiv whyOtherPerson_SomewhatDissatisfied_Public_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransportSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely dissatisfied about the public
+                transportation of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_ExtremeDissatisfied_Public_Transportation filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicTransportSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely satisfied about the public
+                spaces of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_ExtremeStisfied_Public_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat satisfied about the public
+                spaces of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_SomewhatStisfied_Public_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels neutral about the public spaces
+                of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_Neutral_Public_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat dissatisfied about the public
+                spaces of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_SomewhatDissatisfied_Public_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely dissatisfied about the public
+                spaces of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_ExtremeDissatisfied_Public_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherPersonPublicSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely satisfied about his/her
+                neighbors?
+                <div class="filterDiv whyOtherPerson_ExtremeStisfied_Neighbors filterDivText">
+                    <input type="text" name="justifyOtherPersonNieghborsSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat satisfied about his/her
+                neighbors?
+                <div class="filterDiv whyOtherPerson_SomewhatStisfied_Neighbors filterDivText">
+                    <input type="text" name="justifyOtherPersonNieghborsSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels neutral about his/her neighbors?
+                <div class="filterDiv whyOtherPerson_Neutral_Neighbors filterDivText">
+                    <input type="text" name="justifyOtherPersonNieghborsSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat dissatisfied about his/her
+                neighbors?
+                <div class="filterDiv whyOtherPerson_SomewhatDisatisfied_Neighbors filterDivText">
+                    <input type="text" name="justifyOtherPersonNieghborsSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely dissatisfied about his/her
+                neighbors?
+                <div class="filterDiv whyOtherPerson_ExtremelyDissatisfied_Neighbors filterDivText">
+                    <input type="text" name="justifyOtherPersonNieghborsSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely satisfied about the noise of
+                his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_ExtremeStisfied_Noise_ filterDivText">
+                    <input type="text" name="justifyOtherPersonNoiseSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat satisfied about the noise of
+                his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_SomewhatStisfied_Noise_ filterDivText">
+                    <input type="text" name="justifyOtherPersonNoiseSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels neutral about the noise of his/her
+                neighborhood?
+                <div class="filterDiv whyOtherPerson_Neutral_Noise_ filterDivText">
+                    <input type="text" name="justifyOtherPersonNoiseSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat dissatisfied about the noise of
+                his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_SomewhatDisatisfied_Noise_ filterDivText">
+                    <input type="text" name="justifyOtherPersonNoiseSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely dissatisfied about the noise
+                of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_ExtremelyDissatisfied_Noise_ filterDivText">
+                    <input type="text" name="justifyOtherPersonNoiseSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely satisfied about the green
+                spaces of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_ExtremeStisfied_Green_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherGreenSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat satisfied about the green
+                spaces of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_SomewhatStisfied_Green_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherGreenSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels neutral about the green spaces of
+                his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_Neutral_Green_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherGreenSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels somewhat dissatisfied about the green
+                spaces of
+                his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_SomewhatDissatisfied_Green_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherGreenSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Why do you think that the person who lives in this place feels extremely dissatisfied about the green
+                spaces of his/her neighborhood?
+                <div class="filterDiv whyOtherPerson_ExtremelyDissatisfied_Green_Spaces_ filterDivText">
+                    <input type="text" name="justifyOtherGreenSpacesSatisfact"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 residential labels -->
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- HERE I WILL INCLUDE ALL THE COMMERCIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE COMMERCIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE COMMERCIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE COMMERCIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE COMMERCIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE COMMERCIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE COMMERCIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+        <!-- HERE I WILL INCLUDE ALL THE COMMERCIAL LABELS ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ ⤵⤵⤵⤵⤵⤵ -->
+
+
+
+
+        <section class="ul">
+
+            <!-- What is your relation with this business? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ currentRelationToPlace ←←←←←← -->
+            <li class="labelDiv ownThisBusiness labelDivCheckBox">
+                <label class="filterDiv commercial filterDivTextCheckBox" for="f-option_commercial"> Me and/or my
+                    family own this business</label>
+                <input class="inputCheckBox" type="radio" value="Me and/or my family own this business" name="currentRelationToPlace"
+                    id="f-option_commercial"></input>
+                <div class="check"></div>
+            </li>
+
+            <!-- What is your relation with this business? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ currentRelationToPlace ←←←←←← -->
+            <li class="labelDiv usedToOwnThisBusiness labelDivCheckBox">
+                <label class="filterDiv commercial filterDivTextCheckBox" for="s-option_commercial"> Me and/or my
+                    family used to own a business here </label>
+                <input class="inputCheckBox" type="radio" value="Me and/or my family used to operate a business here"
+                    name="currentRelationToPlace" id="s-option_commercial"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- What is your relation with this business? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ currentRelationToPlace ←←←←←← -->
+            <li class="labelDiv IamAregular labelDivCheckBox">
+                <label class="filterDiv commercial filterDivTextCheckBox" for="t-option_commercial"> I am a regular of
+                    this place</label>
+                <input class="inputCheckBox" type="radio" value="I am a regular of this place" name="currentRelationToPlace"
+                    id="t-option_commercial"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- What is your relation with this business? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ currentRelationToPlace ←←←←←← -->
+            <li class="labelDiv usedToBeaRegular labelDivCheckBox">
+                <label class="filterDiv commercial filterDivTextCheckBox" for="fourth-option_commercial"> I used to be
+                    a regular of this place </label>
+                <input class="inputCheckBox" type="radio" value="I used to go to this place" name="currentRelationToPlace"
+                    id="fourth-option_commercial"></input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- What is your relation with this business? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ currentRelationToPlace ←←←←←← -->
+
+            <li class="labelDiv _________ labelDivCheckBox">
+                <label class="filterDiv commercial filterDivTextCheckBox" for="fifth-option_commercial"> Other </label>
+                <input class="inputCheckBox" type="radio" value="I used to go to this place" name="currentRelationToPlace"
+                    id="fifth-option_commercial"></input>
+                <div class="check"></div>
+            </li>
+
+        </section>
+
+
+        <!--   <h3 id="thirdQuestionHeading">Which of the following apply???</h3>-->
+
+        <section class="ul">
+
+            <!-- How long have you and you been operating this business for?  -->
+            <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+            <li class="labelDiv currentTypeOfBussiness labelDivCheckBox">
+                <label class="filterDiv ownThisBusiness filterDivTextCheckBox" for="f-option_ownThisBusiness"> Less
+                    than a year </label>
+                <input class="inputCheckBox" type="radio" value="Less than a year" name="relationToPlaceLength" id="f-option_ownThisBusiness">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long have you and you been operating this business for?  -->
+            <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+            <li class="labelDiv currentTypeOfBussiness labelDivCheckBox">
+                <label class="filterDiv ownThisBusiness filterDivTextCheckBox" for="s-option_ownThisBusiness"> Between
+                    1 and 5 years </label>
+                <input class="inputCheckBox" type="radio" value="Between 1 and 5 years" name="relationToPlaceLength" id="s-option_ownThisBusiness">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!-- How long have you and you been operating this business for?  -->
+            <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+            <li class="labelDiv currentTypeOfBussiness labelDivCheckBox">
+                <label class="filterDiv ownThisBusiness filterDivTextCheckBox" for="t-option_ownThisBusiness"> Between
+                    6 and 10 years </label>
+                <input class="inputCheckBox" type="radio" value="Between 6 and 10 years" name="relationToPlaceLength"
+                    id="t-option_ownThisBusiness">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+            <!-- How long have you and you been operating this business for?  -->
+            <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+            <li class="labelDiv currentTypeOfBussiness labelDivCheckBox">
+                <label class="filterDiv ownThisBusiness filterDivTextCheckBox" for="fourth-option_ownThisBusiness">
+                    Between 11 and 15 years </label>
+                <input class="inputCheckBox" type="radio" value="Between 11 and 15 years" name="relationToPlaceLength"
+                    id="fourth-option_ownThisBusiness">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+            <!-- How long have you and you been operating this business for?  -->
+            <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+            <li class="labelDiv currentTypeOfBussiness labelDivCheckBox">
+                <label class="filterDiv ownThisBusiness filterDivTextCheckBox" for="fifth-option_ownThisBusiness">
+                    Between 16 and 20 years </label>
+                <input class="inputCheckBox" type="radio" value="Between 16 and 20 years" name="relationToPlaceLength"
+                    id="fifth-option_ownThisBusiness">
+                </input>
+                <div class="check"></div>
+            </li>
+
+            <!-- How long have you and you been operating this business for?  -->
+            <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+            <li class="labelDiv currentTypeOfBussiness labelDivCheckBox">
+                <label class="filterDiv ownThisBusiness filterDivTextCheckBox" for="sixth-option_ownThisBusiness"> More
+                    than 20 years </label>
+                <input class="inputCheckBox" type="radio" value="More than 20 years" name="relationToPlaceLength" id="sixth-option_ownThisBusiness">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+
+            <li class="labelDiv formerBusinessType labelDivCheckBox">
+                <!-- How long ago did you use to operate this business? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToOwnThisBusiness filterDivTextCheckBox" for="f-option_usedToOwnThisBusiness">
+                    Less than a year ago </label>
+                <input class="inputCheckBox" type="radio" value="Less than a year ago" name="relationToPlaceLength" id="f-option_usedToOwnThisBusiness">
+                <div class="check"></div>
+            </li>
+
+
+
+            <li class="labelDiv formerBusinessType labelDivCheckBox">
+                <!-- How long ago did you use to operate this business? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToOwnThisBusiness filterDivTextCheckBox" for="s-option_usedToOwnThisBusiness">
+                    Between 1 and 5 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Between 1 and 5 years ago" name="relationToPlaceLength"
+                    id="s-option_usedToOwnThisBusiness">
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv formerBusinessType labelDivCheckBox">
+                <!-- How long ago did you use to operate this business? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToOwnThisBusiness filterDivTextCheckBox" for="t-option_usedToOwnThisBusiness">
+                    Between 6 and 10 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Between 6 and 10 years ago" name="relationToPlaceLength"
+                    id="t-option_usedToOwnThisBusiness">
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv formerBusinessType labelDivCheckBox">
+                <!-- How long ago did you use to operate this business? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToOwnThisBusiness filterDivTextCheckBox" for="fourth-option_usedToOwnThisBusiness">
+                    Between 11 and 15 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Between 11 and 15 years ago" name="relationToPlaceLength"
+                    id="fourth-option_usedToOwnThisBusiness">
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv formerBusinessType labelDivCheckBox">
+                <!-- How long ago did you use to operate this business? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToOwnThisBusiness filterDivTextCheckBox" for="fifth-option_usedToOwnThisBusiness">
+                    Between 16 and 20 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Between 16 and 20 years ago" name="relationToPlaceLength"
+                    id="fifth-option_usedToOwnThisBusiness">
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv formerBusinessType labelDivCheckBox">
+                <!-- How long ago did you use to operate this business? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToOwnThisBusiness filterDivTextCheckBox" for="sixth-option_usedToOwnThisBusiness">
+                    More than 20 years ago </label>
+                <input class="inputCheckBox" type="radio" value="More than 20 years ago" name="relationToPlaceLength"
+                    id="sixth-option_usedToOwnThisBusiness">
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv nameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long have you been frequenting this place for? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv IamAregular filterDivTextCheckBox" for="f-option_IamAregular"> Less than a year</label>
+                <input class="inputCheckBox" type="radio" value="Less than a year" name="relationToPlaceLength" id="f-option_IamAregular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv nameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long have you been frequenting this place for? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv IamAregular filterDivTextCheckBox" for="s-option_IamAregular"> Between 1 and 5
+                    years
+                </label>
+                <input class="inputCheckBox" type="radio" value="Between 1 and 5 years" name="relationToPlaceLength" id="s-option_IamAregular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv nameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long have you been frequenting this place for? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv IamAregular filterDivTextCheckBox" for="t-option_IamAregular"> Between 6 and 10
+                    years
+                </label>
+                <input class="inputCheckBox" type="radio" value="Between 6 and 10 years" name="relationToPlaceLength"
+                    id="t-option_IamAregular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv nameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long have you been frequenting this place for? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv IamAregular filterDivTextCheckBox" for="fourth-option_IamAregular"> Between 11
+                    and
+                    15 years
+                </label>
+                <input class="inputCheckBox" type="radio" value="Between 11 and 15 years" name="relationToPlaceLength"
+                    id="fourth-option_IamAregular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv nameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long have you been frequenting this place for? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv IamAregular filterDivTextCheckBox" for="fifth-option_IamAregular"> Between 16
+                    and 20 years
+                </label>
+                <input class="inputCheckBox" type="radio" value="Between 16 and 20 years" name="relationToPlaceLength"
+                    id="fifth-option_IamAregular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv nameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long have you been frequenting this place for? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv IamAregular filterDivTextCheckBox" for="sixth-option_IamAregular"> More than 20
+                    years
+                </label>
+                <input class="inputCheckBox" type="radio" value="More than 20 years" name="relationToPlaceLength" id="sixth-option_IamAregular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv nameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long ago did you use to be a regular of this place? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToBeaRegular filterDivTextCheckBox" for="f-option_usedToBeaRegular"> Less
+                    than a year ago </label>
+                <input class="inputCheckBox" type="radio" value="Less than a year ago" name="relationToPlaceLength" id="f-option_usedToBeaRegular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv formerNameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long ago did you use to be a regular of this place? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToBeaRegular filterDivTextCheckBox" for="s-option_usedToBeaRegular">
+                    Between 1 and 5 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Less than a year ago" name="relationToPlaceLength" id="s-option_usedToBeaRegular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+            <li class="labelDiv formerNameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long ago did you use to be a regular of this place? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToBeaRegular filterDivTextCheckBox" for="t-option_usedToBeaRegular">
+                    Between 6 and 10 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Less than a year ago" name="relationToPlaceLength" id="t-option_usedToBeaRegular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+            <li class="labelDiv formerNameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long ago did you use to be a regular of this place? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToBeaRegular filterDivTextCheckBox" for="fourth-option_usedToBeaRegular">
+                    Between 11 and 15 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Less than a year ago" name="relationToPlaceLength" id="fourth-option_usedToBeaRegular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv formerNameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long ago did you use to be a regular of this place? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToBeaRegular filterDivTextCheckBox" for="fifth-option_usedToBeaRegular">
+                    Between 16 and 20 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Less than a year ago" name="relationToPlaceLength" id="fifth-option_usedToBeaRegular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv formerNameAndTypeOfBusiness labelDivCheckBox">
+                <!-- How long ago did you use to be a regular of this place? -->
+                <!--  ➢➢➢➢➢➢➢➢➢ relationToPlaceLength ←←←←←← -->
+                <label class="filterDiv usedToBeaRegular filterDivTextCheckBox" for="sixth-option_usedToBeaRegular">
+                    More than 20 years ago </label>
+                <input class="inputCheckBox" type="radio" value="Less than a year ago" name="relationToPlaceLength" id="sixth-option_usedToBeaRegular">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+        </section>
+
+
+
+
+        <!-- <h3 id="fourthQuestionHeading">Which of the following apply??????????</h3> -->
+
+
+        <section class="ul">
+
+            <!-- What type of business do you operate here? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ typeOfBussiness ←←←←←← -->
+
+            <div class="labelDiv OwnThisBusinessRentDescrp labelDivText">
+                <!--  00000  THE LIKERT SCALE GOES FROM  HERE 个个个个个个个个个  00-->
+                What type of business do you operate here?
+                <div class="filterDiv currentTypeOfBussiness filterDivText">
+                    <input type="text" name="typeOfBussiness"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!-- What type of business did you use to operate here? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ typeOfBussiness ←←←←←← -->
+            <div class="labelDiv whyDontOwnBussiness labelDivText">
+                What type of business did you use to operate here?
+                <div class="filterDiv formerBusinessType filterDivText">
+                    <input type="text" name="typeOfBussiness"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!-- What is the name and type of business? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ favoriteThingAboutPlace ←←←←←← -->
+            <div class="labelDiv thinkPlaceWillRemainThere labelDivText">
+                What is the name and type of business?
+                <div class="filterDiv nameAndTypeOfBusiness filterDivText">
+                    <input type="text" name="favoriteThingAboutPlace"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!-- What was the name and type of that business? -->
+            <!--  ➢➢➢➢➢➢➢➢➢ favoriteThingAboutPlace ←←←←←← -->
+            <div class="labelDiv whyBsnssNotThereAnyMore labelDivText">
+                What was or is the name and type of that business
+                <div class="filterDiv formerNameAndTypeOfBusiness filterDivText">
+                    <input type="text" name="favoriteThingAboutPlace"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+        <section class="labelDiv labelDivCheckBox likertScale">
+            <!-- IN THIS CASE, THE FILTERDIV VALUE  COMES ON TOP AND THE LABELDIV VALUE BELOW. -->
+
+            <div class="filterDiv OwnThisBusinessRentDescrp">
+                <!-- labelDivCheckBox has display "none" -->
+
+                <h1> How strongly do you agree or disagree with the following statements </h1>
+                <label> The amount of money that I pay for rent is fair </label>
+
+                <!-------- tried "checkbox" ----->
+
+                <fieldset id="currentRentFair">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyStrongAgreeRentFair" type="radio" name="currentRentFair" value="strongly agree">
+                            <label> Strongly agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyAgreeRentFair" type="radio" name="currentRentFair" value="agree">
+                            <label> Agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralRentFair" type="radio" name="currentRentFair" value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyDisagreeRentFair" type="radio" name="currentRentFair" value="disagree">
+                            <label> Disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyStrongDisagreeRentFair" type="radio" name="currentRentFair" value="stronly disagree">
+                            <label> Stronly disagree </label>
+                        </li>
+                    </ul>
+
+                </fieldset>
+
+
+                <label> Since I have been here, my rent has increased fairly </label>
+
+                <fieldset id="rentHasIncreasedFairly">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyStrongAgreeRentIncrFair" type="radio" name="rentHasIncreasedFairly"
+                                value="strongly agree">
+                            <label> Strongly agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyAgreeRentIncrFair" type="radio" name="rentHasIncreasedFairly"
+                                value="agree">
+                            <label> Agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralRentIncrFair" type="radio" name="rentHasIncreasedFairly"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyDisagreeRentIncrFair" type="radio" name="rentHasIncreasedFairly"
+                                value="disagree">
+                            <label> Disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyStrongDisagreeRentIncrFair" type="radio" name="rentHasIncreasedFairly"
+                                value="stronly disagree">
+                            <label> Stronly disagree </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+                <label> I will be able to keep paying the rent in the future </label>
+                <fieldset id="WillBeAbleToKeepUpWithRentInFuture">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyStrongAgreeWillKeepUpWithRent" type="radio" name="WillBeAbleToKeepUpWithRentInFuture"
+                                value="strongly agree">
+                            <label> Strongly agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyAgreeWillKeepUpWithRent" type="radio" name="WillBeAbleToKeepUpWithRentInFuture"
+                                value="agree">
+                            <label> Agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralWillKeepUpWithRent" type="radio" name="WillBeAbleToKeepUpWithRentInFuture"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyDisagreeWillKeepUpWithRent" type="radio" name="WillBeAbleToKeepUpWithRentInFuture"
+                                value="disagree">
+                            <label> Disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyStrongDisagreeWillKeepUpWithRent" type="radio" name="WillBeAbleToKeepUpWithRentInFuture"
+                                value="stronly disagree">
+                            <label> Stronly disagree </label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+
+
+                <label> I have a good relationship with my landlord </label>
+                <fieldset id="hasGoodRelationWithLandLord">
+                    <ul>
+                        <li>
+                            <input class="labelDiv whyStrongAgreeGoodRelationWithLandlord" type="radio" name="hasGoodRelationWithLandLord"
+                                value="strongly agree">
+                            <label> Strongly agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyAgreeGoodRelationWithLandlord" type="radio" name="hasGoodRelationWithLandLord"
+                                value="agree">
+                            <label> Agree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyNeutralGoodRelationWithLandlord" type="radio" name="hasGoodRelationWithLandLord"
+                                value="neutral">
+                            <label> Neutral </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyDisagreeGoodRelationWithLandlord" type="radio" name="hasGoodRelationWithLandLord"
+                                value="disagree">
+                            <label> Disagree </label>
+                        </li>
+                        <li>
+                            <input class="labelDiv whyStrongDisagreeGoodRelationWithLandlord" type="radio" name="hasGoodRelationWithLandLord"
+                                value="stronly disagree">
+                            <label> Stronly disagree </label>
+                        </li>
+                    </ul>
+
+                </fieldset>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+        <section>
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                <!-- THE WORD THAT WILL DISPLAY THE NEXT SECTION GOES HERE -->
+                Why do you strongly disagree that the rent that you pay is fair?
+                <div class="filterDiv whyStrongDisagreeRentFair filterDivText">
+                    <input type="text" name="whyStrongDisagreeRentFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you disagree that the rent that you pay is fair?
+                <div class="filterDiv whyDisagreeRentFair filterDivText">
+                    <input type="text" name="whyDisagreeRentFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you feel neutral that the rent that you pay is fair?
+                <div class="filterDiv whyNeutralRentFair filterDivText">
+                    <input type="text" name="whyNeutralRentFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you agree that the rent that you pay is fair?
+                <div class="filterDiv whyAgreeRentFair filterDivText">
+                    <input type="text" name="whyAgreeRentFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you strongly agree that the rent that you pay is fair?
+                <div class="filterDiv whyStrongAgreeRentFair filterDivText">
+                    <input type="text" name="whyStrongAgreeRentFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Could you elaborate better on why you stronly disagree that your rent increment is fair?
+                <div class="filterDiv whyStrongDisagreeRentIncrFair filterDivText">
+                    <input type="text" name="whyStrongDisagreeRentIncrementFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Could you elaborate better on why you disagree that your rent increment is fair?
+                <div class="filterDiv whyDisagreeRentIncrFair filterDivText">
+                    <input type="text" name="whyDisagreeRentIncrementFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Could you elaborate better on why you feel neutral that your rent increment is fair?
+                <div class="filterDiv whyNeutralRentIncrFair filterDivText">
+                    <input type="text" name="whyNeutralRentIncrementFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Could you elaborate better on why you agree that your rent increment is fair?
+                <div class="filterDiv whyAgreeRentIncrFair filterDivText">
+                    <input type="text" name="whyAgreeRentIncrementFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Could you elaborate better on why you strongly agree that your rent increment is fair?
+                <div class="filterDiv whyStrongAgreeRentIncrFair filterDivText">
+                    <input type="text" name="whyStrongAgreeRentIncrementFair"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+
+            <!--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you strongly disagree that you will be able to pay your rent in the future?
+                <div class="filterDiv whyStrongDisagreeWillKeepUpWithRent filterDivText">
+                    <input type="text" name="whyStrongDisagreeWillKeepUpWithRent"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you disagree that you will be able to pay your rent in the future?
+                <div class="filterDiv whyDisagreeWillKeepUpWithRent filterDivText">
+                    <input type="text" name="whyDisagreeWillKeepUpWithRent"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you feel neutral that you will be able to pay your rent in the future?
+                <div class="filterDiv whyNeutralWillKeepUpWithRent filterDivText">
+                    <input type="text" name="whyNeutralWillKeepUpWithRent"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you agree that you will be able to pay your rent in the future?
+                <div class="filterDiv whyAgreeWillKeepUpWithRent filterDivText">
+                    <input type="text" name="whyAgreeWillKeepUpWithRent"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you strongly agree that you will be able to pay your rent in the future?
+                <div class="filterDiv whyStrongAgreeWillKeepUpWithRent filterDivText">
+                    <input type="text" name="whyStrongAgreeWillKeepUpWithRent"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- -->
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you strongly disagree that you have a good relation with your landlord?
+                <div class="filterDiv whyStrongDisagreeGoodRelationWithLandlord filterDivText">
+                    <input type="text" name="whyStrongDisagreeGoodRelationWithLandlord"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you disagree that you have a good relation with your landlord?
+                <div class="filterDiv whyDisagreeGoodRelationWithLandlord filterDivText">.
+                    <input type="text" name="whyDisagreeGoodRelationWithLandlord"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you feel neutral that you have a good relation with your landlord?
+                <div class="filterDiv whyNeutralGoodRelationWithLandlord filterDivText">
+                    <input type="text" name="whyNeutralGoodRelationWithLandlord"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you agree that you have a good relation with your landlord?
+                <div class="filterDiv whyAgreeGoodRelationWithLandlord filterDivText">
+                    <input type="text" name="whyAgreeGoodRelationWithLandlord"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
+                Why do you strongly agree that you have a good relation with your landlord?
+                <div class="filterDiv whyStrongAgreeGoodRelationWithLandlord filterDivText">
+                    <input type="text" name="whyStrongAgreeGoodRelationWithLandlord"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+        <section class="ul">
+
+            <!-- Do you see yourself operating this business in the near future? -->
+            <li class="labelDiv whyThinkWillBeOprtngBsnss labelDivCheckBox">
+                <label class="filterDiv seeYrslfOpertingBsnsInFuture filterDivTextCheckBox" for="f-option_seeYrslfOpertingBsnsInFuture">
+                    Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="seeYrslfOpertingBsnsInFuture" id="f-option_seeYrslfOpertingBsnsInFuture">
+                </input>
+                <div class="check"></div>
+            </li>
+
+            <li class="labelDiv whyThinkWontBeOprtngBsnss labelDivCheckBox">
+                <label class="filterDiv seeYrslfOpertingBsnsInFuture filterDivTextCheckBox" for="s-option_seeYrslfOpertingBsnsInFuture">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="seeYrslfOpertingBsnsInFuture" id="s-option_seeYrslfOpertingBsnsInFuture">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+            <div class="labelDiv operateBsnssElsewhere labelDivText">
+                Why don't you own that business anymore?
+                <div class="filterDiv whyDontOwnBussiness filterDivText">
+                    <input type="text" name="whyDontOwnBussinessAnymore"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+            <!-- Do you think that place is likely to remain there in the near future? -->
+
+            <li class="labelDiv whyThinkBsnssWillBeThereInFutre labelDivCheckBox">
+                <!---------- HERREEEEEEEEEE    ------------>
+                <label class="filterDiv thinkPlaceWillRemainThere filterDivTextCheckBox" for="f-option_thinkPlaceWillRemainThere">
+                    Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="thinkBusinessWillRemainThere" id="f-option_thinkPlaceWillRemainThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+            <li class="labelDiv whyThinkBsnssWontBeThereInFutre labelDivCheckBox">
+                <label class="filterDiv thinkPlaceWillRemainThere filterDivTextCheckBox" for="s-option_thinkPlaceWillRemainThere">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="thinkBusinessWillRemainThere" id="s-option_thinkPlaceWillRemainThere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+            <div class="labelDiv bsnssOperatingElseWhere labelDivText">
+                Why are you not a regular of that place anymore?
+                <div class="filterDiv whyBsnssNotThereAnyMore filterDivText">
+                    <input type="text" name="whyNotRegularOfPlaceAnymore"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+        <section class="ul">
+
+            <div class="labelDiv listBsnssChllngs labelDivText">
+                Why do you think you will be operating that business in the future?
+                <div class="filterDiv whyThinkWillBeOprtngBsnss filterDivText">
+                    <input type="text" name="whyThinkWillBeOprtngBsnssInFuture"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+            <div class="labelDiv listBsnssChllngs labelDivText">
+                Why do you think you won't be operating that business in the future?
+                <div class="filterDiv whyThinkWontBeOprtngBsnss filterDivText">
+                    <input type="text" name="whyThinkWontBeOprtngBsnssInFuture"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+            <!-- Do you operate the same business somewhere else? -->
+            <li class="labelDiv whereBsnssNowOperates labelDivCheckBox">
+                <!-- <<<<<<<<----------------------------------------- HERE ------>
+                <label class="filterDiv operateBsnssElsewhere filterDivTextCheckBox" for="f-option_operateBsnssElsewhere">
+                    Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="operateBsnssElsewhere" id="f-option_operateBsnssElsewhere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <li class="labelDiv whatBsnssOperatesNow labelDivCheckBox">
+                <label class="filterDiv operateBsnssElsewhere filterDivTextCheckBox" for="s-option_operateBsnssElsewhere">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="operateBsnssElsewhere" id="s-option_operateBsnssElsewhere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+            <div class="labelDiv favThingAboutPlce labelDivText">
+                Why do you think that business will be there in the future?
+                <div class="filterDiv whyThinkBsnssWillBeThereInFutre filterDivText">
+                    <input type="text" name="whyThinkBsnssWillBeThereInFutre"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+            <div class="labelDiv favThingAboutPlce labelDivText">
+                Why do you think that business won't be there in the future?
+                <div class="filterDiv whyThinkBsnssWontBeThereInFutre filterDivText">
+                    <input type="text" name="whyThinkBsnssWontBeThereInFutre"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+            <!-- Is that business now operating somewhere else? -->
+            <li class="labelDiv bsnssNewLoc labelDivCheckBox">
+                <label class="filterDiv bsnssOperatingElseWhere filterDivTextCheckBox" for="f-option_bsnssOperatingElseWhere">
+                    Yes</label>
+                <input class="inputCheckBox" type="radio" value="Yes" name="bsnssOperatingElseWhere" id="f-option_bsnssOperatingElseWhere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+            <li class="labelDiv whatWasFavThingAboutPlace labelDivCheckBox">
+                <label class="filterDiv bsnssOperatingElseWhere filterDivTextCheckBox" for="s-option_bsnssOperatingElseWhere">
+                    No</label>
+                <input class="inputCheckBox" type="radio" value="No" name="bsnssOperatingElseWhere" id="s-option_bsnssOperatingElseWhere">
+                </input>
+                <div class="check"></div>
+            </li>
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+        </section>
+
+
+
+
+
+        <section>
+
+            <div class="labelDiv whatWasFavThingAboutPlace labelDivText">
+                Where is that business now operating?
+                <div class="filterDiv bsnssNewLoc filterDivText">
+                    <input type="text" name="bsnssNewLocation"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+        <section>
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Can you list all the challenges your business has faced throughout time?
+                <div class="filterDiv listBsnssChllngs filterDivText">
+                    <input type="text" name="listBusinessChallenges"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+            <div class="labelDiv submitButton labelDivText">
+                Where do you operate your business now?
+                <div class="filterDiv whereBsnssNowOperates filterDivText">
+                    <input type="text" name="whereOwnBsnssNowOperates"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+            <div class="labelDiv submitButton labelDivText">
+                What operates now where your business used to be?
+                <div class="filterDiv whatBsnssOperatesNow filterDivText">
+                    <input type="text" name="whatTypeOfBsnssOperatesNow"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+
+            <div class="labelDiv submitButton labelDivText">
+                What is your favorite thing about this place?
+                <div class="filterDiv favThingAboutPlce filterDivText">
+                    <input type="text" name="favThingAboutBussiness"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+            <!--- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- --->
+
+
+
+            <div class="labelDiv submitButton labelDivText">
+                What was your favorite thing about this place?
+                <div class="filterDiv whatWasFavThingAboutPlace filterDivText">
+                    <input type="text" name="whatWasFavThingAboutBussiness"></input>
+                    <div class="underline"></div>
+                    <label></label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+        <!-- 个个个个个个个个个个个个个个个个个个个个个个个个个 COMMERCIAL LABELS -->
+
+
+
+
+
+
+
+
+
+        <section>
+
+            <div class="labelDiv labelDivCheckBox">
+                <div class="filterDiv submitButton filterDivText">
+                    <input name="submitButton" type="submit" />
+                    <div class="underline"></div>
+                    <label>Submit</label>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+    </form>
+
+
+    </div>
+
+
+    <div id="mapDiv">
+        <div id="feed"></div>
+        <div id="map"></div>
+        <div id="streetsMap"></div>
+        <div id="tooltip"></div>
+        <div id="imageTooltip"></div>
+        <div id="container" class="svg-container"></div>
+    </div>
+
+    <div id="typedText"></div>
+
+
+    <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script type="module" src="https://js.api.here.com/v3/3.1/mapsjs.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/a8ea7ecad9.js" crossorigin="anonymous"></script>
+
+
+</body>
+
+
+<script type="text/javascript" src="functions.js"></script>
+
+
+</html>
