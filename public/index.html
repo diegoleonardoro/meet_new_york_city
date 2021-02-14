@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 
 <head>
 
@@ -14,6 +22,15 @@
 
 
 <body>
+    <div id="mapDiv">
+        <div id="feed"></div>
+        <div id="map"></div>
+        <div id="streetsMap"></div>
+        <div id="tooltip"></div>
+        <div id="imageTooltip"></div>
+        <div id="container" class="svg-container"></div>
+    </div>
+    <div id="typedText"></div>
 
     <!--
     <textarea id="story" name="story" rows="5" cols="33">
@@ -23,126 +40,432 @@ It was a dark and stormy night...
 
 
     <!-- First Section -->
-
-    <h3 class="headingQuestion" id="firstQuestionHeading">What Type of building is this?</h3>
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv buildingType">
+            <h3 id="firstQuestionHeading">What Type of building is this?</h3>
+        </div>
+    </div>
 
 
     <!-- Second Section -->
-    <h3 class="headingQuestion residential" id="residential">Which of the following apply to you and this
-        place?</h3>
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv residential">
+            <h3 id="residential">Which of the following apply to you and this place?</h3>
+        </div>
+    </div>
+
+
 
     <!-- Third Section -->
-    <h3 class="headingQuestion currentlyLiveThere" id="currentlyLiveThere">How long have you lived there?</h3>
-    <h3 class="headingQuestion usedToLiveHere" id="usedToLiveHere">How long ago did you live there?</h3>
-    <h3 class="headingQuestion neverLivedThere" id="neverLivedThere">Did someoone you know or knew lves or use to
-        live there?</h3>
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv currentlyLiveThere">
+            <h3 id="currentlyLiveThere">How long have you lived there?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv usedToLiveHere">
+            <h3 id="usedToLiveHere">How long ago did you live there?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv neverLivedThere">
+            <h3 id="neverLivedThere">Did someoone you know or knew lves or use
+                to live there?</h3>
+        </div>
+    </div>
+
+
+
 
 
 
     <!-- Fourth Section -->
-    <h3 class="headingQuestion howHappyLastYrs" id="howHappyLastYrs">How happy do you feel living there?</h3>
-    <h3 class="headingQuestion howHappyManytYrs" id="howHappyManytYrs">Wow! That is a long time! How happy do you
-        feel living there? </h3>
-    <h3 class="headingQuestion howHappyUsedToLiveThereFewYrs" id="howHappyUsedToLiveThereFewYrs">Overall, how happy did
-        you
-        feel while you were living
-        there?</h3>
-    <h3 class="headingQuestion howHappyUsedToLiveThereLongAgo" id="howHappyUsedToLiveThereLongAgo">Wow! That is a long
-        time! how
-        happy did you feel while
-        you lived there?</h3>
-    <h3 class="headingQuestion someoneElseIknewLivedThere" id="someoneElseIknewLivedThere">What was or is your
-        relationship
-        with that person?</h3>
-    <h3 class="headingQuestion someoneElseIdidNotKnowLivedThere" id="someoneElseIdidNotKnowLivedThere">Why is this
-        place relevant
-        to you?</h3>
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv howHappyLastYrs">
+            <h3 id="howHappyLastYrs">How happy do you feel living there?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv howHappyManytYrs">
+            <h3 id="howHappyManytYrs">Wow! That is a long time! How happy do
+                you feel living there? </h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv howHappyUsedToLiveThereFewYrs">
+            <h3 id="howHappyUsedToLiveThereFewYrs">Overall, how happy did
+                you feel while you were living there?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv howHappyUsedToLiveThereLongAgo">
+            <h3 id="howHappyUsedToLiveThereLongAgo">Wow! That is a long
+                time! how happy did you feel while you lived there?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv someoneElseIknewLivedThere">
+            <h3 id="someoneElseIknewLivedThere">What was or is your
+                relationship with that person?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv someoneElseIdidNotKnowLivedThere">
+            <h3 id="someoneElseIdidNotKnowLivedThere">Why is this place relevant to you?</h3>
+        </div>
+    </div>
+
+
+
+
 
 
     <!-- Fifht Section -->
 
-    <h3 class="headingQuestion whySoHappy" id="whySoHappy"> That's wonderful! What makes this place so
-        amazing to live in?</h3>
-    <h3 class="headingQuestion whyNotSoHappy" id="whyNotSoHappy">Sorry to hear that! What has made you not so
-        happy living in this place?</h3>
-    <h3 class="headingQuestion whyUnhappy" id="whyUnhappy">Sorry to hear that! What has made you unhappy
-        living in this place?</h3>
-    <h3 class="headingQuestion why_SoHappyPast" id="why_SoHappyPast">That's wonderful! What made that place so
-        wonderful to live in?</h3>
-    <h3 class="headingQuestion whyNotSoHappyPast" id="whyNotSoHappyPast"> Sorry to hear that! What made you not so
-        happy while living there?</h3>
-    <h3 class="headingQuestion why_UnhappyPast" id="why_UnhappyPast"> Sorry to hear that! What made you unhappy
-        while living there?</h3>
-    <h3 class="headingQuestion tellAboutFriend" id="tellAboutFriend">Interesting!
-        Would you want to tell us about that friendship?</h3>
-    <h3 class="headingQuestion tellAboutRelative" id="tellAboutRelative"> Interesting! Would you want to tell us
-        about that relative?</h3>
-    <h3 class="headingQuestion tellAboutOther" id="tellAboutOther">Interesting! Would you want to tell us about
-        that person?</h3>
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whySoHappy">
+            <h3 id="whySoHappy"> That's wonderful! What makes this place so amazing to live in?</h3>
+        </div>
+    </div>
 
-    <h3 class="headingQuestion someoneElseIdidNotKnowLivedThereThanksForSharingThat" id="someoneElseIdidNotKnowLivedThereThanksForSharingThat">Thanks
-        for sharing that! </h3><!-- END-->
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyNotSoHappy_">
+            <h3 id="whyNotSoHappy_">Sorry to hear that! What has made you not so
+                happy living in this place?</h3>
+        </div>
+    </div>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyUnhappy">
+            <h3 id="whyUnhappy">Sorry to hear that! What has made you unhappy living in this place?</h3>
+        </div>
+    </div>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyUnhappy">
+            <h3 id="whyUnhappy">Sorry to hear that! What has made you unhappy living in this place?</h3>
+        </div>
+    </div>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv why_SoHappyPast">
+            <h3 id="why_SoHappyPast">That's wonderful! What made that place so wonderful to live in?</h3>
+        </div>
+    </div>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyNotSoHappyPast">
+            <h3 id="whyNotSoHappyPast"> Sorry to hear that! What made you not so happy while living there?</h3>
+        </div>
+    </div>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv why_UnhappyPast">
+            <h3 id="why_UnhappyPast"> Sorry to hear that! What made you unhappy while living there?</h3>
+        </div>
+    </div>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv tellAboutFriend">
+            <h3 id="tellAboutFriend">Interesting! Would you want to tell us
+                about that friendship?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv tellAboutRelative">
+            <h3 id="tellAboutRelative"> Interesting! Would you want to tell us about that relative?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv tellAboutOther">
+            <h3 id="tellAboutOther">Interesting! Would you want to tell us about that person?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv ">
+            <h3 id="someoneElseIdidNotKnowLivedThereThanksForSharingThat">Thanks for sharing that! </h3><!-- END-->
+        </div>
+    </div>
+
+
 
 
     <!-- Sixth Section -->
-    <h3 class="headingQuestion seeYourselgLivingThere" id="seeYourselgLivingThere">Do you see yourself living there in
-        the near future? </h3>
-    <h3 class="headingQuestion whyNotLivingThereAnyMore" id="whyNotLivingThereAnyMore">Why are you not living there
-        anymore? </h3>
-    <h3 class="headingQuestion friendStillLivingThere" id="friendStillLivingThere"> Is your friend still living there?</h3>
-    <h3 class="headingQuestion relativeStillLivingThere" id="relativeStillLivingThere">Is that relative still living
-        there?</h3>
-    <h3 class="headingQuestion personStillLivingThere" id="personStillLivingThere"> Is that person still living there?</h3>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv seeYourselgLivingThere">
+            <h3 id="seeYourselgLivingThere">Do you see yourself living there in the near future? </h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyNotLivingThereAnyMore">
+            <h3 id="whyNotLivingThereAnyMore">Why are you not living there anymore? </h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv friendStillLivingThere">
+            <h3 id="friendStillLivingThere"> Is your friend still living there?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv relativeStillLivingThere">
+            <h3 id="relativeStillLivingThere">Is that relative still living there?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv personStillLivingThere">
+            <h3 id="personStillLivingThere"> Is that person still living there?</h3>
+        </div>
+    </div>
 
 
     <!-- Seventh Section -->
-    <h3 class="headingQuestion whyThinkWillBeLivingThere" id="whyThinkWillBeLivingThere">What makes you think that you
-        will be living there in the
-        future?</h3>
-    <h3 class="headingQuestion whyThinkWontBeLivingThere" id="whyThinkWontBeLivingThere">What makes you think that you
-        won't be living there in the
-        future?</h3>
-    <h3 class="headingQuestion stillLiveInTheSameHood" id="stillLiveInTheSameHood">Are you still living in the same
-        neighborhood?</h3>
-    <h3 class="headingQuestion willHeSheBeLivingThere" id="willHeSheBeLivingThere">Do you think he/she will be living
-        there in the near future?</h3>
-    <h3 class="headingQuestion whyHeSheNotLivingThereAnymore" id="whyHeSheNotLivingThereAnymore">Why is he/she not
-        living
-        there anymore?</h3>
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyThinkWillBeLivingThere">
+            <h3 id="whyThinkWillBeLivingThere">What makes you think that you will be living there in the future?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyThinkWontBeLivingThere">
+            <h3 id="whyThinkWontBeLivingThere">What makes you think that you won't be living there in the future?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv stillLiveInTheSameHood">
+            <h3 id="stillLiveInTheSameHood">Are you still living in the same neighborhood?</h3>
+        </div>
+    </div>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv willHeSheBeLivingThere">
+            <h3 id="willHeSheBeLivingThere">Do you think he/she will be living there in the near future?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyHeSheNotLivingThereAnymore">
+            <h3 class="headingQuestion whyHeSheNotLivingThereAnymore" id="whyHeSheNotLivingThereAnymore">Why is he/she
+                not living there anymore?</h3>
+        </div>
+    </div>
+
+
+
+
+
 
 
     <!-- Eight Section -->
-    <h3 class="headingQuestion rentOrOwn" id="rentOrOwn">Which of the following two options apply to you?</h3>
-    <h3 class="headingQuestion whatsTheNewAddress" id="whatsTheNewAddress">What is your new address?</h3>
-    <h3 class="headingQuestion whereHeSheLivingNow" id="whereHeSheLivingNow">Where is he/she living now?</h3>
-    <h3 class="headingQuestion whyThinkHeSheWillBeLivingThere" id="whyThinkHeSheWillBeLivingThere">What makes you think
-        that
-        he/she will be living there in
-        the near future?</h3>
-    <h3 class="headingQuestion whyThinkHeSheWontBeLivingThere" id="whyThinkHeSheWontBeLivingThere">What makes you think
-        that
-        he/she will not be living
-        there in the near future?</h3>
-
-
-
-
-    <div id="divImage">
-        <img src="https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/PinClipart.com_sports-day-clipart_1542093.png"
-            alt="Girl in a jacket" width="40" height="10" id="arrowNextSection">
-
-        <p id="arrowText">Next</p>
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv rentOrOwn">
+            <h3 id="rentOrOwn">Which of the following two options apply to you?</h3>
+        </div>
     </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whatsTheNewAddress">
+            <h3 id="whatsTheNewAddress">What is your new address?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whereHeSheLivingNow">
+            <h3 id="whereHeSheLivingNow">Where is he/she living now?</h3>
+        </div>
+    </div>
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyThinkHeSheWillBeLivingThere">
+            <h3 id="whyThinkHeSheWillBeLivingThere">What makes you think that he/she will be living there in the near
+                future?</h3>
+        </div>
+    </div>
+
+
+    <div class="labelDiv headingQuestion">
+        <div class="filterDiv whyThinkHeSheWontBeLivingThere">
+            <h3 id="whyThinkHeSheWontBeLivingThere">What makes you think that he/she will not be living there in the
+                near future?</h3>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--
+    <div id="divImage">
+        <img src="https://raw.githubusercontent.com/diegoleonardoro/nyc_inputs/master/Asset%205.svg?token=ALHWKUMBT6N7WWLG336R4ALADQHDW"
+            width="40" height="10" id="arrowNextSection">
+         <p id="arrowText">Next</p>
+    </div>
+    -->
+
+
+
+
+
+    <!--
+    <svg height="1000" width="600">
+
+        <g transform="translate(60, 60), scale(1,1)">
+
+            <line x1="10" y1="10" x2="100" y2="100" stroke-width="2" stroke="black" stroke-linecap="round"></line>
+
+            <rect width="100" height="20" x="10" y="115" rx="5" ry="5"></rect>
+
+            <circle cx="55" cy="180" r="20"></circle>
+
+            <polygon points="60,210 10,325 115,325" />
+
+            <polygon points="10,340 115,380 10,410" />
+
+            <path d="M 10 425 L 110 525, 210 425 Z" stroke="steelblue" fill="lightyellow" stroke-width="2"></path>
+
+
+            <path d="M 10 530 L 110 630, C 230 530 300 700 320 530 Z" stroke="steelblue" fill="lightyellow"
+                stroke-width="2"></path>
+
+            <circle cx="230" cy="530" r="2"></circle>
+            <circle cx="300" cy="700" r="2"></circle>
+
+            <circle cx="120" cy="700" r="15" fill-opacity=".5"></circle>
+            <circle cx="120" cy="700" r="15" transform="translate(20,20)"></circle>
+            <circle cx="120" cy="700" r="15" transform="translate(-20,-20)"></circle>
+
+            <circle cx="120" cy="830" r="15"></circle>
+            <circle cx="120" cy="830" r="15" transform="scale(1,1)"></circle>
+
+            <text x="10" y="900">Hello world!</text>
+
+        </g>
+
+    </svg>
+-->
+
+
+
+    <!-- viewBox = <min-x> <min-y> <width> <height> -->
+
+    <!--
+    <svg height="600" width="800"  >
+        <rect width="100" height="20" x="10" y="115" rx="5" ry="5" viewbox="100 0 800 600" fill="yellow"></rect>
+    </svg>
+-->
+
+
+
+
+    <!--
+
+        Line:
+        x1 and y1: The starting x and y coordinates.
+        x2 and y2: The ending x and y coordinates.
+        stroke: This gives the line a red color.
+        stroke-width: This denotes the width of the line to be drawn in pixels.
+        stroke-linecap: change the style of the end of the line.
+
+        Rectangle:
+        the rect starts at coorinates 10 and 115.
+        is 100 pixels wide and 20 pixels high.
+        rx & ry: these attributes indicate that the x and y corners will have 5-pixel curves.
+
+        Circle:
+        cx & cy: they indicate the x and y coordinates of the center of the circle.
+        r: determines the radius of the circle
+        We could also include:  
+                stroke-width: 5; 
+                stroke:steelblue; 
+                fill:#888; 
+                fill-opacity: .5;
+
+
+        Polygon:
+        points="60,210 10,325 115,325" (x,y)
+            First, we start at 60,5 and we move to 10,120. 
+            Then, we proceed to 115,120  
+            finally, return to 60,5.
+
+
+        Path:
+        d: contains the path-drawing commands
+        d="M 120 120 L 220 220, 420 120 Z":
+            -> M: Put the pen down to start drawing at x = 120 y = 120
+            -> L: Draw a straight line that connects (120,120) to x = 220 y = 220,  (L indicates a straight line)
+            then draw another straight line that connects (220,220) to x = 420 y = 120
+            -> Z: Connect the last data point (420,120) to where we started (120,120)
+
+
+        Paths with curves:
+        3 types of curve commands:
+           1. -> Cubic Bézier: 
+                C x1 y1 x2 y2 x y 
+                
+                * C: Indicates that we are applying a Cubic Bézier curve, 
+                just as L in the previous example indicates a straight line.
+
+                * x1 and y1: Adds a control point to influence the curve's tangent.
+                
+                * x2 and y2: Adds a second control point after applying x1 and y1.
+                
+                * x and y: Indicates the final resting place of the line.
+
+
+
+           2. -> Quadratic Bézier
+           3. -> Elliptical arc
+
+
+        Text:
+        It has an x and a y coordinate to tell it where to begin writing in the SVG coordinate system.
+
+
+
+
+    -->
 
 
 
 
     <form id="form_">
 
-
         <section>
             <!--  ➢➢➢➢➢➢➢➢➢ userName ←←←←←←  -->
             <div class="labelDiv field-address labelDivText show">
+                <!-- show -->
+
                 <div class="filterDiv field-name filterDivText">
                     <input type="text" name="userName" required />
                     <div class="underline"></div>
@@ -150,7 +473,6 @@ It was a dark and stormy night...
                 </div>
             </div>
         </section>
-
 
 
         <section>
@@ -163,11 +485,6 @@ It was a dark and stormy night...
                 </div>
             </div>
         </section>
-
-
-
-
-
 
 
         <section class="ul">
@@ -231,10 +548,9 @@ It was a dark and stormy night...
             <li class="labelDiv neverLivedThere labelDivCheckBox">
                 <label class="filterDiv residential filterDivTextCheckBox" for="t-option_residential"> I never live
                     there</label>
-                <input class="inputCheckBox" type="radio" value="Never lived there" name="currentRelationToPlaces" id="t-option_residential"></input>
+                <input class="inputCheckBox" type="radio" value="Never lived there" name="currentRelationToPlace" id="t-option_residential"></input>
                 <div class="check"></div>
             </li>
-
 
         </section>
 
@@ -291,8 +607,6 @@ It was a dark and stormy night...
                     id="fifth-option_commercial_currentlyLiveThere"></input>
                 <div class="check"></div>
             </li>
-
-
 
 
             <!-- How long ago did you live there? -->
@@ -370,9 +684,10 @@ It was a dark and stormy night...
                 <div class="check"></div>
             </li>
 
-
-
         </section>
+
+
+
 
 
 
@@ -407,8 +722,6 @@ It was a dark and stormy night...
             </li>
 
 
-
-
             <!-- Wow! That is a long time! And how happy do you feel living there? -->
             <li class="labelDiv whySoHappy labelDivCheckBox">
                 <label class="filterDiv howHappyManytYrs filterDivTextCheckBox" for="f-option_howHappyManytYrs"> Happy
@@ -438,7 +751,6 @@ It was a dark and stormy night...
                 </input>
                 <div class="check"></div>
             </li>
-
 
             <!-- Overall, how happy were you while you lived there?  -->
             <li class="labelDiv why_SoHappyPast labelDivCheckBox">
@@ -542,7 +854,6 @@ It was a dark and stormy night...
                 </div>
             </div>
 
-
         </section>
 
 
@@ -551,7 +862,6 @@ It was a dark and stormy night...
 
             <!-- That's wonderful! What makes this place so amazing to live in?-->
             <div class="labelDiv seeYourselgLivingThere labelDivText">
-                That's wonderful! What makes this place so amazing to live in?
                 <div class="filterDiv whySoHappy filterDivText">
                     <input type="text" name="reasonForSatisfaction"></input>
                     <div class="underline"></div>
@@ -561,11 +871,9 @@ It was a dark and stormy night...
 
 
 
-
             <!-- Sorry to hear that! What has made you not so happy living in this place?-->
 
             <div class="labelDiv seeYourselgLivingThere labelDivText">
-                Sorry to hear that! What has made you not so happy living in this place?
                 <div class="filterDiv whyNotSoHappy_ filterDivText">
                     <input type="text" name="reasonForSatisfaction"> </input>
                     <div class="underline"></div>
@@ -579,7 +887,6 @@ It was a dark and stormy night...
 
             <!-- Sorry to hear that! What has made you unhappy living in this place?-->
             <div class="labelDiv seeYourselgLivingThere labelDivText">
-                Sorry to hear that! What has made you unhappy living in this place?
                 <div class="filterDiv whyUnhappy filterDivText">
                     <input type="text" name="reasonForSatisfaction"></input>
                     <div class="underline"></div>
@@ -590,7 +897,6 @@ It was a dark and stormy night...
 
             <!-- That's wonderful! What made that place so wonderful to live in? -->
             <div class="labelDiv whyNotLivingThereAnyMore labelDivText">
-                That's wonderful! What made that place so wonderful to live in?
                 <div class="filterDiv why_SoHappyPast filterDivText">
                     <input type="text" name="reasonForSatisfaction"></input>
                     <div class="underline"></div>
@@ -601,7 +907,6 @@ It was a dark and stormy night...
 
             <!-- Sorry to hear that! What made you not so happy while living there? -->
             <div class="labelDiv whyNotLivingThereAnyMore labelDivText">
-                Sorry to hear that! What made you not so happy while living there?
                 <div class="filterDiv whyNotSoHappyPast filterDivText">
                     <input type="text" name="reasonForSatisfaction"></input>
                     <div class="underline"></div>
@@ -613,7 +918,6 @@ It was a dark and stormy night...
 
             <!-- Sorry to hear that! What made you unhappy while living there? -->
             <div class="labelDiv whyNotLivingThereAnyMore labelDivText">
-                Sorry to hear that! What made you unhappy while living there?
                 <div class="filterDiv why_UnhappyPast filterDivText">
                     <input type="text" name="reasonForSatisfaction"></input>
                     <div class="underline"></div>
@@ -625,7 +929,6 @@ It was a dark and stormy night...
 
             <!-- Interesting! Would you want to tell us about that friend? -->
             <div class="labelDiv friendStillLivingThere labelDivText">
-                Interesting! Would you want to tell us about that friend?
                 <div class="filterDiv tellAboutFriend filterDivText">
                     <input type="text" name="someonelseInformation"></input>
                     <div class="underline"></div>
@@ -636,7 +939,6 @@ It was a dark and stormy night...
 
             <!-- Interesting! Would you want to tell us about that relative? -->
             <div class="labelDiv relativeStillLivingThere labelDivText">
-                Interesting! Would you want to tell us about that relative?
                 <div class="filterDiv tellAboutRelative filterDivText">
                     <input type="text" name="someonelseInformation"></input>
                     <div class="underline"></div>
@@ -647,7 +949,6 @@ It was a dark and stormy night...
 
             <!-- Interesting! Would you want to tell us about that person? -->
             <div class="labelDiv personStillLivingThere labelDivText">
-                Interesting! Would you want to tell us about that person?
                 <div class="filterDiv tellAboutOther filterDivText">
                     <input type="text" name="someonelseInformation"></input>
                     <div class="underline"></div>
@@ -657,11 +958,14 @@ It was a dark and stormy night...
 
 
 
-
             <!---------------- Thanks for sharing that! -->
 
 
         </section>
+
+
+
+
 
 
         <section class="ul">
@@ -684,6 +988,13 @@ It was a dark and stormy night...
                 </input>
                 <div class="check"></div>
             </li>
+
+
+
+
+
+
+
 
 
             <!-- Why are you not living there anymore? -->
@@ -753,7 +1064,6 @@ It was a dark and stormy night...
                 </input>
                 <div class="check"></div>
             </li>
-
 
 
         </section>
@@ -851,10 +1161,7 @@ It was a dark and stormy night...
 
 
 
-
         <section class="ul">
-
-
 
             <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
             <!-- Which of the following two options apply to you?-->
@@ -877,9 +1184,9 @@ It was a dark and stormy night...
 
             <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
 
-
             <!-- What is your new address?-->
             <div class="labelDiv nghbrhdChngeStsfactnScale labelDivText">
+                <!-- show -->
                 What is your new address?-
                 <div class="filterDiv whatsTheNewAddress filterDivText">
                     <input type="text" name="newAddress"></input>
@@ -887,8 +1194,6 @@ It was a dark and stormy night...
                     <label></label>
                 </div>
             </div>
-
-
 
             <!-- Where is he/she living now? -->
             <div class="labelDiv otherPrsonNghbrhdChngeStsfactnScale labelDivText">
@@ -899,7 +1204,6 @@ It was a dark and stormy night...
                     <label></label>
                 </div>
             </div>
-
 
 
             <!-- What makes you think that he/she will be living there in the near future? -->
@@ -922,580 +1226,590 @@ It was a dark and stormy night...
                     <label></label>
                 </div>
             </div>
-
-
         </section>
 
 
 
 
-        <section class="labelDiv labelDivCheckBox likertScale">
-
-            <div class="filterDiv nghbrhdStsfactnScale">
-
-                <h1>Rate how you feel with the following aspects of your neighborhood</h1>
-
-                <label>Public transportation</label>
-                <fieldset id="nghbrhdSatisfactionPublicTransport">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmStsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
-                                value="Extremely satisfied">
-                            <label> Extremely satisfied</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatStsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
-                                value="Somewhat satisfied">
-                            <label> Somewhat satisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
-                                value="neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDistsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
-                                value="Somewhat dissatisfied">
-                            <label> Somewhat dissatisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtrmDistsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
-                                value="Extremely dissatisfied ">
-                            <label> Extremely dissatisfied </label>
-                        </li>
-                    </ul>
-                </fieldset>
 
 
 
 
-                <label>Public spaces</label>
-                <fieldset id="nghbrhdSatisfactionPublicSpaces">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmStsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
-                                value=" Extremely satisfied">
-                            <label> Extremely satisfied</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatStsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
-                                value="Somewhat satisfied">
-                            <label> Somewhat satisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
-                                value="neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDistsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
-                                value="Somewhat dissatisfied">
-                            <label> Somewhat dissatisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtrmDistsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
-                                value="Extremely dissatisfied ">
-                            <label> Extremely dissatisfied </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-
-
-                <label>Neighbors</label>
-                <fieldset id="nghbrhdSatisfactionNeighbors">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmStsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
-                                value=" Extremely satisfied">
-                            <label> Extremely satisfied</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatStsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
-                                value="Somewhat satisfied">
-                            <label> Somewhat satisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
-                                value="neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDistsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
-                                value="Somewhat dissatisfied">
-                            <label> Somewhat dissatisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtrmDistsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
-                                value="Extremely dissatisfied ">
-                            <label> Extremely dissatisfied </label>
-                        </li>
-                    </ul>
-                </fieldset>
 
 
 
 
-                <label>Noise</label>
-                <fieldset id="nghbrhdSatisfactionNoise">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmStsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
-                                value=" Extremely satisfied">
-                            <label> Extremely satisfied</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatStsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
-                                value="Somewhat satisfied">
-                            <label> Somewhat satisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralNoise" type="radio" name="nghbrhdSatisfactionNoise" value="neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDistsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
-                                value="Somewhat dissatisfied">
-                            <label> Somewhat dissatisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtrmDistsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
-                                value="Extremely dissatisfied ">
-                            <label> Extremely dissatisfied </label>
-                        </li>
-                    </ul>
-                </fieldset>
 
 
 
-                <label>Green Spaces</label>
-                <fieldset id="nghbrhdSatisfactionGreenSpaces">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmStsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
-                                value=" Extremely satisfied">
-                            <label> Extremely satisfied</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatStsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
-                                value="Somewhat satisfied">
-                            <label> Somewhat satisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
-                                value="neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDistsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
-                                value="Somewhat dissatisfied">
-                            <label> Somewhat dissatisfied </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtrmDistsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
-                                value="Extremely dissatisfied ">
-                            <label> Extremely dissatisfied </label>
-                        </li>
-                    </ul>
-                </fieldset>
+        <section class="ul">
+
+            <div class="labelDiv labelDivCheckBox likertScale ">
+                <!-- labelDiv -->
+                <!--show-->
 
 
+                <div class="filterDiv nghbrhdStsfactnScale">
+
+                    <h1>Rate how you feel with the following aspects of your neighborhood</h1>
+
+                    <label>Public transportation</label>
+
+                    <fieldset id="nghbrhdSatisfactionPublicTransport">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmStsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                    value="Extremely satisfied">
+                                <label> Extremely satisfied</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatStsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                    value="Somewhat satisfied">
+                                <label> Somewhat satisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                    value="neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDistsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                    value="Somewhat dissatisfied">
+                                <label> Somewhat dissatisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtrmDistsfdTransport" type="radio" name="nghbrhdSatisfactionPublicTransport"
+                                    value="Extremely dissatisfied ">
+                                <label> Extremely dissatisfied </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+
+
+                    <label>Public spaces</label>
+                    <fieldset id="nghbrhdSatisfactionPublicSpaces">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmStsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                    value=" Extremely satisfied">
+                                <label> Extremely satisfied</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatStsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                    value="Somewhat satisfied">
+                                <label> Somewhat satisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                    value="neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDistsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                    value="Somewhat dissatisfied">
+                                <label> Somewhat dissatisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtrmDistsfdPublicSpaces" type="radio" name="nghbrhdSatisfactionPublicSpaces"
+                                    value="Extremely dissatisfied ">
+                                <label> Extremely dissatisfied </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+
+                    <label>Neighbors</label>
+                    <fieldset id="nghbrhdSatisfactionNeighbors">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmStsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                    value=" Extremely satisfied">
+                                <label> Extremely satisfied</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatStsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                    value="Somewhat satisfied">
+                                <label> Somewhat satisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                    value="neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDistsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                    value="Somewhat dissatisfied">
+                                <label> Somewhat dissatisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtrmDistsfdNeighbors" type="radio" name="nghbrhdSatisfactionNeighbors"
+                                    value="Extremely dissatisfied ">
+                                <label> Extremely dissatisfied </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+
+
+                    <label>Noise</label>
+                    <fieldset id="nghbrhdSatisfactionNoise">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmStsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                    value=" Extremely satisfied">
+                                <label> Extremely satisfied</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatStsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                    value="Somewhat satisfied">
+                                <label> Somewhat satisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                    value="neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDistsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                    value="Somewhat dissatisfied">
+                                <label> Somewhat dissatisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtrmDistsfdNoise" type="radio" name="nghbrhdSatisfactionNoise"
+                                    value="Extremely dissatisfied ">
+                                <label> Extremely dissatisfied </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+
+                    <label>Green Spaces</label>
+                    <fieldset id="nghbrhdSatisfactionGreenSpaces">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmStsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                    value=" Extremely satisfied">
+                                <label> Extremely satisfied</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatStsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                    value="Somewhat satisfied">
+                                <label> Somewhat satisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                    value="neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDistsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                    value="Somewhat dissatisfied">
+                                <label> Somewhat dissatisfied </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtrmDistsfdGreenSpaces" type="radio" name="nghbrhdSatisfactionGreenSpaces"
+                                    value="Extremely dissatisfied ">
+                                <label> Extremely dissatisfied </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="ul">
+
+            <div class="labelDiv labelDivCheckBox likertScale">
+
+                <div class="filterDiv nghbrhdChngeStsfactnScale">
+
+                    <h1>How much do you agree or disagree with the following statements</h1>
+
+                    <label>In my new neighborhood, I now have a better public transportation</label>
+                    <fieldset id="betterPublicTransInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgreeBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
+                                    value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatAgreeBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
+                                    value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagreeBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
+                                    value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtrmDisagreeBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
+                                    value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+
+
+                    <label>My new neighborhood has better public spaces</label>
+                    <fieldset id="betterPublicSpacesInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                    value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                    value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                    value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtrmDisagreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
+                                    value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+                    <label>In my new neighborhood, I have better relations with my neighbors</label>
+                    <fieldset id="betterNeighborRelationsInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                    value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmeWhatAgreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                    value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                    value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtremeDisagreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
+                                    value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+
+                    <label>My new neighborhood feels safer than my previous neighborhood</label>
+                    <fieldset id="betterSafetyInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgreeBetter_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                    value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmeWhatAgreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                    value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                    value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtremeDisagreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
+                                    value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+                    <label>My new neighborhood has better green spaces</label>
+                    <fieldset id="betterGreenSpacesInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                    value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmeWhatAgreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                    value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutralBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                    value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtremeDisagreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
+                                    value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                </div>
 
             </div>
-
         </section>
 
 
 
 
 
+        <section class="ul">
+            <div class="labelDiv labelDivCheckBox likertScale">
+
+                <div class="filterDiv otherPrsonNghbrhdChngeStsfactnScale">
+
+                    <h3>Thinking about the person who used to live in that place, how much do you agree or disagree
+                        with the following statements</h3>
+
+
+                    <label>He/she enjoys a better transportation system in his/her new neighborhood</label>
+                    <fieldset id="otherPersonBetterPublicTransInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgree_Other_Person_Better_Transportation" type="radio"
+                                    name="otherPersonBetterPublicTransInNewNeighborhood" value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatgree_Other_Person_Better_Transportation" type="radio"
+                                    name="otherPersonBetterPublicTransInNewNeighborhood" value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutral_Other_Person_Better_Transportation" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhat_Disagree_Other_Person_Better_Transportation" type="radio"
+                                    name="otherPersonBetterPublicTransInNewNeighborhood" value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtreme_Disagree_Other_Person_Better_Transportation" type="radio"
+                                    name="otherPersonBetterPublicTransInNewNeighborhood" value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+
+                            <li>
+                                <input class="labelDiv ____" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
+                                    value="Do not know">
+                                <!--  >>>>>>>>>>>>>>>> -->
+                                <label> I don't know </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+
+
+                    <label>He/she has better public spaces in his/her new neighborhood</label>
+                    <fieldset id="otherPersonBetterPublicSpacesInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgree_Other_Person_Better_Public_Spaces" type="radio"
+                                    name="otherPersonBetterPublicSpacesInNewNeighborhood" value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatAgree_Other_Person_Better_Public_Spaces" type="radio"
+                                    name="otherPersonBetterPublicSpacesInNewNeighborhood" value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutral_Other_Person_Better_Public_Spaces" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Public_Spaces" type="radio"
+                                    name="otherPersonBetterPublicSpacesInNewNeighborhood" value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Public_Spaces" type="radio"
+                                    name="otherPersonBetterPublicSpacesInNewNeighborhood" value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+
+                            <li>
+                                <input class="labelDiv ____" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
+                                    value="Do not know">
+                                <label> I don't know </label>
+                            </li>
+                        </ul>
+                    </fieldset>
 
 
 
 
-        <section class="labelDiv labelDivCheckBox likertScale">
-
-
-            <div class="filterDiv nghbrhdChngeStsfactnScale">
-
-                <h1>Comparing your previous neighborhood to your current neighborhood, how much do you agree or
-                    disagree with the following statements</h1>
-
-                <label>In my new neighborhood, I now have a better public transportation</label>
-                <fieldset id="betterPublicTransInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgreeBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatAgreeBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralBetterPublicTansport" type="radio" name="betterPublicTransInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagreeBetterPublicTansport" type="radio"
-                                name="betterPublicTransInNewNeighborhood" value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtrmDisagreeBetterPublicTansport" type="radio"
-                                name="betterPublicTransInNewNeighborhood" value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-                    </ul>
-                </fieldset>
+                    <label>He/she has better better relations with his/her neighbors in his/her new neighborhood</label>
+                    <fieldset id="otherPersonBetterNeighborRelationsInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgree_Other_Person_Better_Neighbor_Relations" type="radio"
+                                    name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatAgree_Other_Person_Better_Neighbor_Relations" type="radio"
+                                    name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutral_Other_Person_Better_Neighbor_Relations" type="radio"
+                                    name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Neighbor_Relations" type="radio"
+                                    name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Neighbor_Relations" type="radio"
+                                    name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv ____" type="radio" name="otherPersonBetterNeighborRelationsInNewNeighborhood"
+                                    value="Do not know">
+                                <label> I don't know </label>
+                            </li>
+                        </ul>
+                    </fieldset>
 
 
 
-
-                <label>My new neighborhood has better public spaces</label>
-                <fieldset id="betterPublicSpacesInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralAgreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
-                                value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtrmDisagreeBetterPublic_Spaces" type="radio" name="betterPublicSpacesInNewNeighborhood"
-                                value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-
-                <label>In my new neighborhood, I have better relations with my neighbors</label>
-                <fieldset id="betterNeighborRelationsInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmeWhatAgreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
-                                value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtremeDisagreeBetterNeighbor_Relations" type="radio" name="betterNeighborRelationsInNewNeighborhood"
-                                value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-
-
-                <label>My new neighborhood feels safer than my previous neighborhood</label>
-                <fieldset id="betterSafetyInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgreeBetter_Safety" type="radio" name="betterSafetyInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmeWhatAgreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
-                                value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtremeDisagreeBetterNeighbor_Safety" type="radio" name="betterSafetyInNewNeighborhood"
-                                value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-
-                <label>My new neighborhood has better green spaces</label>
-                <fieldset id="betterGreenSpacesInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmeWhatAgreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutralBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
-                                value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtremeDisagreeBetter_GreenSpaces" type="radio" name="betterGreenSpacesInNewNeighborhood"
-                                value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-            </div>
-
-        </section>
+                    <label>His/her new neighborhood feels safer </label>
+                    <fieldset id="otherPersonBetterSafetyInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                    value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatAgree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                    value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutral_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                    value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                    value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv ____" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
+                                    value="Do not know">
+                                <label> I don't know </label>
+                            </li>
+                        </ul>
+                    </fieldset>
 
 
 
 
-
-
-        <section class="labelDiv labelDivCheckBox likertScale">
-
-            <div class="filterDiv otherPrsonNghbrhdChngeStsfactnScale">
-
-                <h1>Thinking about the person who used to live in that place, how much do you agree or disagree with
-                    the following statements</h1>
-
-
-                <label>He/she enjoys a better transportation system in his/her new neighborhood</label>
-                <fieldset id="otherPersonBetterPublicTransInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Transportation" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatgree_Other_Person_Better_Transportation" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutral_Other_Person_Better_Transportation" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhat_Disagree_Other_Person_Better_Transportation" type="radio"
-                                name="otherPersonBetterPublicTransInNewNeighborhood" value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtreme_Disagree_Other_Person_Better_Transportation" type="radio"
-                                name="otherPersonBetterPublicTransInNewNeighborhood" value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-
-                        <li>
-                            <input class="labelDiv ____" type="radio" name="otherPersonBetterPublicTransInNewNeighborhood"
-                                value="Do not know">
-                            <!--  >>>>>>>>>>>>>>>> -->
-                            <label> I don't know </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-
-
-                <label>He/she has better public spaces in his/her new neighborhood</label>
-                <fieldset id="otherPersonBetterPublicSpacesInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Public_Spaces" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatAgree_Other_Person_Better_Public_Spaces" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutral_Other_Person_Better_Public_Spaces" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Public_Spaces" type="radio"
-                                name="otherPersonBetterPublicSpacesInNewNeighborhood" value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Public_Spaces" type="radio"
-                                name="otherPersonBetterPublicSpacesInNewNeighborhood" value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-
-                        <li>
-                            <input class="labelDiv ____" type="radio" name="otherPersonBetterPublicSpacesInNewNeighborhood"
-                                value="Do not know">
-                            <label> I don't know </label>
-                        </li>
-                    </ul>
-                </fieldset>
+                    <label>He/she has better green spaces in her new neighborhood </label>
+                    <fieldset id="otherPersonBetterGreenSpacesInNewNeighborhood">
+                        <ul class="likertUl">
+                            <li>
+                                <input class="labelDiv whyExtrmAgree_Other_Person_Better_Green_Spaces" type="radio"
+                                    name="otherPersonBetterGreenSpacesInNewNeighborhood" value="Extremely agree">
+                                <label> Extremely agree</label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatAgree_Other_Person_Better_Green_Spaces" type="radio"
+                                    name="otherPersonBetterGreenSpacesInNewNeighborhood" value="Somewhat agree">
+                                <label> Somewhat agree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyNeutral_Other_Person_Better_Green_Spaces" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
+                                    value="Neutral">
+                                <label> Neutral </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Green_Spaces" type="radio"
+                                    name="otherPersonBetterGreenSpacesInNewNeighborhood" value="Somewhat disagree">
+                                <label> Somewhat disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Green_Spaces" type="radio"
+                                    name="otherPersonBetterGreenSpacesInNewNeighborhood" value="Extremely disagree ">
+                                <label> Extremely disagree </label>
+                            </li>
+                            <li>
+                                <input class="labelDiv ____" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
+                                    value="Do not know">
+                                <label> I don't know </label>
+                            </li>
+                        </ul>
+                    </fieldset>
 
 
 
 
-                <label>He/she has better better relations with his/her neighbors in his/her new neighborhood</label>
-                <fieldset id="otherPersonBetterNeighborRelationsInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Neighbor_Relations" type="radio"
-                                name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatAgree_Other_Person_Better_Neighbor_Relations" type="radio"
-                                name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutral_Other_Person_Better_Neighbor_Relations" type="radio" name="otherPersonBetterNeighborRelationsInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Neighbor_Relations" type="radio"
-                                name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Neighbor_Relations" type="radio"
-                                name="otherPersonBetterNeighborRelationsInNewNeighborhood" value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv ____" type="radio" name="otherPersonBetterNeighborRelationsInNewNeighborhood"
-                                value="Do not know">
-                            <label> I don't know </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-
-
-                <label>His/her new neighborhood feels safer </label>
-                <fieldset id="otherPersonBetterSafetyInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatAgree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutral_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
-                                value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Safety" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
-                                value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv ____" type="radio" name="otherPersonBetterSafetyInNewNeighborhood"
-                                value="Do not know">
-                            <label> I don't know </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-
-
-
-                <label>He/she has better green spaces in her new neighborhood </label>
-                <fieldset id="otherPersonBetterGreenSpacesInNewNeighborhood">
-                    <ul>
-                        <li>
-                            <input class="labelDiv whyExtrmAgree_Other_Person_Better_Green_Spaces" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
-                                value="Extremely agree">
-                            <label> Extremely agree</label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatAgree_Other_Person_Better_Green_Spaces" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
-                                value="Somewhat agree">
-                            <label> Somewhat agree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyNeutral_Other_Person_Better_Green_Spaces" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
-                                value="Neutral">
-                            <label> Neutral </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whySmwhatDisagree_Other_Person_Better_Green_Spaces" type="radio"
-                                name="otherPersonBetterGreenSpacesInNewNeighborhood" value="Somewhat disagree">
-                            <label> Somewhat disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv whyExtremeDisagree_Other_Person_Better_Green_Spaces" type="radio"
-                                name="otherPersonBetterGreenSpacesInNewNeighborhood" value="Extremely disagree ">
-                            <label> Extremely disagree </label>
-                        </li>
-                        <li>
-                            <input class="labelDiv ____" type="radio" name="otherPersonBetterGreenSpacesInNewNeighborhood"
-                                value="Do not know">
-                            <label> I don't know </label>
-                        </li>
-                    </ul>
-                </fieldset>
-
-
-
-
+                </div>
         </section>
 
 
@@ -1515,7 +1829,7 @@ It was a dark and stormy night...
 
                 <label>Public transportation</label>
                 <fieldset id="otherPersonPublicTransporSatisfactionLevel">
-                    <ul>
+                    <ul class="likertUl">
                         <li>
                             <input class="labelDiv whyOtherPerson_ExtremeStisfied_Public_Transportation" type="radio"
                                 name="otherPersonPublicTransporSatisfactionLevel" value="Extremely satisfied">
@@ -1554,7 +1868,7 @@ It was a dark and stormy night...
 
                 <label>Public spaces</label>
                 <fieldset id="otherPersonPublicSpacesSatisfactionLevel">
-                    <ul>
+                    <ul class="likertUl">
                         <li>
                             <input class="labelDiv whyOtherPerson_ExtremeStisfied_Public_Spaces_" type="radio" name="otherPersonPublicSpacesSatisfactionLevel"
                                 value="Extremely satisfied">
@@ -1591,10 +1905,9 @@ It was a dark and stormy night...
 
 
 
-
                 <label>Neighbors</label>
                 <fieldset id="otherPersonNeighborsSatisfactionLevel">
-                    <ul>
+                    <ul class="likertUl">
                         <li>
                             <input class="labelDiv whyOtherPerson_ExtremeStisfied_Neighbors" type="radio" name="otherPersonNeighborsSatisfactionLevel"
                                 value="Extremely satisfied">
@@ -1634,7 +1947,7 @@ It was a dark and stormy night...
 
                 <label>Noise</label>
                 <fieldset id="otherPersonNoiseSatisfactionLevel">
-                    <ul>
+                    <ul class="likertUl">
                         <li>
                             <input class="labelDiv whyOtherPerson_ExtremeStisfied_Noise_" type="radio" name="otherPersonNoiseSatisfactionLevel"
                                 value="Extremely satisfied">
@@ -1671,7 +1984,7 @@ It was a dark and stormy night...
 
                 <label>Green Spaces</label>
                 <fieldset id="otherPersonGreenSpacesSatisfactionLevel">
-                    <ul>
+                    <ul class="likertUl">
                         <li>
                             <input class="labelDiv whyOtherPerson_ExtremeStisfied_Green_Spaces_" type="radio" name="otherPersonGreenSpacesSatisfactionLevel"
                                 value="Extremely satisfied">
@@ -1704,7 +2017,6 @@ It was a dark and stormy night...
                         </li>
                     </ul>
                 </fieldset>
-
         </section>
 
 
@@ -3397,7 +3709,6 @@ It was a dark and stormy night...
 
 
 
-
         <section>
 
             <div class="labelDiv seeYrslfOpertingBsnsInFuture labelDivText">
@@ -3911,19 +4222,31 @@ It was a dark and stormy night...
     </form>
 
 
-    </div>
 
 
-    <div id="mapDiv">
-        <div id="feed"></div>
-        <div id="map"></div>
-        <div id="streetsMap"></div>
-        <div id="tooltip"></div>
-        <div id="imageTooltip"></div>
-        <div id="container" class="svg-container"></div>
-    </div>
 
-    <div id="typedText"></div>
+
+
+    <svg id="arrowSvg" height="80" width="194">
+
+        <text id="nextText" x="147" y="42" font-size="16" font-family='Nerko One'>next</text>
+
+        <text id="prevText" x="16" y="42" font-size="16" font-family='Nerko One'>prev</text>
+
+        <path id="nextSecArrow" d="M 189 40 L 145 75 , 145 5  Z" stroke="black" fill="white" stroke-opacity="60%"
+            stroke-linejoin="round" stroke-width=".5" fill-opacity="0.4"></path>
+        <!-- (x,y) -5, -50, -50-->
+        <path id="prevArrow" d="M 5 40 L 50 75 , 50 5  Z" stroke="black" fill="white" stroke-opacity="60%"
+            stroke-linejoin="round" stroke-width=".5" fill-opacity="0.4"></path>
+
+    </svg>
+
+
+
+    </div> <!-- IS THIS OUT OF PLACE???? -->
+
+
+
 
 
     <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>

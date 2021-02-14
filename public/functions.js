@@ -1,8 +1,27 @@
 
 function filterSelection(resValues) {
 
-    var arrayOfLabelsWithFilterWord = resValues[0]; // represents the filterDivs corresponding to the elements that was selected by the user.
-    var displayedLabel = resValues[1];
+    // Select SVG, arrow elements and text elements to be re positioned 
+    let nextArrow = document.getElementById("nextSecArrow");
+    let nextText = document.getElementById("nextText");
+
+
+    let prevArrow = document.getElementById("prevArrow");
+    let prevText = document.getElementById("prevText");
+
+
+    //let arrowSvg = document.getElementById("arrowSvg");
+
+    let arrowSvgBoundingBox = arrowSvg.getBoundingClientRect();
+    let arrowSvgHeight = arrowSvgBoundingBox.height;
+    let arrowSvgWidth = arrowSvgBoundingBox.width;
+
+    //console.log(arrowSvgBoundingBox)
+
+
+    var arrayOfLabelsWithFilterWord = resValues[0]; // empty array 
+    var displayedLabel = resValues[1]; // array: class="filterDiv nghbrhdStsfactnScale" (the div that contains the h1 labels and fieldsets)
+
 
 
     function moveDisplayedLabels() { // this function will simply move the elements that were being displayed to the right.
@@ -20,10 +39,8 @@ function filterSelection(resValues) {
                 }
 
 
-
             }
         })
-
     }
 
 
@@ -32,26 +49,28 @@ function filterSelection(resValues) {
 
 
         for (let r = 0; r < displayedLabel.length; r++) { // when we get to the likert scale, this loop will run just once.
-            let elementParent = displayedLabel[r].parentElement; // represents the labelDiv of the filterDivs that were being displayed.
+            let elementParent = displayedLabel[r].parentElement;
 
+            console.log(elementParent); // elementParent: div class="labelDiv labelDivCheckBox likertScale " ( contains a div, h3, labels and fieldsets )
 
             if (elementParent.className.indexOf("likertScale") == -1) {
 
                 elementParent.className = elementParent.className.replace("show", "");
 
-
-
-
-
             } else if (elementParent.className.indexOf("likertScale") > -1) {
 
+                console.log("pass likert") // logged when it is supposed to. 
 
-                const sectionDiv = elementParent.children; // sectionDiv that encompases all the options
-                const divLabels = sectionDiv[0].childNodes; // 
+                const sectionDiv = elementParent.children;
+                const divLabels = sectionDiv[0].childNodes;
+
+
+                console.log(divLabels); // contains all the h1, labels and fieldset elements 
 
 
                 const checkedInputs = []; // this containts all the input elements under the likertScale that were checked. In their class name, they contain the filter word to display the next elements. 
                 elementParent.className = elementParent.className.replace("show", "")
+
 
                 for (var i = 0; i < divLabels.length; i++) {
 
@@ -65,65 +84,313 @@ function filterSelection(resValues) {
 
                             if (inputs.checked) {
                                 //console.log("lolis");
-                                const filterWord = inputs.className.split(" ")[1] // We get the filter word of the elements that were checked
+                                const filterWord = inputs.className.split(" ")[1]
                                 checkedInputs.push(filterWord);
                             }
                         }
                     }
                 }
 
-                console.log(checkedInputs);
+                console.log(checkedInputs) // contains filter words 
 
+
+                // Show elements that contain filter word
                 const filterDivs = document.querySelectorAll(".filterDiv");
-                // THE ARROW EVENT FUNCTION SHOULD BE CALLED AFTER THE FOLLOWING LOOP FINISHES USING A PROMISE?
-                for (var b = 0; b < checkedInputs.length; b++) { // iterate through all checkedInputs. In total there are 4 
 
-                    // console.log(checkedInputs[b]) // prints what it is supposed to print 
-                    for (var u = 0; u < filterDivs.length; u++) { // iterate through all filterDivs. In total there are around 80. This iteration will be repeated 4 times. 
-                        // console.log(filterDivs[u]); // prints what it is supposed to print.
-                        let elementParent = filterDivs[u].parentElement; // elementParent is the element with labelDiv in its class name
-                        //console.log(elementParent);
-                        if (filterDivs[u].className.indexOf(checkedInputs[b]) > -1) { // we are entering this if statement 4 times, and each time, we print ALL 
+                const labelsWithFilterWord = []
+                for (var b = 0; b < checkedInputs.length; b++) {
+
+                    for (var u = 0; u < filterDivs.length; u++) {
+                        let elementParent = filterDivs[u].parentElement;
+                        if (filterDivs[u].className.indexOf(checkedInputs[b]) > -1) {
+                            // console.log(filterDivs[u]);// Prints all the elements that contain the filter word
                             elementParent.className = elementParent.className + " show";
+                            labelsWithFilterWord.push(filterDivs[u]);
                         }
                     }
                 }
 
-                //arrowEvent(checkedInputs); //<<<<<-----
+                const filterDivParent = labelsWithFilterWord[0].parentElement;
+                const labelDivSectionParent = filterDivParent.parentElement;
+
+                const viewportwidth = window.innerWidth;
+
+                console.log(labelDivSectionParent);
+
+
+
+                let labelDivSectionParentCoords
+
+                labelDivSectionParentCoords = labelDivSectionParent.getBoundingClientRect()
+
+
+                // Reposition section 
+                const viewportwidthHalf = viewportwidth / 2;
+                const elementHalf = labelDivSectionParentCoords.width / 2;
+                const sectionPosition = viewportwidthHalf - elementHalf;
+                labelDivSectionParent.style.left = sectionPosition + "px";
+
+
+                labelDivSectionParentCoords = labelDivSectionParent.getBoundingClientRect()
+
+
+                //Re position the arrow svg downwards
+                const downwardsMove = 17 * (labelDivSectionParent.children.length); // -2 
+                arrowSvg.style.top = downwardsMove + "px";
+
+
+                //Re size the arrow svg horizontally 
+                arrowSvg.style.width = labelDivSectionParentCoords.width + "px";
+
+
+                // Re position arrow svg on x axis
+                arrowSvg.style.left = labelDivSectionParentCoords.x + "px";
+
+
+
+
+                // Set new d values for the arrow
+
+                let nextArrow = document.getElementById("nextSecArrow");
+                let nextText = document.getElementById("nextText");
+
+                const d = `M ${labelDivSectionParentCoords.width - 5} 40 L ${labelDivSectionParentCoords.width - 50} 75, ${labelDivSectionParentCoords.width - 50} 5 Z`;
+                //  x=-5, x=-50, x=-50
+
+                // Set new x value for the text label 
+                const textXCoord = labelDivSectionParentCoords.width - 46;
+
+                // nextArrowDattr.setAttribute('d', d);
+                nextArrow.setAttribute('d', d);
+                nextText.setAttribute('x', textXCoord);
+
+
+
+
+
+
+                // resize arrow svg and 
+
+
+
+
 
                 arrowEvent().then((resValue) => { // THIS WILL BE TRIGGERED WHEN THE DISPLAYED ELEMENT IS THE LIKER SCALE
-
                     var labelsWithFilterWord = resValue[0];
                     var displayedLabel = resValue[1];
                     filterSelection([labelsWithFilterWord, displayedLabel]);
                 })
 
-
             }
         }
 
-        addClass(arrayOfLabelsWithFilterWord, 300);
+
+        //console.log(displayedLabel);
+        if (displayedLabel[0].parentElement.className.indexOf("likertScale") === -1) {
+            addClass(arrayOfLabelsWithFilterWord, 300);
+        }
+
+
 
     })
+
+
+
+
 }
 
 
 
 
 function addClass(elements, labelLength) { // elements ---->>> arrayOfLabelsWithFilterWord
+
+
+
     function addShow() {
         return new Promise((resolve, reject) => {
+
+
+            // ===>> Show the elements that contain the filter word
+
+            console.log(elements.length);
             for (var i = 0; i < elements.length; i++) {
-                var elementParent = elements[i].parentElement
+                var elementParent = elements[i].parentElement;// this represents labelDivs
                 elementParent.className = elementParent.className + " show"; // The word "show" is being added here to all labels with the filter word. This is being done before we call arrowEvent again.
-                //elementParent.style.width = labelLength + 70 + "px"; // ---->> not doing anything. 
-                resolve("Sucess"); // should I add an event delay here...
+
             }
+
+            let labelDivElement = elements[0].parentElement;
+
+            console.log(labelDivElement);
+
+            // just text input: parentElement = label div 
+            // text and check points with header: class="labelDiv headingQuestion show"
+            // likert scale:  parentElement =  <div class="labelDiv labelDivCheckBox likertScale">
+
+
+
+            if (labelDivElement.className.indexOf("headingQuestion") > -1) {// <<< re position header. Will only enter here with questions with header.
+                var labelDivElementHeaderInSect = elements[1].parentElement;
+                var sectionElementHeaderInSect = labelDivElementHeaderInSect.parentElement; // section element to be re positioned 
+
+                //console.log(elements[1]);
+
+                const elementDimentions = elements[1].getBoundingClientRect();//here we are getting the dimentions of the filetDiv 
+                const headerDimensions = labelDivElement.getBoundingClientRect(); // labelDiv dimensions 
+                const viewportwidth = window.innerWidth;
+
+                // Reposition section 
+                var viewportwidthHalf = viewportwidth / 2;
+                var elementHalf = elementDimentions.width / 2;
+                var sectionPosition = viewportwidthHalf - elementHalf;
+                sectionElementHeaderInSect.style.left = sectionPosition + "px";
+
+                // Reposition the header
+                var headerHalf = headerDimensions.width / 2;
+                var headerPosition = viewportwidthHalf - headerHalf;
+                labelDivElement.style.left = headerPosition + "px";
+
+                //console.log(labelDivElement);
+
+            } else {
+                let sectionElement = labelDivElement.parentElement;
+                //console.log(sectionElement);
+            }
+
+
+
+
+
+            // ===>> The following two if statements will resize and reposition the arrow svg, the arrow and the text arrows.
+            if (elements.length === 1 && elements[0].parentElement.className.indexOf("likertScale") === -1) {
+
+                // we'll only enter here if we are in a text element with no header
+
+                const originalPosition = 220.90625;
+
+                arrowSvg.style.top = originalPosition;
+
+
+            } else { //<<<<<< PASS LIKERT WE'LL ENTER HERE 
+
+
+
+                let nextArrow = document.getElementById("nextSecArrow");
+                let nextText = document.getElementById("nextText");
+
+
+                let elementBoundingBox;
+
+                // Get the correct element bounding client rect depending on whether the shown element is likert scale or not 
+                if (elements[0].parentElement.className.indexOf("likertScale") > -1) {
+
+
+                    // If we are in a liker scale 
+                    //console.log(elements[0].parentElement.getBoundingClientRect());
+                    //console.log(elements[0]);
+
+
+                    var r = elements[0].parentElement;
+
+
+                    var pp = r.parentElement;
+
+
+                    console.log(elements[0].children[2]);
+
+
+                    elementBoundingBox = elements[0].getBoundingClientRect(); // In the case of the likert scale, "elements[0]" will represent the div element that contains the h1, labels and fieldsets
+
+
+                    console.log(elementBoundingBox);
+
+
+                    // elementBoundingBox is showing different coordinates from the object when I see it on the page.
+
+
+                    // Re position the entire element to the middle of the page 
+                    const viewportwidthHalf = window.innerWidth / 2;
+                    const elementWidthHalf = elementBoundingBox.width / 2;
+                    const elementXposition = viewportwidthHalf - elementWidthHalf;
+                    console.log(viewportwidthHalf);
+                    console.log(elementWidthHalf);
+                    console.log(elementXposition);
+                    const parent = elements[0].parentElement;
+                    const parentParent = parent.parentElement;// section element. 
+                    //console.log(elementBoundingBox.width);
+                    parentParent.style.left =  elementXposition+ "px"; //elementXposition
+
+                    // When I added 100 +"px" the positioned changed satisfyingly
+
+
+                    //Re position the arrow svg downwards
+                    const originalPosition = 220.90625;
+                    const downwardsMove = 85 * (elements[0].children.length); // -2 
+                    arrowSvg.style.top = downwardsMove + "px";
+
+
+
+
+
+
+                    elementBoundingBox = parentParent.getBoundingClientRect();
+
+
+
+                } else {//<<<<<<<<<<<<<<<< PASS LIKERT WE'LL ENTER HERE 
+
+                    elementBoundingBox = elements[1].getBoundingClientRect(); // By adding 1 instead of 0 we will be getting the BoundingClientRect of the fist label and not the header. 
+
+                    //console.log(elements[1].parentElement.getBoundingClientRect());
+
+
+                    //Re position the arrow svg downwards
+                    const originalPosition = 220.90625;
+                    const downwardsMove = 74 * (elements.length - 1);// Minus one because we want to exclude the header.
+                    arrowSvg.style.top = originalPosition + downwardsMove;
+
+                }
+
+
+                let elelementHeight = elementBoundingBox.height;
+                let elementWidth = elementBoundingBox.width;
+                let elementXposition = elementBoundingBox.x;
+
+
+
+                //Re size the arrow svg horizontally 
+                arrowSvg.style.width = elementWidth + "px";
+
+                // Re position arrow svg on x axis
+                arrowSvg.style.left = elementXposition + "px";
+
+
+                // Set new d values for the arrow
+                const d = `M ${elementWidth - 5} 40 L ${elementWidth - 50} 75, ${elementWidth - 50} 5 Z`;
+                //  x=-5, x=-50, x=-50
+
+                // Set new x value for the text label 
+                const textXCoord = elementWidth - 46;
+
+                // nextArrowDattr.setAttribute('d', d);
+                nextArrow.setAttribute('d', d);
+                nextText.setAttribute('x', textXCoord);
+
+
+            }
+
+            resolve("Sucess", elements); // should I add an event delay here...
+
         })
     }
 
+
+
     addShow().then((resValue) => {
+
         return arrowEvent();
+
+
     }).then((resValue) => {
 
         var labelsWithFilterWord = resValue[0];
@@ -141,16 +408,36 @@ function validateForm(displayedElement) {
     var valid = true;
 
 
-    if (displayedElement.length == 1) {
+    if (displayedElement.length == 1 || displayedElement.length == 2) {
 
-        // In the following we are saying "if the user has not written anything, then return FALSE"
-        var inputValue = displayedElement[0].children[0].value;
-        if (inputValue == "") {
-            valid = false;
-            return [valid, 0];
-        } else {
-            return [valid, 0];
+        let inputValue
+
+        if (displayedElement.length == 1) {
+
+            inputValue = displayedElement[0].children[0].value;
+
+            console.log(inputValue); // This prints undefined
+
+            if (inputValue == "") {
+                valid = false;
+                return [valid, 0];
+            } else {
+                return [valid, 0];
+            }
+
+        } else if (displayedElement.length == 2) {
+
+            inputValue = displayedElement[1].children[0].value;
+
+            if (inputValue == "") {
+                valid = false;
+                return [valid, 1]; // We return 1 here because if there is a header and a text input, we want the text input to be resolved in the arrowEvent()
+            } else {
+                return [valid, 1];
+            }
         }
+
+
 
 
     } else if (displayedElement[0].parentElement.className.indexOf("seeYrslfOpertingBsnsInFuture") > -1 || displayedElement[0].parentElement.className.indexOf("submitButton") > -1) {
@@ -177,6 +464,12 @@ function validateForm(displayedElement) {
 
         for (var v = 0; v < displayedElement.length; v++) {
 
+            //console.log(displayedElement[v].parentElement.className);
+
+            if (displayedElement[v].parentElement.className.indexOf("headingQuestion") > -1) {
+                continue;
+            }
+
             let displayedElementNextSibling = displayedElement[v].nextElementSibling; // here we are getting the input value, which we will need to know if the input was checked. 
 
             // the moment we find an input that was checked we will return true
@@ -200,18 +493,61 @@ function validateForm(displayedElement) {
 
 
 
-function arrowEvent() { // filterWords = ""
+function arrowEvent() {
 
-    let imageDiv = document.getElementById("divImage");
+
+    let imageDiv = document.getElementById("nextSecArrow");
+    let nextText = document.getElementById("nextText");
+
+    let prevArrow = document.getElementById("prevArrow");
+    let prevText = document.getElementById("prevText");
+
     let labelsFilterDiv = document.querySelectorAll(".filterDiv");
+
     let labelsWithFilterWord = [];
     let labelsShown = [];
 
+
+    const arrowMouseover = function (textElement, arrowElement) {
+        textElement.style.fill = "E48878";
+        arrowElement.style.fill = "red";
+        arrowElement.style.fillOpacity = "0.1";
+    }
+
+    const arrowMouseout = function (textElement, arrowElement) {
+        textElement.style.fill = "black";
+        arrowElement.style.fill = "white";
+        arrowElement.style.fillOpacity = "0.4";
+    }
+
+
+    // Event listeners to next arrow
+    imageDiv.addEventListener("mouseover", () => {
+        arrowMouseover(nextText, imageDiv);
+    });
+
+    imageDiv.addEventListener("mouseout", () => {
+        arrowMouseout(nextText, imageDiv);
+    });
+
+    // Event listeners to prev arrow
+    prevArrow.addEventListener("mouseover", () => {
+        arrowMouseover(prevText, prevArrow);
+    });
+
+    prevArrow.addEventListener("mouseout", () => {
+        arrowMouseout(prevText, prevArrow);
+    });
+
+
+
+
     return new Promise((resolve, reject) => {
 
-        function arrowEventHandler() {
+        function arrowEventHandler() { // This function will only be triggered when there is a click on the arrow 
 
             for (var i = 0; i < labelsFilterDiv.length; i++) {
+
 
                 let displayedLabeldiv = labelsFilterDiv[i].parentElement; //  labelDiv of the corresponding filterDiv element
                 let displayedLabelSection = displayedLabeldiv.parentElement;
@@ -219,59 +555,76 @@ function arrowEvent() { // filterWords = ""
 
 
 
-                if (displayedLabeldiv.className.indexOf("show") > -1) { // HERE WE ARE CHECKING IF THE LABELDIV ELEMENT CONTAINS THE WORD "SHOW" 
+                if (displayedLabeldiv.className.indexOf("show") > -1) {
 
-                    // ***** WHEN WE GET TO THE QUESTIONS AFTER THE LIKERT SCALE, WE WILL ENTER THIS IF STATEMENT 4 TIMES, BECAUSE THERE ARE FOUR LABELS WITH THE WORD "SHOW" 
 
-                    labelsShown.push(element); // push the filterDiv element if its parent contains the word "show".
 
-                    var filterWord = displayedLabeldiv.className.split(" ")[1];  // ***** THE FILTER WORD WILL BE THE SAME FOR 4 TIMES "seeYrslfOpertingBsnsInFuture"
+                    console.log(displayedLabeldiv); // div class="labelDiv labelDivCheckBox likertScale " ( the div that contains the div h1 labels and fieldset )
 
-                    //console.log(filterWord); // GOOD
+                    labelsShown.push(element);
+
+                    console.log(element);// class="filterDiv nghbrhdStsfactnScale" (the div that contains the h1 labels and fieldsets)
+
+                    var filterWord = displayedLabeldiv.className.split(" ")[1];
 
                     let labelsWithFilterWordIndividualArray = [] // here we are storing all the 
 
-                    for (let q = 0; q < labelsFilterDiv.length; q++) {
+                    console.log(filterWord); // labelDivCheckBox
 
-                        if (labelsFilterDiv[q].className.indexOf(filterWord) > -1) {
-                            labelsWithFilterWordIndividualArray.push(labelsFilterDiv[q]); // ***** we will push all filterDivs that contain the filter word
+
+
+                    for (let q = 0; q < labelsFilterDiv.length; q++) { // all the labels with filter div 
+
+                        if (labelsFilterDiv[q].className.indexOf(filterWord) > -1) { // if the filter div's class name conatins "labelDivCheckBox"
+
+                            labelsWithFilterWordIndividualArray.push(labelsFilterDiv[q]);
                         }
                         if (q === labelsFilterDiv.length - 1) {
-                            labelsWithFilterWord.push(labelsWithFilterWordIndividualArray);
 
+                            labelsWithFilterWord.push(labelsWithFilterWordIndividualArray);
                         }
+
                     }
 
-                    //console.log(labelsWithFilterWord);
-
-                    // we will enter this if statement for as many elements are displayed 
-                    // and every time we enter it, there will be a new filter word
-                    // and a new list of filterDics with the filter words will be pushed to labelsWithFilterWord 
-
+                    console.log(labelsWithFilterWord)
 
                 } else if (i === labelsFilterDiv.length - 1) { // when the iteration reaches the end, we will validate whether the user has given an input or not 
 
-                    var formValidation = validateForm(labelsShown); // ***** labelsShown WILL CONTAIN THE SAME FILTER DIV 4 TIMES. 
+                    console.log(labelsShown); // labelsShown:  class="filterDiv nghbrhdStsfactnScale" (the div that contains the h1 labels and fieldsets)
+
+
+                    var formValidation = validateForm(labelsShown);  // In the first click ===>> labelsShown contains just the name label 
+
 
                     var valid = formValidation[0]; // contains true or false depending on whether the user gave an input or not 
                     var arrayIndex = formValidation[1]; // represents the index of the checked values 
 
+                    console.log(valid); // true
+                    console.log(arrayIndex); // 0 
+
                     if (valid) {
 
-                        // the number of lists inside "labelsWithFilterWord" will be the same as the number of elements inside "labelsShown".
 
                         imageDiv.removeEventListener("click", arrowEventHandler);
-                        resolve([labelsWithFilterWord[arrayIndex], labelsShown]); // we resolve the label that was checked (in the case of the checkboxes)
+                        console.log(labelsWithFilterWord[arrayIndex]); // empty array 
+                        resolve([labelsWithFilterWord[arrayIndex], labelsShown]);
+
 
                     } else {
                         imageDiv.removeEventListener("click", arrowEventHandler)
                         alert("insert input")
+
+
+
 
                         arrowEvent().then((resValue) => {
                             var labelsWithFilterWord = resValue[0];
                             var displayedLabel = resValue[1];
                             filterSelection([labelsWithFilterWord, displayedLabel]);
                         })
+
+
+
 
                     }
                 }
@@ -285,9 +638,11 @@ function arrowEvent() { // filterWords = ""
 
         imageDiv.addEventListener("click", arrowEventHandler)
 
+        console.log("==================")
     })
-}
 
+
+}
 
 
 arrowEvent().then((resValue) => {
@@ -295,18 +650,14 @@ arrowEvent().then((resValue) => {
 
     var labelsWithFilterWord = resValue[0];
     var displayedLabel = resValue[1];
+
+    console.log(labelsWithFilterWord); // empty array
+    console.log(displayedLabel); // array: class="filterDiv nghbrhdStsfactnScale" (the div that contains the h1 labels and fieldsets)
+
     filterSelection([labelsWithFilterWord, displayedLabel]); // labelsWithFilterWord represents the labels that correspond to the element that selected by the user.
 
 
 });
-
-
-
-
-
-
-
-
 
 
 
