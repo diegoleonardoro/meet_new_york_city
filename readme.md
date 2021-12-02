@@ -1,6 +1,6 @@
-# NYC Inputs API
+# Meet NYC
 
-> Backend API for NYC Inputs application, which is a survey website
+> Platform for meeting people in NYC 
 
 ## Usage
 
@@ -21,6 +21,6 @@ npm run dev
 npm start
 ```
 
-- Version: 1.0.0
-- License: MIT
+- Version: 1.0.0.0.0
+
 

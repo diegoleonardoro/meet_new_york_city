@@ -1,0 +1,532 @@
+/* USED */
+/* common styles */
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Josefin Sans', sans-serif;
+    outline:none;
+  }
+  
+  html{
+    /*the default html font size is 16px, but we want to set the html font size to be 10px, so we can use rem  */
+    /* 10px/16px = .625 * 100 = 62.5 %  */
+    font-size : 62.5%;
+  }
+  body{
+    background-color: #f0f8fd;
+  }
+  
+  /* end of common styles */
+
+
+  .profile-page{
+      height:100%;
+      height:100vh;
+  }
+
+
+  /* profile navigation */
+  .profile-nav{
+    position:fixed;
+    width:100%;
+    height:6.5rem;
+    background-color: #fff;
+    display:flex;
+    justify-content: center;
+    box-shadow: 0 0 0.7rem rgba(0,0,0, 0.3);
+
+
+    margin-bottom:1rem;
+    
+  }
+  .icons{
+    display:flex;
+    align-items: center;
+  }
+  .icons a {
+      text-decoration: none;
+      margin-right:7rem;
+      font-size:2.5rem;
+      color:#9e9a9a;
+  }
+  .icons .active{
+      color: #79BCFF;
+  }
+  .search-bar{
+      display:flex;
+      align-items:center;
+      position:relative;
+  }
+  .search-bar-input{
+      width:35rem;
+      height:3rem;
+      border:0.1rem solid #d6e1e9;
+      border-radius: 3rem;
+      background-color: #d6e1e9;
+      padding-left:5rem;
+      transition: all 0.3s;
+  }
+  .search-bar-input:focus{
+      background-color: #fff;
+      border-color: #79BCFF;
+  }
+  .search-bar i{
+      position:absolute;
+      font-size: 1.6rem;
+      left:1.5rem;
+      color:#9e9a9a;
+  }
+  .user{
+      margin-left:3rem;
+      display:flex;
+      align-items:center;
+      cursor: pointer;
+
+  }
+  .user-image-wrapper{ 
+      width:4rem;
+      height:4rem;
+  }
+  .user-image-wrapper img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      border-radius: 50%;
+  }
+  .user-link{
+    margin:0 1rem;
+    text-decoration:none;
+    font-size: 1.8rem;
+    color:#444;
+  }
+    .user i {
+     color:#444;
+    font-size:1.6rem;
+}
+/* end of profile navigation */
+
+
+
+/* profile content*/
+.profile-content{
+    display:grid;
+    grid-template-columns: 8rem 
+    70rem 40rem minmax(5rem, 1fr);
+    grid-template-rows: repeat(2, min-content);
+    padding-top:6.5rem;
+
+    
+}
+.profile-header{
+    grid-column: 2/3;
+    grid-row:1/2;
+    background-color: #fff;
+    margin-top:1.5rem;
+}
+
+.header-top{
+    display:flex;
+
+    border-bottom: 0.1rem solid #eee;
+    padding: 1.5rem;
+}
+
+.header-top h4{
+    font-size: 1.5rem;
+    margin-top:1rem;
+}
+.header-top p{
+    font-size: 1.5rem;
+    margin-left:1rem;
+    margin-top:1rem;
+}
+
+
+.header-top i{
+    font-size:3.5rem;
+    color:#79BCFF;
+    margin-right:1.5rem;
+}
+
+.header-introduction{
+    display:flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 0.1rem solid #eee;
+    border-radius: 1rem;
+    margin:3rem 0;
+
+}
+
+.header-img-wrapper{
+    width: 4rem;
+    height:4rem;
+    margin-right: 1.5rem;
+}
+
+
+.header-img-wrapper img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius: 50%;
+}
+
+
+.self-introduction{
+    width:55rem;
+    height:auto;
+    /*border: 0.1rem solid #d6e1e9;*/
+    margin-left:7%;
+    padding: 0.4rem 1.5rem;
+    display:flex;
+    flex-direction: column;
+}
+
+.self-intro-p{
+    margin: 1rem 0;
+    line-height: 1.8;
+    font-size: 1.5rem;
+    border: 0.1rem solid #d6e1e9;
+    border-radius: 1rem;
+    padding:1rem;
+}
+.self-introduction-inner-div{
+    margin: 0.8rem 0;
+    line-height: 1.8;
+    font-size: 1.5rem;
+    border: 0.1rem solid #d6e1e9;
+    padding:1rem;
+}
+
+.self-introduction-inner-div .circle{
+    font-size:1rem;
+    margin-top:1.8rem;
+}
+.three-words-div{
+    display:flex;
+    justify-content: space-evenly;
+}
+.arrow-paragraph-div{
+    display:flex;
+}
+.arrow-paragraph-div p{
+    font-size:1.5rem;
+    margin-top:0.9rem;
+}
+.self-introduction .self-intro-p:nth-child(3){
+    align-self:center; 
+    background-color: #D6EAF8;
+    padding:1rem;
+    
+}
+
+/*
+.self-introduction .self-intro-p:nth-child(1){
+    border-bottom: double;
+}
+.self-introduction .self-intro-p:nth-child(4){
+    border-top: double;
+}
+.self-introduction .self-intro-p:nth-child(6){
+    border-top: double;
+}
+*/
+
+
+.threeWordsNhood{
+    display:flex;
+    justify-content:space-evenly;
+}
+
+
+/*
+.introHighlight{
+    background-color: #D6EAF8;
+    padding: 0.5rem 0.5rem;
+}
+*/
+
+
+
+
+
+.header-introduction i{
+    font-size: 2.5rem;
+    color: #79BCFF;
+    margin:1rem;
+}
+
+.neighborhood-descriptions{
+    grid-column: 2/3;
+    grid-row: 2/-1;
+    background-color: #fff;
+    width:auto;
+ 
+}
+.neighborhood-descriptions #placesToShowHeader{
+    font-size: 1.5rem;
+    width:auto;
+    margin-left:20%;
+    margin-top:2rem;
+  
+   
+}
+.neighborhood-description{
+    display:flex;
+ 
+    border-bottom:0.1rem solid #eee;
+    margin-left:5%;
+}
+
+
+
+
+.neighborhood-content{
+
+}
+/*
+.user-avatar{
+    width:6rem;
+    height:6rem;
+}
+.user-avatar{
+    width: 100%;
+    height:100%;
+    object-fit:cover;
+    border-radius: 50%;
+}
+*/
+.neighborhood-info{
+    display:flex;
+    margin:1rem 0;
+    align-items:center;
+}
+.neighborhood-info h4{
+    font-size:1.4rem;
+    margin-right:0.5rem;
+}
+.neighborhood-info i{
+    font-size:1.6rem;
+    color:#79BCFF;
+    margin-right:0.5rem;
+}
+.neighborhood-info span{
+    font-size:1.6rem;
+}
+.neihborhood-text{
+    font-size:1.6rem;
+    margin-bottom:1rem;
+}
+.neihborhood-image{
+    display:flex;
+    width:60rem;
+    height:30rem;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+/*
+.neihborhood-image .fa-arrow-left{
+    justify-self: flex-start;
+}
+.neihborhood-image .fa-arrow-right{
+    justify-self: flex-end;
+}
+*/
+
+
+
+.neihborhood-image .divOfImages img{
+    width:100%; /*100%*/
+    height:100%;
+    object-fit:cover;
+    border-radius:1rem;
+}
+
+
+
+.neihborhood-image i{
+    align-self: center;
+    font-size:3rem;
+    color:#79BCFF;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+.neihborhood-icons{
+    margin-top:1rem;
+}
+.neihborhood-icons i{
+    font-size:1.8rem;
+    color:#868383;
+    margin-right: 6rem;
+}
+
+/*
+
+.neighborhood-details
+    .neighborhood-details-heading
+    .neighborhood-details-buttons -> flex
+        .explore-detail-btn-wraper
+            .explore-detail-btn
+            . <i>
+            . <span>
+        .explore-detail-btn-wraper
+            .explore-detail-btn
+            . <i>
+            . <span>
+*/
+
+
+
+.neighborhood-details{
+    position:fixed;
+    top:8rem;
+    left:58%;
+    background-color:#fff;
+    width:50rem;
+    display:flex;
+    flex-direction:column;
+    align-items: center; 
+}
+.neighborhood-details-heading{
+    padding:1rem;
+    font-size:1.8rem;
+    border-bottom:0.1rem solid #eee;
+}
+.neighborhood-details-buttons{
+    /*
+    display:flex;
+    flex-direction:column;
+    align-items: center; 
+     position:relative;
+    */
+}
+.explore-detail-btn-wraper{
+    margin:1rem 0;
+    width:45rem;
+    height:auto;
+    position:relative;
+}
+.explore-detail-btn{
+    width:100%;
+    height:3rem;
+    background-color:#fff;
+    border:0.1rem solid #d6e1e9;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition:all 0.3s;
+    display:block;
+}
+.explore-detail-btn:hover{
+    background-color: #d6e1e9;
+}
+.explore-detail-btn-wraper i{
+    position:absolute;
+    left:93%;
+    top:1rem;
+}
+.explore-detail-div{
+    /*margin-top:15%;*/
+    /*border: solid #444;*/
+    margin: 1rem 0.5rem;
+    width:50rem;
+    height:auto;
+
+   /* display:none;*/
+}
+
+#nhd-places-map-svg{
+    margin-left:10%;
+    
+}
+.bar{
+    cursor: pointer;
+}
+.factorDescription{
+    cursor: pointer;
+}
+
+.highlightText {
+    font-weight: 700;
+    color: #0769ad;
+}
+   
+.highlightBar {
+    
+    fill: #0769ad;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.show-more-link{
+    margin:2rem 1rem;
+
+}
+.show-more-link a{
+    text-decoration:none;
+    color: #79BCFF;
+    font-size:1.5rem;
+ }
+ .profile-footer{
+    /* background-color: #f0f8fd;*/
+ }
+ .profile-footer ul{
+     list-style:none;
+     display:flex;
+     padding: 2rem 0;
+ }
+
+ .profile-footer a{
+     text-decoration:none;
+     font-size:1.5rem;
+     color:#868383;
+     margin:0 0.7rem;
+ }
+/* end of  profile content*/
+
+
+
+
+
+
+
+
+
+/* post new place button */
+.post-btn{
+    position:fixed;
+    bottom:2rem;
+    left:68%;
+    width:20rem;
+    padding:1.5rem 1rem;
+    background-color: #79BCFF;
+    color:#fff;
+    font-size:2rem;
+    border: 0.1rem solid #79BCFF;
+    border-radius: 3rem;
+    cursor:pointer;
+    box-shadow: 0 0.3rem 1rem rgb(0,0,0, 0.3);
+    transition: background-color 0.3s;
+
+}
+.post-btn:hover{
+    background-color:#117abb;
+}
+/* end of post new place button */

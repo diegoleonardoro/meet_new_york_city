@@ -10,7 +10,6 @@ const crypto = require("crypto");
 //@access   Public
 exports.register = asyncHandler(async (req, res, next) => {
     const { name, email, password, role } = req.body;
-
     //Create user
     const user = await User.create({
         name,
@@ -18,11 +17,8 @@ exports.register = asyncHandler(async (req, res, next) => {
         password,
         role
     })
-
-    // Crate and send token
-    sendTokenResponse(user, 200, res);// This function will send a token to the client bases on his _id and the JWT_SECRET value. 
+    sendTokenResponse(user, 200, res);
 })
-
 
 
 //@desc     Login user 
@@ -35,36 +31,19 @@ exports.login = asyncHandler(async (req, res, next) => {
     if (!email || !password) {
         return next(new ErrorResponse('Please provide an email and passwrod', 400));
     }
-
-    // Check for user 
-    const user = await User.findOne({ email }).select("+password"); // we need to use .select("+password") because in the user shcema we set the password fiel to select: false which doesn't return and password when it is requested 
+    const user = await User.findOne({ email }).select("+password"); 
 
     if (!user) {
         return next(new ErrorResponse('Invalid credentials', 401));
     };
 
-
-    // Check if password matches
-    // To validate the password, we need to take the passed password and match it to the encrupted password
-    const isMatch = await user.matchPassword(password);// .matchPassword was a method defined in the User schema and it compares the password sibmitted by the client to the hashed password in the database. If they are the same, then isMath will be set to true. 
+    const isMatch = await user.matchPassword(password); 
 
     if (!isMatch) {
         return next(new ErrorResponse('Invalid credentials', 401));
     };
 
-    // Crate and send token
     sendTokenResponse(user, 200, res);
-
-
-    // the token is being sent to the client, and a lot of the times we would store that token 
-    // in a local storage and when we make a request to a protective route,
-    // the token would be taken from the local storage, put in the header and sent 
-    // to that protective route. 
-
-    // storing that token in local storage can have some security issues.
-    // so we are going to send a cookie to the client with the token in it,
-    // so that the token can be stored in the browser cookies and we do not 
-    // have to send it with every request 
 
 })
 
@@ -79,23 +58,10 @@ exports.logout = asyncHandler(async (req, res, next) => {
         httpOnly: true
     })
 
-    /*
-    The res.cookie() function is used to set the cookie name to value. 
-    The value parameter may be a string or object converted to JSON.
-
-    res.cookie(name, value [, options])
-
-    Parameters: The name parameter holds the name of the cookie and 
-    the value parameter is the value assigned to the cookie name. 
-    The options parameter contains various properties like encode, 
-    expires, domain, etc
-    */
-
     res.status(200).json({
         success: true,
         data: {}
     })
-
 
 })
 
@@ -105,9 +71,6 @@ exports.logout = asyncHandler(async (req, res, next) => {
 //@route    POST /auth/me
 //@access   Private
 exports.getMe = asyncHandler(async (req, res, next) => {
-    // since we are using the protect middleware on this route, then we are able to access "req.user" which contains all the information about the user
-    // req.user will alway be the logged in user
-
     const user = await User.findById(req.user.id);
     res.status(200).json({
         success: true,
@@ -117,13 +80,11 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 
 
 
-
 //@desc     Update user details  
 //@route    PUT /auth/updatedetails
 //@access   Private
 exports.updateDetails = asyncHandler(async (req, res, next) => {
 
-    // we will only update the name and the email, which will be sent by the client on the body.
     const fieldsToUpdate = {
         name: req.body.name,
         email: req.body.email
@@ -148,34 +109,17 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
 //@access   Private
 exports.updatePassword = asyncHandler(async (req, res, next) => {
 
-    // The user will send the current password and the new password in the body. 
-    // select the user from the data base using the id and return the password 
     const user = await User.findById(req.user.id).select("+password");
 
-    // Compare the password submitted by the client to the one that is in the database
-    if (!(await user.matchPassword(req.body.currentPassword))) { // .matchPassword() is a function from the User schema, and it uses a bcrypt function called "compare" which compares the password entered by the client to the hashed password that is in the database. It returns true or false depending on whether the password matches. 
+    if (!(await user.matchPassword(req.body.currentPassword))) { 
         return next(new ErrorResponse('Password is incorrect', 401));
     }
-
-
     user.password = req.body.newPassword;
     await user.save();
 
-
-    sendTokenResponse(user, 200, res); // we will send a token so that the user can stay logged in. 
-
+    sendTokenResponse(user, 200, res);
 
 })
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -183,65 +127,33 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 //@route    POST /auth/forgotpassword
 //@access   Public
 exports.forgotPassword = asyncHandler(async (req, res, next) => {
-    // Get user from data base by email
-    const user = await User.findOne({ email: req.body.email }); // req.body.email is found in the Body
-    // when we get this user, it won't contain the password field because in the schema we set the password field to "select: false"
 
-
+    const user = await User.findOne({ email: req.body.email }); 
     if (!user) {
         return next(new ErrorResponse('There is no user with that email', 404));
     }
+    const resetToken = user.getResetPasswordToken(); 
 
-    const resetToken = user.getResetPasswordToken(); //  .getResetPasswordToken() is a function that we called on the user schema.
-    // .getResetPasswordToken() is going to give values to the "resetPasswordToken" 
-    // and the "resetPasswordExpire" fields of the user schema
-    // and it will return "resetToken"
+    await user.save({ validateBeforeSave: false });
 
-
-    await user.save({ validateBeforeSave: false });//1* in the schema the password field is required when the user register, but when the user forgot its password we won't get the password field, so in order to save the user without password we use "validateBeforeSave: false"
-    /*
-    . save() Saves this document by inserting a new document into the database if document.isNew is true,
-    or sends an updateOne operation only with the modifications to the database, 
-    it does not replace the whole document in the latter case.
-    */
-
-    // Create reset url with token 
     const resetUrl = `${req.protocol}://${req.get('host')}/auth/resetpassword/${resetToken}`;
 
     const message = `You are receiving this email because you (or someone else) has 
     requested the reset of a password. Please make a PUT request to: \n\n ${resetUrl}`;
 
-
     try {
-        await sendEmail({ // The sendEmail function takes in email, subject and message. This function uses the nodemailer module 
+        await sendEmail({ 
             email: user.email,
             subject: 'Password reset token',
             message
         });
         res.status(200).json({ sucess: true, data: 'Email sent' });
     } catch (err) {
-
-        // If something goes wrong, we are going to want to get rid of the "resetPasswordToken" and 
-        // "resetPasswordExpire" fields from the User schema.
         user.resetPasswordToken = undefined;
         user.resetPasswordExpire = undefined;
-
         await user.save({ validateBeforeSave: false });
-
         return next(new ErrorResponse('Email could not be send ', 500));
-
     }
-
-
-
-    /*
-    1*
-    By default, documents are automatically validated before they are saved to the database. 
-    This is to prevent saving an invalid document. 
-    If you want to handle validation manually, 
-    and be able to save objects which don't pass validation, you can set validateBeforeSave to false.
-    */
-
 })
 
 
@@ -253,33 +165,26 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 //@access   Public
 exports.resetPassword = asyncHandler(async (req, res, next) => {
 
-    // Get hashed token 
-    // We need to hash the token sent by the user so we can compare it to the one that is in the database 
     const resetPasswordToken = crypto.
         createHash('sha256')
         .update(req.params.resettoken)
         .digest('hex');
 
-
-    const user = await User.findOne({ // We will find the user in the data base based on the token (after hashing it)that's in the url and also the "resetPasswordExpire" 
+    const user = await User.findOne({ 
         resetPasswordToken,
-        resetPasswordExpire: { $gt: Date.now() } // "gt" is a mongoose operator which means "greater than".
+        resetPasswordExpire: { $gt: Date.now() } 
     })
 
     if (!user) {
         return next(new ErrorResponse('Inalid token', 404));
     }
 
-    // set new password 
-    user.password = req.body.password; // the user sent the new password in the body, and before we save it in the data base we will encrypt it. 
+    user.password = req.body.password; 
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
-    await user.save(); // When we save the user, the new password will be ecrypted.
+    await user.save(); 
 
-
-
-    sendTokenResponse(user, 200, res); // Once the user gets his new password, we'll send a token because they'll be logged in.
-    // sendTokenResponse() will send the token as a cookie, which will be necessary to be able to let the user stay logged in. 
+    sendTokenResponse(user, 200, res); 
 
 })
 

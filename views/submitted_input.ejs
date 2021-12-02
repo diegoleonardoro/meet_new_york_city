@@ -1,0 +1,86 @@
+
+
+<!doctype html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+   
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <!-- text svg and container: -->
+    <div id ='placeTextContainer'>
+        <svg id="placeTextSvg" >
+            <text x="0" y="15" id ="placeTextText"></text>
+        </svg>
+    </div>
+
+    <!-- photo svg  -->
+    <svg id="photoSvg" width="300" height="250" style="border:1px solid black"></svg>
+
+
+    <!-- graph svg -->
+ 
+    <!-- <div id='graphSvgContainer'>  </div> -->
+    <svg id="graphSvg"  style="border:1px solid black"> </svg>
+    <div id="tooltip"></div> 
+   
+    
+
+
+
+
+    <div id='imageDiv'></div>
+    <div id="mapDiv">
+        <div id="map">
+            <svg id ='mapSvg'>
+            </svg>
+        </div>
+        <div id="tooltip"></div>
+        <div id="feed"></div>
+
+
+    </div>
+
+
+
+
+
+
+    <script>
+       let inputs_ = <%- JSON.stringify(inputs) %>;
+       console.log(inputs_)
+     
+    </script>
+
+
+    <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script type="module" src="https://js.api.here.com/v3/3.1/mapsjs.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/a8ea7ecad9.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/displayMap.js"></script>
+
+
+
+</body>
+
+
+</html>

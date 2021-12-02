@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+<!-- USED -->
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,600;1,300;1,500;1,700&display=swap"
+        rel="stylesheet" />
+
+
+    <base href="/">
+
+    <link rel="stylesheet" href="./styleMainForm.css" />
+    <meta charset="utf-8">
+    <title>CB2 BX Social Platform</title>
+    <div id="userName"></div>
+
+
+</head>
+
+<body>
+
+
+    <!-- main form page -->
+    <section class='main-form-page'>
+        <!-- main form page nav -->
+        <nav class='main-form-page-page-nav'>
+            <ul>
+                <li><a href='#'>Explore neighborhoods</a></li>
+                <li><a href='#'>About</a></li>
+                <li><a href='#'>Language: English</a></li>
+            </ul>
+        </nav>
+        <!-- end of main form page nav -->
+
+        <!-- form -->
+        <div class='formWrapper'>
+
+            <form class='form'>
+
+
+
+                <div class='display howLongLivingInNeighborhood whatNeighborhood '>
+                    <h2>What neighborhood do you live in?</h2>
+                    <span>
+                        <input type="text" name="neighborhood" id="neighborhoodName" />
+                    </span>
+
+                    <div class='borough_Zipcode'>
+                        <span class='boroSpan'>
+                            <select name='borough' class='selectBoro'>
+                                <option value=''>Borough</option>
+                                <option value='Brooklyn'>Brooklyn</option>
+                                <option value='Manhattan'>Manhattan</option>
+                                <option value='Queens'>Queens</option>
+                                <option value='The Bronx'>The Bronx</option>
+                                <option value='Staten Island'>Staten Island</option>
+                            </select>
+                            <!--<i class="fas fa-caret-square-down"></i>-->
+                        </span>
+                        <input type="text" placeholder="Zipcode" name="zipcode" id='zipcodeInput' />
+                    </div>
+
+                </div>
+
+                <div class='howLongLivingInNeighborhood favAspectsOfNeighborhood '>
+                    <div class='lengthLivingInNeighborhood'>
+                        <h2>How long have you been living in this neighborhood?</h2>
+
+                        <div>
+                            <input class='form-checkbox' type="radio" value="less than one year" name="lengthLivingInNeighborhood"
+                                id="livingLessThanOneYear"></input>
+                            <label for="livingLessThanOneYear">Less than one year</label>
+                        </div>
+
+                        <div>
+                            <input class='form-checkbox' type="radio" value="between 1 and 5 years" name="lengthLivingInNeighborhood"
+                                id="living1and5Years"></input>
+                            <label for="living1and5Years">Between 1 and 5 years</label>
+                        </div>
+
+                        <div>
+                            <input class='form-checkbox' type="radio" value="between 6 and 10 years" name="lengthLivingInNeighborhood"
+                                id="living6and10Years"></input>
+                            <label for="living6and10Years">Between 6 and 10 years</label>
+                        </div>
+
+                        <div>
+                            <input class='form-checkbox' type="radio" value="between 11 and 15 years" name="lengthLivingInNeighborhood"
+                                id="living11and15Years"></input>
+                            <label for="living11and15Years">Between 11 and 15 years</label>
+                        </div>
+
+                        <div>
+                            <input class='form-checkbox' type="radio" value="between 11 and 15 years" name="lengthLivingInNeighborhood"
+                                id="living16and20Years"></input>
+                            <label for="living16and20Years">Between 16 and 20 years</label>
+                        </div>
+
+                        <div>
+                            <input class='form-checkbox' type="radio" value="between 11 and 15 years" name="lengthLivingInNeighborhood"
+                                id="livingMore20Years"></input>
+                            <label for="livingMore20Years">For more than 20 years</label>
+                        </div>
+
+                        <div>
+                            <input class='form-checkbox' type="radio" value="do not live there" name="lengthLivingInNeighborhood"
+                                id="doNotLiveThere"></input>
+                            <label for="doNotLiveThere">I do not live in this neighborhood</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class='favAspectsOfNeighborhood describeNeighborhoodInThreeWords neighbhdDescription'>
+                    <h2>How would you describe your neighborhood to someone who is visiting for the
+                        first time?
+                    </h2>
+                    <textarea name="neighborhoodDescription" class="textAreaExplanation"></textarea>
+                </div>
+
+                <div class='describeNeighborhoodInThreeWords neighborhoodSatisfactionScale threeWordsDescribeNeighborhood'>
+
+                    <h2 id='threeWorrdsDescribeNeighborhood'>Describe your neighborhood in 3 words: </h2>
+
+                    <label class='threeWordsDescribeNeighborhoodWrapper'>
+                        <span>1.</span>
+                        <input type="text" name="threeWordsToDecribeNeighborhood"></input>
+                    </label>
+
+                    <label class='threeWordsDescribeNeighborhoodWrapper'>
+                        <span>2.</span>
+                        <input type="text" name="threeWordsToDecribeNeighborhood"></input>
+                    </label>
+
+                    <label class='threeWordsDescribeNeighborhoodWrapper'>
+                        <span>3.</span>
+                        <input type="text" name="threeWordsToDecribeNeighborhood"></input>
+                    </label>
+
+                </div>
+
+
+                <div class='neighborhoodSatisfactionScale satisfactionScaleExplanation likert'>
+
+                    <h2>How do you feel with the following aspects of your neighborhood: </h2>
+
+                    <span class='likertOptions'>
+                        <h3>Public Transportation: </h3>
+                        <span>
+                            <input class='whyDissatisfiedPublicTransport form-checkbox likertScale' type="radio" name="publicTransportation"
+                                value="Dissatisfied" id='publicTransportationDissatisfied'>
+                            <label for='publicTransportationDissatisfied'>Dissatisfied</label>
+                        </span>
+                        <span>
+                            <input class='whyNeutralPublicTransport form-checkbox likertScale' type="radio" name="publicTransportation"
+                                value="Neutral" id='publicTransportationNeutral'>
+                            <label for='publicTransportationNeutral'>Neutral</label>
+                        </span>
+                        <span>
+                            <input class='whySatisfiedPublicTransport form-checkbox likertScale' type="radio" name="publicTransportation"
+                                value="Satisfied" id='publicTransportationSatisfied'>
+                            <label for='publicTransportationSatisfied'>Satisfied</label>
+                        </span>
+                    </span>
+
+                    <span class='likertOptions'>
+                        <h3>Public Spaces: </h3>
+                        <span>
+                            <input class='whyDissatisfiedPublicSpaces form-checkbox likertScale' type="radio" name="publicSpaces"
+                                value="Dissatisfied" id='publicSpacesDissatisfied'>
+                            <label for='publicSpacesDissatisfied'>Dissatisfied</label>
+                        </span>
+                        <span>
+                            <input class='whyNeutralPublicSpaces form-checkbox likertScale' type="radio" name="publicSpaces"
+                                value="Neutral" id='publicSpacesNeutral'>
+                            <label for='publicSpacesNeutral'>Neutral</label>
+                        </span>
+                        <span>
+                            <input class='whySatisfiedPublicSpaces form-checkbox likertScale' type="radio" name="publicSpaces"
+                                value="Satisfied" id='publicSpacesSatisfied'>
+                            <label for='publicSpacesSatisfied'>Satisfied</label>
+                        </span>
+                    </span>
+
+
+                    <span class='likertOptions'>
+                        <h3>Neighbors: </h3>
+                        <span>
+                            <input class='whyDissatisfiedNeighbors form-checkbox likertScale' type="radio" name="neighbors"
+                                value="Dissatisfied" id='neighborsDissatisfied'>
+                            <label for='neighborsDissatisfied'>Dissatisfied</label>
+                        </span>
+                        <span>
+                            <input class='whyNeutralNeighbors form-checkbox likertScale' type="radio" name="neighbors"
+                                value="Neutral" id='neighborsNeutral'>
+                            <label for='neighborsNeutral'>Neutral</label>
+                        </span>
+                        <span>
+                            <input class='whySatisfiedNeighbors form-checkbox likertScale' type="radio" name="neighbors"
+                                value="Satisfied" id='neighborsSatisfied'>
+                            <label for='neighborsSatisfied'>Satisfied</label>
+                        </span>
+                    </span>
+
+
+                    <span class='likertOptions'>
+                        <h3>Restaurant variety: </h3>
+                        <span>
+                            <input class='whyDissatisfiedRestaurants form-checkbox likertScale' type="radio" name="restaurants"
+                                value="Dissatisfied" id='restaurantsDissatisfied'>
+                            <label for='restaurantsDissatisfied'>Dissatisfied</label>
+                        </span>
+                        <span>
+                            <input class='whyNeutralRestaurants form-checkbox likertScale' type="radio" name="restaurants"
+                                value="Neutral" id='restaurantsNeutral'>
+                            <label for='restaurantsNeutral'>Neutral</label>
+                        </span>
+                        <span>
+                            <input class='whySatisfiedRestaurants form-checkbox likertScale' type="radio" name="restaurants"
+                                value="Satisfied" id='restaurantsSatisfied'>
+                            <label for='restaurantsSatisfied'>Satisfied</label>
+                        </span>
+                    </span>
+
+
+
+                    <span class='likertOptions'>
+                        <h3>Safety: </h3>
+                        <span>
+                            <input class='whyDissatisfiedSafety form-checkbox likertScale' type="radio" name="safety"
+                                value="Dissatisfied" id='safetyDissatisfied'>
+                            <label for='safetyDissatisfied'>Dissatisfied</label>
+                        </span>
+                        <span>
+                            <input class='whyNeutralSafety form-checkbox likertScale' type="radio" name="safety" value="Neutral"
+                                id='safetyNeutral'>
+                            <label for='safetyNeutral'>Neutral</label>
+                        </span>
+                        <span>
+                            <input class='whySatisfiedSafety form-checkbox likertScale' type="radio" name="safety"
+                                value="Satisfied" id='safetySatisfied'>
+                            <label for='safetySatisfied'>Satisfied</label>
+                        </span>
+                    </span>
+                </div>
+
+                <div class='satisfactionScaleExplanation neighborhoodTips explainLikert'>
+
+                    <h2>Tell us more about your previous answers</h2>
+                    <!-------------------------------------------------------------->
+                    <div class='likertScaleExplanation whyDissatisfiedPublicTransport'>
+                        <h4>Why do you feel dissatisfied with the public transportation?</h4>
+                        <textarea type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
+                        <!-- add class to this text area -->
+                    </div>
+                    <div class='likertScaleExplanation whyNeutralPublicTransport'>
+                        <h4>Why do you feel neutral with the public transportation?</h4>
+                        <textarea type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whySatisfiedPublicTransport'>
+                        <h4>Why do you feel satisfied with the public transportation?</h4>
+                        <textarea type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <!-------------------------------------------------------------->
+                    <div class='likertScaleExplanation whyDissatisfiedPublicSpaces'>
+                        <h4>Why do you feel dissatisfied with the public spaces?</h4>
+                        <textarea type="text" name="publicSpacesExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whyNeutralPublicSpaces'>
+                        <h4>Why do you feel neutral with the public spaces?</h4>
+                        <textarea type="text" name="publicSpacesExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whySatisfiedPublicSpaces'>
+                        <h4>Why do you feel satisfied with the public spaces?</h4>
+                        <textarea type="text" name="publicSpacesExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <!-------------------------------------------------------------->
+                    <div class='likertScaleExplanation whyDissatisfiedNeighbors'>
+                        <h4>Why do you feel dissatisfied with your neighbors?</h4>
+                        <textarea type="text" name="neighborsExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whyNeutralNeighbors'>
+                        <h4>Why do you feel neutral with your neighbors?</h4>
+                        <textarea type="text" name="neighborsExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whySatisfiedNeighbors'>
+                        <h4>Why do you feel satisfied with your neighbors?</h4>
+                        <textarea type="text" name="neighborsExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <!-------------------------------------------------------------->
+                    <div class='likertScaleExplanation whyDissatisfiedRestaurants'>
+                        <h4>Why do you feel dissatisfied with the restaurant variety?</h4>
+                        <textarea type="text" name="restaurantsVarietyExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whyNeutralRestaurants'>
+                        <h4>Why do you feel neutral with the restaurant variety?</h4>
+                        <textarea type="text" name="restaurantsVarietyExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whySatisfiedRestaurants'>
+                        <h4>Why do you feel satisfied with the restaurant variety?</h4>
+                        <textarea type="text" name="restaurantsVarietyExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <!-------------------------------------------------------------->
+
+                    <div class='likertScaleExplanation whyDissatisfiedSafety'>
+                        <h4>Why do you feel dissatisfied with the safety?</h4>
+                        <textarea type="text" name="safetyExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whyNeutralSafety'>
+                        <h4>Why do you feel neurtal with the safety?</h4>
+                        <textarea type="text" name="safetyExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+                    <div class='likertScaleExplanation whySatisfiedSafety'>
+                        <h4>Why do you feel satisfied with the safety?</h4>
+                        <textarea type="text" name="safetyExplanation" class='textAreaLikertExplain'></textarea>
+                    </div>
+
+                </div>
+
+
+                <div class='neighborhoodTips favoritePlaces tips'>
+                    <h2>Share any tips for visitors to better enjoy your neighborhood: </h2>
+
+                    <span>1.</span>
+                    <input type="text" name="neighborhoodTips"></input>
+
+                    <span>2.</span>
+                    <input type="text" name="neighborhoodTips"></input>
+
+                    <span>3.</span>
+                    <input type="text" name="neighborhoodTips"></input>
+
+
+                    <svg class='addNewTip' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style='height:30px; width:30px'>
+                        <path class="cls-1vv" d="M515.5,369.66V332.5h47.94v37.35S516.13,370.29,515.5,369.66Zm23.49-30v21.57M529,350.6h20.41"
+                            transform="translate(-514.23 -331.25)" />
+
+                        <path class="cls-2vv" d="M516.75,369.66V332.5l-1.25,1.25h47.94l-1.25-1.25v37.35l1.25-1.25q-11.36.11-22.73.14c-5.36,0-10.71,0-16.07,0-2.09,0-7,.56-8.51-.14s-2.71,1.46-1.26,2.16c1.92.92,5.06.42,7.09.45,5.58.08,11.16.07,16.74.05q12.38,0,24.74-.14a1.26,1.26,0,0,0,1.25-1.25V332.5a1.26,1.26,0,0,0-1.25-1.25H515.5a1.26,1.26,0,0,0-1.25,1.25v37.16A1.25,1.25,0,0,0,516.75,369.66Z"
+                            transform="translate(-514.23 -331.25)" />
+
+                        <path class="cls-2vv" d="M537.74,339.62v21.57a1.25,1.25,0,0,0,2.5,0V339.62a1.25,1.25,0,0,0-2.5,0Z"
+                            transform="translate(-514.23 -331.25)" />
+
+                        <path class="cls-2vv" d="M529,351.85h20.41a1.25,1.25,0,0,0,0-2.5H529a1.25,1.25,0,0,0,0,2.5Z"
+                            transform="translate(-514.23 -331.25)" />
+
+                    </svg>
+                </div>
+
+
+                <div class='favoritePlaces anythingElseAboutYou addFavPlaces _fav_Places'>
+
+                    <h2 class='question'>What are your favorite places in this neighborhood? </h2>
+                    <label class='labelAddPlace'>Exact address of the place:</label>
+                    <input type="text" name="favoritePlaceAddress" class='nameOfPlace'></input>
+                    <label class='labelAddPlace'>Why is this one of you favorite places:</label>
+                    <textarea type="text" name="favoritePlaceDescription" class="textareaFavPlaceDescription"></textarea>
+
+                    <span>
+                        <label class='placeLabel _fav_Places' id='imageLabel'>Share an image of this place:
+                            <input type="file" name="placeImage" class='labelPhoto favoritePlace1' />
+                        </label>
+
+                        <!--
+                        <svg id="cameraSvg" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.18 222.68">
+                            <path class="camera cam1" d="M401.47,326.41H381.73s-24.23,2.24-26.48,30.51l-.44,114s-.9,30.52,27.37,35l249.49.45s29.17,0,31.87-30.06L664,357.82s0-29.61-33.65-31l-128.79-1.35-.45-24.23s.45-13.91-19.29-16.15l-60.58-.45s-14.81-.9-19.75,17.5Z"
+                                transform="translate(-354.3 -284.17)" />
+                            <rect class="camera" x="60.63" y="15.76" width="74.94" height="20.19" />
+                            <rect class="camera cam2" x="0.5" y="104.16" width="308.73" height="55.64" />
+                            <ellipse class="camera cam3" cx="69.38" cy="65.12" rx="12.79" ry="12.56" />
+                            <circle class="camera cam4" cx="171.92" cy="131.54" r="79.43" />
+                            <circle class="camera cam5" cx="172.37" cy="132.88" r="68.21" />
+                            <circle class="camera cam6" cx="171.25" cy="133.56" r="54.07" />
+                            <circle class="camera cam7" cx="171.7" cy="132.21" r="40.61" />
+                            <ellipse class="camera cam8" cx="182.02" cy="105.85" rx="22.21" ry="22.78" />
+                            <path class="camera cam9" d="M585,325.51V309.36s1.34-6.73,8.07-7.18H603a8.42,8.42,0,0,1,8.07,7.18l.45,16.15Z"
+                                transform="translate(-354.3 -284.17)" />
+                        </svg>
+                        -->
+
+                        <img src="" id="preview" class='previewImage'>
+                    </span>
+
+                    <label class='placeLabel' id='addPlaceLabel' for='addPlaceButton'>Add place </label>
+                    <button type='button' name="placeImage" multiple="multiple" id='addPlaceButton' class='labelPhoto'></button>
+
+                </div>
+
+
+                <div class='anythingElseAboutYou submitForm moreSelfIntroduction'>
+                    <h2>If there is anything else that would like to share about yourself to people who may visit your
+                        neighborhood, plese do so: </h2>
+                    <textarea name="moreSelfIntroduction" class="textAreaExplanation"></textarea>
+                </div>
+
+
+                <div class='submitForm'>
+                    <input type='submit'><a id='goToUserProfile' href=''></a></input>
+                </div>
+
+                <div class='displayArrows arrows'>
+                    <svg id="prevQuestionSvg">
+                        <path id="pathPrevQuestion" d="M 5 40 L 30 65 , 30 15  Z"></path>
+                    </svg>
+                    <svg id="nextQuestionSvg">
+                        <path id="pathNextQuestion" d="M 85 40 L 60 65 , 60 15  Z"></path>
+                    </svg>
+                </div>
+
+            </form>
+
+            <div class='formIllustration'>
+
+            </div>
+
+
+
+
+            <footer class='footer'>
+                <p>Already a member <a href='#'>Log in </a></p>
+            </footer>
+        </div>
+        <!-- end of form -->
+    </section>
+    <!-- end of main form page -->
+
+
+
+
+    <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script type="module" src="https://js.api.here.com/v3/3.1/mapsjs.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/a8ea7ecad9.js" crossorigin="anonymous"></script>
+
+
+
+
+    <script type="module" src="addFavPlaces.js"></script>
+    <script type="module" src="neighborhoodsDisplay.js"></script>
+    <script type="module" src="mainForm.js"></script>
+    <script type="module" src="submitMainFormValues.js"></script>
+    <script type="module" src="nycMapDisplay.js"></script>
+
+
+
+
+
+</body>

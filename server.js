@@ -13,8 +13,11 @@ const helmet = require('helmet');
 const xss = require('xss-clean');
 const rateLimit = require('express-rate-limit');
 const hpp = require('hpp');
-const cors = require('cors');
-
+const ejs = require("ejs");
+const multer = require("multer");
+const util = require("util");
+const cors = require("cors");
+var engines = require('consolidate');
 
 
 // Load env variables:
@@ -23,90 +26,36 @@ dotenv.config({ path: './config/config.env' });
 // Connect to the database:
 connectDB();
 
-// Routes file:
-const nyc_inputs = require("./routes/input_routes");
-const real_estate_vars = require("./routes/realestatevars_routes");
-const auth = require("./routes/auth");
-const users = require("./routes/users");
-const reviews = require("./routes/reviews");
+// Create an Express instance
+const app = express();
 
-const app = express()
+// Set eja as the view engine 
+app.set("view engine", "ejs");
 
-app.use(bodyParser.json()); // --->  This allows us to receive data from the user. 
-app.use(bodyParser.urlencoded({ extended: true }));
+// bodyParser is used to parse incoming request bodies 
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
 
-app.use(express.static(__dirname + "/")); // --->  Here we are poiting to the path where all the static files are located. This allows us to use "index.html" as out root template. 
-
-
-// Cookie parser
+// cookieParser is used to parse cookie header and populate req.cookie
 app.use(cookieParser());
 
+// define the directory where the static files are
+app.use(express.static(path.join(__dirname, 'public')))
 
-// dev login middleware:
-if (process.env.NODE_ENV === "development") {
-    app.use(morgan("dev"));
-}
+// get the route files
+const nyc_inputs = require("./routes/input_routes");
+const auth = require("./routes/auth");
+const users = require("./routes/users");
+const register = require('./routes/registration');
 
-
-//File uploading 
-app.use(fileupload())
-
-
-// Set static folder 
-app.use(express.static(path.join(__dirname, "public")));
-
-
-// Sanitize data
-app.use(mongoSanitize());
-
-
-// Set security headers
-app.use(helmet());
-
-
-// Prevent XSS attaches
-app.use(xss());
-
-
-// Rate limiting
-const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 100 // Max requests per time specified in windoMs
-})
-app.use(limiter);
-
-
-// Prevent http param pollution
-app.use(hpp());
-
-
-// Enable CORS
-app.use(cors());
-
-
-
-// Mount routers
-app.use("/inputs", nyc_inputs); // --->  "/inputs" will be the base route for all the nyc_inputs routes
-app.use("/realEstateVars", real_estate_vars); // ---> "/realEstateVars" will be the base route for all the  real_estate_vars routes 
-app.use("/auth", auth);
-app.use("/users", users);
-app.use("/reviews", reviews);
-
-
-
-// Error handler
+// middleware to handle erros:
 app.use(errorHandler);
 
-
-
-
-
-/* 
-app.get("/", function (req, res) {
-    res.render("index.html") //<== here, we are rendering "index.html" every time we get a "get" request for the base route. 
-    res.end();
-});
-*/
+// create the base routes
+app.use("/inputs", nyc_inputs);
+app.use("/auth", auth);
+app.use("/users", users);
+app.use("/register", register);
 
 
 

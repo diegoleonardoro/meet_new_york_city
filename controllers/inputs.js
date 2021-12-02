@@ -3,148 +3,85 @@ const ErrorResponse = require("../utils/errorResponse");
 const Inputs = require("../models/User_input");
 const asyncHandler = require("../middleware/async");
 const geoCoder = require("../utils/geoCoder");
-
-
-//@desc     Gets the input interface
-//@route    GET /
-//@access   Public
-exports.getInterface = (req, res, next) => {
-
-    res.render("index.html") //<== here, we are rendering "index.html" every time we get a "get" request for the base route. 
-    res.status(200).json({ success: true });
-    res.end();
-
-}
-
-
-
-//@desc     Gets all inputs 
-//@route    GET /inputs
-//@access   Public
-exports.getInputs = asyncHandler(async (req, res, next) => {
-    res.status(200).json(res.advancedResults); // We are able to access advancedResults because we are using this middleware in the GET route. The "advancedResults" returns an object with all the information that we want to send to the client. 
-})
+const fs = require('fs');
+const User = require("../models/User");
 
 
 
 
-
-
-// @desc    Gets one single input
-// @route   GET /inputs/:id 
+// @desc    Gets all inputs 
+// @route   GET /inputs/allInputs
 // @access  Public
-exports.getInput = asyncHandler(async (req, res, next) => {
-    //try {
-    const input = await Inputs.findById(req.params.id);
-    if (!input) {
-        return next(
-            new ErrorResponse(`Record with id ${req.params.id} not founde`, 404)
-        )
+exports.getAllInputs = asyncHandler(async (req, res, next) => {
+
+    const inputs = await Inputs.find({}, 'location image placeDescription');
+
+    let inputsFiltered = []
+    for (var i = 0; i < inputs.length; i++) {
+        let image = inputs[i].image.data.buffer
+        let imageDataBuffer = Buffer.from(image, "base64");
+        var placeDescrpn = inputs[i].placeDescription;
+        let flag = 28;
+        let placeDescrpnSpaced = '';
+        let placeDescrpRaw = ''; 
+        let placeDescrForArray = ''
+        let placeDescrArray = [];
+        for (let i = 0; i < placeDescrpn.length; i++) { 
+            placeDescrpRaw = placeDescrpRaw + placeDescrpn[i]; 
+            placeDescrpnSpaced = placeDescrpnSpaced + placeDescrpn[i];
+            placeDescrForArray = placeDescrForArray + placeDescrpn[i];
+
+            if (placeDescrpRaw.length >= flag && placeDescrpnSpaced.charAt(placeDescrpnSpaced.length - 1) === ' ') {
+                placeDescrArray.push(placeDescrForArray)
+                placeDescrpnSpaced = placeDescrpnSpaced + '<br>';
+                flag = flag + 32;
+                placeDescrForArray = '';
+            }
+        }
+        inputsFiltered.push({
+            'location': inputs[i].location,
+            'imageSrc': "data:image/png;base64," + imageDataBuffer.toString("base64"),
+            'placeDescription': placeDescrArray
+        })
     }
-    res.status(200).json({ sucess: true, data: input })
-    //} catch (err) {
-    //    next(err);
-    //}
+    res.render("all_inputs", { inputsFiltered });
 })
+
+
+
 
 //@desc     Post a single input 
-//@route    POST /inputs
+//@route    POST /inputs/userId
 //@access   Private
 exports.createInput = asyncHandler(async (req, res, next) => {
 
-    // Add user to req.body
-    req.body.user = req.user.id; // In the "protect" middleware, we created "req.user" and gave it the values of the User that was in the data base and which is trying to access this route. 
-    //  "user" is a field in our "Inputs" schema which we will use to start creating relations between user and created Inputs
+    req.body.neighborhoodSatisfaction = JSON.parse(req.body.neighborhoodSatisfaction);
+    req.body.neighborhoodFactorDescription = JSON.parse(req.body.neighborhoodFactorDescription);
+    req.body.favoritePlaces = JSON.parse(req.body.favoritePlaces)
 
-    // Check for any Input published by the user that is trying to access this route
-    const publishedInput = await Inputs.findOne({ user: req.user.id });
+    var favoritePlaces = req.body.favoritePlaces;
 
-    // If the user is not an adming, they can only publish one Input
-    if (publishedInput && req.user.role !== "admin") {
-        return next(
-            new ErrorResponse(
-                `The user with id ${req.user.id} has already published a bootcamp`,
-                400
-            )
-        )
+    for (var i = 0; i < favoritePlaces.length; i++) {
+        let photoArray = []
+        let numOfPhotos = favoritePlaces[i].numberOfPhotos;
+        for (var h = 0; h < numOfPhotos; h++) {
+            photoArray.push({
+                data: fs.readFileSync('/Users/diegoleoro/meet_nyc/uploads/' + req.files[h].filename),
+                contentType: 'image/png'
+            })
+        }
+        favoritePlaces[i]['placeImage'] = photoArray;
     }
 
+    req.body.favoritePlaces = favoritePlaces;
+    req.body.user = req.user.id;
     const input = await Inputs.create(req.body);
-    res.status(201).json({
-        success: true,
-        data: input
-    })
+    const user = await User.findByIdAndUpdate({ _id: req.user.id }, { formResponded: '1' }).populate('input')
+
+    sendTokenResponse(user, 200, res);
 
 })
 
-
-
-// @desc     Update input
-// @route    PUT /inputs/:id 
-// @access   Private
-exports.updateInput = asyncHandler(async (req, res, next) => {
-
-    //try {
-    let input = await Inputs.findById(req.params.id);
-
-    if (!input) {
-        return next(
-            new ErrorResponse(`Record with id ${req.params.id} not founde`, 404)
-        )
-    }
-
-    // Make sure user is Input owner
-    if (input.user.toString() !== req.user.id && req.user.role !== "admin") {
-        return next(
-            new ErrorResponse(
-                `User ${req.params.id} is not authorized to update this bootcamp`,
-                401
-            )
-        );
-    };
-
-    input = await Inputs.findOneAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true
-    })
-
-
-    res.status(200).json({ sucess: true, data: input });
-
-
-})
-
-
-// @desc    Delete input
-// @rouse   DELETE  /inputs/:id
-// @access  Private 
-exports.deleteInput = asyncHandler(async (req, res, next) => {
-    // Inside the Inputs schema, there is a pre "remmove" middleware which deletes records from the realEstateVars model that fulfill: { input: this._id }
-    const input = await Inputs.findById(req.params.id); // change "findByIdAndDelete" to "findById" so that the middleware present in models -> User_input.js, and which deletes real estate vars when a place in deleted, works 
-
-    if (!input) {
-        return next(
-            new ErrorResponse(`Record with id ${req.params.id} not founde`, 404)
-        )
-    }
-
-    // Make sure user is Input owner
-    if (input.user.toString() !== req.user.id && req.user.role !== "admin") {
-        return next(
-            new ErrorResponse(
-                `User ${req.params.id} is not authorized to delete this bootcamp`,
-                401
-            )
-        );
-    };
-
-
-
-    input.remove();
-    res.status(200).json({ sucess: true, data: {} });
-
-
-})
 
 
 
@@ -152,22 +89,20 @@ exports.deleteInput = asyncHandler(async (req, res, next) => {
 // @rouse   GET  /inputs/radious/:zipcode/:distance
 // @access  Private 
 exports.getInputsInRadious = asyncHandler(async (req, res, next) => {
-    const { zipcode, distance } = req.params; // we get these two values from the url sent by the client 
+    const { zipcode, distance } = req.params; 
 
     // Get lat and lon from geocoder 
-    const loc = await geoCoder.geocode(zipcode); // geoCoder lets us do reverse geo coding: from addresses to coordinates 
+    const loc = await geoCoder.geocode(zipcode); 
     const lat = loc[0].latitude;
     const lng = loc[0].longitude;
 
     // Calc radious using radians
     // Divide dist by radius of Earth 
     // Earth Radius = 3,963 mi / 6,378 km
-    const radius = distance / 3963; // distance is the distance in miles whithing which the the client wants to see the places. 
-
+    const radius = distance / 3963; 
     const inputs = await Inputs.find({
-        location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } } // $centerSphere Defines a circle for a geospatial query that uses spherical geometry. The query returns documents that are within the bounds of the circle. You can use the $centerSphere operator on both GeoJSON objects and legacy coordinate pairs.
+        location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } } 
     })
-
     res.status(200).json({
         success: true,
         count: inputs.length,
@@ -177,75 +112,21 @@ exports.getInputsInRadious = asyncHandler(async (req, res, next) => {
 
 
 
+const sendTokenResponse = (user, statusCode, res) => {
 
-// @desc    Upload photo for place
-// @rouse   PUT  /inputs/:id/photo
-// @access  Private 
-exports.placePhotoUpload = asyncHandler(async (req, res, next) => {
-    const input = await Inputs.findById(req.params.id);
-    if (!input) {
-        return next(
-            new ErrorResponse(`Record with id ${req.params.id} not found`, 404)
-        )
-    }
-
-
-
-     // Make sure user is Input owner
-    if (input.user.toString() !== req.user.id && req.user.role !== "admin") {
-        return next(
-            new ErrorResponse(
-                `User ${req.params.id} is not authorized to update this bootcamp`,
-                401
-            )
-        );
+    const token = user.getSignedJwtToken();
+    const options = {
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000), // ---> This represents 30 days (time beyond which the token will expire)
+        httpOnly: true // This lets us make the cookie available only to the client side script
     };
 
-
-
-
-    if (!req.files) {
-        return next(
-            new ErrorResponse(`Please upload a file`, 400)
-        )
-    }
-
-    const file = req.files.file;
-
-    // Make sure the the file is photo 
-    if (!file.mimetype.startsWith('image')) { //all image files will start with "image" in their mimetype section  
-        return next(new ErrorResponse(`Please upload an image file`, 400));
-    }
-
-    // Check filesize
-    if (file.size > process.env.MAX_FILE_UPLOAD) {
-        return next(new ErrorResponse(`Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
-            400
-        ));
-    }
-
-
-    // Create custom file name 
-    file.name = `photo_${input._id}${path.parse(file.name).ext}` // In this method we are uploading a photo to an existing input record, because it already exists, we can access its "_id" field and use it to create the file name. 
-
-    file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err => {
-
-        if (err) {
-            console.error(err);
-            return next(new ErrorResponse(`Problem with file upload`, 500));
-        }
-
-        await Inputs.findByIdAndUpdate(req.params.id, {
-            photo: file.name
-        })
-
-        res.status(200).json({
+    res
+        .status(statusCode)
+        .cookie('token', token, options)
+        .json({
             success: true,
-            data: file.name
+            token
         })
 
-    }) // .mv is a function in the file that help us save the image in a folder. The first argument that it takes in the path where we want to save the file. 
-
-})
-
-
+    return token;
+}

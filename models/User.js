@@ -2,6 +2,7 @@ const crypto = require("crypto");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const Input = require ('../models/User_input')
 
 
 const UserSchema = new mongoose.Schema({
@@ -22,7 +23,7 @@ const UserSchema = new mongoose.Schema({
 
     role: {
         type: String,
-        enum: ['user', 'publisher'],
+        enum: ['user', 'publisher'],// publishers are able to post a place. Users are able to see those places and contact the publisher
         default: 'user'
     },
 
@@ -33,6 +34,8 @@ const UserSchema = new mongoose.Schema({
         select: false // with "select:false" whenever we get a user through the API, the API won't return the password
     },
 
+    formResponded: String, 
+
     resetPasswordToken: String,
     resetPasswordExpire: Date,
     createdAt: {
@@ -41,7 +44,20 @@ const UserSchema = new mongoose.Schema({
     }
 
 
-})
+}, {
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
+    });
+
+
+
+/*
+
+A middleware runs automatically.
+
+a method runs when we call it. 
+
+*/
 
 // Encrypt password using bcrypt
 UserSchema.pre('save', async function (next) {
@@ -57,7 +73,7 @@ UserSchema.pre('save', async function (next) {
 
     const salt = await bcrypt.genSalt(10); // genSalt is a method from "bcrypt"
     this.password = await bcrypt.hash(this.password, salt);   //-------> here we are encrypting the user password
-    
+
 })
 
 
@@ -75,7 +91,10 @@ UserSchema.methods.getSignedJwtToken = function () { // <<<-- methods are what w
 
 
 
-// Match user entered password to to hashed password in database. We'll do this using bcrypt
+
+
+
+// Match user entered password to hashed password in database. We'll do this using bcrypt
 UserSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password)//>>>>>> the first argument is the password send by the client, the second one is the password that is inside the database. 
     // .matchPassword is a method that will be called in the actual user that was found in the database using the email and the password sent by the client in the >>/auth/login<< route, so we will have access the fields of the found user. 
@@ -103,6 +122,28 @@ UserSchema.methods.getResetPasswordToken = function () {
     return resetToken;
 
 }
+
+
+// Cascade delete inputs related to a user that is deleted:
+UserSchema.pre('remove', async function (next){
+    await this.model ('Input').deleteMany({user:this_.id});
+    next();
+})
+
+
+
+//Reverser populate with virtuals. This is meant to show all inputs associated to a user when there is a request to get all or a single user.
+UserSchema.virtual ('input',{
+    ref: 'Inputs', 
+    localField:'_id', 
+    foreignField: 'user', 
+    justOne: false
+})
+
+
+
+
+
 
 
 

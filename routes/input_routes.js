@@ -1,62 +1,52 @@
 
 const express = require("express");
+const multer = require("multer");
+
 
 const {
-    getInterface,
-    getInputs,
     createInput,
-    getInput,
-    updateInput,
-    deleteInput,
     getInputsInRadious,
-    placePhotoUpload
+    getAllInputs
 } = require("../controllers/inputs.js")
 
 
+// Base route: '/inputs'
+
+// Multer:
+const storage = multer.diskStorage({
+    destination: (req, res, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+const uploadFile = multer({
+    storage: storage,
+})
+
+// Inputs schema:
 const Inputs = require("../models/User_input");
+
 const advancedResults = require("../middleware/advancedResults");
-
-
-// Include the router of other resources
-const realEstateVarsRouter = require("./realestatevars_routes");
-const reviewRouter = require("./reviews");
 
 const router = express.Router();
 
-const { protect, authorize } = require("../middleware/auth") // wherever we use "protect" the user has to be logged in. 
-// only a publisher or an adming can create and manage inputs
+// Import the middlewares that protect routes
+const { protect, authorize } = require("../middleware/auth") 
 
-// Re-route to other resources 
-router.use("/:placeId/realEstateVars", realEstateVarsRouter);// Whenever this route is hit, we will use the "realEstateVarsRouter" router 
-router.use("/:placeId/reviews", reviewRouter);
-
-
+// Routes and their controllers:
 router
     .route("/radius/:zipcode/:distance")
     .get(getInputsInRadious);
 
+router
+    .route('/userId')
+    .post(protect, uploadFile.array('placeImage'), createInput);
 
 router
-    .route("/:id/photo")
-    .put(protect, authorize('publisher', 'admin'), placePhotoUpload); // We want to protect this route because only authorized users can upload the photo. 
-// The authorization will consists on getting the token from the user that is logged in. This token will have his/her encrypted id, and we will use it to get the user from the data base and store in req.user
-// authorize() uses req.user.role, which is a value set by "protect", so we need to include authorize() after "protect".
-
-router
-    .get(getInterface);
-
-
-router
-    .route("/")
-    .get(advancedResults(Inputs, "realEstateVars"), getInputs) // "realEstateVars" is the virtual that we created in the Inputs schema. This virtual lets us insert realEstateVars records into the Inputs schema as long as their ids match.
-    .post(protect, authorize('publisher', 'admin'), createInput);
-
-
-router
-    .route("/:id")
-    .get(getInput)
-    .put(protect, authorize('publisher', 'admin'), updateInput)
-    .delete(protect, authorize('publisher', 'admin'), deleteInput);
+    .route('/allInputs/showall')
+    .get(getAllInputs)
 
 
 module.exports = router;

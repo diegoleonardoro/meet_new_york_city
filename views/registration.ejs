@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- USED -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,600;1,300;1,500;1,700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="registrationstyle.css">
+</head>
+
+<body>
+
+    <!-- login page -->
+    <section class='register-page'>
+        <!-- login page nav -->
+        <nav class='register-page-nav'>
+            <ul>
+                <li class='brand'><a href='#'> <i class="fas fa-map-signs"></i>Log in </a></li>
+                <li><a href='#'>Explore neighborhoods</a></li>
+                <li><a href='#'>About</a></li>
+                <li><a href='#'>Language: English</a></li>
+            </ul>
+        </nav>
+        <!-- end of login page nav -->
+
+        <!-- register -->
+        <div class='register'>
+            <div class='register-content'>
+                <h2>Register</h2>
+                <form class='register-form'>
+                    <input type="text" name="name" id="name" placeholder="Name" />
+                    <input type="email" name="email" id="email" placeholder="Email" />
+                    <input type="password" name="password" id="pass" placeholder="Create password" />
+                    <input type="password" name="re_pass" placeholder="Repeat password" />
+                    <div>
+                        <button type='submit' class='register-form-btn'>Register</button>
+                        <input type='checkbox' class='register-form-checkbox' id='check'> <a id='goToMainForm' href=''> </input>
+                        <label for='check'>Remember me</label>
+                    </div>
+                </form>
+            </div>
+
+            <footer class='register-footer'>
+                <p>Already a member <a href='#'>Log in </a></p>
+            </footer>
+        </div>
+        <!-- end of register -->
+    </section>
+    <!-- end of login page -->
+
+    <!--
+    <div class="main">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="pass" placeholder="Password" />
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all
+                                    statements in <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <a id='goToMainForm' href=''>
+                                    <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/Screen%20Shot%202020-01-17%20at%2010.45.28%20AM.png"
+                                alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+   -->
+    <script type="text/javascript" src="/submit_registration.js"></script>
+
+
+</body>
+
+</html>

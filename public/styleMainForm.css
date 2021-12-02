@@ -1,0 +1,730 @@
+/* USED */
+/* common styles */
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Josefin Sans', sans-serif;
+    outline:none;
+}
+
+html{
+    /*the default html font size is 16px, but we want to set the html font size to be 10px, so we can use rem  */
+    /* 10px/16px = .625 * 100 = 62.5 %  */
+    font-size : 62.5%;
+}
+body{
+    background-color: #f0f8fd;
+}
+
+span{
+    display:block
+}
+/* end of common styles */
+
+
+.main-form-page{
+    width :100%;
+    height: 100vh;
+    display:grid;
+    grid-template-columns: minmax(5rem, 1fr) 2fr minmax(5rem, 1fr);
+    grid-template-rows: repeat(2, min-content);
+    grid-row-gap: 1.5rem;
+}
+
+
+/* navigation */
+.main-form-page-page-nav{
+    grid-column : 1/-1;
+    grid-row: 1/2;
+    background-color:#fff;
+    padding: 1.5rem 0;
+    box-shadow: 0 0 0.7rem rgb(0,0,0,0.3)
+}
+.main-form-page-page-nav ul{
+    width:100rem;
+    margin:auto;
+    display:flex;
+    align-items:flex-end;
+    list-style: none;
+} 
+.main-form-page-page-nav li{
+    margin:0 1rem;
+    position:relative;
+}
+.main-form-page-page-nav li:last-child{
+    margin-left:auto;
+} 
+.main-form-page-page-nav li::after{
+    content: '';
+    width:100%;
+    height:0.4rem;
+    background-color: #79BCFF;
+    position: absolute;
+    bottom:-1.5rem;
+    left:0;
+    opacity:0;
+    transition: opacity 0.3s;
+}
+.main-form-page-page-nav  li:hover::after{
+    opacity:1;
+}
+.main-form-page-page-nav  a {
+    font-size:1.6rem;
+    text-decoration: none;
+    color:#555;
+    transition: color 0.3s;
+}
+.main-form-page-page-nav  li:hover a{
+    color:#79BCFF;
+}
+.main-form-page-page-nav  i{
+    color: #79BCFF;
+    font-size:2rem;
+    padding: 0 1rem;
+}
+/* end of navigation */
+
+
+
+/* form */
+
+.formWrapper{
+    grid-column : 2/3;
+    grid-row: 2/-1;
+    background-color:#fff;
+  
+    display:grid;
+
+    grid-template-columns: 10rem 30rem 10fr 10rem ;
+    grid-template-rows: 2fr auto auto; 
+    box-shadow: 0 0 0.5rem rgb(0,0,0,0.3);
+
+}
+
+
+/*
+
+.main-form-page -> GRID: 3 COLUMNS, 2 ROWS
+    .main-form-page-page-nav
+    .formWrapper  -> GRID: 3 COLUMNS, 3 ROWS
+        .form
+        .form illustration
+        .arrows
+        .footer
+
+*/
+
+
+
+
+/* form common styles */
+.form {
+    grid-column: 2/3;
+    grid-row:1/2;
+    padding: 5rem 0 0 0;
+
+    margin-right:4rem;
+    margin-left:4rem;
+
+    justify-self: center;
+    align-self: center;
+    position:relative;
+
+    width:120%;
+}
+.form  input:not(.form-checkbox){
+   
+    height:3rem;
+    transition: background-color 0.3s;
+}
+
+
+.form input:focus{
+    background-color: #d9ebf7;
+}
+.form div{
+    margin-top: 2rem;
+}
+.form label{
+    font-size:1.3rem;
+    font-weight:300;
+    margin-right:1rem;  
+}
+h2{
+    color:#3981BF;
+    text-align: center;
+    line-height: 3rem;
+}
+/* end of form common styles */
+
+
+
+
+
+
+
+/* question what neighborhood do you live in*/
+
+.whatNeighborhood{
+ 
+}
+
+.whatNeighborhood #neighborhoodName{
+    margin-bottom:1rem;
+    margin-top: 3rem;
+    padding-left: 1rem;
+    border:0.1rem solid #79BCFF;
+    font-size:1.5rem;
+    width:70%;
+    height:3.8rem;
+    margin-left:50%;
+    transform:translate(-50%, -50%);
+    border-radius: 0.8rem;
+}
+
+/* -------------------------- auto complete items -----*/
+.autocomplete-items {
+    position: relative;
+    border: none;
+    z-index: 99;
+margin-top:-1.3rem;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items span {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border: 1px solid #d4d4d4; 
+  
+    width:65%;
+
+    margin-left:50%;
+    transform:translate(-50%, -50%);
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items span:hover {
+    background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }
+
+/* -------------------------- end of auto complete items -----*/
+.whatNeighborhood .borough_Zipcode{
+    display:flex;
+    justify-content: space-evenly;
+
+}
+
+.whatNeighborhood .boroSpan{
+    width:40%;
+    display:flex;
+    padding-right:1rem;
+}
+
+
+
+
+.whatNeighborhood .boroSpan i{
+    position:absolute;
+    font-size: 2rem;
+    color: #79BCFF;
+    margin-top:1rem;
+    left:35%;
+}
+
+.whatNeighborhood span select{
+    height:4rem;
+    border:0.1rem solid #79BCFF;
+    padding-left:1rem;
+    
+    width:100%;
+    background-color: transparent;
+  
+    border-radius: 0.8rem;
+    
+    /**********
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"widht:"100" height="50"><polygon points="0,0 100,0 50,50" style="fill:%23666666;" /> </svg>');
+    ******/
+
+}
+
+
+
+
+
+.whatNeighborhood #zipcodeInput{
+    height:3.8rem;
+    border:0.1rem solid #79BCFF;
+    padding-left:1rem;
+    width:40%;
+    border-radius: 0.8rem;
+}
+
+/* end of question what neighborhood do you live in*/
+
+
+
+
+
+
+/* question length living in neighborhood */
+
+.favAspectsOfNeighborhood{
+    width:100%
+}
+.form .lengthLivingInNeighborhood {
+    display:flex;
+    flex-direction: column;
+   
+}
+.form .lengthLivingInNeighborhood h2{
+    margin-bottom: 3rem;
+}
+.form .lengthLivingInNeighborhood div {
+    display:block;
+	font-weight: 500;
+	position: relative;
+    overflow: hidden;
+    margin: 1rem auto;
+    margin-left:10%;
+    display:flex;
+    align-items: center;
+    width :100%;
+    cursor: pointer;
+}
+.form .lengthLivingInNeighborhood div input{
+    appearance: none;
+    -webkit-appearance: none;
+    -mozilla-appearance: none;
+    vertical-align: text-bottom;
+    
+    border: 10px solid #79BCFF;
+    border-radius: 100%;
+    margin-right: 1rem;
+    transition: all 0.5s;
+}
+.form .lengthLivingInNeighborhood div input:checked{
+    border-color: rgb(189, 220, 252);;
+    border-width: 5px;
+}
+.form .lengthLivingInNeighborhood div input:checked +label{
+    background: #79BCFF;
+    color:white;
+}
+.form .lengthLivingInNeighborhood div input:checked:before{
+    content: "";
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-color:#79BCFF;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: white;
+}
+.form .lengthLivingInNeighborhood div label{
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid #79BCFF;
+    width:55%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+
+    
+}
+.form .lengthLivingInNeighborhood div label:hover{
+    background: #79BCFF;
+    color:white;
+}
+/* end of question length living in neighborhood */
+
+
+
+
+
+
+
+/* question how would they describe the neighborhood */
+.neighbhdDescription{ 
+    width:100%;
+    align-items: center;
+}
+
+.textAreaExplanation{
+    width:70%;
+    height:5rem;
+    margin-bottom:5rem;
+    margin-top:5rem;
+    padding-top: 2rem;
+    padding-left: 2.5rem;
+    border: 1px #79BCFF solid;
+    resize: none;
+}
+/* end of question how would they describe the neighborhood */
+
+
+
+
+
+/* describe neighborhood in 3 words */
+.threeWordsDescribeNeighborhood { 
+  width:100%;
+}
+.threeWordsDescribeNeighborhoodWrapper{
+    display:flex;
+    width:100%;
+}
+.threeWordsDescribeNeighborhood .threeWordsDescribeNeighborhoodWrapper span{
+    margin-top:1.3rem;
+    margin-right :2rem;
+    border: 1px solid #79BCFF;
+    background-color: #79BCFF;
+    color:#fff;
+    border-radius:50%;
+    padding:1rem;
+    height: 8px;
+    width: 5px;
+}
+.threeWordsDescribeNeighborhood .threeWordsDescribeNeighborhoodWrapper input{    
+    border: none;
+    border-bottom: 1px solid #79BCFF;
+    margin-top:1rem;    
+    width:100%;
+    padding-left:2.3rem;
+}
+/*  end of describe neighborhood in 3 words */
+
+
+
+/* likert scale */
+.likert h2{
+    margin-bottom: 2rem;
+}
+
+.likertOptions{
+    display:flex;
+    justify-content: space-between;
+    margin:1.5rem 0;
+    position:relative;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    border-bottom: double;
+    border-bottom-color: #3981BF;
+}
+.likertOptions h3{
+    color: #3981BF;
+    width:25%;
+}
+.likertOptions span input{
+    position:relative;
+    bottom:1.3rem;
+    left:50%;   
+    cursor: pointer;
+}
+.likertOptions span label{
+    color: #3981BF;
+    cursor: pointer;
+}
+/* end of likert scale */
+
+
+
+
+/* likert explanation */
+.explainLikert div h4{
+    margin-bottom: 1rem;
+    position: relative;
+    color: #3981BF;
+}
+.explainLikert div textarea{
+    height:4rem;
+    resize: none;
+    border: 1px #3981BF solid;
+    position: relative;
+    padding-top: 1rem;
+    padding-left: 2.5rem;
+}
+/* end of likert explanation */
+
+
+
+
+/* share any tips */
+.tips span{
+    margin-top:2rem;
+}
+.tips input{
+    border:none;
+    border-bottom: 1px solid #3981BF;
+    padding-left:1rem;
+}
+/* end of share any tips */
+
+
+
+
+/* favorite places */
+.labelAddPlace{
+    margin: 4rem 0 0 0;
+}
+.nameOfPlace{
+    border:none;
+    border-bottom: 1px solid #79BCFF;
+    padding-left: 2.5rem;
+}
+.addFavPlaces textarea{
+    margin-top: 1.5rem;
+    resize: none;
+    border: 1px #79BCFF solid;
+    padding-top: 0.5rem;
+    padding-left: 2.5rem;
+    padding-top: 2rem;
+    height:10rem;
+}
+.addFavPlaces span{
+    display:flex;
+    margin: 3rem 0 0 0;
+    align-self: center;
+}
+.placeLabel{
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    background: #79BCFF;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s ease-out;
+    align-self: center;
+}
+.labelPhoto{
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+}
+
+#addPlaceLabel{
+    margin-top:2.5rem;
+    margin-bottom:1rem;
+}
+
+#cameraSvg{
+    height:20%;
+    width:20%;
+    margin-left:1rem;
+    margin-bottom:0.3rem;
+}
+.camera{
+    stroke: #000;
+    cursor: pointer;
+}
+.cam1{
+    fill:white;
+}
+.cam2{
+    fill:#2D3340;
+}
+.cam4{
+    fill:rgb(127, 135, 153);
+    stroke:none;
+}
+.cam5{
+    fill:rgb(174, 181, 199);
+    stroke:none;
+}
+.cam6{
+    fill:rgb(207, 213, 228);
+    stroke:none;
+}
+.cam7{
+    fill:#79BCFF;
+    stroke:none;
+}
+.cam8{
+    fill:rgb(255, 255, 255);
+    stroke:none;
+    opacity: 0.5;
+}
+.cam9{
+    fill:rgb(238, 124, 124);
+}
+
+.previewImage{
+    position: absolute;;
+    left:80%;
+}
+/* end of favorite places */
+
+
+/* more self introduction */
+.moreSelfIntroduction{
+    width:100%;
+    align-items: center;
+}
+
+/* end of more self introduction */
+
+
+
+
+/* form illustration */
+.formIllustration{
+    grid-column: 3/4;
+    grid-row:1/2;
+    padding: 5rem 0 0 0;
+    justify-self: center;
+    align-self: center;
+
+}
+/* end of form illustration */
+
+
+
+
+
+
+
+
+
+
+
+/* arrows */
+.arrows{
+    /*
+    grid-column: 2/3;
+    grid-row:2/3;
+    display:flex;
+    justify-content: space-evenly;
+    width: 90%;
+
+      margin-top: 1rem; 
+    margin-left:5%;
+ */
+
+    
+  
+}
+
+.form .displayArrows{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+
+
+#prevQuestionSvg{
+    
+    height:8rem;
+    width:10rem;
+
+}
+#pathPrevQuestion{
+    cursor:pointer;
+    stroke: #79BCFF;
+    fill:rgb(255, 255, 255);
+  
+}
+
+
+#nextQuestionSvg{
+    
+    height:8rem;
+    width:10rem;
+
+
+   
+    
+}
+#pathNextQuestion{
+    cursor:pointer; 
+    stroke: #79BCFF;
+    fill:rgb(255, 255, 255);
+
+}
+/* end of arrows */
+
+
+
+
+
+
+/* footer */
+.footer{
+    grid-column: 1/-1;
+    grid-row:3/-1;
+    background-color:#edf3f7;
+    padding-left: 10rem;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    margin-top:2rem;
+    padding: 3rem 0;
+  }
+
+  .footer{
+    grid-column: 1/-1;
+    grid-row:3/-1;
+    background-color:#edf3f7;
+    padding-left: 10rem;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    margin-top:2rem;
+  }
+
+.footer p{
+    font-size: 1.6rem;
+    font-weight:300;
+    margin: 0.5rem 0;
+}
+  
+.footer a{
+    text-decoration:none;
+    color:#79BCFF;
+    font-weight: bold;
+}
+/* end of footer */
+
+
+
+
+.form .display{
+    display:flex;
+    flex-direction:column;
+   
+
+   
+  
+}
+
+
+.form .displayLikert{
+    display:block;
+    align-items: center;
+   
+} 
+
+
+.form div{
+    display:none;
+}
+
+
+.likertScaleExplanation{
+    display: none;
+}
+
