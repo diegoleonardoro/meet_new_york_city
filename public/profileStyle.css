@@ -13,10 +13,10 @@
     font-size : 62.5%;
   }
   body{
-    background-color: #f0f8fd;
+    background-color: #fff8f7; /*<<<<<<<<<<---------------------------------------------*/
   }
-  
   /* end of common styles */
+
 
 
   .profile-page{
@@ -30,7 +30,7 @@
     position:fixed;
     width:100%;
     height:6.5rem;
-    background-color: #fff;
+    background-color: #fff8f7; /*<<<<<<<<<<---------------------------------------------*/
     display:flex;
     justify-content: center;
     box-shadow: 0 0 0.7rem rgba(0,0,0, 0.3);
@@ -42,15 +42,18 @@
   .icons{
     display:flex;
     align-items: center;
+    list-style: none;
   }
   .icons a {
       text-decoration: none;
       margin-right:7rem;
-      font-size:2.5rem;
+      font-size:1.7rem;
       color:#9e9a9a;
   }
+ 
+
   .icons .active{
-      color: #79BCFF;
+      color: #fd6051;/*<<<<<<<<<<---------------------------------------------*/
   }
   .search-bar{
       display:flex;
@@ -110,8 +113,8 @@
 /* profile content*/
 .profile-content{
     display:grid;
-    grid-template-columns: 8rem 
-    70rem 40rem minmax(5rem, 1fr);
+    grid-template-columns: 32rem 
+    50rem 15rem 15rem;
     grid-template-rows: repeat(2, min-content);
     padding-top:6.5rem;
 
@@ -144,7 +147,7 @@
 
 .header-top i{
     font-size:3.5rem;
-    color:#79BCFF;
+    color:#fd6051;/*<<<<<<<<<<---------------------------------------------*/
     margin-right:1.5rem;
 }
 
@@ -177,7 +180,7 @@
     width:55rem;
     height:auto;
     /*border: 0.1rem solid #d6e1e9;*/
-    margin-left:7%;
+   
     padding: 0.4rem 1.5rem;
     display:flex;
     flex-direction: column;
@@ -253,7 +256,7 @@
 
 .header-introduction i{
     font-size: 2.5rem;
-    color: #79BCFF;
+    color: #fd6051;/*<<<<<<<<<<---------------------------------------------*/
     margin:1rem;
 }
 
@@ -320,14 +323,9 @@
 }
 .neihborhood-image{
     display:flex;
-    width:60rem;
     height:30rem;
     justify-content: space-between;
 }
-
-
-
-
 
 
 
@@ -341,7 +339,6 @@
 */
 
 
-
 .neihborhood-image .divOfImages img{
     width:100%; /*100%*/
     height:100%;
@@ -349,15 +346,14 @@
     border-radius:1rem;
 }
 
-
-
 .neihborhood-image i{
     align-self: center;
     font-size:3rem;
-    color:#79BCFF;
+    color:#fd6051;/*<<<<<<<<<<---------------------------------------------*/
     padding: 0 1rem;
     cursor: pointer;
 }
+
 
 .neihborhood-icons{
     margin-top:1rem;
@@ -386,6 +382,7 @@
 
 
 .neighborhood-details{
+
     position:fixed;
     top:8rem;
     left:58%;
@@ -394,12 +391,20 @@
     display:flex;
     flex-direction:column;
     align-items: center; 
+
+
+    width:auto;/*<<<<<<<<<<<------------------------------------*/
+    overflow: auto;
+    height:100%;
 }
+
+
 .neighborhood-details-heading{
     padding:1rem;
     font-size:1.8rem;
     border-bottom:0.1rem solid #eee;
 }
+
 .neighborhood-details-buttons{
     /*
     display:flex;
@@ -408,11 +413,14 @@
      position:relative;
     */
 }
+
+
 .explore-detail-btn-wraper{
     margin:1rem 0;
-    width:45rem;
+    width:35rem; /*<<<<<<<<<<<------------------------------------*/
     height:auto;
     position:relative;
+    padding: 0 3rem;
 }
 .explore-detail-btn{
     width:100%;
@@ -429,23 +437,24 @@
 }
 .explore-detail-btn-wraper i{
     position:absolute;
-    left:93%;
+    left:85%;
     top:1rem;
 }
 .explore-detail-div{
     /*margin-top:15%;*/
     /*border: solid #444;*/
     margin: 1rem 0.5rem;
-    width:50rem;
+   /* width:50rem;*/
     height:auto;
 
    /* display:none;*/
 }
 
 #nhd-places-map-svg{
-    margin-left:10%;
-    
+   
 }
+
+
 .bar{
     cursor: pointer;
 }
@@ -462,14 +471,6 @@
     
     fill: #0769ad;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -512,21 +513,24 @@
 /* post new place button */
 .post-btn{
     position:fixed;
-    bottom:2rem;
-    left:68%;
-    width:20rem;
+    bottom:5rem;
+    left:5%;
+    width:22rem;
     padding:1.5rem 1rem;
-    background-color: #79BCFF;
+    background-color: #fd6051;/*<<<<<<<<<<---------------------------------------------*/
     color:#fff;
     font-size:2rem;
-    border: 0.1rem solid #79BCFF;
+    border: 0.1rem solid #fd6051;/*<<<<<<<<<<---------------------------------------------*/
     border-radius: 3rem;
     cursor:pointer;
     box-shadow: 0 0.3rem 1rem rgb(0,0,0, 0.3);
     transition: background-color 0.3s;
+}
 
+.post-btn i{
+    padding:0 1rem;
 }
 .post-btn:hover{
-    background-color:#117abb;
+    background-color:#fc4f3f;/*<<<<<<<<<<---------------------------------------------*/
 }
 /* end of post new place button */

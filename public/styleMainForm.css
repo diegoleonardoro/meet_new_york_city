@@ -1,4 +1,4 @@
-/* USED */
+
 /* common styles */
 *{
     margin:0;
@@ -6,7 +6,6 @@
     font-family: 'Josefin Sans', sans-serif;
     outline:none;
 }
-
 html{
     /*the default html font size is 16px, but we want to set the html font size to be 10px, so we can use rem  */
     /* 10px/16px = .625 * 100 = 62.5 %  */
@@ -20,7 +19,6 @@ span{
     display:block
 }
 /* end of common styles */
-
 
 .main-form-page{
     width :100%;

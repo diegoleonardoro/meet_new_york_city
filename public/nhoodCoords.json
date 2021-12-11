@@ -5,7 +5,8 @@
             "40.89470517661004"
         ],
         "Name": "Wakefield",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "Formerly, Wakefield was home to large Irish American and Italian-American populations. During the 1980s, these communities were replaced with large Caribbean and Guyanese populations."
     },
     {
         "the_geom": [
@@ -13,7 +14,8 @@
             "40.87429419303015"
         ],
         "Name": "Co-op City",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"Co-op City (short for Cooperative City) is a cooperative housing development located in the northeast section of the borough of the Bronx in New York City. Co-op City's 15,372 residential units, in 35 high rise buildings and seven clusters of townhouses, make it the largest single residential development in the United States."
     },
     {
         "the_geom": [
@@ -21,7 +23,8 @@
             "40.88755567735082"
         ],
         "Name": "Eastchester",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"The neighborhood was historically heavily Ashkenazi-Jewish and Italian-American, It has the same name as a modern-day town located approximately 5 miles to the north, as the neighborhood was included in the Town of Eastchester's extent until the late 19th century upon annexation by the City of New York, its boundaries roughly matching the former Village of Eastchester, which was incorporated on March 25, 1895."
     },
     {
         "the_geom": [
@@ -29,7 +32,8 @@
             "40.895437426903875"
         ],
         "Name": "Fieldston",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"Fieldston is a privately owned affluent neighborhood in the Riverdale section of the northwestern part of the New York City borough of the Bronx. It is bounded by Manhattan College Parkway to the south, Henry Hudson Parkway to the west, 250th Street to the north, and Broadway to the east. It is noted for its rural atmosphere, large houses and abundance of trees."
     },
     {
         "the_geom": [
@@ -37,7 +41,8 @@
             "40.89083449389134"
         ],
         "Name": "Riverdale",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"Riverdale, which had a population of 47,850 as of the 2000 United States Census, contains the city's northernmost point, at the College of Mount Saint Vincent."
     },
     {
         "the_geom": [
@@ -45,7 +50,8 @@
             "40.88168737120525"
         ],
         "Name": "Kingsbridge",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"Kingsbridge is a working- and middle-class residential neighborhood in the northwest portion of the Bronx, New York City. Kingsbridge's boundaries are Manhattan College Parkway to the north, the Major Deegan Expressway or Bailey Avenue to the east, West 230th Street to the south, and Irwin Avenue to the west."
     },
     {
         "the_geom": [
@@ -53,7 +59,8 @@
             "40.87655077879968"
         ],
         "Name": "Marble Hill",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Marble Hill is the northernmost neighborhood in the New York City borough of Manhattan. It is one of the few areas within the Manhattan borough that are not located on Manhattan Island. Politically a part of New York County, Marble Hill became an island in the Harlem River when it was separated from the island of Manhattan by the construction of the Harlem Ship Canal in 1895."
     },
     {
         "the_geom": [
@@ -61,7 +68,8 @@
             "40.898272612138086"
         ],
         "Name": "Woodlawn",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"Woodlawn Heights, also known as Woodlawn, is a predominantly Irish-American working class neighborhood at the very north end of the borough of the Bronx in New York City"
     },
     {
         "the_geom": [
@@ -69,7 +77,8 @@
             "40.877224155994504"
         ],
         "Name": "Norwood",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"In the 1970s through the 1990s the neighborhood was well known for its Irish and Irish American population, having attracted a number of immigrants from Catholic areas of Northern Ireland who fled the Troubles, and others seeking work. During this time that the neighborhood became known by two more names: Bainbridge, after the Bainbridge Avenue – East 204th Street commercial strip – included Irish restaurants, groceries, and pubs, and Little Belfast, after the city from which many immigrants came."
     },
     {
         "the_geom": [
@@ -77,7 +86,8 @@
             "40.88103887819214"
         ],
         "Name": "Williamsbridge",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"According to the New York City Parks Department, Williamsbridge was named for 18th Century farmer John Williams, who had a farm on the east bank of the Bronx River in the vicinity of Gun Hill Road and White Plains Road, and was credited with building the first bridge over the Bronx River.[4] It incorporated as a village on November 23, 1888."
     },
     {
         "the_geom": [
@@ -85,7 +95,8 @@
             "40.86685810725274"
         ],
         "Name": "Baychester",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"Baychester is dominated by one and two family homes of various styles. The total land area is 2.61 square miles. The area is low lying and flat; some parts of the East Bronx are built on marshland and valleys."
     },
     {
         "the_geom": [
@@ -93,7 +104,8 @@
             "40.85741349808869"
         ],
         "Name": "Pelham Parkway",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"The neighborhood has a significantly diverse population including Albanians (the largest concentration in New York City), Arabs, African Americans, Bosnians, Dominicans, Filipino, Germans, Guyanese, Indians, Irish, Italians, Jamaicans, Jews, Muslims, Pakistanis, Puerto Ricans, and Russians. Hispanics of various races account for 45% of the community; 38% of the community are non-Hispanic White and 20% non-Hispanic Black."
     },
     {
         "the_geom": [
@@ -101,7 +113,8 @@
             "40.84724670491817"
         ],
         "Name": "City Island",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "Originally inhabited by the Siwanoy band of Lenape Indians, City Island later was settled by Europeans as part of property and estate bought by English nobleman Thomas Pell in 1654.[5] Prior to that, English settlers led by Anne Hutchinson (seeking religious freedom) settled in an area nearby on the river (now known as the Hutchinson River) in 1642."
     },
     {
         "the_geom": [
@@ -109,7 +122,9 @@
             "40.87018516497537"
         ],
         "Name": "Bedford Park",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"Bedford Park is a residential neighborhood in the northwest Bronx, New York City, between the New York Botanical Garden and Lehman College. Bedford Park is home to people of many ethnicities including Korean, Indians, and Bangladeshis. Reflecting a population greatly composed of foreign-born immigrants, there are distinct ethnic enclaves in Bedford Park."
+  
     },
     {
         "the_geom": [
@@ -117,7 +132,8 @@
             "40.85572707719668"
         ],
         "Name": "University Heights",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "The neighborhood takes its name from the hill on which New York University's Bronx campus was built in 1894. The campus includes the Hall of Fame for Great Americans. Although NYU sold the campus to the City University of New York to house Bronx Community College in 1973, the neighborhood name has endured."
     },
     {
         "the_geom": [
@@ -125,7 +141,8 @@
             "40.84789792606274"
         ],
         "Name": "Morris Heights",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "Morris Heights has a population of around 36,779. Almost half the population lives below the poverty line and receives public assistance (TANF, Home Relief, Supplemental Security Income, and Medicaid). The vast majority of residents in the area are of Hispanic or African American descent. The majority of households are renter occupied."
     },
     {
         "the_geom": [
@@ -133,7 +150,8 @@
             "40.86099679638657"
         ],
         "Name": "Fordham",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "Fordham is dominated by 5- and 6-story apartment buildings, often set flush to the sidewalk. Many of the apartments on the Grand Concourse are taller. The New York Botanical Garden and the Wildlife Conservation Society's Bronx Zoo, both inside Bronx Park, collectively occupy dozens of acres of land within the neighborhood."
     },
     {
         "the_geom": [
@@ -141,7 +159,8 @@
             "40.84269615786057"
         ],
         "Name": "East Tremont",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "East Tremont is dominated by five and six story tenement buildings, older multi-unit homes, vacant lots, and newly constructed apartment buildings. Most of the original housing stock was structurally damaged by arson and eventually razed by the city. The land area, somewhat hilly, is less than one square mile."
     },
     {
         "the_geom": [
@@ -149,15 +168,17 @@
             "40.83947505672657"
         ],
         "Name": "West Farms",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "West Farms is dominated by 5 and 6-story tenement buildings, older multi-unit homes, vacant lots, and newly constructed subsidized attached multi-unit townhouses and apartment buildings. Most of the original housing stock was structurally damaged by arson and eventually razed by the city. The total land area is less than one square mile. The terrain is somewhat hilly."
     },
     {
         "the_geom": [
             "-73.92610209358138",
             "40.8366230107061"
         ],
-        "Name": "High  Bridge",
-        "Borough": "Bronx"
+        "Name": "High Bridge",
+        "Borough": "Bronx",
+        "Description": "The neighborhood takes its name from the High Bridge, built in 1848 by Irish immigrants.[6] The structure originally carried Croton Aqueduct water across the Harlem River.[7] In 1864, a walkway was built across the High Bridge.[8] Use of the structure to deliver water to Manhattan ceased in 1949."
     },
     {
         "the_geom": [
@@ -165,7 +186,8 @@
             "40.81975437059498"
         ],
         "Name": "Melrose",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "Predominantly German-American in the 19th century it was home to Haffen Brewing Company. The German population waned especially post-World War II. The neighborhood until the 1960s was mostly Irish and Italian.[4] It is now primarily Latino."
     },
     {
         "the_geom": [
@@ -173,7 +195,8 @@
             "40.80623874935181"
         ],
         "Name": "Mott Haven",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "Mott Haven and Port Morris were the first neighborhoods to give rise to the term 'South Bronx'. Together, they were earlier known as the North Side or North New York. This area was part of New York County after the incorporation of Greater New York in 1898."
     },
     {
         "the_geom": [
@@ -181,7 +204,8 @@
             "40.80166362775625"
         ],
         "Name": "Port Morris",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "Port Morris contains a variety of zoning districts ranging from manufacturing, commercial, residential, and mixed-use. The eastern half of Port Morris contains primarily light industrial, warehousing and distribution uses guided by the Port Morris Industrial Business Zone."
     },
     {
         "the_geom": [
@@ -189,7 +213,8 @@
             "40.815099045458254"
         ],
         "Name": "Longwood",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "Longwood is dominated by pre-war, 5- and 6-story apartment buildings. Starting in the 1990s, a construction boom has resulted in a number of modern apartment buildings and row houses. Much of the original housing stock was structurally damaged by arson and eventually razed by the city between mid and late 1980s."
     },
     {
         "the_geom": [
@@ -197,7 +222,8 @@
             "40.809729879387135"
         ],
         "Name": "Hunts Point",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description":"The land area in Hunts Point is dominated by industry. There is a small but dense residential pocket that occupies the high ground in the northern half of the peninsula along Hunts Point Avenue. It consists primarily of older pre-war architecture apartment buildings with a smaller number of semi-detached multi-unit row houses."
     },
     {
         "the_geom": [
@@ -205,7 +231,8 @@
             "40.82359198585537"
         ],
         "Name": "Morrisania",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description":"Morrisania is dominated by public housing complexes of various types, vacant lots, and tenement buildings. Most of the original housing stock which consisted of older multi-unit homes and tenements were structurally damaged by arson and eventually razed by the city. The total land area is over a square mile."
     },
     {
         "the_geom": [
@@ -213,7 +240,8 @@
             "40.82101219791406"
         ],
         "Name": "Soundview",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"There is a mixture of pre-war architecture, mid-century, and modern buildings. Row-houses, semi-detached homes, detached homes, and apartment buildings are found throughout; the overwhelming majority containing multiple units."
     },
     {
         "the_geom": [
@@ -221,7 +249,8 @@
             "40.806551120035934"
         ],
         "Name": "Clason Point",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "There are large, residential housing complexes of various types. These include public housing, high-rise co-ops and rentals."
     },
     {
         "the_geom": [
@@ -229,7 +258,8 @@
             "40.815109258040096"
         ],
         "Name": "Throgs Neck",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description":"The neighborhood has several beach clubs and a diverse housing stock, including middle-class homes, up-market waterfront condominiums, as well as the Throggs Neck Houses, built in 1953 as one of the first low-income public housing projects in New York City and later expanded twice."
     },
     {
         "the_geom": [
@@ -237,7 +267,8 @@
             "40.84424593694742"
         ],
         "Name": "Country Club",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "As of 2018 Country Club has a population of around 7,500 people. It is a predominantly white neighborhood with around 73.0% of the population being non-Hispanic white, while approximately 22.3% are Hispanic or Latino, 3.5% are Asian, and the remaining are Black, two or more races."
     },
     {
         "the_geom": [
@@ -245,7 +276,8 @@
             "40.83793782226733"
         ],
         "Name": "Parkchester",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "The Parkchester complex is composed of 171 four-sided brick buildings, either eight or 13 stories in height and numbered M (for Main) through 7 and M through 12, respectively. The 13 story buildings have dual elevators positioned side-by-side, while they eight-story buildings only have one."
     },
     {
         "the_geom": [
@@ -253,7 +285,8 @@
             "40.840619496432744"
         ],
         "Name": "Westchester Square",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "Westchester Square is a residential neighborhood geographically located in the eastern section of the New York City borough of the Bronx."
     },
     {
         "the_geom": [
@@ -261,7 +294,8 @@
             "40.84360847124722"
         ],
         "Name": "Van Nest",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "Van Nest has a population under 15,000. The neighborhood has a concentration of Puerto Ricans and also contains a significant African American population. A small longstanding Italian and Albanian population exist east of White Plains Road near Morris Park. The majority of residents rent. Almost 20% of the population lives below the poverty line."
     },
     {
         "the_geom": [
@@ -269,7 +303,8 @@
             "40.84754906353638"
         ],
         "Name": "Morris Park",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "Housing in Morris Park is mostly one and two family homes of various styles. The neighborhood also has several apartment buildings. The total land area is a little over one-third of a square mile. The area is low-lying and relatively flat."
     },
     {
         "the_geom": [
@@ -277,7 +312,8 @@
             "40.85727710073898"
         ],
         "Name": "Belmont",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "The neighborhood is noted for its 'close-knit community' and 'small town feel', and as a result of its cultural history and wide array of Italian businesses, is widely known as the 'Little Italy of the Bronx'. Arthur Avenue, noted for its local restaurants and markets, is its primary thoroughfare."
     },
     {
         "the_geom": [
@@ -285,7 +321,9 @@
             "40.8813949772709"
         ],
         "Name": "Spuyten Duyvil",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+         "Description": "The area is named after Spuyten Duyvil Creek. 'Spuyten Duyvil' may be literally translated as 'Spouting Devil' or Spuitende Duivel in Dutch, a reference to the strong and wild tidal currents found at that location. It may also be translated as 'Spewing Devil' or 'Spinning Devil', or more loosely as 'Devil's Whirlpool' or 'Devil's Spate.' "
+        
     },
     {
         "the_geom": [
@@ -293,7 +331,8 @@
             "40.9085428295067"
         ],
         "Name": "North Riverdale",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "One of the geographic characteristics which gives all of Riverdale its suburban quality is that it lies on a high ridge which separates it from the rest of the city. The highest part of the ridge, at 284.5 feet above sea level, lies in North Riverdale, near Iselin Avenue and 250th Street."
     },
     {
         "the_geom": [
@@ -301,7 +340,9 @@
             "40.85064140940339"
         ],
         "Name": "Pelham Bay",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "The neighborhood is home to longstanding Italian American population with a recent influx of Hispanics changing the neighborhoods demographics considerably. Some homes have both Italian and American flags proudly waving."
+
     },
     {
         "the_geom": [
@@ -309,7 +350,8 @@
             "40.82657951686926"
         ],
         "Name": "Schuylerville",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description":"Schuylerville (nicknamed 'Skyville') is a middle-class neighborhood located in the East Bronx area of New York City. Housing is mostly single-family and two-family houses"
     },
     {
         "the_geom": [
@@ -317,7 +359,8 @@
             "40.82198611816354"
         ],
         "Name": "Edgewater Park",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description" : "Edgewater Park once housed a mansion built by George T. Adee in 1856. He eventually leased the land to an Irish immigrant who was a member of St. Ann's Episcopal Church in Morrisania and invited church youth to camp on the grounds which became known as Edgewater Camp."
     },
     {
         "the_geom": [
@@ -325,7 +368,9 @@
             "40.81901437698835"
         ],
         "Name": "Castle Hill",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "The land area contains a mix of uses but is primarily residential. There is a mixture of pre-war architecture, mid-century, and modern construction. Multi-unit attached and detached houses dominate much of the land area."
+
     },
     {
         "the_geom": [
@@ -333,7 +378,8 @@
             "40.87137078192375"
         ],
         "Name": "Olinville",
-        "Borough": "Bronx"
+        "Borough": "Bronx",
+        "Description": "Olinville has a population of 11,907. Olinville is in Bronx County."
     },
     {
         "the_geom": [
@@ -341,7 +387,8 @@
             "40.862965624780024"
         ],
         "Name": "Pelham Gardens",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description":"Pelham Gardens is dominated by single family homes with some small apartment buildings and 2-3 family homes. Many private homes have basement studio apartments but are classified as one family. The total land area is roughly two square miles."
     },
     {
         "the_geom": [
@@ -349,7 +396,8 @@
             "40.834283807338544"
         ],
         "Name": "Concourse",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "Concourse is a neighborhood in the southwestern section of the New York City borough of the Bronx which includes the Bronx County Courthouse, the Bronx Museum of the Arts, and Yankee Stadium."
     },
     {
         "the_geom": [
@@ -357,7 +405,8 @@
             "40.82977429787165"
         ],
         "Name": "Unionport",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description":"Unionport is a densely urban neighborhood (based on population density) located in Bronx, New York. Unionport real estate is primarily made up of small (studio to two bedroom) to medium sized (three or four bedroom) apartment complexes/high-rise apartments and small apartment buildings."
     },
     {
         "the_geom": [
@@ -365,7 +414,8 @@
             "40.88456130303736"
         ],
         "Name": "Edenwald",
-        "Borough": "Bronx"
+        "Borough": "Bronx", 
+        "Description": "The Edenwald Houses were built on the former Hebrew Orphan Asylum and was designed by architects Rodgers & Butler. Paul Tishman Company started building Edenwald Houses in 1951 at a cost of roughly $12 million."
     },
     {
         "the_geom": [
@@ -373,7 +423,8 @@
             "40.62580106501069"
         ],
         "Name": "Bay Ridge",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description":"Until the early 1970s, Bay Ridge was dominated by its Norwegian community. By 1971, the 30,000-strong Norwegian community of Bay Ridge boasted that it was the fourth-largest Norwegian 'city' in the world."
     },
     {
         "the_geom": [
@@ -381,7 +432,9 @@
             "40.61100890202048"
         ],
         "Name": "Bensonhurst",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description":"In the early 20th century, many Italians and Jewish migrants moved into the neighborhood, and prior to World War II, the neighborhood was about equally Jewish and Italian. In the 1940s an influx of immigrants from southern Italy moved in, leaving the area predominantly Italian."
+
     },
     {
         "the_geom": [
@@ -389,7 +442,8 @@
             "40.64510294925433"
         ],
         "Name": "Sunset Park",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description":"Sunset Park is a neighborhood in the southwestern part of the borough of Brooklyn in New York City, bounded by Park Slope and Green-Wood Cemetery to the north, Borough Park to the east, Bay Ridge to the south, and Upper New York Bay to the west"
     },
     {
         "the_geom": [
@@ -397,7 +451,8 @@
             "40.730200984864744"
         ],
         "Name": "Greenpoint",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "At the time of European settlement in New York, Greenpoint was inhabited by the Keskachauge[8] (Keshaechqueren) Indians, a sub-tribe of the Lenape.[9] Contemporary accounts describe the area as remarkably verdant and beautiful."
     },
     {
         "the_geom": [
@@ -405,7 +460,8 @@
             "40.59526001306597"
         ],
         "Name": "Gravesend",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description":"The name 'Gravesend' was given to the area by New Amsterdam's Dutch authorities, and probably comes from Dutch words which when combined can mean 'groves end' or 'Count's beach'."
     },
     {
         "the_geom": [
@@ -413,7 +469,8 @@
             "40.576825065666085"
         ],
         "Name": "Brighton Beach",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Brighton Beach is included in an area from Sheepshead Bay to Sea Gate that was purchased from the Native Americans in 1645 for a gun, a blanket and a kettle."
     },
     {
         "the_geom": [
@@ -421,7 +478,8 @@
             "40.58689012678388"
         ],
         "Name": "Sheepshead Bay",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Sheepshead Bay is mostly residential. Low-density, one-and-two-family attached and semi-attached houses are common near the western and eastern edges of the neighborhood. Higher-density condominiums and co-ops are more common near Ocean Avenue, at the center of the neighborhood."
     },
     {
         "the_geom": [
@@ -429,7 +487,8 @@
             "40.61443251335102"
         ],
         "Name": "Manhattan Terrace",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Manhattan Terrace is a neighborhood in Brooklyn with a total population of 40,650. It occupies approximately 1.23 square miles. There are 7,888 street trees per square mile."
     },
     {
         "the_geom": [
@@ -437,7 +496,8 @@
             "40.63632589026681"
         ],
         "Name": "Flatbush",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "The name Flatbush is a calque of the Dutch language Vlacke bos (vlacke or vlak, meaning 'fla'; 'Flatbush' meaning 'flat woodland' or 'wooded plain'),[6][7] so named from woods that grew on the flat country"
     },
     {
         "the_geom": [
@@ -445,7 +505,9 @@
             "40.67082917695298"
         ],
         "Name": "Crown Heights",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+
+        "Description":"In the early 20th Century, Crown Heights had begun as a fashionable residential neighborhood, a place for secondary homes in which Manhattan's growing bourgeois class could reside. The area benefited by having its rapid transit in a subway configuration."
     },
     {
         "the_geom": [
@@ -453,7 +515,8 @@
             "40.64171776668965"
         ],
         "Name": "East Flatbush",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "Since the 1960s and especially through the 1970s, Caribbean immigrants have largely settled into East Flatbush as well as in other surrounding areas such as Prospect Lefferts Gardens, Flatbush, and Crown Heights"
     },
     {
         "the_geom": [
@@ -461,7 +524,8 @@
             "40.64238195800357"
         ],
         "Name": "Kensington",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description":"The land where Kensington now sits was first colonized by Dutch farmers during the seventeenth century within the Town of Flatbush. It was re-settled by British colonists in 1737. First developed in 1885 after the completion of Ocean Parkway, the neighborhood was named after the place and borough in West London, at the turn of the century."
     },
     {
         "the_geom": [
@@ -469,7 +533,8 @@
             "40.65694583575108"
         ],
         "Name": "Windsor Terrace",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Windsor Terrace is home to mainly Irish-, German-, Polish-, and Italian-American families,[38] many having settled in its brick row and wood-frame houses when the neighborhood was first developed."
     },
     {
         "the_geom": [
@@ -477,7 +542,8 @@
             "40.67682226225477"
         ],
         "Name": "Prospect Heights",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "The area has many Italianate and Neo-Grec rowhouses, and much of the neighborhood has been designated a New York City historic district."
     },
     {
         "the_geom": [
@@ -485,7 +551,8 @@
             "40.66394994339758"
         ],
         "Name": "Brownsville",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description":"The area that would become Brownsville was first used by the Dutch for farming, as well as manufacturing stone slabs and other things used to construct buildings."
     },
     {
         "the_geom": [
@@ -493,7 +560,8 @@
             "40.70714439344255"
         ],
         "Name": "Williamsburg",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Since the late 1990s, Williamsburg has undergone significant gentrification characterized by a contemporary art scene, hipster culture, and vibrant nightlife. During the early 2000s, the neighborhood became a center for indie rock and electroclash."
     },
     {
         "the_geom": [
@@ -501,7 +569,8 @@
             "40.69811611017905"
         ],
         "Name": "Bushwick",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "When Bushwick was founded, it was primarily an area for farming food and tobacco. As Brooklyn and New York City grew, factories that manufactured sugar, oil, and chemicals were built. The inventor Peter Cooper built a glue manufacturing plant, his first factory, in Bushwick. Immigrants from western Europe joined the original Dutch settlers."
     },
     {
         "the_geom": [
@@ -509,7 +578,8 @@
             "40.6872316077205"
         ],
         "Name": "Bedford Stuyvesant",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "The neighborhood's name combines the names of the Village of Bedford and the Stuyvesant Heights neighborhoods. Stuyvesant is derived from Peter Stuyvesant, the last governor of the colony of New Netherland."
     },
     {
         "the_geom": [
@@ -517,7 +587,8 @@
             "40.69586372272413"
         ],
         "Name": "Brooklyn Heights",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "Brooklyn Heights was the first neighborhood protected by the 1965 Landmarks Preservation Law of New York City. The neighborhood is largely composed of blocks of picturesque rowhouses and a few mansions."
     },
     {
         "the_geom": [
@@ -525,7 +596,8 @@
             "40.68791972248561"
         ],
         "Name": "Cobble Hill",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Through its early history, the area now called 'Cobble Hill' was considered to be part of South Brooklyn, Red Hook, or simply the Sixth Ward, or as part of Brooklyn Heights The current name, a revival of a name which had died out by the 1880s, was adopted in 1959."
     },
     {
         "the_geom": [
@@ -533,7 +605,8 @@
             "40.68213188564184"
         ],
         "Name": "Carroll Gardens",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "The neighborhood was named after Charles Carroll, the only Roman Catholic signer of the Declaration of Independence, and whose name was already attached to Carroll Street and Carroll Park."
     },
     {
         "the_geom": [
@@ -541,7 +614,8 @@
             "40.67625323025092"
         ],
         "Name": "Red Hook",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Red Hook is the only part of New York City that has a fully frontal view of the Statue of Liberty, which was oriented to face France."
     },
     {
         "the_geom": [
@@ -549,7 +623,8 @@
             "40.6739311431872"
         ],
         "Name": "Gowanus",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "In 1636, Gowanus Bay – named after Gauwane (Gouwane, lit. 'the sleeper'), a Canarsee Indian – was the site of the first settlement by Dutch farmers in what is now Brooklyn."
     },
     {
         "the_geom": [
@@ -557,7 +632,8 @@
             "40.688527260189815"
         ],
         "Name": "Fort Greene",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Fort Greene in the early 20th century became a significant cultural destination. After the original Brooklyn Academy of Music in Brooklyn Heights burned down in 1903, the current one was built in Fort Greene."
     },
     {
         "the_geom": [
@@ -565,7 +641,8 @@
             "40.672320522682014"
         ],
         "Name": "Park Slope",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Park Slope contains a variety of zoning districts, including manufacturing, commercial, residential, and mixed-use. Much of the neighborhood is composed of rowhouses and six-to-eight-story apartment buildings, though Fourth, Fifth and Seventh Avenues contain residential structures with commercial space on the ground floors."
     },
     {
         "the_geom": [
@@ -573,7 +650,8 @@
             "40.6846357939163"
         ],
         "Name": "Cypress Hills",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Cypress Hills, a subsection of East New York,[44] is bordered on the south by City Line; to the north by Cypress Hills Cemetery; to the west by Bushwick; and to the east Woodhaven and Ozone Park in Queens."
     },
     {
         "the_geom": [
@@ -581,7 +659,8 @@
             "40.66992570084708"
         ],
         "Name": "East New York",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "East New York consists of mixed properties but primarily semi-detached homes, two-to-four family houses, and multi-unit apartment buildings, including condominiums and co-ops. The total land area is one square mile."
     },
     {
         "the_geom": [
@@ -589,7 +668,8 @@
             "40.64758905230878"
         ],
         "Name": "Starrett City",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Starrett City (informally and colloquially known as the Spring Creek Towers) is a housing development in the Spring Creek section of East New York, in Brooklyn, New York City. It is located on a peninsula on the north shore of Jamaica Bay, bounded by Fresh Creek to the west and Hendrix Creek to the east."
     },
     {
         "the_geom": [
@@ -597,7 +677,8 @@
             "40.63556432797432"
         ],
         "Name": "Canarsie",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "The area near Canarsie was originally settled by the Canarse Native Americans. The community's name is adapted from a Lenape word meaning 'fenced area'. "
     },
     {
         "the_geom": [
@@ -605,7 +686,8 @@
             "40.6304460437575"
         ],
         "Name": "Flatlands",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "Crops typically grown in the area were beans, corn, marsh hay, squash, potato bean and tobacco. Oysters and clams were also farmed and harvested from Jamaica Bay, surrounding marshes and basins."
     },
     {
         "the_geom": [
@@ -613,7 +695,8 @@
             "40.60633642168567"
         ],
         "Name": "Mill Island",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description": "From the 1950s through the 1980s, the area was mainly Italian, but the predominant communities today are Russian and Israeli."
     },
     {
         "the_geom": [
@@ -621,7 +704,8 @@
             "40.57791350308661"
         ],
         "Name": "Manhattan Beach",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn", 
+        "Description":"Traditionally known as an Italian and Ashkenazi Jewish neighborhood, it is also home to a sizable community of Sephardi Jews and a large Russian Jewish immigrant presence."
     },
     {
         "the_geom": [

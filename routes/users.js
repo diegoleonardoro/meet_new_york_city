@@ -9,6 +9,7 @@ const {
     getFormInterface,
     userProfile,
     getNeighborhood,
+    user_ProfilePublic,
 } = require("../controllers/users");
 
 
@@ -34,5 +35,12 @@ router.route('/:id')
 
 router.route('/profile/:id')
     .get(protect, userProfile)
+
+
+
+router.route('/user-profile/:slug')
+    .get(user_ProfilePublic)
+
+
 
 module.exports = router;

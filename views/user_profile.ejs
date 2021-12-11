@@ -40,13 +40,11 @@
 
         <!-- profile nav -->
         <nav class ='profile-nav'>
-
-            <div class='icons'>
-                <a href='#' class='active'><i class ='fas fa-home'></i></a>
-                <a href='#' ><i class ='fas fa-hashtag'></i></a>
-                <a href='#' ><i class ='far fa-bell'></i></a>
-                <a href='#' ><i class ='far fa-envelope'></i></a>
-            </div>
+            <ul class='icons'>
+                <li><a href='#' class='active'><i class ='fas fa-map-signs'></i></a></li>
+                <li><a href='#'>About</a></li>
+                <li><a href='#'>Explore neighborhoods</a></li>
+            </ul>
             
             <div class='search-bar'>
                 <i class ='fas fa-search'></i>
@@ -142,11 +140,11 @@
                                 <%- user.favoritePlaces[e].description %>
                             </p> 
                             <div class='neihborhood-image'>
-                                <i class="fas fa-arrow-left"></i>
+                                <i class="fas fa-arrow-circle-left"></i>
                                 <div class ='divOfImages'>
                                     <%- user.imagesFormated[e] %>
                                 </div>
-                                <i class="fas fa-arrow-right"></i>
+                                <i class="fas fa-arrow-circle-right"></i>
                             </div>
                             <div class='neihborhood-icons'>
                                 <i class='far fa-comment'></i>
@@ -175,15 +173,15 @@
                     <div class='explore-detail-btn-wraper'>
                         <button type ='button' class='explore-detail-btn'><i class='fas fa-chevron-down'></i>Map</button>
                         <div class='explore-detail-div'>
-                            <svg id='nhd-places-map-svg'width="400" height="300" ></svg>
+                            <svg id='nhd-places-map-svg'width="300" height="300" ></svg>
                         </div>
                     </div>
 
                     <div class='explore-detail-btn-wraper'>
                         <button type ='button' class='explore-detail-btn'> <i class='fas fa-chevron-down'></i>This is how I feel about my neighborhood</button>
                         <div class='explore-detail-div'>
-                            holaaaa
-                            <svg class='nhd-satisfact-svg'width="300" height="300"></svg>
+                           
+                            <svg class='nhd-satisfact-svg'width="350" height="480"></svg>
                             <ol id="legends"></ol>
                         </div>
                     </div>
@@ -211,7 +209,7 @@
 
         <!-- post new place button -->
         <button type='button' class='post-btn'>
-           +<i class='fas fa-feather-alt'></i>Post new place
+           +<i class='fas fa-home'></i>Post new place
         </button>
 
         <!-- end of post new place button -->

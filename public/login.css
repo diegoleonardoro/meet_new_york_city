@@ -12,7 +12,7 @@ html{
     font-size : 62.5%;
 }
 body{
-    background-color: #f0f8fd;
+    background-color: #fff8f7; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
 }
 /* end of common styles*/
   
@@ -30,7 +30,7 @@ body{
 .left{
     grid-column : 1/2;
     grid-row: 1/2;
-    background-color: #79BCFF;
+    background-color: #fd6051; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
     display:flex;
     justify-content:center;
     align-items:center;
@@ -79,7 +79,8 @@ body{
 
 
 .right-content-form input:focus{
-    background-color:#EEF6FF;
+  
+    background-color:#fdfcfc;
 }
 
 
@@ -94,17 +95,29 @@ body{
 .btn-top{
     width:8rem;
     background-color:#fff;
-    color:#1aa1f5;
-    border: 0.1rem solid #79BCFF;
+    color:#fd6051; ;
+    border: 0.1rem solid #fd6051; 
     border-radius: 3rem;
     font-size: 1.4rem;
     font-weight: bold;
     cursor:pointer;
     transition: background-color 0.3s;
+   
+    height:4rem;
 }
+
+
+
 .btn-top:hover{
-    background-color: rgb(219, 237, 255);
+    background-color: #fd6051; 
+    color:white;
 }
+
+
+
+
+
+
 .middle-content{
     position:absolute;
     top: 50%;
@@ -116,7 +129,7 @@ body{
 }
 .middle-content i{
     font-size: 4rem;
-    color:#79BCFF;
+    color:#fd6051; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
     margin-bottom: 2rem;
 }
 .middle-content h1{
@@ -131,26 +144,26 @@ body{
 .middle-content button{
     margin: 0.8rem 0;
     padding:0.5rem;
-    border:0.1rem solid #79BCFF;
+    border:0.1rem solid #fd6051; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
     border-radius: 4rem;
     font-size: 1.6rem;
     cursor:pointer;
     transition: all 0.3s;
 }
 .sign-up{
-    background-color: #79BCFF;
+    background-color: #fd6051; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
     color: #fff;
 }
 .sign-up:hover{
-    background-color: rgb(219, 237, 255);
+    background-color: #ffeeec; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
     color: rgb(0, 0, 0);
 }
 .log-in{
-    background-color: #fff;
+    background-color: #ffeeec; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
 }
 
 .log-in:hover{
-    background-color: rgb(241, 241, 241);
+    background-color: #fff3f2; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
 }
 /*right of end*/
 

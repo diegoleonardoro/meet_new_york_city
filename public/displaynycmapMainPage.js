@@ -9,8 +9,8 @@ for (var i = 0; i < neighborhoodButtons.length; i++) {
 
         var neighborhoodClicked = this.innerHTML.trim();
 
-        const readNeighborhoodCoords = new Promise((resolve, reject) => {
 
+        const readNeighborhoodCoords = new Promise((resolve, reject) => {
             d3.csv('NHoodNameCentroids.csv', function (data) {
                 for (var i = 0; i < data.length; i++) {
                     var neighborhoodFromData = data[i]['Name'];
@@ -51,13 +51,9 @@ function displayMap(flag) {
 
 
         // ------------ Appending the SVG ------------ //
-        var svg = d3.select("#MapSVG")
-            //.attr("width", '30%')//   --   '30%' 
-            //.attr("height", '49%')// --  '30%'
-
+        var svg = d3.select("#MapSVG_")
             .style("padding-top", "4%")
-            //.style("left", "35%")
-            .style("background", '#D4CDF5')
+            .style("background", '#392033')
             .style("opacity", "1")
             .style("overflow", 'visible');
 
@@ -88,8 +84,6 @@ function displayMap(flag) {
 
 
 
-
-
             // ----------------- APPENING G ELEMENT AND INJECTING THE DATA -----------------//
 
             map = svg.append('g')
@@ -103,10 +97,10 @@ function displayMap(flag) {
                 .attr('d', path)
                 .attr("id", GeoID)
                 .attr('class', 'nycDistrict')
-                .style("stroke", "white")
+                .style("stroke", "black")
                 .style('cursor', 'pointer')
-                .attr("stroke-width", .4)
-                .attr("fill", "#633DA6")
+                .attr("stroke-width", .5)
+                .attr("fill", "#fd6051")
 
 
             nyc.attr('fill', '#F2D272');
@@ -120,13 +114,8 @@ function displayMap(flag) {
     } else {
 
         let coordinates = flag['the_geom'];
-
         let neighborhood = flag['Name'];
-
-
-
         coordinates = coordinates.match(/[+-]?\d+(\.\d+)?/g);
-
 
         let latitude = parseFloat(coordinates[0]);
         let longitude = parseFloat(coordinates[1]);
@@ -134,17 +123,16 @@ function displayMap(flag) {
         latitude = latitude.toFixed(4);
         longitude = longitude.toFixed(4);
 
-
         d3.json('geo-data.json', function (error, data) {
-
 
             if (error) return;
 
             //-----------Selecting the geometry features from the json OBJ------------------//
             var districts = topojson.feature(data, data.objects.districts);
 
-            // query the database to see all the people from that neighborhood:
 
+
+            // query the database to see all the people from that neighborhood:
             const xhr = new XMLHttpRequest();
             let neighborhoodUsers
             let getResponseData = new Promise((resolve, reject) => {
@@ -156,11 +144,13 @@ function displayMap(flag) {
                 }
             })
 
-
-
             // create and send the reqeust
             xhr.open('GET', `/users/neighborhood/${neighborhood}`);
             xhr.send();
+
+            //---------------------------------------------------------------//
+
+
 
             var b, s, t;
             projection.scale(1).translate([0, 0]);
@@ -172,196 +162,188 @@ function displayMap(flag) {
             let divLeftStyle = projection([latitude, longitude])[0];
             let divTopStyle = projection([latitude, longitude])[1];
 
-            let map_ = document.getElementsByClassName('boundary')[0];
 
+
+
+
+
+            let map_ = document.getElementsByClassName('boundary')[0];
             let neighborhoodDescription = document.getElementById('neighborhoodDescription');
 
+            //remove previous circles 
             if (map_.children.length > 71) {
                 let circle = map_.children[map_.children.length - 1];
                 map_.removeChild(circle);
                 let paragraph1 = neighborhoodDescription.children[neighborhoodDescription.children.length - 1];
                 neighborhoodDescription.removeChild(paragraph1);
-
             };
+
+            // remove previous neighborhood descriptions:
+            while (neighborhoodDescription.firstChild) {
+                neighborhoodDescription.removeChild(neighborhoodDescription.firstChild);
+            }
 
             let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
             circle.setAttribute("cx", divLeftStyle);
             circle.setAttribute("cy", divTopStyle);
             circle.setAttribute("r", '10');
-            circle.setAttribute("fill", '#F2D272');
-            circle.setAttribute("opacity", '0.8');
+            circle.setAttribute("fill", '#ffe577');
+
             circle.setAttribute("class", 'selectedNeighborhood');
             map_.appendChild(circle);
 
-            var mapDiv = document.getElementById('map');
-
-            var MapSVG = document.getElementById('MapSVG');
-
-            const mediaQuery = window.matchMedia('(max-width:950px)');
-            if (mediaQuery.matches) {
-
-                MapSVG.style.marginLeft = '35%';
-                neighborhoodDescription.style.marginTop = '45%';
 
 
-            } else {
-                MapSVG.style.marginLeft = '20%';
-                MapSVG.style.position = 'absolute';
-
-            }
+            // re position the map and place description containers
+            neighborhoodDescription.style.display = 'inline';
+            // end of re position the map and place description containers
 
 
-            let nextPersonArrow = document.getElementsByClassName('nextPerson')[0];
-            let prevPersonArrow = document.getElementsByClassName('prevPerson')[0];
 
-
-            neighborhoodDescription.style.border = "0.01rem solid #633DA6";
+            neighborhoodDescription.style.border = "0.01rem solid";
             var p1 = document.createElement('p')
             p1.innerHTML = neighborhood;
             p1.style.marginLeft = '5%';
-            p1.setAttribute('class', 'neighborhoodHeader')
+            p1.setAttribute('class', 'neighborhoodHeaderMain');
+            neighborhoodDescription.appendChild(p1);
 
-            //neighborhoodDescription.appendChild(p1);
+
+            // Get neighborhood description data:
+            const getNhoodDescrption = new Promise((resolve, reject) => {
+                d3.json('nhoodCoords.json', function (error, data) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]['Name'] === neighborhood) {
+                            var p2 = document.createElement('p')
+                            p2.innerHTML = data[i]['Description'];
+                            p2.style.marginLeft = '5%';
+                            p2.setAttribute('class', 'neighborhoodHeader');
+                            neighborhoodDescription.appendChild(p2);
+                            resolve('continue')
+                        }
+                    }
+                })
+            })
+
+            getNhoodDescrption.then(value => {
+                var p3 = document.createElement('p')
+                p3.innerHTML = 'Here is who can show you this neighborhood around: '; //;
+                p3.style.marginLeft = '5%';
+                p3.setAttribute('class', 'neighborhoodHeader');
+                neighborhoodDescription.appendChild(p3);
+
+            })
 
 
-            neighborhoodDescription.insertBefore(p1, prevPersonArrow);
 
-            var p2 = document.createElement('p')
-            p2.innerHTML = 'Here is who can show you this neighborhood around: ';
-            p2.style.marginLeft = '5%';
-            p2.setAttribute('class', 'neighborhoodHeader');
 
-            //neighborhoodDescription.appendChild(p2);
 
-            neighborhoodDescription.insertBefore(p2, prevPersonArrow);
 
             getResponseData.then(resValue => {
 
                 neighborhoodUsers = JSON.parse(neighborhoodUsers);
-
                 let whoCanShowArray = [];
                 let whoCanShow = '';
 
+                let userName = neighborhoodUsers['data'][0]['name'];
+                let lengthLivingInNeighborhood = neighborhoodUsers['data'][0]['lengthLivingInNeighborhood'];
+                let favAspectsOfNeighborhood = neighborhoodUsers['data'][0]['favAspectsOfNeighborhood'];
+                let favoritePlaces = neighborhoodUsers['data'][0]['favoritePlaces'];
 
-                for (var i = 0; i < neighborhoodUsers['data'].length; i++) {
+                let slug = neighborhoodUsers['data'][0]['slug'];
 
-                    let userName = neighborhoodUsers['data'][i]['name']
 
-                    let lengthLivingInNeighborhood = neighborhoodUsers['data'][i]['lengthLivingInNeighborhood'];
+                if (favoritePlaces.length > 1) {
 
-                    let favAspectsOfNeighborhood = neighborhoodUsers['data'][i]['favAspectsOfNeighborhood'];
-
-                    let favoritePlaces = neighborhoodUsers['data'][i]['favoritePlaces'];
-
-                    if (favoritePlaces.length > 1) {
-
-                        //console.log(1);
-
-                        whoCanShow =
-                            `<div class='whoCanShow'>
+                    whoCanShow =
+                        `<div class='whoCanShow'>
                             <p class='whoCanShowItem' > ${userName} </p>
                             <p class='whoCanShowItem'>I have lived in this neighborhood for ${lengthLivingInNeighborhood}. ${favAspectsOfNeighborhood}</p>
                             <p class='whoCanShowItem'> Here are some of my favorite places in this neighborhood: </p>
                             `
-                        for (var u = 0; u < favoritePlaces.length; u++) {
+                    for (var u = 0; u < favoritePlaces.length; u++) {
 
-                            let place = favoritePlaces[u]['placeDescrption']['place'];
-                            let placDescription = favoritePlaces[u]['placeDescrption']['description'];
-                            let placeImage = favoritePlaces[u]['placeImageBuffer'];
+                        let place = favoritePlaces[u]['placeDescrption']['place'];
+                        let placDescription = favoritePlaces[u]['placeDescrption']['description'];
+                        let placeImage = favoritePlaces[u]['placeImageBuffer'][0];
 
-
-                            whoCanShow = whoCanShow +
-                                `<p class='whoCanShowItem'> ${place} </p>
+                        whoCanShow = whoCanShow +
+                            `<p class='whoCanShowItem'><b>Place: </b> ${place} </p>
                                 <p class='whoCanShowItem'> ${placDescription}</p>
                                 <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${placeImage}>
                             </div>
                             `
-                        }
+                    }
 
-                        whoCanShowArray.push(whoCanShow);
+                    whoCanShowArray.push(whoCanShow);
 
-                    } else {
+                } else {
 
-                        whoCanShow =
-                            `<div class='whoCanShow'>
-                            <p class='whoCanShowItem'> ${userName} </p>
-                            <p class='whoCanShowItem'>I have lived in this neighborhood for ${lengthLivingInNeighborhood}. ${favAspectsOfNeighborhood}</p>
+                    whoCanShow =
+                        `<div class='whoCanShow'>
+                            <p class='whoCanShowItem'> <b>Name:</b> ${userName} </p>
+                            <p class='whoCanShowItem'> <b>Description:</b> I have lived in this neighborhood for ${lengthLivingInNeighborhood}. ${favAspectsOfNeighborhood}</p>
                             <p class='whoCanShowItem'> This is one of my favorite places in this neighborhood: </p>
                             `
-                        for (var u = 0; u < favoritePlaces.length; u++) {
+                    for (var u = 0; u < favoritePlaces.length; u++) {
 
-                            let place = favoritePlaces[u]['placeDescrption']['place'];
-                            let placDescription = favoritePlaces[u]['placeDescrption']['description'];
-                            let placeImage = favoritePlaces[u]['placeImageBuffer'];
+                        let place = favoritePlaces[u]['placeDescrption']['place'];
+                        let placDescription = favoritePlaces[u]['placeDescrption']['description'];
+                        let placeImage = favoritePlaces[u]['placeImageBuffer'][0];
 
-
+                        whoCanShow = whoCanShow +
+                            `<div class='divOfFavPlace'>
+                                    <p class='whoCanShowItem'><b>Place: </b>${place} </p>
+                                    <p class='whoCanShowItem'> ${placDescription}</p>
+                                    <p class ='whoCanShowItem'><b>Images of place:</b></p>
+                                    <div>`
+                        for (var v = 0; v < favoritePlaces[u]['placeImageBuffer'].length; v++) {
                             whoCanShow = whoCanShow +
-                                `<p class='whoCanShowItem'> ${place} </p>
-                                <p class='whoCanShowItem'> ${placDescription}</p>
-                                <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${placeImage}>
-                            </div>
-                  `
+                                `<img class='whoCanShowItem placeImage'  src=data:image/png;base64,${favoritePlaces[u]['placeImageBuffer'][v]}>`
                         }
-                        whoCanShowArray.push(whoCanShow);
+                        whoCanShow = whoCanShow +
+                            `
+                                </div>
+                            <div>
+                        </div>
+                        <button type='submit' id ='visitUserProfile'><a id ='linkToUserProfile' href=''></a> Visit ${userName}'s profile </button>`
+
                     }
-                }
+                    whoCanShowArray.push(whoCanShow);
 
 
-                var neighborhoodHeaders = document.getElementsByClassName('neighborhoodHeader');
-                neighborhoodHeaders[1].insertAdjacentHTML('afterend', whoCanShowArray[0]);
+                    // Add an event listener to the profile button
+                    // This event listener will query the database using the slug 
+                    // to get the user profile page.
 
-                let personIndex = 0;
-                function changeDivs(n) {
-
-                    let displayedPerson = document.getElementsByClassName('whoCanShow')[0];
-
-                    displayedPerson.remove();
-
-                    if (personIndex >= 0 && personIndex < whoCanShowArray.length - 1 && n == 1) {
-                        personIndex += n
-                    } else if (n == -1 && personIndex >0) {
-                        personIndex += n
-                    } else {
-                        personIndex = 0;
-                    }
-                    if (whoCanShowArray.length == 1) {
-                        personIndex = 0;
-                    }
-                    let whoCanShowSelected = whoCanShowArray[personIndex];
-
-                    neighborhoodHeaders[1].insertAdjacentHTML('afterend', whoCanShowSelected);
                     setTimeout(() => {
-                        resizePhotoOfPlace()
+                        const profileButton = document.getElementById('visitUserProfile');
+                        profileButton.addEventListener('click', () => {
+                            // query the database to see all the people from that neighborhood:
+                            //const xhr_ = new XMLHttpRequest();
+                            //let getResponseData = new Promise((resolve, reject) => {
+                            //xhr_.onload = () => {
+                            //console.log(xhr.response);
+
+                            var profileButton = document.getElementById('linkToUserProfile');
+                            profileButton.href = `/users/user-profile/${slug}`;
+                            profileButton.click()
+                            //}
+                            // create and send the reqeust
+                            //xhr_.open('GET', `/users/user-profile/${slug}`);
+                            //xhr_.send();
+                        })
                     }, 100);
 
-        
-
                 }
 
-                nextPersonArrow.addEventListener('click', () => {
-                    changeDivs(1);
-                });
-
-
-                prevPersonArrow.addEventListener('click', () => {
-                    changeDivs(-1);
-                });
-
-
-
-
-
-
-
+                neighborhoodDescription.innerHTML = neighborhoodDescription.innerHTML + whoCanShowArray[0];
 
                 function resizePhotoOfPlace() {
                     var placeImages = document.getElementsByClassName('placeImage');
-
                     let maxWidth = 100;
                     let maxHeight = 100;
 
                     for (var i = 0; i < placeImages.length; i++) {
-
                         let srcWidth = placeImages[i].width;
                         let srcHeight = placeImages[i].height;
 
@@ -375,15 +357,33 @@ function displayMap(flag) {
                     }
                 };
 
-
                 setTimeout(() => {
                     resizePhotoOfPlace()
                 }, 100);
 
-            })
+            });
+
+
+
+
+
+
         })
     }
 };
 
-displayMap()
+displayMap();
+
+
+// add scroll down event to the explore neighborhoods button.
+var exploreNeighborhoodsButton = document.getElementsByClassName('exploreNeighborhoods')[0];
+exploreNeighborhoodsButton.addEventListener('click', () => {
+    var exploreNeighborhoodstext = document.getElementById('exploreNeighborhoodstext');
+    var exploreNeighborhoodstextBoundingBox = exploreNeighborhoodstext.getBoundingClientRect();
+    console.log(exploreNeighborhoodstextBoundingBox);
+    window.scrollTo({ top: exploreNeighborhoodstextBoundingBox.bottom - 180, behavior: 'smooth' });
+});
+
+// add event listener to the search neighborhood button:
+
 

@@ -2,7 +2,6 @@
 
 // expand explore-detail-btn 
 
-
 var exploreDetailBtns = document.getElementsByClassName('explore-detail-btn');
 for (var i = 0; i < exploreDetailBtns.length; i++) {
 
@@ -24,14 +23,13 @@ for (var i = 0; i < exploreDetailBtns.length; i++) {
         }
     })
 }
-
-
 // end of expand explore-detail-btn 
 
 
 
-var neighborhood = user.neighborhood
 
+
+var neighborhood = user.neighborhood
 
 
 // display map of places
@@ -100,6 +98,7 @@ function displayMap(callback) {
                 x1,
                 y1
 
+
             [[x0, y0], [x1, y1]] = example_bounds;
             svg_map.transition().duration(750).call(
                 zoom.transform,
@@ -109,6 +108,8 @@ function displayMap(callback) {
                     .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
             );
 
+            svg_map.style('margin-left', '7%')
+
 
             var nycNeighborhoods_paths = document.getElementsByClassName('nycNeighborhoods_paths');
             for (var t = 0; t < nycNeighborhoods_paths.length; t++) {
@@ -116,8 +117,14 @@ function displayMap(callback) {
             }
 
 
+
+            //svg_map.style.marginLeft = '-7%';
             var scaleX = svg_map.getBoundingClientRect().width / svg_mapd.offsetWidth;
-            console.log(scaleX);
+
+
+
+
+
 
 
         }, 7000);
@@ -171,7 +178,7 @@ function displayMap(callback) {
 
 
 
-    
+
 
 
 
@@ -228,14 +235,9 @@ setTimeout(() => {
     var n_hoods_g_children = n_hoods_g.children;
 
     for (var e = 0; e < nyc_nhoods_paths['_enter'][0].length; e++) {
-        if (nyc_nhoods_paths['_enter'][0][e]['__data__']['properties']['ntaname'].includes (neighborhood) ) {// here I need to use 'include'
-
-
+        if (nyc_nhoods_paths['_enter'][0][e]['__data__']['properties']['ntaname'].includes(neighborhood)) {// here I need to use 'include'
 
             example_bounds = path.bounds(nyc_nhoods_paths['_enter'][0][e]['__data__'])
-
-
-
 
         }
     }
@@ -297,9 +299,9 @@ let toggleClass = (i, toggle) => {
     d3.select("#legends li:nth-child(" + i + ")").classed("highlightText", toggle);
 };
 var svg = d3.select(".nhd-satisfact-svg"),
-    margin = { top: 20, right: 20, bottom: 30, left: 50 },
-    width_bar_chart = +svg.attr("width") - margin.left - margin.right,
-    height_bar_chart = +svg.attr("height") - margin.top - margin.bottom;
+    margin = { top: 22, right: 15, bottom: 30, left: 65 },
+    width_bar_chart = 350 - margin.left - margin.right,
+    height_bar_chart = 400 - margin.top - margin.bottom;
 
 var x = d3.scaleBand()
     .range([0, width_bar_chart])
@@ -315,13 +317,18 @@ var satisfactionLevel = ['Dissatisfied', 'Neutral', 'Satisfied'];
 x.domain(neighborhoodFactors);
 y.domain(satisfactionLevel);
 
+
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 g.append("g")
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + height_bar_chart + ")")
-    .call(d3.axisBottom(x));
+    .call(d3.axisBottom(x))
+    .selectAll("text") 
+    .attr("transform", "rotate(-65)")
+    .style("text-anchor", "end")
+
 
 g.append("g")
     .attr("class", "axis axis--y")
@@ -395,8 +402,8 @@ for (let y = 0; y < favPlaces.length; y++) {
     imagesArray.push(imagesArray_);
 }
 
-var nextPhotoArrows = document.getElementsByClassName('fa-arrow-right');
-var prevPhotoArrows = document.getElementsByClassName('fa-arrow-left');
+var nextPhotoArrows = document.getElementsByClassName('fa-arrow-circle-right');
+var prevPhotoArrows = document.getElementsByClassName('fa-arrow-circle-left');
 
 let imagesFlag = 0;
 
@@ -434,19 +441,19 @@ function changePhotos(e, r) {
             imagesFlag = 1;
         }
 
-    } else if (clickedElement.className.indexOf('fa-arrow-right') > -1 && imagesFlag < divOfImages.children.length - 1) {
+    } else if (clickedElement.className.indexOf('fa-arrow-circle-right') > -1 && imagesFlag < divOfImages.children.length - 1) {
         // when the user clicks the next arrow and imagesFlag is lower than the amount of img elements under divParentElement, then -> imagesFlag + 1 
         imagesFlag = imagesFlag + 1;
 
-    } else if (clickedElement.className.indexOf('fa-arrow-left') > -1 && imagesFlag > 0) {
+    } else if (clickedElement.className.indexOf('fa-arrow-circle-left') > -1 && imagesFlag > 0) {
         // when the user clicks the prev arrow and imagesFlag is greater than 0, then -> imagesFlag - 1 
         imagesFlag = imagesFlag - 1;
 
-    } else if (clickedElement.className.indexOf('fa-arrow-right') > -1 && imagesFlag === divOfImages.children.length - 1) {
+    } else if (clickedElement.className.indexOf('fa-arrow-circle-right') > -1 && imagesFlag === divOfImages.children.length - 1) {
         // when the user clicks the next arrow  and imagesFlag is equal to the amount of img elements under divParentElement, then -> imagesFlag = 0;
         imagesFlag = 0;
 
-    } else if (clickedElement.className.indexOf('fa-arrow-left') > -1 && imagesFlag === 0) {
+    } else if (clickedElement.className.indexOf('fa-arrow-circle-left') > -1 && imagesFlag === 0) {
         // when the user clicks the previous arrow and imagesFlag is equal to 0, then ->  divParentElement.children.length - 2
         imagesFlag = divOfImages.children.length - 1;
     }
@@ -492,11 +499,6 @@ for (let f = 0; f < prevPhotoArrows.length; f++) {
     prevPhotoArrows[f].addEventListener('click', changePhotos);
 }
 
-
 //nextPhotoArrow.addEventListener('click', changePhotos);
 //prevPhotoArrow.addEventListener('click', changePhotos);
-
-
-
-
 //end of  add event listener to the prev and next image arrowws

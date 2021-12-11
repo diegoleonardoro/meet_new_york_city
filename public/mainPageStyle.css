@@ -1,43 +1,171 @@
-/* USED */
-body, html {
-    height: 100%;
-  }
-  
-  
-  #heroSection{
-  
-    background-color: #F2D272;
-    height:70%; 
-    width:100%;
-  }
-  
-  
-  #heroHeader{
 
-    position: absolute;
-    margin-top:2%;
-    margin-left:15%;
-    font-family: rampart-one, sans-serif;
+  body, html {
+      height: 100%;
+  }
+  
+ .main-page-nav{
+    display:flex;
+    width:100%;
+    height:7%;
+    justify-content: space-evenly;
+    align-items: center;
+    top:0%;
+    position:fixed;
+    background-color: #fff8f7;
+    box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
+    font-family: 'Poppins', sans-serif;
+    font-size:0.8rem;
+    color:#555;
+    
+  }
+
+  .about{
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+  .about:hover{
+    border:0.1rem solid #fd6051;
+    background-color: #fd6051;
+    border-radius: 3rem;
+    color:white;
+
+  }
+  .exploreNeighborhoods{
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .exploreNeighborhoods:hover{
+    border:0.1rem solid #fd6051;
+    background-color: #fd6051;
+    border-radius: 3rem;
+    color:white;
+  }
+
+  .searchBarAutoCompleteDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar{
+    display:flex;
+    align-items:center;
+    position:relative;
+  }
+
+
+
+
+
+
+
+
+  .search-bar-input{
+    height:2rem;
+    width:15rem;
+    border:0.1rem solid #fd6051;
+    border-radius: 3rem;
+    background-color: #fff8f7;
+    padding-left:4rem;
+    transition: all 0.3s;
+    color:black;
+  }
+
+  
+  .search-bar-input:focus{
+      background-color: #fff;
+      border-color: #79BCFF;
+  }
+
+
+  .search-bar i{
+    position:absolute;
+    font-size: 1.6rem;
+    left:1rem;
+    color:#fd6051;
+}
+
+
+/* -------------------------- auto complete items -----*/
+.autocomplete-items {
+  position: absolute;
+  display:flex;
+  flex-direction:column;
+  top:83px;
+  margin-top:-1.3rem;
+  border: none;
+  z-index: 99;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items span {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border: 1px solid #d4d4d4; 
+  width:100%;
+  margin-left:50%;
+  transform:translate(-50%, -50%);
+}
+
+.autocomplete-items span:hover {
+  background-color: #e9e9e9; 
+}
+
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+/* -------------------------- end of auto complete items -----*/
+
+
+  #MainSection{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-template-rows: 55fr 15fr 2fr 2fr;
+    margin-top:5%;
+  }
+
+
+  #headerMainDivContainer{
+    grid-column : 1/-1;
+    grid-row: 1/4;
+    background-image: url("https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/07mag-subways1-videoSixteenByNineJumbo1600.jpeg");  
+  }
+
+
+  
+  #headerMainSection{
+  
+    font-family: 'Anton', sans-serif;
     font-weight: 400;
-    font-style: normal;
-    font-size: 5em;
+    font-size: 200%;
     letter-spacing: 0.5em;
-  
+
+
+    grid-column : 2/-1;
+    grid-row: 2/3;
+    align-self: flex-end;
+
+
+    color: #FFFAFA;
+    text-decoration: none;
+   
   }
   
   
-  #heroHeaderComplement{
-  
-    position: absolute;
-    margin-top:20%;
-    margin-left:8%;
-    font-family: korolev-compressed, sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 2em;
-  
+  #headerMainSection span{
+
+    font-family: 'Architects Daughter', cursive;
+
   }
+
+
   
+  /*
   #heroHeaderComplement span{
     font-size: 2em;
     font-family: steinzeit, sans-serif;
@@ -45,7 +173,7 @@ body, html {
     font-style: normal;
     transition: all 0.5s ease-out;
   }
-  
+  */
   
   #neighborhoodStreet{
     height:100%;
@@ -57,7 +185,7 @@ body, html {
  
 
   #exploreNeighborhoodstext{
-      margin-top:8%;
+      margin-top:2%;
       margin-left:5%;
       width:15.5%;
       padding:1%;
@@ -67,18 +195,41 @@ body, html {
       font-weight: 900;
       font-style: normal;
       font-size: 2em;
-   
   }
+
+
+
+
+
+
+
+
+
+
   #exploreNeighborhoodsSection{
       margin-top:5%;
       width:100%;
       height:100%;
-     
+    
+
+      
   }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
   #manhattanTitle{
+    font-family: 'Poppins', sans-serif;
     grid-area: manhattanTitle;
     border-style: double;
     border-width: 0.3em;
@@ -86,55 +237,66 @@ body, html {
     padding-bottom:4%;
     padding-top: 4% ;
     padding-left:30%;
-    margin-bottom: 3%
+    margin-bottom: 3%;
+    background-color: #392033;
+    color:white;
   }
 
 #brooklynTitle{
+  font-family: 'Poppins', sans-serif;
   grid-area: brooklynTitle;
-
   border-style: double;
   border-width: 0.3em;
   width:55%;
   padding-bottom:4%;
   padding-top: 4% ;
   padding-left:37%;
-  margin-bottom: 3%
+  margin-bottom: 3%;
+  background-color: #392033;
+  color:white;
 }
 
 #bronxTitle{
+  font-family: 'Poppins', sans-serif;
   grid-area: bronxTitle;
-
   border-style: double;
   border-width: 0.3em;
   width:61.3%;
   padding-bottom:4%;
   padding-top: 4% ;
   padding-left:32%;
-  margin-bottom: 3%
+  margin-bottom: 3%;
+  background-color: #392033;
+  color:white;
 }
 
 #queensTitle{
+  font-family: 'Poppins', sans-serif;
   grid-area: queensTitle;
-
   border-style: double;
   border-width: 0.3em;
-  width:61.3%;
+  width:55.3%;
   padding-bottom:4%;
   padding-top: 4% ;
   padding-left:37%;
-  margin-bottom: 3%
+  margin-bottom: 3%;
+  background-color: #392033;
+  color:white;
 }
 
 #statenIslandTitle{
+  font-family: 'Poppins', sans-serif;
   grid-area: statenIslandTitle;
-
   border-style: double;
   border-width: 0.3em;
   width:61.3%;
   padding-bottom:4%;
   padding-top: 4% ;
   padding-left:30%;
-  margin-bottom: 3%
+  margin-bottom: 3%;
+  background-color: #392033;
+  color:white;
+
 }
 
   #neighborhoodsSection{
@@ -158,6 +320,7 @@ body, html {
     gap:1%;
     overflow-y: scroll;
     grid-area: manhattanNeighborhoodsContainer;
+    
   }
 
   
@@ -199,6 +362,8 @@ body, html {
     gap:1%;
     overflow-y: scroll;
     grid-area: statenIslandNeighborhoodsContainer;
+
+  
   }
   .neighborhoodTitle{
     padding:2% 0%;
@@ -209,18 +374,27 @@ body, html {
 
   .neighborhood {
 
-    background-color: #F4E6BC;
+    background-color: #ff8967;
+    
+
     text-align: center;
     padding-top:10%;
     cursor: pointer;
     transition: all 0.5s;
+    font-size: 75%;
+    font-family: 'Poppins', sans-serif;
+
+ 
+
 
   }
 
 
 .neighborhood:hover  {
-  font-size: 1.1em;
-  background-color: #F2D272;
+  font-size: 95%;
+  background-color: #709fdc;
+  color:white;
+
 }
 
 
@@ -231,56 +405,77 @@ body, html {
 #map{
   width: 100%;
   height:100%;
-
-
-/*
   display:flex;
-  flex-wrap:wrap;
-  justify-content: center;
-*/
-
+  justify-content: space-evenly;
+  /*transition: all 0.5s;*/
 }
 
 
 
-#MapSVG{
-
-  transition: all 0.5s;
+#MapSVG_{
   width:30%;
   height:52%;
-  margin-left:33%;
-  position:absolute;
-
-  
-  /*
-  float: left;
-  */
-
+  transition: all 3s;
+  margin-top: 5%;
+  /*margin-left:33%;*/
+  /*position:absolute;*/
+  /*box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);*/
 }
 
 
 #neighborhoodDescription{
-
-  transition: all 0.5s;
-  height : 59%;
+ /* transition: all 0.5s;*/
+  height : 80%;
   width :30%;
-  margin-left: 55%;
-  position:absolute;
+  /*margin-left: 55%;*/
+  /*position:absolute;
+  */
+  display:none;
+  background-color: #fec051;
+  box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
+
+
 
 }
 
 
+.neighborhoodHeaderMain{
+  font-family: 'Poppins', sans-serif;
+  font-size: 200%;
+  margin-top:3%;
+  margin-bottom:5%;
+
+}
+.neighborhoodHeader{
+  font-family: 'Poppins', sans-serif;
+  font-size: 75%;
+}
 
 
 .whoCanShow{
   margin-left:5%;
   margin-right:5%;
+  margin-bottom:5%;
+
+  position: relative;
 
   height : 63%;
   width :86%;
-
   padding: 2%;
-  background: #C8B0F4;
+  background: #FFF9B2;
+  border-radius: 25px;
+
+  box-shadow: 0 0 0.7rem rgb(0,0,0,0.3)
+}
+
+.divOfFavPlace{
+  background-color: rgb(255, 252, 225);
+  padding: 2% 0;
+  border-radius: 25px;
+}
+.whoCanShow p{
+  font-family: 'Poppins', sans-serif;
+  font-size: 75%;
 }
 
 .whoCanShowItem{
@@ -290,13 +485,39 @@ body, html {
 .placeImage{
   display:none;
   position: relative;
-  margin-left: 60%;
-  margin-top : -10%;
+  /*margin-left: 60%;*/
 
+  
 }
 
-.prevPerson{
- 
+#visitUserProfile{
+  margin-left:5%;
+  background-color: rgb(253, 253, 253);
+  padding:3%;
+  margin: 2% 0;
+  width:60%;
+  position: relative;
+  left:20%;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 1px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 75%;
+  cursor: pointer;
+  box-shadow: 0 0 0.7rem rgb(0,0,0,0.3)
+}
+
+
+
+
+
+
+.prevPerson{ 
   transition: all 0.5s;
   margin-left: 6%;
   margin-top: 3%;
@@ -433,13 +654,13 @@ body, html {
 /*Place image*/
 @media only screen and (max-width:1533px){
   .placeImage{
-    margin-top:-15%;
+
   }
 }
 
 @media only screen and (max-width:1400px){
   .placeImage{
-    margin-top:-20%;
+
   }
 }
 
@@ -452,7 +673,6 @@ body, html {
 @media only screen and (max-width:1100px){
   .placeImage{
     transform: scale(0.7);
-    margin-top:-28%;
   }
 }
 

@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const slugify = require("slugify"); // A slug is a part of the URL when you are accessing a resource.
 const geocoder = require("../utils/geoCoder");
 
+var slug = require('mongoose-slug-generator');
+
+mongoose.plugin(slug);
 
 /*  HERE I NEED TO CREATE ALL THE FIELDS THAT ARE GOING TO GO IN THE QUESTIONNAIRE */
 
@@ -77,7 +80,11 @@ const InputSchema = new mongoose.Schema({
         // Originally, for a user to be able to post a new record, he/she has to 
         // be looged in. In order to check if the user is logged in, we used the 
         // protect middleware, which checks for the id of the user. 
-    }
+    }, 
+
+
+    slug: { type: String, slug: ["neighborhood", "borough"],  unique: true  }
+
 
 
 

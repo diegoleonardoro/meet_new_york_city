@@ -1,27 +1,31 @@
 
 
-var stringsToReplace = ['history', 'people', 'culinary', 'local']
+var stringsToReplace = ['history', 'locals', 'context' , 'culture',  'residents', 'stories']
 
 
-
+let flag = 0;
 var replaceHeaderWord = function () {
 
+    var heroHeaderComplementStr = document.getElementById('headerMainSection').innerHTML;
 
-    for (let i = 0; i < stringsToReplace.length; i++) {
-        var heroHeaderComplementStr = document.getElementById('heroHeaderComplement').innerHTML;
+    setTimeout(() => {
+        var wordToReplace = heroHeaderComplementStr.split(' ')[4];
 
-        setTimeout(() => {
-            var wordToReplace = heroHeaderComplementStr.split(' ')[2];
-            document.getElementById('heroHeaderComplement').innerHTML = heroHeaderComplementStr.replace(wordToReplace, `<span>${stringsToReplace[i]}</span>`)
+        document.getElementById('headerMainSection').innerHTML = heroHeaderComplementStr.replace(wordToReplace, `<span>${stringsToReplace[flag]}</span>`);
 
-            if (i == stringsToReplace.length - 1) {
 
-                replaceHeaderWord()
-            }
+        flag = flag + 1;
 
-        }, i * 1300);  
+        if ( flag === stringsToReplace.length){
+            flag = 0
+        }
 
-    }
+        replaceHeaderWord()
+
+    }, 1000)
+
+
+
 }
 
 replaceHeaderWord()
