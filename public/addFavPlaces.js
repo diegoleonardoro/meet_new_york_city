@@ -1,4 +1,4 @@
-
+import { changeImage } from '/addPicOfPlace.js';
 
 
 
@@ -195,7 +195,7 @@ addPlace.addEventListener('click', () => {
             }
         }
 
- 
+
 
 
 
@@ -319,7 +319,7 @@ addPlace.addEventListener('click', () => {
 
             if (imagesInput[i].className.indexOf(flag) > -1) {
 
-            
+
 
                 imageX = textX;
                 imageY = textY + 15;
@@ -364,7 +364,7 @@ addPlace.addEventListener('click', () => {
             }
         }
 
-      
+
 
 
 
@@ -494,31 +494,31 @@ addPlace.addEventListener('click', () => {
 
         for (var i = 0; i < imagesInput.length; i++) {
 
-             if (imagesInput[i].className.indexOf(flag) > -1) {
-            // console.log(imagesInput[i]);
-            // console.log(imagesInput[i].src);
+            if (imagesInput[i].className.indexOf(flag) > -1) {
+                // console.log(imagesInput[i]);
+                // console.log(imagesInput[i].src);
 
-            imageX = textX;
-            imageY = textY + 15;
-            let foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
-            foreignObject.setAttribute("x", imageX);
-            foreignObject.setAttribute("y", imageY);
-            foreignObject.setAttribute("width", "180");
-            foreignObject.setAttribute("height", "80");
-            var newImg = document.createElement('img');
-            newImg.src = imagesInput[i].src;
-            newImg.setAttribute("width", imagesInput[i].width);
-            newImg.setAttribute("height", imagesInput[i].height);
-            newImg.setAttribute('name', 'image');
-            foreignObject.appendChild(newImg);
-            mapSvg.appendChild(foreignObject);
+                imageX = textX;
+                imageY = textY + 15;
+                let foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+                foreignObject.setAttribute("x", imageX);
+                foreignObject.setAttribute("y", imageY);
+                foreignObject.setAttribute("width", "180");
+                foreignObject.setAttribute("height", "80");
+                var newImg = document.createElement('img');
+                newImg.src = imagesInput[i].src;
+                newImg.setAttribute("width", imagesInput[i].width);
+                newImg.setAttribute("height", imagesInput[i].height);
+                newImg.setAttribute('name', 'image');
+                foreignObject.appendChild(newImg);
+                mapSvg.appendChild(foreignObject);
 
-            imagesInput[i].src = '';
-            imagesInput[i].setAttribute("width", 'auto');
-            imagesInput[i].setAttribute("width", 'auto');
+                imagesInput[i].src = '';
+                imagesInput[i].setAttribute("width", 'auto');
+                imagesInput[i].setAttribute("width", 'auto');
 
 
-             }
+            }
 
         };
 
@@ -568,6 +568,7 @@ addPlace.addEventListener('click', () => {
 
 
     }
+});
 
 
-})
+

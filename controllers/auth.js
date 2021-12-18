@@ -31,13 +31,13 @@ exports.login = asyncHandler(async (req, res, next) => {
     if (!email || !password) {
         return next(new ErrorResponse('Please provide an email and passwrod', 400));
     }
-    const user = await User.findOne({ email }).select("+password"); 
+    const user = await User.findOne({ email }).select("+password");
 
     if (!user) {
         return next(new ErrorResponse('Invalid credentials', 401));
     };
 
-    const isMatch = await user.matchPassword(password); 
+    const isMatch = await user.matchPassword(password);
 
     if (!isMatch) {
         return next(new ErrorResponse('Invalid credentials', 401));
@@ -111,7 +111,7 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 
     const user = await User.findById(req.user.id).select("+password");
 
-    if (!(await user.matchPassword(req.body.currentPassword))) { 
+    if (!(await user.matchPassword(req.body.currentPassword))) {
         return next(new ErrorResponse('Password is incorrect', 401));
     }
     user.password = req.body.newPassword;
@@ -128,11 +128,11 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 //@access   Public
 exports.forgotPassword = asyncHandler(async (req, res, next) => {
 
-    const user = await User.findOne({ email: req.body.email }); 
+    const user = await User.findOne({ email: req.body.email });
     if (!user) {
         return next(new ErrorResponse('There is no user with that email', 404));
     }
-    const resetToken = user.getResetPasswordToken(); 
+    const resetToken = user.getResetPasswordToken();
 
     await user.save({ validateBeforeSave: false });
 
@@ -142,7 +142,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
     requested the reset of a password. Please make a PUT request to: \n\n ${resetUrl}`;
 
     try {
-        await sendEmail({ 
+        await sendEmail({
             email: user.email,
             subject: 'Password reset token',
             message
@@ -170,21 +170,21 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
         .update(req.params.resettoken)
         .digest('hex');
 
-    const user = await User.findOne({ 
+    const user = await User.findOne({
         resetPasswordToken,
-        resetPasswordExpire: { $gt: Date.now() } 
+        resetPasswordExpire: { $gt: Date.now() }
     })
 
     if (!user) {
         return next(new ErrorResponse('Inalid token', 404));
     }
 
-    user.password = req.body.password; 
+    user.password = req.body.password;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
-    await user.save(); 
+    await user.save();
 
-    sendTokenResponse(user, 200, res); 
+    sendTokenResponse(user, 200, res);
 
 })
 

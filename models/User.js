@@ -2,7 +2,48 @@ const crypto = require("crypto");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const Input = require ('../models/User_input')
+const Input = require('../models/User_input');
+
+
+
+
+const neighborhoodSatisfactionSchema = mongoose.Schema({
+    publicTransportation: String,
+    publicSpaces: String,
+    neighbors: String,
+    restaurants: String,
+    safety: String
+})
+
+const neighborhoodFactorDescriptionSchema = mongoose.Schema({
+    publicTransportationExplanation: String,
+    publicSpacesExplanation: String,
+    neighborsExplanation: String,
+    restaurantsVarietyExplanation: String,
+    safetyExplanation: String
+})
+
+
+const favoritePlacesSchema = mongoose.Schema({
+    place: String,
+    description: String,
+    coordinates: Object,
+    numberOfPhotos: Number,
+    placeImage: [
+        
+        //{
+        //    data: Buffer,
+        //   contentType: String,
+        //    coordinates: String
+        //type: String,
+        //default: 'no-photo.jpg'
+        //}
+    ]
+
+})
+
+
+
 
 
 const UserSchema = new mongoose.Schema({
@@ -34,21 +75,59 @@ const UserSchema = new mongoose.Schema({
         select: false // with "select:false" whenever we get a user through the API, the API won't return the password
     },
 
-    formResponded: String, 
+    formResponded: String,
 
     resetPasswordToken: String,
     resetPasswordExpire: Date,
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
 
 
-}, {
-        toJSON: { virtuals: true },
-        toObject: { virtuals: true }
+
+    //================================//
+
+    neighborhood: String,
+
+    borough: String,
+
+    zipcode: String,
+
+    lengthLivingInNeighborhood: String,
+
+    neighborhoodDescription: String,
+
+    threeWordsToDecribeNeighborhood: [String],
+
+    neighborhoodSatisfaction: {
+        type: neighborhoodSatisfactionSchema
+    },
+    neighborhoodFactorDescription: {
+        type: neighborhoodFactorDescriptionSchema
+    },
+    favoritePlaces: {
+        type: [favoritePlacesSchema]
+    },
+    neighborhoodTips: [String],
+
+    moreSelfIntroduction: String,
+
+    slug: { type: String, slug: ["neighborhood", "borough", "name"], unique: true },
+
+    //================================//
+
+
+
+
+})
+
+/* 
+, {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
     });
-
+*/
 
 
 /*
@@ -125,20 +204,26 @@ UserSchema.methods.getResetPasswordToken = function () {
 
 
 // Cascade delete inputs related to a user that is deleted:
-UserSchema.pre('remove', async function (next){
-    await this.model ('Input').deleteMany({user:this_.id});
+/* 
+UserSchema.pre('remove', async function (next) {
+    await this.model('Input').deleteMany({ user: this_.id });
     next();
 })
+*/
+
+
 
 
 
 //Reverser populate with virtuals. This is meant to show all inputs associated to a user when there is a request to get all or a single user.
-UserSchema.virtual ('input',{
-    ref: 'Inputs', 
-    localField:'_id', 
-    foreignField: 'user', 
+/* 
+UserSchema.virtual('input', {
+    ref: 'Inputs',
+    localField: '_id',
+    foreignField: 'user',
     justOne: false
 })
+*/
 
 
 
@@ -146,8 +231,7 @@ UserSchema.virtual ('input',{
 
 
 
-
-module.exports = mongoose.model('User', UserSchema);
+module.exports = UserSchema; //mongoose.model('User', UserSchema);
 
 
 

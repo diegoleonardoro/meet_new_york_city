@@ -1,6 +1,5 @@
 
 
-
 var form = document.getElementsByClassName('form')[0];
 
 
@@ -61,43 +60,31 @@ form.addEventListener("submit", function (err) {
                     let imagesArray = [];
 
                     let numberOfPhotos = 0;
-
-
-
                     for (var v = 0; v < favoritePlace.length; v++) {
-
-
                         if (favoritePlace[v].type != 'file') {
 
                             favPlaces[favoritePlace[v].getAttribute("name")] = favoritePlace[v].innerHTML;
 
                         } else {
-
                             if (favoritePlace[v].files.length > 0) {
 
                                 numberOfPhotos = numberOfPhotos + 1;
                                 formData.append(favoritePlace[v].getAttribute("name"), favoritePlace[v].files[0]);
+
+
                                 //imagesArray.push(favoritePlace[v].files[0]);
 
                             }
-
                         }
                     }
 
                     console.log(numberOfPhotos);
-
-
                     favPlaces['numberOfPhotos'] = numberOfPhotos;
-
-
-
                     //formData.append('placeImage', imagesArray);
                     //console.log(imagesArray);
 
                     imagesArrayMain.push(imagesArray);
                     favoritePlaces.push(favPlaces);
-
-                    //console.log('==========================');
                 }
             }
 
@@ -164,11 +151,9 @@ form.addEventListener("submit", function (err) {
 
 
 
-
-
     var neighborhoodSatisfaction_ = JSON.stringify(neighborhoodSatisfaction);
     var neighborhoodFactorDescription_ = JSON.stringify(neighborhoodFactorDescription);
-    var favoritePlaces_ = JSON.stringify(favoritePlaces)
+    var favoritePlaces_ = JSON.stringify(favoritePlaces);
 
 
     formData.append('threeWordsToDecribeNeighborhood', threeWordsToDecribeNeighborhood);
@@ -187,11 +172,9 @@ form.addEventListener("submit", function (err) {
     xhr.onload = () => {
         token = xhr.response.token;
         console.log(token);
-
         var formLink = document.getElementById('goToUserProfile');
         formLink.href = `users/profile/${token}`
         formLink.click()
-
     };
 
 
@@ -216,17 +199,3 @@ form.addEventListener("submit", function (err) {
 
 })
 
-
-
-/*
-var addPlaceButton = document.getElementById('addPlaceButton');
-addPlaceButton.addEventListener('click', () => {
-    var addFavPlacesDiv = document.getElementsByClassName('addFavPlaces')[0];
-    var form = document.getElementsByClassName('form')[0];
-    let newFavPlacesDiv = addFavPlacesDiv.cloneNode(true);
-    var nameOfPlaceInput = document.
-    console.log(newFavPlacesDiv)
-    addFavPlacesDiv.style.display = 'none';
-    form.insertBefore(newFavPlacesDiv, addFavPlacesDiv);
-})
-*/

@@ -1,7 +1,34 @@
 const jwt = require('jsonwebtoken');
 const asyncHandler = require('./async');
 const ErrorResponse = require('../utils/errorResponse');
-const User = require('../models/User');
+
+const mongoose = require('mongoose');
+
+//const User = require('../models/User');
+
+
+String.prototype.toObjectId = function () {
+    var ObjectId = (require('mongoose').Types.ObjectId);
+    return new ObjectId(this.toString());
+};
+
+
+
+const conn = mongoose.createConnection(process.env.MONGO_URI, {
+    //options that will stop some warnings from happening:
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+
+});
+
+
+const User = conn.model("User", require('../models/User'));
+
+
+
+
 
 // Protect routes
 exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this method, we need to add it the route that we want to protect as a first parameter  
@@ -16,6 +43,8 @@ exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this 
 
     //token = req.headers.cookie.slice(17)
 
+
+    console.log('=====================')
     token = req.headers.cookie.split('token=')[1];
 
 
@@ -65,11 +94,17 @@ exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this 
 
     // Verify token
     try {
+
         const decoded = jwt.verify(token, process.env.JWT_SECRET); // Here we are verifying that the token sent by the client matches the the JWT_SECRET value that we set on the config env variables.
         // (the token includes the 'user id' encrypted )
-        //console.log(decoded); // Once verified, decoded is going to have an id value, which is the id belonging to the client trying to login, and which we'll use to get the user from the database.
+        // Once verified, decoded is going to have an id value, which is the id belonging to the client trying to login, and which we'll use to get the user from the database.
 
-        req.user = await User.findById(decoded.id).populate('input'); // ======>>>>>----->>>>>  req.user is being set to the user from the database whose id field matches decoded.id 
+        var id_ = decoded.id;
+
+        //req.user = await User.findById(id_.toObjectId()).populate('input'); // ======>>>>>----->>>>>  req.user is being set to the user from the database whose id field matches decoded.id 
+
+        req.user = await User.find({ _id: id_.toObjectId() });
+
         // req.user will always be the currently logged user.
         // In any route where we use the "protect" middleware we will have access to "req.user".
 

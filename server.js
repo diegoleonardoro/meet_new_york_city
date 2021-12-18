@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");  // This is a MiddleWare. It lets us read and request bodies.
+
 const connectDB = require("./config/db"); // function that connects to the server. 
+
 const dotenv = require("dotenv");
 const errorHandler = require("./middleware/error");
 const morgan = require("morgan");
@@ -19,6 +21,11 @@ const util = require("util");
 const cors = require("cors");
 var engines = require('consolidate');
 
+const methodOverride = require('method-override');
+
+
+
+
 
 // Load env variables:
 dotenv.config({ path: './config/config.env' });
@@ -33,8 +40,12 @@ const app = express();
 app.set("view engine", "ejs");
 
 // bodyParser is used to parse incoming request bodies 
-app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ extended: true}));//, limit: '50mb' 
+app.use(bodyParser.json());//{ limit: '50mb' }
+
+app.use(methodOverride('_method'));
+
+
 
 // cookieParser is used to parse cookie header and populate req.cookie
 app.use(cookieParser());

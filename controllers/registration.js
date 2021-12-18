@@ -2,7 +2,34 @@ const ErrorResponse = require("../utils/errorResponse");
 const UserRegistration = require("../models/User");// <<------ registration schema.
 const asyncHandler = require("../middleware/async");
 
-const User = require("../models/User");
+const mongoose = require('mongoose');
+//const connectDB = require("../config/db");
+//const conn = connectDB();
+//const User = conn.model("User", require('../models/User'));
+
+
+
+const conn = mongoose.createConnection(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+});
+const User = conn.model("User", require('../models/User'));
+
+
+
+//init gfs
+//let gfs;
+//conn.once("open", () => {
+//   gfs = Grid(conn.db, mongoose.mongo);
+//    gfs.collection('uploads');
+//});
+
+
+
+
+//const User = require("../models/User");
 
 
 
@@ -11,7 +38,7 @@ const User = require("../models/User");
 //@route    GET /register
 //@access   public
 exports.Registration_Interface = (req, res, next) => {
-    res.render("registration") 
+    res.render("registration")
     res.end();
 }
 
@@ -66,11 +93,11 @@ exports.login = asyncHandler(async (req, res, next) => {
 
 
 
-const sendTokenResponse = (user, statusCode, res) => { 
-    const token = user.getSignedJwtToken(); 
+const sendTokenResponse = (user, statusCode, res) => {
+    const token = user.getSignedJwtToken();
     const options = {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000), // ---> This represents 30 days (time beyond which the token will expire)
-        httpOnly: true 
+        httpOnly: true
     };
 
     var flag = user.formResponded;
@@ -78,7 +105,7 @@ const sendTokenResponse = (user, statusCode, res) => {
     if (flag) {
         res
             .status(statusCode)
-            .cookie('token', token,  options)
+            .cookie('token', token, options)
             .json({
                 success: true,
                 token,
@@ -94,6 +121,8 @@ const sendTokenResponse = (user, statusCode, res) => {
             })
 
     }
-     return token;
+
+   
+    return token;
 }
 

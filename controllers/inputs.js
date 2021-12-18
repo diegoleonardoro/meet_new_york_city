@@ -1,11 +1,29 @@
 const path = require("path");
 const ErrorResponse = require("../utils/errorResponse");
-const Inputs = require("../models/User_input");
+//const Inputs = require("../models/User_input");
 const asyncHandler = require("../middleware/async");
 const geoCoder = require("../utils/geoCoder");
 const fs = require('fs');
-const User = require("../models/User");
+//const User = require("../models/User");
+const mongoose = require('mongoose');
 
+
+
+const conn = mongoose.createConnection(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+});
+const User = conn.model("User", require('../models/User'));
+const Inputs = conn.model("Inputs", require('../models/User_input'));// <<<<--------------------------------------------------------
+
+
+
+String.prototype.toObjectId = function () {
+    var ObjectId = (require('mongoose').Types.ObjectId);
+    return new ObjectId(this.toString());
+};
 
 
 
@@ -14,7 +32,7 @@ const User = require("../models/User");
 // @access  Public
 exports.getAllInputs = asyncHandler(async (req, res, next) => {
 
-    const inputs = await Inputs.find({}, 'location image placeDescription');
+    const inputs = await Inputs.find({}, 'location image placeDescription'); // <<<<--------------------------------------------------------
 
     let inputsFiltered = []
     for (var i = 0; i < inputs.length; i++) {
@@ -23,11 +41,11 @@ exports.getAllInputs = asyncHandler(async (req, res, next) => {
         var placeDescrpn = inputs[i].placeDescription;
         let flag = 28;
         let placeDescrpnSpaced = '';
-        let placeDescrpRaw = ''; 
+        let placeDescrpRaw = '';
         let placeDescrForArray = ''
         let placeDescrArray = [];
-        for (let i = 0; i < placeDescrpn.length; i++) { 
-            placeDescrpRaw = placeDescrpRaw + placeDescrpn[i]; 
+        for (let i = 0; i < placeDescrpn.length; i++) {
+            placeDescrpRaw = placeDescrpRaw + placeDescrpn[i];
             placeDescrpnSpaced = placeDescrpnSpaced + placeDescrpn[i];
             placeDescrForArray = placeDescrForArray + placeDescrpn[i];
 
@@ -55,28 +73,77 @@ exports.getAllInputs = asyncHandler(async (req, res, next) => {
 //@access   Private
 exports.createInput = asyncHandler(async (req, res, next) => {
 
+
+
+
     req.body.neighborhoodSatisfaction = JSON.parse(req.body.neighborhoodSatisfaction);
     req.body.neighborhoodFactorDescription = JSON.parse(req.body.neighborhoodFactorDescription);
-    req.body.favoritePlaces = JSON.parse(req.body.favoritePlaces)
+    req.body.favoritePlaces = JSON.parse(req.body.favoritePlaces);
+
+
 
     var favoritePlaces = req.body.favoritePlaces;
 
+
+    /* 
     for (var i = 0; i < favoritePlaces.length; i++) {
         let photoArray = []
         let numOfPhotos = favoritePlaces[i].numberOfPhotos;
         for (var h = 0; h < numOfPhotos; h++) {
             photoArray.push({
+
                 data: fs.readFileSync('/Users/diegoleoro/meet_nyc/uploads/' + req.files[h].filename),
                 contentType: 'image/png'
+
             })
         }
         favoritePlaces[i]['placeImage'] = photoArray;
+        // console.log(photoArray);
+    };
+    */
+
+
+
+
+    let photosFlag = 0;
+
+    for (let i = 0; i < favoritePlaces.length; i++) {
+
+        let photoArray = []
+        let numOfPhotos = favoritePlaces[i]['numberOfPhotos'];
+
+        for (let h = 0; h < numOfPhotos; h++) {
+
+            photosFlag = photosFlag + h;
+            let file = req.files[photosFlag];
+            photoArray.push(file);
+
+        }
+
+        favoritePlaces[i]['placeImage'] = photoArray;
+
     }
+
+
+   // console.log(favoritePlaces);
+
 
     req.body.favoritePlaces = favoritePlaces;
     req.body.user = req.user.id;
-    const input = await Inputs.create(req.body);
-    const user = await User.findByIdAndUpdate({ _id: req.user.id }, { formResponded: '1' }).populate('input')
+
+
+    // here, instead of creating an input, I would have to update the User with what he responded on the main form 
+    const input = await Inputs.create(req.body); // <<<<--------------------------------------------------------
+
+    //console.log(req.body);
+
+    var inputData = Object.assign(req.body, { formResponded: '1' });
+
+    //console.log('image: ', inputData.favoritePlaces);
+
+    const user = await User.findByIdAndUpdate({ _id: req.user[0].id.toObjectId() }, inputData)//.populate('input');
+
+
 
     sendTokenResponse(user, 200, res);
 
@@ -89,19 +156,19 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 // @rouse   GET  /inputs/radious/:zipcode/:distance
 // @access  Private 
 exports.getInputsInRadious = asyncHandler(async (req, res, next) => {
-    const { zipcode, distance } = req.params; 
+    const { zipcode, distance } = req.params;
 
     // Get lat and lon from geocoder 
-    const loc = await geoCoder.geocode(zipcode); 
+    const loc = await geoCoder.geocode(zipcode);
     const lat = loc[0].latitude;
     const lng = loc[0].longitude;
 
     // Calc radious using radians
     // Divide dist by radius of Earth 
     // Earth Radius = 3,963 mi / 6,378 km
-    const radius = distance / 3963; 
-    const inputs = await Inputs.find({
-        location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } } 
+    const radius = distance / 3963;
+    const inputs = await Inputs.find({ // <<<<--------------------------------------------------------
+        location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
     })
     res.status(200).json({
         success: true,

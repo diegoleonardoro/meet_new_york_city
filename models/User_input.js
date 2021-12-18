@@ -53,6 +53,8 @@ const InputSchema = new mongoose.Schema({
 
     borough: String,
 
+    zipcode:String,
+
     lengthLivingInNeighborhood: String,
 
     neighborhoodDescription: String,
@@ -72,7 +74,7 @@ const InputSchema = new mongoose.Schema({
 
     moreSelfIntroduction: String,
 
-
+    /* 
     user: { // This lets us have a user associated with an Input.
         type: mongoose.Schema.ObjectId,
         ref: 'User',
@@ -81,8 +83,10 @@ const InputSchema = new mongoose.Schema({
         // be looged in. In order to check if the user is logged in, we used the 
         // protect middleware, which checks for the id of the user. 
     }, 
+    */
 
 
+    
     slug: { type: String, slug: ["neighborhood", "borough"],  unique: true  }
 
 
@@ -478,7 +482,7 @@ InputSchema.pre("save", async function (next) {
 
 
 
-module.exports = mongoose.model('Inputs', InputSchema);
+module.exports = InputSchema;//mongoose.model('Inputs', InputSchema);
 
 
 /*
