@@ -101,14 +101,26 @@ const UserSchema = new mongoose.Schema({
     threeWordsToDecribeNeighborhood: [String],
 
     neighborhoodSatisfaction: {
-        type: neighborhoodSatisfactionSchema
+        publicTransportation: String,
+        publicSpaces: String,
+        neighbors: String,
+        restaurants: String,
+        safety: String
     },
     neighborhoodFactorDescription: {
-        type: neighborhoodFactorDescriptionSchema
+        publicTransportationExplanation: String,
+        publicSpacesExplanation: String,
+        neighborsExplanation: String,
+        restaurantsVarietyExplanation: String,
+        safetyExplanation: String
     },
-    favoritePlaces: {
-        type: [favoritePlacesSchema]
-    },
+    favoritePlaces: [{
+        place: String,
+        description: String,
+        coordinates: Object,
+        numberOfPhotos: Number,
+        placeImage: []
+    }],
     neighborhoodTips: [String],
 
     moreSelfIntroduction: String,
@@ -116,8 +128,6 @@ const UserSchema = new mongoose.Schema({
     slug: { type: String, slug: ["neighborhood", "borough", "name"], unique: true },
 
     //================================//
-
-
 
 
 })

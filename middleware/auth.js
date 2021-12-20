@@ -101,9 +101,13 @@ exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this 
 
         var id_ = decoded.id;
 
+
         //req.user = await User.findById(id_.toObjectId()).populate('input'); // ======>>>>>----->>>>>  req.user is being set to the user from the database whose id field matches decoded.id 
 
+
+
         req.user = await User.find({ _id: id_.toObjectId() });
+
 
         // req.user will always be the currently logged user.
         // In any route where we use the "protect" middleware we will have access to "req.user".

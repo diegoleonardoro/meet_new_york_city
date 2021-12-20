@@ -244,97 +244,80 @@ function displayMap(flag) {
                 let whoCanShowArray = [];
                 let whoCanShow = '';
 
-                let userName = neighborhoodUsers['data'][0]['name'];
-                let lengthLivingInNeighborhood = neighborhoodUsers['data'][0]['lengthLivingInNeighborhood'];
-                let favAspectsOfNeighborhood = neighborhoodUsers['data'][0]['favAspectsOfNeighborhood'];
-                let favoritePlaces = neighborhoodUsers['data'][0]['favoritePlaces'];
 
-                let slug = neighborhoodUsers['data'][0]['slug'];
+                console.log(neighborhoodUsers)
+                let userName = neighborhoodUsers['data']['name'];
+                let lengthLivingInNeighborhood = neighborhoodUsers['data']['lengthLivingInNeighborhood'];
+                let favAspectsOfNeighborhood = neighborhoodUsers['data']['favAspectsOfNeighborhood'];
+                let favoritePlaces = neighborhoodUsers['data']['favoritePlaces'];
+
+                let slug = neighborhoodUsers['data']['slug'];
+
+                let numofPlaces = neighborhoodUsers['data']['numofPlaces'][0];
+                let imagesFormated = neighborhoodUsers['data']['imagesFormated'];
 
 
-                if (favoritePlaces.length > 1) {
 
-                    whoCanShow =
-                        `<div class='whoCanShow'>
-                            <p class='whoCanShowItem' > ${userName} </p>
-                            <p class='whoCanShowItem'>I have lived in this neighborhood for ${lengthLivingInNeighborhood}. ${favAspectsOfNeighborhood}</p>
-                            <p class='whoCanShowItem'> Here are some of my favorite places in this neighborhood: </p>
-                            `
-                    for (var u = 0; u < favoritePlaces.length; u++) {
 
-                        let place = favoritePlaces[u]['placeDescrption']['place'];
-                        let placDescription = favoritePlaces[u]['placeDescrption']['description'];
-                        let placeImage = favoritePlaces[u]['placeImageBuffer'][0];
+                console.log(imagesFormated);
 
-                        whoCanShow = whoCanShow +
-                            `<p class='whoCanShowItem'><b>Place: </b> ${place} </p>
-                                <p class='whoCanShowItem'> ${placDescription}</p>
-                                <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${placeImage}>
-                            </div>
-                            `
-                    }
 
-                    whoCanShowArray.push(whoCanShow);
+        
 
-                } else {
 
-                    whoCanShow =
-                        `<div class='whoCanShow'>
+
+                whoCanShow =
+                    `<div class='whoCanShow'>
                             <p class='whoCanShowItem'> <b>Name:</b> ${userName} </p>
                             <p class='whoCanShowItem'> <b>Description:</b> I have lived in this neighborhood for ${lengthLivingInNeighborhood}. ${favAspectsOfNeighborhood}</p>
                             <p class='whoCanShowItem'> This is one of my favorite places in this neighborhood: </p>
                             `
-                    for (var u = 0; u < favoritePlaces.length; u++) {
+                // for (var u = 0; u < favoritePlaces.length; u++) {///
 
-                        let place = favoritePlaces[u]['placeDescrption']['place'];
-                        let placDescription = favoritePlaces[u]['placeDescrption']['description'];
-                        let placeImage = favoritePlaces[u]['placeImageBuffer'][0];
+                let place = favoritePlaces[0]['place'];
+                let placDescription = favoritePlaces[0]['description'];
 
-                        whoCanShow = whoCanShow +
-                            `<div class='divOfFavPlace'>
+                //let placeImage = favoritePlaces[0]['placeImageBuffer'][0];
+
+                whoCanShow = whoCanShow +
+                    `<div class='divOfFavPlace'>
                                     <p class='whoCanShowItem'><b>Place: </b>${place} </p>
                                     <p class='whoCanShowItem'> ${placDescription}</p>
                                     <p class ='whoCanShowItem'><b>Images of place:</b></p>
                                     <div>`
-                        for (var v = 0; v < favoritePlaces[u]['placeImageBuffer'].length; v++) {
-                            whoCanShow = whoCanShow +
-                                `<img class='whoCanShowItem placeImage'  src=data:image/png;base64,${favoritePlaces[u]['placeImageBuffer'][v]}>`
-                        }
-                        whoCanShow = whoCanShow +
-                            `
+                for (var v = 0; v < numofPlaces; v++) {
+                    whoCanShow = whoCanShow +
+                        `<img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormated[v]}>`
+                }
+                whoCanShow = whoCanShow +
+                    `
                                 </div>
                             <div>
                         </div>
                         <button type='submit' id ='visitUserProfile'><a id ='linkToUserProfile' href=''></a> Visit ${userName}'s profile </button>`
 
-                    }
-                    whoCanShowArray.push(whoCanShow);
+                //}///
 
 
-                    // Add an event listener to the profile button
-                    // This event listener will query the database using the slug 
-                    // to get the user profile page.
+                whoCanShowArray.push(whoCanShow);
 
-                    setTimeout(() => {
-                        const profileButton = document.getElementById('visitUserProfile');
-                        profileButton.addEventListener('click', () => {
-                            // query the database to see all the people from that neighborhood:
-                            //const xhr_ = new XMLHttpRequest();
-                            //let getResponseData = new Promise((resolve, reject) => {
-                            //xhr_.onload = () => {
-                            //console.log(xhr.response);
 
-                            var profileButton = document.getElementById('linkToUserProfile');
-                            profileButton.href = `/users/user-profile/${slug}`;
-                            profileButton.click()
-                            //}
-                            // create and send the reqeust
-                            //xhr_.open('GET', `/users/user-profile/${slug}`);
-                            //xhr_.send();
-                        })
-                    }, 100);
+                // Add an event listener to the profile button
+                // This event listener will query the database using the slug 
+                // to get the user profile page.
 
-                }
+                setTimeout(() => {
+                    const profileButton = document.getElementById('visitUserProfile');
+                    profileButton.addEventListener('click', () => {
+                
+                        var profileButton = document.getElementById('linkToUserProfile');
+                        profileButton.href = `/users/user-profile/${slug}`;
+                        profileButton.click()
+            
+                    })
+                }, 100);
+
+
 
                 neighborhoodDescription.innerHTML = neighborhoodDescription.innerHTML + whoCanShowArray[0];
 

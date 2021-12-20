@@ -71,56 +71,150 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
         path: 'user'
     });
 
+    var user = await User.find({ 'neighborhood': neighborhood });
+
+    //console.log(user[0]);//['neighborhoodFactorDescription']
+
     let responseArray = [];
 
-    for (var i = 0; i < input.length; i++) {
-
-        let responseObject = {};
-        responseObject['name'] = input[i]['user']['name'];
-        responseObject['lengthLivingInNeighborhood'] = input[i]['lengthLivingInNeighborhood'];
-        responseObject['neighborhoodSatisfactionScale'] = input[i]['neighborhoodSatisfaction'];
-        responseObject['publicTransportationTips'] = input[i]['publicTransportationTips'];
-        responseObject['safetyTips'] = input[i]['safetyTips'];
-        responseObject['favAspectsOfNeighborhood'] = input[i]['favAspectsOfNeighborhood'];
-        responseObject['slug'] = input[i]['slug'];
+    //for (var i = 0; i < input.length; i++) {
 
 
+    //just sending one user:
+    let responseObject = {};
+    responseObject['name'] = user[0]['name'];
+    responseObject['lengthLivingInNeighborhood'] = user[0]['lengthLivingInNeighborhood'];
+    responseObject['neighborhoodSatisfactionScale'] = user[0]['neighborhoodSatisfaction'];
+    responseObject['publicTransportationTips'] = user[0]['publicTransportationTips'];
+    responseObject['safetyTips'] = user[0]['safetyTips'];
+    responseObject['favAspectsOfNeighborhood'] = user[0]['favAspectsOfNeighborhood'];
+    responseObject['slug'] = user[0]['slug'];
+    responseObject['favoritePlaces'] = user[0]['favoritePlaces'];
 
-        let favPlacesArray = [];
-        let favPlacesObject = {};
 
 
-        for (var u = 0; u < input[i]['favoritePlaces'].length; u++) {
 
-            let favPlace = input[i]['favoritePlaces'][u];
-            favPlacesObject['placeDescrption'] = favPlace;
-            let imagesArray = [];
-
-            for (var t = 0; t < favPlace['placeImage'].length; t++) {
-                //console.log(favPlace['placeImage'][t]);
-                let imageBuffer = favPlace['placeImage'][t]['data'];
-                imagesArray.push(Buffer.from(imageBuffer, "base64").toString('base64'))
-            }
-
-            //let imageBuffer = favPlace['placeImage'][0]['data'];
-            favPlacesObject['placeImageBuffer'] = imagesArray;
-
-            //Buffer.from(imageBuffer, "base64").toString('base64')
-            favPlacesArray.push(favPlacesObject);
-
-        }
-        responseObject['favoritePlaces'] = favPlacesArray;
-        responseArray.push(responseObject);
+    let numofPlaces = []
+    for (var l = 0; l < responseObject['favoritePlaces'].length; l++) {
+        numofPlaces.push(responseObject['favoritePlaces'][l]['numberOfPhotos']);
     }
+    responseObject['numofPlaces'] = numofPlaces;
+
+
+
+
+    //===============================//
+
+    let favPlaces = user[0].favoritePlaces;
+
+
+    let arr = [];
+    let amountOfPhotosPerPlace = [];
+    for (var w = 0; w < favPlaces.length; w++) {
+        let filesNamesArray = [];
+        amountOfPhotosPerPlace.push(favPlaces[w]['placeImage'].length);
+
+        let currentPlace = favPlaces[w];
+
+        for (var c = 0; c < currentPlace['placeImage'].length; c++) {
+            let filesNames = currentPlace['placeImage'][c].filename;
+
+            filesNamesArray.push(filesNames)
+
+            arr.push(filesNames)
+        }
+    };
+
+
+    let streamFlag = 0;
+    let imageFormated;
+    let newArr = [];
+
+    function createStream() {
+        let filename = arr[streamFlag];
+
+        console.log(filename)
+        let readstream = gfs.createReadStream(filename);
+        let fileChunks = [];
+        readstream.on('data', function (chunk) {
+            fileChunks.push(chunk);
+        });
+        readstream.on('end', function () {
+            let concatFile = Buffer.concat(fileChunks);
+            imageFormated = Buffer(concatFile).toString("base64");
+
+            newArr.push(imageFormated);
+
+            streamFlag = streamFlag + 1;
+
+            if (newArr.length < arr.length) {
+                createStream()
+            }
+        });
+    }
+    createStream();
+    //===============================//
 
 
 
 
 
-    res.status(201).json({
-        success: true,
-        data: responseArray
-    })
+
+
+
+
+    setTimeout(() => {
+
+        responseObject['imagesFormated'] = newArr;
+
+        console.log(newArr.length);
+
+        res.status(201).json({
+            success: true,
+            data: responseObject
+        })
+
+    }, 15000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //responseObject['favoritePlaces'] = favPlacesArray;
+    //responseArray.push(responseObject);
+    // }
+    /* 
+    let favPlacesArray = [];
+    let favPlacesObject = {};
+    for (var u = 0; u < user[0]['favoritePlaces'].length; u++) {
+        let favPlace = user[0]['favoritePlaces'][u];
+        favPlacesObject['placeDescrption'] = favPlace;
+        let imagesArray = [];
+
+        for (var t = 0; t < favPlace['placeImage'].length; t++) {
+            //console.log(favPlace['placeImage'][t]);
+            let imageBuffer = favPlace['placeImage'][t]['data']; //<<<<<<<<<
+            imagesArray.push(Buffer.from(imageBuffer, "base64").toString('base64'))
+        }
+        //let imageBuffer = favPlace['placeImage'][0]['data'];
+        favPlacesObject['placeImageBuffer'] = imagesArray;
+        //Buffer.from(imageBuffer, "base64").toString('base64')
+        favPlacesArray.push(favPlacesObject);
+    }
+    */
+
+
 
 
 
@@ -143,21 +237,13 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
 //@access   Private 
 exports.userProfile = asyncHandler(async (req, res, next) => {
 
-
-
-   
-
-
-
     let favPlaces = req.user[0].favoritePlaces;
 
-
-  
+    console.log(favPlaces);
 
     let arr = [];
-
     let amountOfPhotosPerPlace = [];
-    let filesNamesArrayMain = [];
+    //let filesNamesArrayMain = [];
     for (var w = 0; w < favPlaces.length; w++) {
         let filesNamesArray = [];
         amountOfPhotosPerPlace.push(favPlaces[w]['placeImage'].length);
@@ -166,30 +252,28 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 
         for (var c = 0; c < currentPlace['placeImage'].length; c++) {
             let filesNames = currentPlace['placeImage'][c].filename;
-            //console.log(filesNames);
+
+            console.log(filesNames);
+
             filesNamesArray.push(filesNames)
 
             arr.push(filesNames)
         }
-        filesNamesArrayMain.push(filesNamesArray)
-    }
-
-    //console.log(arr);
+        //filesNamesArrayMain.push(filesNamesArray)
+    };
 
 
+    console.log(arr);
 
 
     let streamFlag = 0;
 
     let imageFormated;
 
+    let newArr = [];
 
-    let newArr = []
     function createStream() {
 
-        //console.log('new arrrr length : ', newArr.length);
-
-        //console.log(streamFlag)
 
         let filename = arr[streamFlag];
         let readstream = gfs.createReadStream(filename);
@@ -204,24 +288,15 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 
             newArr.push(imageFormated);
 
-
-
-
             streamFlag = streamFlag + 1;
 
             if (newArr.length < arr.length) {
                 createStream()
             }
-
-
         });
-
-
-
     }
 
-    createStream()
-
+    createStream();
 
     setTimeout(() => {
         //console.log('arreee: ', newArr.length);
@@ -255,7 +330,7 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             'lengthLivingInNeighborhood': req.user[0].lengthLivingInNeighborhood,
             'imagesFormated': newArr,
             'intro': intro,
-            'amountOfPhotosPerPlace':amountOfPhotosPerPlace
+            'amountOfPhotosPerPlace': amountOfPhotosPerPlace
         }
         res.render("user_profile", { user });
 
@@ -389,68 +464,229 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 //@access   Public
 exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
 
-    console.log('kikikikikikiki');
-
     var slug = req.params.slug;
 
 
-    // HERE INSTEADT OF QUERYING THE Inputs SCHEMA, I WILL HAVE TO QUERY THE Users SCHEMA.
-    var input = await Inputs.find({ 'slug': slug }).populate({ // <<<<--------------------------------------------------------
-        path: 'user'
-    });
+    let user = await User.find({ 'slug': slug }) // <<<<--------------------------------------------------------
+    let favPlaces = user[0]['favoritePlaces'];
 
-    let favPlaces = input[0].favoritePlaces;
-    let imagesFormated = [];
-    for (var i = 0; i < favPlaces.length; i++) {
-        let images = [];
-        for (var t = 0; t < favPlaces[i].placeImage.length; t++) {
-            let img = Buffer.from(favPlaces[i].placeImage[t].data.buffer, 'base64');
-            let formated_image
-            if (t === 0) {
-                formated_image = `<img src="data:image/png;base64,${img.toString("base64")}"/>`;
-            } else {
-                formated_image = `<img style="display:none;" src="data:image/png;base64,${img.toString("base64")}"/>`;
-            }
-            images.push(formated_image);
+    let arr = [];
+    let amountOfPhotosPerPlace = [];
+
+    for (var w = 0; w < favPlaces.length; w++) {
+        let filesNamesArray = [];
+        amountOfPhotosPerPlace.push(favPlaces[w]['placeImage'].length);
+
+        let currentPlace = favPlaces[w];
+
+        for (var c = 0; c < currentPlace['placeImage'].length; c++) {
+            let filesNames = currentPlace['placeImage'][c].filename;
+            filesNamesArray.push(filesNames)
+            arr.push(filesNames)
         }
-        imagesFormated.push(images)
+    };
+
+
+    let streamFlag = 0;
+    let imageFormated;
+    let newArr = [];
+    function createStream() {
+
+
+        let filename = arr[streamFlag];
+        let readstream = gfs.createReadStream(filename);
+        let fileChunks = [];
+        readstream.on('data', function (chunk) {
+            fileChunks.push(chunk);
+        });
+        readstream.on('end', function () {
+            let concatFile = Buffer.concat(fileChunks);
+            imageFormated = Buffer(concatFile).toString("base64");
+
+
+            newArr.push(imageFormated);
+
+            streamFlag = streamFlag + 1;
+
+            if (newArr.length < arr.length) {
+                createStream()
+            }
+        });
     }
 
-    let livingInNhood;
-    if (input[0].lengthLivingInNeighborhood === 'do not live there') {
-        livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
-    } else {
-        livingInNhood = `I have been living in this neighborhood ${input[0].lengthLivingInNeighborhood},and I know it well enough to take you to the best places.`
-    }
 
 
-    var introduction1 = `Hello! <span class='introHighlight'> My name is ${input[0]['user'].name}, and if you want to visit ${input[0].neighborhood} I can show around</span> . ${livingInNhood}`
-    var introduction2 = `<b>I would describe ${input[0].neighborhood} as follows:</b> `
-    var introduction3 = `${input[0].neighborhoodDescription}`
-    var introduction4 = `<b>In three words, I would describe ${input[0].neighborhood} as:</b>`
-    var introduction5 = `${input[0].threeWordsToDecribeNeighborhood}`.split(',')
-    var introduction6 = `Please keep exploring my profile if you want to learn more about ${input[0].neighborhood}, and get to know New York City like very few visitors do.`
-
-    var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
+    createStream();
 
 
-    console.log(input);
+    setTimeout(() => {
 
-    let user = {
-        'name': input[0]['user'].name,
-        'neighborhood': input[0].neighborhood,
-        'threeWordsToDecribeNeighborhood': input[0].threeWordsToDecribeNeighborhood,
-        'neighborhoodTips': input[0].neighborhoodTips,
-        'neighborhoodDescription': input[0].neighborhoodDescription,
-        'neighborhoodSatisfaction': input[0].neighborhoodSatisfaction,
-        'neighborhoodFactorDescription': input[0].neighborhoodFactorDescription,
-        'favoritePlaces': input[0].favoritePlaces,
-        'lengthLivingInNeighborhood': input[0].lengthLivingInNeighborhood,
-        'imagesFormated': imagesFormated,
-        'intro': intro
-    }
 
-    res.render("user_profile", { user });
+
+        let livingInNhood;
+        if (user[0].lengthLivingInNeighborhood === 'do not live there') {
+            livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
+        } else {
+            livingInNhood = `I have been living in this neighborhood ${user[0].lengthLivingInNeighborhood},and I know it well enough to take you to the best places.`
+        }
+
+        var introduction1 = `Hello! <span class='introHighlight'> My name is ${user[0].name}, and if you want to visit ${user[0].neighborhood} I can show around</span> . ${livingInNhood}`
+        var introduction2 = `<b>I would describe ${user[0].neighborhood} as follows:</b> `
+        var introduction3 = `${user[0].neighborhoodDescription}`
+        var introduction4 = `<b>In three words, I would say ${user[0].neighborhood} is:</b>`
+        var introduction5 = `${user[0].threeWordsToDecribeNeighborhood}`.split(',')
+        var introduction6 = `Please keep exploring my profile if you want to learn more about ${user[0].neighborhood}, and get to know New York City like very few visitors do.`
+
+        var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
+
+         user = {
+            'name': user[0].name,
+            'neighborhood': user[0].neighborhood,
+            'threeWordsToDecribeNeighborhood': user[0].threeWordsToDecribeNeighborhood,
+            'neighborhoodTips': user[0].neighborhoodTips,
+            'neighborhoodDescription': user[0].neighborhoodDescription,
+            'neighborhoodSatisfaction': user[0].neighborhoodSatisfaction,
+            'neighborhoodFactorDescription': user[0].neighborhoodFactorDescription,
+            'favoritePlaces': user[0].favoritePlaces,
+            'lengthLivingInNeighborhood': user[0].lengthLivingInNeighborhood,
+            'imagesFormated': newArr,
+            'intro': intro,
+            'amountOfPhotosPerPlace': amountOfPhotosPerPlace
+        }
+        res.render("user_profile", { user });
+
+
+
+    }, 10000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* 
+    
+    
+        let favPlaces = input[0].favoritePlaces;
+        let imagesFormated = [];
+        for (var i = 0; i < favPlaces.length; i++) {
+            let images = [];
+            for (var t = 0; t < favPlaces[i].placeImage.length; t++) {
+                let img = Buffer.from(favPlaces[i].placeImage[t].data.buffer, 'base64');
+                let formated_image
+                if (t === 0) {
+                    formated_image = `<img src="data:image/png;base64,${img.toString("base64")}"/>`;
+                } else {
+                    formated_image = `<img style="display:none;" src="data:image/png;base64,${img.toString("base64")}"/>`;
+                }
+                images.push(formated_image);
+            }
+            imagesFormated.push(images)
+        }
+    
+        let livingInNhood;
+        if (input[0].lengthLivingInNeighborhood === 'do not live there') {
+            livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
+        } else {
+            livingInNhood = `I have been living in this neighborhood ${input[0].lengthLivingInNeighborhood},and I know it well enough to take you to the best places.`
+        }
+    
+    
+        var introduction1 = `Hello! <span class='introHighlight'> My name is ${input[0]['user'].name}, and if you want to visit ${input[0].neighborhood} I can show around</span> . ${livingInNhood}`
+        var introduction2 = `<b>I would describe ${input[0].neighborhood} as follows:</b> `
+        var introduction3 = `${input[0].neighborhoodDescription}`
+        var introduction4 = `<b>In three words, I would describe ${input[0].neighborhood} as:</b>`
+        var introduction5 = `${input[0].threeWordsToDecribeNeighborhood}`.split(',')
+        var introduction6 = `Please keep exploring my profile if you want to learn more about ${input[0].neighborhood}, and get to know New York City like very few visitors do.`
+    
+        var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
+    
+    
+        console.log(input);
+    
+        user = {
+            'name': input[0]['user'].name,
+            'neighborhood': input[0].neighborhood,
+            'threeWordsToDecribeNeighborhood': input[0].threeWordsToDecribeNeighborhood,
+            'neighborhoodTips': input[0].neighborhoodTips,
+            'neighborhoodDescription': input[0].neighborhoodDescription,
+            'neighborhoodSatisfaction': input[0].neighborhoodSatisfaction,
+            'neighborhoodFactorDescription': input[0].neighborhoodFactorDescription,
+            'favoritePlaces': input[0].favoritePlaces,
+            'lengthLivingInNeighborhood': input[0].lengthLivingInNeighborhood,
+            'imagesFormated': imagesFormated,
+            'intro': intro
+        }
+    
+        res.render("user_profile", { user });
+    
+    
+    
+    */
+
+
+
+
+
+
+
 
 });
 
