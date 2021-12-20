@@ -69,16 +69,19 @@ form.addEventListener("submit", function (err) {
                             if (favoritePlace[v].files.length > 0) {
 
                                 numberOfPhotos = numberOfPhotos + 1;
+
+                                console.log(favoritePlace[v].files[0]);
+
+
                                 formData.append(favoritePlace[v].getAttribute("name"), favoritePlace[v].files[0]);
 
-
-                                //imagesArray.push(favoritePlace[v].files[0]);
 
                             }
                         }
                     }
 
-                    console.log(numberOfPhotos);
+                    //console.log(numberOfPhotos);
+
                     favPlaces['numberOfPhotos'] = numberOfPhotos;
                     //formData.append('placeImage', imagesArray);
                     //console.log(imagesArray);
@@ -87,6 +90,10 @@ form.addEventListener("submit", function (err) {
                     favoritePlaces.push(favPlaces);
                 }
             }
+
+
+
+
 
         } else if (form.elements[i].className.indexOf('selectBoro') > -1) {
 
@@ -155,6 +162,7 @@ form.addEventListener("submit", function (err) {
     var neighborhoodFactorDescription_ = JSON.stringify(neighborhoodFactorDescription);
     var favoritePlaces_ = JSON.stringify(favoritePlaces);
 
+    //console.log(favoritePlaces)
 
     formData.append('threeWordsToDecribeNeighborhood', threeWordsToDecribeNeighborhood);
     formData.append('neighborhoodSatisfaction', neighborhoodSatisfaction_);

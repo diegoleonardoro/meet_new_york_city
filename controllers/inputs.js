@@ -73,7 +73,7 @@ exports.getAllInputs = asyncHandler(async (req, res, next) => {
 //@access   Private
 exports.createInput = asyncHandler(async (req, res, next) => {
 
-
+    //console.log(req.files);
 
 
     req.body.neighborhoodSatisfaction = JSON.parse(req.body.neighborhoodSatisfaction);
@@ -105,27 +105,42 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 
 
 
-    let photosFlag = 0;
+    //let photosFlag = 0;
 
+    let h = 0;
+    let z;
     for (let i = 0; i < favoritePlaces.length; i++) {
 
         let photoArray = []
         let numOfPhotos = favoritePlaces[i]['numberOfPhotos'];
 
-        for (let h = 0; h < numOfPhotos; h++) {
+        if (i===0){
+            z = numOfPhotos;
+        }else{
+            z = h + numOfPhotos;
+        }
 
-            photosFlag = photosFlag + h;
-            let file = req.files[photosFlag];
+        for (h; h < z; h++) {
+
+            //photosFlag = photosFlag + h;
+            let file = req.files[h];
+            //console.log(file);
             photoArray.push(file);
 
         }
 
+        h = numOfPhotos;
+
         favoritePlaces[i]['placeImage'] = photoArray;
+
+    
+
+        //console.log('tftf: ', favoritePlaces[i]['placeImage'])
 
     }
 
 
-   // console.log(favoritePlaces);
+     //console.log(favoritePlaces);
 
 
     req.body.favoritePlaces = favoritePlaces;

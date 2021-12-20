@@ -32,6 +32,11 @@
 
         var imagesFormated = user.imagesFormated[0];
 
+        var favoritePlaces = user.favoritePlaces;
+
+        var amountOfPlacesArray= user.amountOfPhotosPerPlace;
+     
+        
         console.log(user)
 
     </script>
@@ -128,7 +133,20 @@
 
             <div class='neighborhood-descriptions'><!-------------------------- posts -->
                 <h4 id='placesToShowHeader'> These are the<span> places </span>that I will show you: </h4>
-                <% for(var e = 0; e < user.imagesFormated.length; e++){ %>
+
+
+                <% let q = 0 %>
+                
+                <% let z %>
+                <% for(var e = 0; e < user.favoritePlaces.length; e++){ %>
+
+                                <% if (e === 0){ %>
+                                    <%  z = user.amountOfPhotosPerPlace[e] %>
+                                <% } else { %>
+                                    <%  z =  user.amountOfPhotosPerPlace[e] + q %>
+                                <% }  %>
+                    
+
                     <div class='neighborhood-description'>
                         <div class='neighborhood-content'>
                             <div class='neighborhood-info'> 
@@ -142,7 +160,22 @@
                             <div class='neihborhood-image'>
                                 <i class="fas fa-arrow-circle-left"></i>
                                 <div class ='divOfImages'>
-                                    <%- user.imagesFormated[e] %>
+
+                                    <% for(q; q < z; q ++){ %>
+                                    
+                                        <% if (z - user.amountOfPhotosPerPlace[e] === q) { %>
+                                        
+                                            <img src="data:image/png;base64,<%= user.imagesFormated[q]%>" /> 
+                                         <% } else { %>
+                                            <% console.log('jiji') %>
+                                            
+                                            <img style="display:none;" src="data:image/png;base64,<%= user.imagesFormated[q]%>" /> 
+                                        <% } %>
+                                                  
+                                    <% } %>
+
+                                    <% q = z %>
+                                     
                                 </div>
                                 <i class="fas fa-arrow-circle-right"></i>
                             </div>

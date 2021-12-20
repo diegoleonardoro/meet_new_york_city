@@ -144,69 +144,206 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
 exports.userProfile = asyncHandler(async (req, res, next) => {
 
 
+
+   
+
+
+
     let favPlaces = req.user[0].favoritePlaces;
+
+
+  
+
+    let arr = [];
 
     let amountOfPhotosPerPlace = [];
     let filesNamesArrayMain = [];
     for (var w = 0; w < favPlaces.length; w++) {
-
         let filesNamesArray = [];
-        amountOfPhotosPerPlace.push(req.user[0].favoritePlaces[w]['placeImage'].length);
+        amountOfPhotosPerPlace.push(favPlaces[w]['placeImage'].length);
 
-        for (var c = 0; c < req.user[0].favoritePlaces[w]['placeImage'].length; c++) {
-            let filesNames = req.user[0].favoritePlaces[w]['placeImage'][c].filename;
+        let currentPlace = favPlaces[w];
+
+        for (var c = 0; c < currentPlace['placeImage'].length; c++) {
+            let filesNames = currentPlace['placeImage'][c].filename;
+            //console.log(filesNames);
             filesNamesArray.push(filesNames)
+
+            arr.push(filesNames)
         }
         filesNamesArrayMain.push(filesNamesArray)
     }
 
+    //console.log(arr);
 
-    let mainArray = [];
-    const iterateArrayOfImages = function () {
-        for (var t = 0; t < filesNamesArrayMain.length; t++) {
-            let currentElementMainArray = filesNamesArrayMain[t];
-            for (var y = 0; y < currentElementMainArray.length; y++) {
-                let placeName = currentElementMainArray[y];
-                let readstream = gfs.createReadStream(placeName);
-                let fileChunks = [];
-                let imageFormated;
-                readstream.on('data', function (chunk) {
-                    fileChunks.push(chunk);
-                });
-                readstream.on('end', function () {
-                    let concatFile = Buffer.concat(fileChunks);
 
-                    if (y === 0) {
-                        imageFormated = `<img src="data:image/png;base64,${Buffer(concatFile).toString("base64")}"/>`;
-                    }else{
-                        imageFormated = `<img style="display:none;" src="data:image/png;base64,${Buffer(concatFile).toString("base64")}"/>`;
-                    }
 
-                    mainArray.push(imageFormated);
 
-                });
+    let streamFlag = 0;
+
+    let imageFormated;
+
+
+    let newArr = []
+    function createStream() {
+
+        //console.log('new arrrr length : ', newArr.length);
+
+        //console.log(streamFlag)
+
+        let filename = arr[streamFlag];
+        let readstream = gfs.createReadStream(filename);
+        let fileChunks = [];
+        readstream.on('data', function (chunk) {
+            fileChunks.push(chunk);
+        });
+        readstream.on('end', function () {
+            let concatFile = Buffer.concat(fileChunks);
+            imageFormated = Buffer(concatFile).toString("base64");
+            //mainArray.push(imageFormated);
+
+            newArr.push(imageFormated);
+
+
+
+
+            streamFlag = streamFlag + 1;
+
+            if (newArr.length < arr.length) {
+                createStream()
             }
-        }
+
+
+        });
+
+
+
     }
 
-    iterateArrayOfImages();
+    createStream()
 
 
     setTimeout(() => {
+        //console.log('arreee: ', newArr.length);
+
+
+        let livingInNhood;
+        if (req.user[0].lengthLivingInNeighborhood === 'do not live there') {
+            livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
+        } else {
+            livingInNhood = `I have been living in this neighborhood ${req.user[0].lengthLivingInNeighborhood},and I know it well enough to take you to the best places.`
+        }
+
+        var introduction1 = `Hello! <span class='introHighlight'> My name is ${req.user[0].name}, and if you want to visit ${req.user[0].neighborhood} I can show around</span> . ${livingInNhood}`
+        var introduction2 = `<b>I would describe ${req.user[0].neighborhood} as follows:</b> `
+        var introduction3 = `${req.user[0].neighborhoodDescription}`
+        var introduction4 = `<b>In three words, I would say ${req.user[0].neighborhood} is:</b>`
+        var introduction5 = `${req.user[0].threeWordsToDecribeNeighborhood}`.split(',')
+        var introduction6 = `Please keep exploring my profile if you want to learn more about ${req.user[0].neighborhood}, and get to know New York City like very few visitors do.`
+
+        var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
+
+        let user = {
+            'name': req.user[0].name,
+            'neighborhood': req.user[0].neighborhood,
+            'threeWordsToDecribeNeighborhood': req.user[0].threeWordsToDecribeNeighborhood,
+            'neighborhoodTips': req.user[0].neighborhoodTips,
+            'neighborhoodDescription': req.user[0].neighborhoodDescription,
+            'neighborhoodSatisfaction': req.user[0].neighborhoodSatisfaction,
+            'neighborhoodFactorDescription': req.user[0].neighborhoodFactorDescription,
+            'favoritePlaces': req.user[0].favoritePlaces,
+            'lengthLivingInNeighborhood': req.user[0].lengthLivingInNeighborhood,
+            'imagesFormated': newArr,
+            'intro': intro,
+            'amountOfPhotosPerPlace':amountOfPhotosPerPlace
+        }
+        res.render("user_profile", { user });
+
+
+
+    }, 10000);
+
+
+
+
+
+
+    //gfs.files.find({ filename: { $in: arr } }).toArray((err, files) => {
+    /* 
+    // Check if files
+    if (!files || files.length === 0) {
+        //res.render('index', { arr: false });
+    } else {
+        files.map(file => {
+            if (
+                file.contentType === 'image/jpeg' ||
+                file.contentType === 'image/png'
+            ) {
+                file.isImage = true;
+            } else {
+                file.isImage = false;
+            }
+        });
+        //res.render('index', { arr: arr });
+    }
+    */
+
+
+    //console.log('arr: ', arr);
+    //console.log('files: ', files);
+
+
+
+
+
+
+    // });
+
+
+
+
+    /* 
+    let mainArray = [];
+    const iterateArrayOfImages = function () {
+        for (var t = 0; t < arr.length; t++) {
+            let placeName = arr[t];
+            let readstream = gfs.createReadStream(placeName);
+            let fileChunks = [];
+            let imageFormated;
+            readstream.on('data', function (chunk) {
+                fileChunks.push(chunk);
+            });
+            readstream.on('end', function () {
+                let concatFile = Buffer.concat(fileChunks);
+                imageFormated = Buffer(concatFile).toString("base64");
+                mainArray.push(imageFormated);
+            });
+        }
+    }
+    iterateArrayOfImages();
+
+    setTimeout(() => { 
 
         let mainArrayDivided = [];
+        let c = 0;
+        let z
 
         for (var q = 0; q < amountOfPhotosPerPlace.length; q++) {
             var amountOfPhotosForPlace = amountOfPhotosPerPlace[q];
-
-            let arr = [];
-            for (var c = 0; c < amountOfPhotosForPlace; c++) {
-
-                let item = mainArray[c]
-                arr.push(item);
-
+            if (q === 0) {
+                z = amountOfPhotosForPlace
+            } else {
+                z = c + amountOfPhotosForPlace;
             }
-            mainArrayDivided.push(arr)
+            let arre = [];
+            for (c; c < z; c++) {
+                if (z === 2) {
+                }
+                let item = mainArray[c];
+                arre.push(item);
+            }
+            c = amountOfPhotosForPlace;
+            mainArrayDivided.push(arre)
         }
 
         let livingInNhood;
@@ -235,13 +372,12 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             'neighborhoodFactorDescription': req.user[0].neighborhoodFactorDescription,
             'favoritePlaces': req.user[0].favoritePlaces,
             'lengthLivingInNeighborhood': req.user[0].lengthLivingInNeighborhood,
-            'imagesFormated': mainArrayDivided,
+            'imagesFormated': mainArray,
             'intro': intro
         }
         res.render("user_profile", { user });
-
-
     }, 15000);
+    */
 
 })
 
@@ -328,6 +464,9 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
 //@route    POST /auth/users
 //@access   Private/Admin
 exports.createUser = asyncHandler(async (req, res, next) => {
+
+    console.log(req.body);
+
     const user = await User.create(req.body);
     res.status(201).json({
         success: true,

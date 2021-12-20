@@ -475,7 +475,7 @@ function changePhotos(e, r) {
 
 
 
-    console.log(imagesFlag);
+
 
 
     divOfImages.className = divOfImages.className + ' ' + imagesFlag;
