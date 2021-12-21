@@ -13,7 +13,7 @@ html{
   font-size : 62.5%;
 }
 body{
-  background-color: #fff8f7;/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+  background-color: #f5f8fa;/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
 }
 
 /* end of common styles */
@@ -31,7 +31,7 @@ body{
 .register-page-nav{
   grid-column : 1/-1;
   grid-row: 1/2;
-  background-color:#fff8f7;/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+  background-color:#edf3f7;/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
   padding: 1.5rem 0;
   box-shadow: 0 0 0.7rem rgb(0,0,0,0.3)
 }

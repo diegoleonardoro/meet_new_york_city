@@ -34,7 +34,7 @@ span{
 .main-form-page-page-nav{
     grid-column : 1/-1;
     grid-row: 1/2;
-    background-color:#2D4859;
+    background-color:rgb(250, 255, 255);
     padding: 1.5rem 0;
     box-shadow: 0 0 0.7rem rgb(0,0,0,0.3)
 }
@@ -58,7 +58,7 @@ span{
     content: '';
     width:100%;
     height:0.4rem;
-    background-color: rgb(245, 254, 255);
+    background-color: #2D4859;
     position: absolute;
     bottom:-1.5rem;
     left:0;
@@ -71,11 +71,11 @@ span{
 .main-form-page-page-nav  a {
     font-size:1.6rem;
     text-decoration: none;
-    color: rgb(245, 254, 255);
+    color: #2D4859;
     transition: color 0.3s;
 }
 .main-form-page-page-nav  li:hover a{
-    color:rgb(255, 255, 255);
+    color:#2D4859;
 }
 .main-form-page-page-nav  i{
     color: #2D4859;
@@ -91,7 +91,7 @@ span{
 .formWrapper{
     grid-column : 2/3;
     grid-row: 2/-1;
-    background-color:rgb(245, 254, 255); /*rgb(245, 254, 255)*/
+    background-color:rgb(251, 255, 255); /*rgb(245, 254, 255)*/
   
     display:grid;
 
@@ -691,7 +691,7 @@ fill:rgb(245, 254, 255);
 .footer{
     grid-column: 1/-1;
     grid-row:3/-1;
-    background-color:#2D4859;
+    background-color:rgb(223, 240, 241);
     padding-left: 10rem;
     display:flex;
     flex-direction:column;
@@ -703,7 +703,7 @@ fill:rgb(245, 254, 255);
   .footer{
     grid-column: 1/-1;
     grid-row:3/-1;
-    background-color:#2D4859;
+    background-color:rgb(223, 240, 241);
     padding-left: 10rem;
     display:flex;
     flex-direction:column;
@@ -715,12 +715,12 @@ fill:rgb(245, 254, 255);
     font-size: 1.6rem;
     font-weight:300;
     margin: 0.5rem 0;
-    color:rgb(245, 254, 255);;
+    color:#2D4859;
 }
   
 .footer a{
     text-decoration:none;
-    color:rgb(245, 254, 255);;
+    color:#2D4859;
     font-weight: bold;
 }
 /* end of footer */

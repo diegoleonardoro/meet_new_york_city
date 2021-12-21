@@ -6,6 +6,7 @@
 #2D4859
 
 #94CEF2
+
 rgb(249, 254, 255)
 
 */
@@ -40,7 +41,7 @@ body{
 .left{
     grid-column : 1/2;
     grid-row: 1/2;
-    background-color: #ACEBF2; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+    background-color: rgb(223, 240, 241); /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
     display:flex;
     justify-content:center;
     align-items:center;
@@ -120,7 +121,7 @@ body{
 
 
 .btn-top:hover{
-    background-color: #ACEBF2; 
+    background-color: #2D4859; 
     color:white;
 }
 
@@ -140,7 +141,7 @@ body{
 }
 .middle-content i{
     font-size: 4rem;
-    color:#ACEBF2; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+    color:#2D4859; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
     margin-bottom: 2rem;
 }
 .middle-content h1{
@@ -155,26 +156,27 @@ body{
 .middle-content button{
     margin: 0.8rem 0;
     padding:0.5rem;
-    border:0.1rem solid #ACEBF2; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+    border:0.1rem solid rgb(223, 240, 241); /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
     border-radius: 4rem;
     font-size: 1.6rem;
     cursor:pointer;
     transition: all 0.3s;
 }
 .sign-up{
-    background-color: #ACEBF2; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
-    color: #fff;
+    background-color: rgb(223, 240, 241); /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+    color: #2D4859;
 }
 .sign-up:hover{
-    background-color: #ffeeec; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
-    color: rgb(0, 0, 0);
+    background-color: #2D4859; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+    color: white;
 }
 .log-in{
     background-color: rgb(249, 254, 255); /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
 }
 
 .log-in:hover{
-    background-color: #fff3f2; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+    background-color: #2D4859; /*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+    color:white;
 }
 /*right of end*/
 
