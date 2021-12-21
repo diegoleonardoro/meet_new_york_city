@@ -29,11 +29,6 @@ const User = conn.model("User", require('../models/User'));
 
 
 
-//const User = require("../models/User");
-
-
-
-
 //@desc     renders the registration templave
 //@route    GET /register
 //@access   public

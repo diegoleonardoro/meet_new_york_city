@@ -12,7 +12,7 @@ html{
     font-size : 62.5%;
 }
 body{
-    background-color: #f0f8fd;
+    background-color: rgb(249, 254, 255)
 }
 
 span{
@@ -34,7 +34,7 @@ span{
 .main-form-page-page-nav{
     grid-column : 1/-1;
     grid-row: 1/2;
-    background-color:#fff;
+    background-color:#2D4859;
     padding: 1.5rem 0;
     box-shadow: 0 0 0.7rem rgb(0,0,0,0.3)
 }
@@ -44,10 +44,12 @@ span{
     display:flex;
     align-items:flex-end;
     list-style: none;
+    
 } 
 .main-form-page-page-nav li{
     margin:0 1rem;
     position:relative;
+    
 }
 .main-form-page-page-nav li:last-child{
     margin-left:auto;
@@ -56,7 +58,7 @@ span{
     content: '';
     width:100%;
     height:0.4rem;
-    background-color: #79BCFF;
+    background-color: rgb(245, 254, 255);
     position: absolute;
     bottom:-1.5rem;
     left:0;
@@ -69,14 +71,14 @@ span{
 .main-form-page-page-nav  a {
     font-size:1.6rem;
     text-decoration: none;
-    color:#555;
+    color: rgb(245, 254, 255);
     transition: color 0.3s;
 }
 .main-form-page-page-nav  li:hover a{
-    color:#79BCFF;
+    color:rgb(255, 255, 255);
 }
 .main-form-page-page-nav  i{
-    color: #79BCFF;
+    color: #2D4859;
     font-size:2rem;
     padding: 0 1rem;
 }
@@ -89,11 +91,15 @@ span{
 .formWrapper{
     grid-column : 2/3;
     grid-row: 2/-1;
-    background-color:#fff;
+    background-color:rgb(245, 254, 255); /*rgb(245, 254, 255)*/
   
     display:grid;
 
-    grid-template-columns: 10rem 30rem 10fr 10rem ;
+    height: 90vh;
+
+    width:90vw;
+
+    grid-template-columns: 20rem 6fr 10fr 10rem ;
     grid-template-rows: 2fr auto auto; 
     box-shadow: 0 0 0.5rem rgb(0,0,0,0.3);
 
@@ -136,9 +142,13 @@ span{
     transition: background-color 0.3s;
 }
 
+.form input{
+    background-color: rgb(245, 254, 255);
+}
+
 
 .form input:focus{
-    background-color: #d9ebf7;
+    background-color: rgb(255, 255, 255);
 }
 .form div{
     margin-top: 2rem;
@@ -149,7 +159,7 @@ span{
     margin-right:1rem;  
 }
 h2{
-    color:#3981BF;
+    color:#2D4859;
     text-align: center;
     line-height: 3rem;
 }
@@ -171,7 +181,7 @@ h2{
     margin-bottom:1rem;
     margin-top: 3rem;
     padding-left: 1rem;
-    border:0.1rem solid #79BCFF;
+    border:0.1rem solid #2D4859;
     font-size:1.5rem;
     width:70%;
     height:3.8rem;
@@ -231,14 +241,14 @@ margin-top:-1.3rem;
 .whatNeighborhood .boroSpan i{
     position:absolute;
     font-size: 2rem;
-    color: #79BCFF;
+    color: #2D4859;
     margin-top:1rem;
     left:35%;
 }
 
 .whatNeighborhood span select{
     height:4rem;
-    border:0.1rem solid #79BCFF;
+    border:0.1rem solid #2D4859;
     padding-left:1rem;
     
     width:100%;
@@ -259,7 +269,7 @@ margin-top:-1.3rem;
 
 .whatNeighborhood #zipcodeInput{
     height:3.8rem;
-    border:0.1rem solid #79BCFF;
+    border:0.1rem solid #2D4859;
     padding-left:1rem;
     width:40%;
     border-radius: 0.8rem;
@@ -303,7 +313,7 @@ margin-top:-1.3rem;
     -mozilla-appearance: none;
     vertical-align: text-bottom;
     
-    border: 10px solid #79BCFF;
+    border: 10px solid #2D4859;
     border-radius: 100%;
     margin-right: 1rem;
     transition: all 0.5s;
@@ -313,7 +323,7 @@ margin-top:-1.3rem;
     border-width: 5px;
 }
 .form .lengthLivingInNeighborhood div input:checked +label{
-    background: #79BCFF;
+    background: #2D4859;
     color:white;
 }
 .form .lengthLivingInNeighborhood div input:checked:before{
@@ -321,7 +331,7 @@ margin-top:-1.3rem;
     height: 20px;
     width: 20px;
     display: block;
-    background-color:#79BCFF;
+    background-color:#2D4859;
     border-radius: 25px;
     border-style: solid;
     border-color: white;
@@ -329,7 +339,7 @@ margin-top:-1.3rem;
 .form .lengthLivingInNeighborhood div label{
     cursor: pointer;
     border: none;
-    border-bottom: 1px solid #79BCFF;
+    border-bottom: 1px solid #2D4859;
     width:55%;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -338,7 +348,7 @@ margin-top:-1.3rem;
     
 }
 .form .lengthLivingInNeighborhood div label:hover{
-    background: #79BCFF;
+    background: #2D4859;
     color:white;
 }
 /* end of question length living in neighborhood */
@@ -362,8 +372,13 @@ margin-top:-1.3rem;
     margin-top:5rem;
     padding-top: 2rem;
     padding-left: 2.5rem;
-    border: 1px #79BCFF solid;
+    border: 1px #2D4859 solid;
     resize: none;
+    background-color: rgb(245, 254, 255)
+}
+
+.textAreaExplanation:focus{
+    background-color: rgb(255, 255, 255);
 }
 /* end of question how would they describe the neighborhood */
 
@@ -382,8 +397,8 @@ margin-top:-1.3rem;
 .threeWordsDescribeNeighborhood .threeWordsDescribeNeighborhoodWrapper span{
     margin-top:1.3rem;
     margin-right :2rem;
-    border: 1px solid #79BCFF;
-    background-color: #79BCFF;
+    border: 1px solid #2D4859;
+    background-color: #2D4859;
     color:#fff;
     border-radius:50%;
     padding:1rem;
@@ -392,7 +407,7 @@ margin-top:-1.3rem;
 }
 .threeWordsDescribeNeighborhood .threeWordsDescribeNeighborhoodWrapper input{    
     border: none;
-    border-bottom: 1px solid #79BCFF;
+    border-bottom: 1px solid #2D4859;
     margin-top:1rem;    
     width:100%;
     padding-left:2.3rem;
@@ -414,10 +429,10 @@ margin-top:-1.3rem;
     padding-top:1rem;
     padding-bottom:1rem;
     border-bottom: double;
-    border-bottom-color: #3981BF;
+    border-bottom-color: #2D4859;
 }
 .likertOptions h3{
-    color: #3981BF;
+    color: #2D4859;
     width:25%;
 }
 .likertOptions span input{
@@ -427,7 +442,7 @@ margin-top:-1.3rem;
     cursor: pointer;
 }
 .likertOptions span label{
-    color: #3981BF;
+    color: #2D4859;
     cursor: pointer;
 }
 /* end of likert scale */
@@ -439,15 +454,21 @@ margin-top:-1.3rem;
 .explainLikert div h4{
     margin-bottom: 1rem;
     position: relative;
-    color: #3981BF;
+    color: #2D4859;
 }
 .explainLikert div textarea{
     height:4rem;
     resize: none;
-    border: 1px #3981BF solid;
+    border: 1px #2D4859 solid;
     position: relative;
     padding-top: 1rem;
     padding-left: 2.5rem;
+    background-color: rgb(245, 254, 255)
+}
+
+
+.explainLikert div textarea:focus{
+    background-color: rgb(255, 255, 255);
 }
 /* end of likert explanation */
 
@@ -460,7 +481,7 @@ margin-top:-1.3rem;
 }
 .tips input{
     border:none;
-    border-bottom: 1px solid #3981BF;
+    border-bottom: 1px solid #2D4859;
     padding-left:1rem;
 }
 /* end of share any tips */
@@ -474,18 +495,24 @@ margin-top:-1.3rem;
 }
 .nameOfPlace{
     border:none;
-    border-bottom: 1px solid #79BCFF;
+    border-bottom: 1px solid #2D4859;
     padding-left: 2.5rem;
 }
 .addFavPlaces textarea{
     margin-top: 1.5rem;
     resize: none;
-    border: 1px #79BCFF solid;
+    border: 1px #2D4859 solid;
     padding-top: 0.5rem;
     padding-left: 2.5rem;
     padding-top: 2rem;
     height:10rem;
+    background-color: rgb(245, 254, 255)
 }
+
+.addFavPlaces textarea:focus{
+    background-color: rgb(255, 255, 255);
+}
+
 .addFavPlaces span{
     display:flex;
     margin: 3rem 0 0 0;
@@ -497,7 +524,7 @@ margin-top:-1.3rem;
     width: 200px;
     height: 50px;
     border-radius: 25px;
-    background: #79BCFF;
+    background: #2D4859;
     box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
@@ -632,27 +659,27 @@ margin-top:-1.3rem;
 }
 #pathPrevQuestion{
     cursor:pointer;
-    stroke: #79BCFF;
-    fill:rgb(255, 255, 255);
+    stroke: #2D4859;
+    fill:#2D4859
   
 }
-
+#pathPrevQuestion:hover{
+fill:rgb(245, 254, 255);
+}
 
 #nextQuestionSvg{
-    
     height:8rem;
     width:10rem;
-
-
-   
-    
 }
+
 #pathNextQuestion{
     cursor:pointer; 
-    stroke: #79BCFF;
-    fill:rgb(255, 255, 255);
-
+    stroke: #2D4859;
+    fill:#2D4859
 }
+#pathNextQuestion:hover{
+    fill:rgb(245, 254, 255);
+    }
 /* end of arrows */
 
 
@@ -664,7 +691,7 @@ margin-top:-1.3rem;
 .footer{
     grid-column: 1/-1;
     grid-row:3/-1;
-    background-color:#edf3f7;
+    background-color:#2D4859;
     padding-left: 10rem;
     display:flex;
     flex-direction:column;
@@ -676,7 +703,7 @@ margin-top:-1.3rem;
   .footer{
     grid-column: 1/-1;
     grid-row:3/-1;
-    background-color:#edf3f7;
+    background-color:#2D4859;
     padding-left: 10rem;
     display:flex;
     flex-direction:column;
@@ -688,11 +715,12 @@ margin-top:-1.3rem;
     font-size: 1.6rem;
     font-weight:300;
     margin: 0.5rem 0;
+    color:rgb(245, 254, 255);;
 }
   
 .footer a{
     text-decoration:none;
-    color:#79BCFF;
+    color:rgb(245, 254, 255);;
     font-weight: bold;
 }
 /* end of footer */

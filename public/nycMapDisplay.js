@@ -3,8 +3,8 @@
 function displayMap(callback) {
 
 
-    var height = 300,
-        width = 300,
+    var height = 500,
+        width = 500,
         projection = d3.geoMercator(), // geoMercator() is a way of projecting the map. 
         nyc = void 0,
         map
@@ -49,10 +49,10 @@ function displayMap(callback) {
             .append('path')
             .attr('d', path)
             .attr('class', 'nycDistrict')
-            .style("stroke", "black")
+            .style("stroke", "rgb(226, 252, 255)")
             .style('cursor', 'pointer')
-            .attr("stroke-width", .4)
-            .attr("fill", "#D5DBDB")
+            .attr("stroke-width", .7)
+            .attr("fill", "#2D4859")
 
 
         nyc.attr('fill', '#eee');

@@ -203,8 +203,6 @@ function autocomplete(inp, arr) {
 
 
 
-
-
                                     // use the data from the previous http request and insert it into the place description container
 
                                     getResponseData.then(resValue => {
@@ -225,8 +223,6 @@ function autocomplete(inp, arr) {
                                         let numofPlaces = neighborhoodUsers['data']['numofPlaces'][0];
                                         let imagesFormated = neighborhoodUsers['data']['imagesFormated'];
 
-
-                                        console.log(slug);
 
 
 
@@ -342,8 +338,8 @@ function autocomplete(inp, arr) {
 
                                             var districts = topojson.feature(data, data.objects.districts);
 
-                                            var height = 300;
-                                            var width = 300;
+                                            var height = 500;
+                                            var width = 500;
                                             var projection = d3.geoMercator();
                                             var path = d3.geoPath().projection(projection);
 
@@ -750,3 +746,22 @@ autocomplete(document.getElementById("neighborhoodName"), neighborhoods);
 
 
 
+
+
+// Create a get request to the About button:
+
+//setTimeout(() => {
+
+
+
+const aboutButton = document.getElementsByClassName('about')[0];
+aboutButton.addEventListener('click', () => {
+
+    var aboutLink = document.getElementById('aboutLink');
+    aboutLink.href = `/about`;
+    aboutLink.click()
+
+});
+
+
+//}, 100);

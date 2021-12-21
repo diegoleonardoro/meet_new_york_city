@@ -1,0 +1,88 @@
+
+/* common styles */
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Josefin Sans', sans-serif;
+    outline:none;
+}
+html{
+    /*the default html font size is 16px, but we want to set the html font size to be 10px, so we can use rem  */
+    /* 10px/16px = .625 * 100 = 62.5 %  */
+    font-size : 62.5%;
+}
+body{
+    background-color: #fff8f7; 
+}
+/* end of common styles*/
+
+
+
+.main-page-nav{
+    display:flex;
+    width:100%;
+    height:7%;
+    justify-content: flex-start;
+    align-items: center;
+    top:0%;
+    position:fixed;
+    background-color: #fff8f7;
+   
+    box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
+    font-family: 'Poppins', sans-serif;
+    font-size:0.8rem;
+    color:#555;    
+    z-index: 1;
+
+    position: absolute;
+}
+
+
+
+
+.exploreNeighborhoods{
+    margin-left: 5rem;
+    font-size: 1.5rem;
+}
+
+#headerAbout{
+    margin-top:7%; 
+    position: relative;
+
+    left:20%;
+
+
+
+}
+
+#aboutSection{
+  width: 95%;
+  margin-top:4%; 
+  position: relative;
+  left:50%;
+  transform: translate(-50%, 0);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+ 
+}
+
+
+#aboutHeaderTextContainer{
+    background-color: rgb(255, 247, 247);
+    margin:4rem;
+    padding:2rem;
+    opacity: 0.7;
+  
+}
+
+#aboutText{
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#aboutText p{
+    margin-top: 2rem;
+    margin-left: 15rem;
+    margin-right:15rem;
+    line-height: 1.5em;
+}
+

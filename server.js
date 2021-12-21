@@ -58,6 +58,7 @@ const nyc_inputs = require("./routes/input_routes");
 const auth = require("./routes/auth");
 const users = require("./routes/users");
 const register = require('./routes/registration');
+const about = require('./routes/about');
 
 // middleware to handle erros:
 app.use(errorHandler);
@@ -67,6 +68,7 @@ app.use("/inputs", nyc_inputs);
 app.use("/auth", auth);
 app.use("/users", users);
 app.use("/register", register);
+app.use("/about", about);
 
 
 
