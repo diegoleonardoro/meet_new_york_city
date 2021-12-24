@@ -53,7 +53,7 @@ function displayMap(flag) {
         // ------------ Appending the SVG ------------ //
         var svg = d3.select("#MapSVG_")
             .style("padding-top", "4%")
-            .style("background", '#392033')
+            .style("background", 'rgb(223, 240, 241)')
             .style("opacity", "1")
             .style("overflow", 'visible');
 
@@ -97,13 +97,13 @@ function displayMap(flag) {
                 .attr('d', path)
                 .attr("id", GeoID)
                 .attr('class', 'nycDistrict')
-                .style("stroke", "black")
+                .style("stroke", "rgb(223, 240, 241)")
                 .style('cursor', 'pointer')
-                .attr("stroke-width", .5)
-                .attr("fill", "#fd6051")
+                .attr("stroke-width", '0.7px')
+                .attr("fill", "#2D4859")
 
 
-            nyc.attr('fill', '#F2D272');
+            //nyc.attr('fill', '#F2D272');
             nyc.exit().remove();
 
 
@@ -262,7 +262,7 @@ function displayMap(flag) {
                 console.log(imagesFormated);
 
 
-        
+
 
 
 
@@ -309,11 +309,11 @@ function displayMap(flag) {
                 setTimeout(() => {
                     const profileButton = document.getElementById('visitUserProfile');
                     profileButton.addEventListener('click', () => {
-                
+
                         var profileButton = document.getElementById('linkToUserProfile');
                         profileButton.href = `/users/user-profile/${slug}`;
                         profileButton.click()
-            
+
                     })
                 }, 100);
 
@@ -367,6 +367,16 @@ exploreNeighborhoodsButton.addEventListener('click', () => {
     window.scrollTo({ top: exploreNeighborhoodstextBoundingBox.bottom - 180, behavior: 'smooth' });
 });
 
-// add event listener to the search neighborhood button:
+// get the length of the neighborhood illustration:
 
+var exploreNeighborhoods = document.getElementsByClassName('exploreNeighborhoods')[0];
 
+var secondSilhouette = document.getElementsByClassName('secondSilhouette')[0];
+
+exploreNeighborhoods.addEventListener('mouseover', ()=>{
+    secondSilhouette.style.display='inline';
+})
+
+exploreNeighborhoods.addEventListener('mouseout', ()=>{
+    secondSilhouette.style.display='none';
+})

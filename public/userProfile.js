@@ -349,6 +349,7 @@ g.selectAll(".bar")
     .attr("y", function (d) { return y(d.satisfaction); })
     .attr("width", x.bandwidth())
     .attr("height", function (d) { return height_bar_chart - y(d.satisfaction); })
+    .style("fill", "#2D4859")
     .on('mouseover', (d, i) => {
 
         toggleClass(i + 1, true)

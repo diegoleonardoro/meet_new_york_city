@@ -13,7 +13,7 @@
     font-size : 62.5%;
   }
   body{
-    background-color: #fff8f7; /*<<<<<<<<<<---------------------------------------------*/
+    background-color: rgb(249, 254, 255); /*<<<<<<<<<<---------------------------------------------*/
   }
   /* end of common styles */
 
@@ -30,7 +30,7 @@
     position:fixed;
     width:100%;
     height:6.5rem;
-    background-color: #fff8f7; /*<<<<<<<<<<---------------------------------------------*/
+    background-color: rgb(249, 254, 255); /*<<<<<<<<<<---------------------------------------------*/
     display:flex;
     justify-content: center;
     box-shadow: 0 0 0.7rem rgba(0,0,0, 0.3);
@@ -71,7 +71,7 @@
   }
   .search-bar-input:focus{
       background-color: #fff;
-      border-color: #79BCFF;
+      border-color: #2D4859;
   }
   .search-bar i{
       position:absolute;
@@ -125,6 +125,7 @@
     grid-row:1/2;
     background-color: #fff;
     margin-top:1.5rem;
+    box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
 }
 
 .header-top{
@@ -265,6 +266,8 @@
     grid-row: 2/-1;
     background-color: #fff;
     width:auto;
+    box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
+    margin-top:2rem;
  
 }
 .neighborhood-descriptions #placesToShowHeader{
@@ -277,16 +280,16 @@
 }
 .neighborhood-description{
     display:flex;
- 
     border-bottom:0.1rem solid #eee;
     margin-left:5%;
+    
 }
 
 
 
 
 .neighborhood-content{
-
+    
 }
 /*
 .user-avatar{
@@ -396,6 +399,8 @@
     width:auto;/*<<<<<<<<<<<------------------------------------*/
     overflow: auto;
     height:100%;
+
+    box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
 }
 
 
@@ -469,7 +474,7 @@
    
 .highlightBar {
     
-    fill: #0769ad;
+    fill:rgb(249, 254, 255);
 }
 
 
@@ -531,6 +536,8 @@
     padding:0 1rem;
 }
 .post-btn:hover{
-    background-color:#fc4f3f;/*<<<<<<<<<<---------------------------------------------*/
+    background-color:rgb(249, 254, 255);/*<<<<<<<<<<---------------------------------------------*/
+    color: #2D4859;
 }
+
 /* end of post new place button */
