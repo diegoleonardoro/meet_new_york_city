@@ -225,11 +225,80 @@ function displayMap(flag) {
             })
 
             getNhoodDescrption.then(value => {
+
+
+                let neighborhoodDescription = document.getElementById('neighborhoodDescription');
+
+
                 var p3 = document.createElement('p')
-                p3.innerHTML = 'Here is who can show you this neighborhood around: '; //;
+                p3.innerHTML = `Here is who can show you ${neighborhood} around:`;
                 p3.style.marginLeft = '5%';
                 p3.setAttribute('class', 'neighborhoodHeader');
                 neighborhoodDescription.appendChild(p3);
+
+
+                var svgNhoodsIllustration = document.getElementsByClassName('svgNhoodsIllustration')[0];
+
+                var nhoodIllustrationSvg = svgNhoodsIllustration.cloneNode(true);
+                var firstPolygon = nhoodIllustrationSvg.children[0];
+                var lastPolygon = nhoodIllustrationSvg.children[nhoodIllustrationSvg.children.length - 1];
+
+                nhoodIllustrationSvg.setAttribute('class', 'nhoodIllustrationSvgLoadingInfo');
+                firstPolygon.setAttribute('class', 'baseSilhouetteInfoLoading');
+                lastPolygon.setAttribute('class', 'secondSilhouetteInfoLoading');
+
+                neighborhoodDescription.appendChild(nhoodIllustrationSvg);
+
+
+                var p4 = document.createElement('p');
+                p4.innerHTML = 'LOADING CONTENT';
+                p4.setAttribute('class', 'loadingContentText');
+                neighborhoodDescription.appendChild(p4);
+
+
+
+                const loadingWords = ['hang on', 'almost there', 'it will be worth it', 'breathe']
+
+
+                var flag = 0;
+
+
+                function changeLoadingWord() {
+
+                    var word = loadingWords[flag];
+
+                    p4.innerHTML = 'LOADING CONTENT - ' + word;
+                    flag++;
+                    if (flag === loadingWords.length - 1) {
+                        flag = 0;
+                    }
+
+                    var p4Style = getComputedStyle(p4);
+
+                    if (p4Style.display === 'inline') {
+                        setTimeout(() => {
+                            changeLoadingWord();
+                        }, 1000);
+                    }
+
+                }
+
+                changeLoadingWord()
+
+
+                /*
+                setTimeout(() => {
+                    p4.innerHTML = 'LOADING CONTENT hang on';
+                }, 2000);
+
+                setTimeout(() => {
+                    p4.innerHTML = 'LOADING CONTENT almost there';
+                }, 3000);
+
+                setTimeout(() => {
+                    p4.innerHTML = 'LOADING CONTENT it will be worth it';
+                }, 4000);
+                */
 
             })
 
@@ -240,12 +309,23 @@ function displayMap(flag) {
 
             getResponseData.then(resValue => {
 
+                //hide the loading text and the neighbohood illustration for loading 'who can show' data
+
+
+                //function stopChangeLoadingWord(){
+                //   clearInterval(changeLoadingWordInterval)
+                //}
+
+
+                document.getElementsByClassName('nhoodIllustrationSvgLoadingInfo')[0].style.display = 'none';
+                document.getElementsByClassName('loadingContentText')[0].style.display = 'none';
+
+
                 neighborhoodUsers = JSON.parse(neighborhoodUsers);
                 let whoCanShowArray = [];
                 let whoCanShow = '';
 
 
-                console.log(neighborhoodUsers)
                 let userName = neighborhoodUsers['data']['name'];
                 let lengthLivingInNeighborhood = neighborhoodUsers['data']['lengthLivingInNeighborhood'];
                 let favAspectsOfNeighborhood = neighborhoodUsers['data']['favAspectsOfNeighborhood'];
@@ -256,28 +336,18 @@ function displayMap(flag) {
                 let numofPlaces = neighborhoodUsers['data']['numofPlaces'][0];
                 let imagesFormated = neighborhoodUsers['data']['imagesFormated'];
 
-
-
-
-                console.log(imagesFormated);
-
-
-
-
-
-
                 whoCanShow =
                     `<div class='whoCanShow'>
                             <p class='whoCanShowItem'> <b>Name:</b> ${userName} </p>
                             <p class='whoCanShowItem'> <b>Description:</b> I have lived in this neighborhood for ${lengthLivingInNeighborhood}. ${favAspectsOfNeighborhood}</p>
                             <p class='whoCanShowItem'> This is one of my favorite places in this neighborhood: </p>
                             `
-                // for (var u = 0; u < favoritePlaces.length; u++) {///
+
 
                 let place = favoritePlaces[0]['place'];
                 let placDescription = favoritePlaces[0]['description'];
 
-                //let placeImage = favoritePlaces[0]['placeImageBuffer'][0];
+
 
                 whoCanShow = whoCanShow +
                     `<div class='divOfFavPlace'>
@@ -296,7 +366,6 @@ function displayMap(flag) {
                         </div>
                         <button type='submit' id ='visitUserProfile'><a id ='linkToUserProfile' href=''></a> Visit ${userName}'s profile </button>`
 
-                //}///
 
 
                 whoCanShowArray.push(whoCanShow);
@@ -316,7 +385,6 @@ function displayMap(flag) {
 
                     })
                 }, 100);
-
 
 
                 neighborhoodDescription.innerHTML = neighborhoodDescription.innerHTML + whoCanShowArray[0];
@@ -363,20 +431,20 @@ var exploreNeighborhoodsButton = document.getElementsByClassName('exploreNeighbo
 exploreNeighborhoodsButton.addEventListener('click', () => {
     var exploreNeighborhoodstext = document.getElementById('exploreNeighborhoodstext');
     var exploreNeighborhoodstextBoundingBox = exploreNeighborhoodstext.getBoundingClientRect();
-    console.log(exploreNeighborhoodstextBoundingBox);
     window.scrollTo({ top: exploreNeighborhoodstextBoundingBox.bottom - 180, behavior: 'smooth' });
 });
 
-// get the length of the neighborhood illustration:
 
+
+
+// add event listener to the about button which will trigger the animation of the nhood illustration
 var exploreNeighborhoods = document.getElementsByClassName('exploreNeighborhoods')[0];
-
 var secondSilhouette = document.getElementsByClassName('secondSilhouette')[0];
 
-exploreNeighborhoods.addEventListener('mouseover', ()=>{
-    secondSilhouette.style.display='inline';
+exploreNeighborhoods.addEventListener('mouseover', () => {
+    secondSilhouette.style.display = 'inline';
 })
 
-exploreNeighborhoods.addEventListener('mouseout', ()=>{
-    secondSilhouette.style.display='none';
+exploreNeighborhoods.addEventListener('mouseout', () => {
+    secondSilhouette.style.display = 'none';
 })

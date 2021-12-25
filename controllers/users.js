@@ -73,7 +73,7 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
     var user = await User.find({ 'neighborhood': neighborhood });
 
-    //console.log(user[0]);//['neighborhoodFactorDescription']
+    console.log(user[0]);//['neighborhoodFactorDescription']
 
     let responseArray = [];
 
