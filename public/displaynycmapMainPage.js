@@ -237,6 +237,7 @@ function displayMap(flag) {
                 neighborhoodDescription.appendChild(p3);
 
 
+                // append the nhoos loading illustration and text
                 var svgNhoodsIllustration = document.getElementsByClassName('svgNhoodsIllustration')[0];
 
                 var nhoodIllustrationSvg = svgNhoodsIllustration.cloneNode(true);
@@ -249,56 +250,31 @@ function displayMap(flag) {
 
                 neighborhoodDescription.appendChild(nhoodIllustrationSvg);
 
-
                 var p4 = document.createElement('p');
                 p4.innerHTML = 'LOADING CONTENT';
                 p4.setAttribute('class', 'loadingContentText');
                 neighborhoodDescription.appendChild(p4);
 
-
-
                 const loadingWords = ['hang on', 'almost there', 'it will be worth it', 'breathe']
-
-
                 var flag = 0;
-
-
                 function changeLoadingWord() {
-
                     var word = loadingWords[flag];
-
                     p4.innerHTML = 'LOADING CONTENT - ' + word;
                     flag++;
                     if (flag === loadingWords.length - 1) {
                         flag = 0;
                     }
-
                     var p4Style = getComputedStyle(p4);
-
                     if (p4Style.display === 'inline') {
                         setTimeout(() => {
                             changeLoadingWord();
                         }, 1000);
                     }
-
                 }
+                changeLoadingWord();
+                // ------- end of append the nhoos loading illustration and text.
 
-                changeLoadingWord()
 
-
-                /*
-                setTimeout(() => {
-                    p4.innerHTML = 'LOADING CONTENT hang on';
-                }, 2000);
-
-                setTimeout(() => {
-                    p4.innerHTML = 'LOADING CONTENT almost there';
-                }, 3000);
-
-                setTimeout(() => {
-                    p4.innerHTML = 'LOADING CONTENT it will be worth it';
-                }, 4000);
-                */
 
             })
 
@@ -364,29 +340,67 @@ function displayMap(flag) {
                                 </div>
                             <div>
                         </div>
-                        <button type='submit' id ='visitUserProfile'><a id ='linkToUserProfile' href=''></a> Visit ${userName}'s profile </button>`
+                        <button  type='submit' id ='visitUserProfile'> <a  id ='linkToUserProfile' href=''>  </a> Visit ${userName}'s profile   </button>`
 
 
 
                 whoCanShowArray.push(whoCanShow);
 
 
+
+
                 // Add an event listener to the profile button
                 // This event listener will query the database using the slug 
                 // to get the user profile page.
 
+
+
+
+                var divmap = document.getElementById('map');
+
                 setTimeout(() => {
+
                     const profileButton = document.getElementById('visitUserProfile');
-                    profileButton.addEventListener('click', () => {
 
-                        var profileButton = document.getElementById('linkToUserProfile');
-                        profileButton.href = `/users/user-profile/${slug}`;
-                        profileButton.click()
+                    const loadingUserProfileIllustration = document.getElementsByClassName('loadingUserProfileIllustration')[0];
 
+                    const addHrefValueToButton = new Promise((resolve, reject) => {
+
+                        profileButton.addEventListener('click', function (e) {
+
+                            e.stopPropagation();
+
+                            console.log('holaHola');
+
+                            var linkToUserProfile = document.getElementById('linkToUserProfile');
+                            linkToUserProfile.href = `/users/user-profile/${slug}`;
+                            linkToUserProfile.click();
+    
+                            resolve('continue')
+                        })
+
+              
                     })
+
+
+                    addHrefValueToButton.then((value) => {
+                        console.log(value);
+
+                        divmap.style.display = 'none';
+                        loadingUserProfileIllustration.style.display = 'inline';
+                        chageBuildingsWindowsColors();
+                    })
+
+
                 }, 100);
 
+                // ------ end of  Add an event listener to the profile button
 
+
+
+
+
+                // resize the photo of the place and add text 
                 neighborhoodDescription.innerHTML = neighborhoodDescription.innerHTML + whoCanShowArray[0];
 
                 function resizePhotoOfPlace() {
@@ -411,6 +425,7 @@ function displayMap(flag) {
                 setTimeout(() => {
                     resizePhotoOfPlace()
                 }, 100);
+                // ------ end of  resize the photo of the place and add text 
 
             });
 
@@ -448,3 +463,59 @@ exploreNeighborhoods.addEventListener('mouseover', () => {
 exploreNeighborhoods.addEventListener('mouseout', () => {
     secondSilhouette.style.display = 'none';
 })
+
+
+
+//funtcion that slects all the windows of the neighborhood illustration and change their color:
+
+
+
+var windowColors = ['black', 'white'];
+
+
+let g = 0;
+let c = 1;
+
+function chageBuildingsWindowsColors() {
+
+    var windowParent = document.getElementsByClassName('window');
+
+    let g_flag = g;
+
+    for (g; g < windowParent.length; g = g + 2) {
+        let groupOfWindows = windowParent[g];
+        let windows = groupOfWindows.children;
+        for (var a = 0; a < windows.length; a++) {
+            windows[a].style.fill = 'white';
+        }
+    }
+
+    for (c; c < windowParent.length; c = c + 2) {
+        let groupOfWindows = windowParent[c];
+        let windows = groupOfWindows.children;
+        for (var a = 0; a < windows.length; a++) {
+            windows[a].style.fill = 'black';
+        }
+    }
+
+    if (g_flag === 0) {
+        g = 1;
+        c = 0;
+    } else if (g_flag === 1) {
+        g = 0;
+        c = 1;
+    }
+
+    setTimeout(() => {
+        chageBuildingsWindowsColors();
+    }, 1000);
+
+
+
+}
+
+
+
+
+
+

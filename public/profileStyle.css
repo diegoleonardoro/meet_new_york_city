@@ -111,12 +111,17 @@
 
 
 /* profile content*/
+
+#divProfileContentNhoodDetails{
+    display:flex;
+    justify-content: center;
+}
 .profile-content{
     display:grid;
-    grid-template-columns: 32rem 
-    50rem 15rem 15rem;
+    grid-template-columns: min-content 50rem; 
     grid-template-rows: repeat(2, min-content);
     padding-top:6.5rem;
+    margin-right:32rem;
 
     
 }

@@ -69,173 +69,175 @@
         
         <!-- profile content --> <!------------------------ feeds content-->
 
-        <div class ='profile-content'> <!------------------------ feeds-content -->
-            <div class='profile-header'> <!------------------------ feeds-header -->
-                <div class='header-top'>
-                    <div class='header-img-wrapper'>
-                        <img  src='https://media-exp1.licdn.com/dms/image/C4D03AQEj1JSX2oGPBg/profile-displayphoto-shrink_800_800/0/1589671182353?e=1640822400&v=beta&t=-mMk6bouHEzergtpKjrqsA-igIw9-UD8Lcd__ez08fk' />
+        <div id ='divProfileContentNhoodDetails'>
+            <div class ='profile-content'> <!------------------------ feeds-content -->
+                <div class='profile-header'> <!------------------------ feeds-header -->
+                    <div class='header-top'>
+                        <div class='header-img-wrapper'>
+                            <img  src='https://media-exp1.licdn.com/dms/image/C4D03AQEj1JSX2oGPBg/profile-displayphoto-shrink_800_800/0/1589671182353?e=1640822400&v=beta&t=-mMk6bouHEzergtpKjrqsA-igIw9-UD8Lcd__ez08fk' />
+                        </div>
+                        <h4>Profile - </h4>
+                        <p><%= user.name %></p>
+                        <!--
+                        <i class ='far fa-star'></i>
+                        -->
                     </div>
-                    <h4>Profile - </h4>
-                    <p><%= user.name %></p>
-                    <!--
-                    <i class ='far fa-star'></i>
-                    -->
-                </div>
-                <div class='header-top'>
-                     <i class="fas fa-city"></i>
-                    <h4>Borough: </h4>
-                    <p>Brooklyn</p>
-                   
-                </div>
-                <div class='header-top'>
-                    <i class="fas fa-home"></i>
-                    <h4>Neighborhood: </h4>
-                    <p><%= user.neighborhood %></p>
-                </div>
-                <div class='header-introduction'> <!------------------------ header-post -->
-
-                    <!--
-                    <div class='header-img-wrapper'>
-                        <img  src='https://media-exp1.licdn.com/dms/image/C4D03AQEj1JSX2oGPBg/profile-displayphoto-shrink_800_800/0/1589671182353?e=1640822400&v=beta&t=-mMk6bouHEzergtpKjrqsA-igIw9-UD8Lcd__ez08fk' />
-                    </div>
-                    -->
-                    <div class='self-introduction'> <!------------------------ input -->
-                        <% for(var c = 0; c < user.intro.length; c++){ %>
-                            <% if (c === 1 ) {%>
-                                <div class='self-introduction-inner-div'>
-                                    <p ><%- user.intro[c][0]%></p>
-                                    <p><%- user.intro[c][1]%></p>
-                                </div>
-                            <% } else if(c === 2 ) { %>
-                                <div class='self-introduction-inner-div'>
-                                    <p ><%- user.intro[c][0]%></p>
-                                    <div class='three-words-div'>
-                                        <% for(var u = 0; u < user.intro[c][1].length; u++){ %>
-                                            <div class='arrow-paragraph-div'>
-                                                    <i class="fas fa-circle circle"></i>
-                                                <p><%- user.intro[c][1][u]%></p>
-                                            </div>
-                                        <% } %>
-                                    </div>
-                                </div>
-                            <% } else { %>
-                                <p class ='self-intro-p'><%- user.intro[c]%></p>
-                            <% } %>
-                        <% } %>
-                    </div>
-                    <!--
-                    <i class='far fa-image'></i>
-                    <i class='fas fa-camera'></i>
-                    <i class='far fa-chart-bar'></i>
-                    -->
-                </div>
-            </div>
-
-            <div class='neighborhood-descriptions'><!-------------------------- posts -->
-                <h4 id='placesToShowHeader'> These are the<span> places </span>that I will show you: </h4>
-
-
-                <% let q = 0 %>
-                
-                <% let z %>
-                <% for(var e = 0; e < user.favoritePlaces.length; e++){ %>
-
-                                <% if (e === 0){ %>
-                                    <%  z = user.amountOfPhotosPerPlace[e] %>
-                                <% } else { %>
-                                    <%  z =  user.amountOfPhotosPerPlace[e] + q %>
-                                <% }  %>
+                    <div class='header-top'>
+                        <i class="fas fa-city"></i>
+                        <h4>Borough: </h4>
+                        <p>Brooklyn</p>
                     
+                    </div>
+                    <div class='header-top'>
+                        <i class="fas fa-home"></i>
+                        <h4>Neighborhood: </h4>
+                        <p><%= user.neighborhood %></p>
+                    </div>
+                    <div class='header-introduction'> <!------------------------ header-post -->
 
-                    <div class='neighborhood-description'>
-                        <div class='neighborhood-content'>
-                            <div class='neighborhood-info'> 
-                                <h4>Place <%- e +1 %>: <%- user.favoritePlaces[e].place%> </h4>
-                                <!--<i class='fas fa-check-circle'></i>-->
-                                <span>Description:</span>
-                            </div>
-                            <p class='neihborhood-text'>
-                                <%- user.favoritePlaces[e].description %>
-                            </p> 
-                            <div class='neihborhood-image'>
-                                <i class="fas fa-arrow-circle-left"></i>
-                                <div class ='divOfImages'>
+                        <!--
+                        <div class='header-img-wrapper'>
+                            <img  src='https://media-exp1.licdn.com/dms/image/C4D03AQEj1JSX2oGPBg/profile-displayphoto-shrink_800_800/0/1589671182353?e=1640822400&v=beta&t=-mMk6bouHEzergtpKjrqsA-igIw9-UD8Lcd__ez08fk' />
+                        </div>
+                        -->
+                        <div class='self-introduction'> <!------------------------ input -->
+                            <% for(var c = 0; c < user.intro.length; c++){ %>
+                                <% if (c === 1 ) {%>
+                                    <div class='self-introduction-inner-div'>
+                                        <p ><%- user.intro[c][0]%></p>
+                                        <p><%- user.intro[c][1]%></p>
+                                    </div>
+                                <% } else if(c === 2 ) { %>
+                                    <div class='self-introduction-inner-div'>
+                                        <p ><%- user.intro[c][0]%></p>
+                                        <div class='three-words-div'>
+                                            <% for(var u = 0; u < user.intro[c][1].length; u++){ %>
+                                                <div class='arrow-paragraph-div'>
+                                                        <i class="fas fa-circle circle"></i>
+                                                    <p><%- user.intro[c][1][u]%></p>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                <% } else { %>
+                                    <p class ='self-intro-p'><%- user.intro[c]%></p>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <!--
+                        <i class='far fa-image'></i>
+                        <i class='fas fa-camera'></i>
+                        <i class='far fa-chart-bar'></i>
+                        -->
+                    </div>
+                </div>
 
-                                    <% for(q; q < z; q ++){ %>
-                                    
-                                        <% if (z - user.amountOfPhotosPerPlace[e] === q) { %>
-                                        
-                                            <img src="data:image/png;base64,<%= user.imagesFormated[q]%>" /> 
-                                         <% } else { %>
-                                            <% console.log('jiji') %>
-                                            
-                                            <img style="display:none;" src="data:image/png;base64,<%= user.imagesFormated[q]%>" /> 
-                                        <% } %>
-                                                  
-                                    <% } %>
+                <div class='neighborhood-descriptions'><!-------------------------- posts -->
+                    <h4 id='placesToShowHeader'> These are the<span> places </span>that I will show you: </h4>
 
-                                    <% q = z %>
-                                     
+
+                    <% let q = 0 %>
+                    
+                    <% let z %>
+                    <% for(var e = 0; e < user.favoritePlaces.length; e++){ %>
+
+                                    <% if (e === 0){ %>
+                                        <%  z = user.amountOfPhotosPerPlace[e] %>
+                                    <% } else { %>
+                                        <%  z =  user.amountOfPhotosPerPlace[e] + q %>
+                                    <% }  %>
+                        
+
+                        <div class='neighborhood-description'>
+                            <div class='neighborhood-content'>
+                                <div class='neighborhood-info'> 
+                                    <h4>Place <%- e +1 %>: <%- user.favoritePlaces[e].place%> </h4>
+                                    <!--<i class='fas fa-check-circle'></i>-->
+                                    <span>Description:</span>
                                 </div>
-                                <i class="fas fa-arrow-circle-right"></i>
+                                <p class='neihborhood-text'>
+                                    <%- user.favoritePlaces[e].description %>
+                                </p> 
+                                <div class='neihborhood-image'>
+                                    <i class="fas fa-arrow-circle-left"></i>
+                                    <div class ='divOfImages'>
+
+                                        <% for(q; q < z; q ++){ %>
+                                        
+                                            <% if (z - user.amountOfPhotosPerPlace[e] === q) { %>
+                                            
+                                                <img src="data:image/png;base64,<%= user.imagesFormated[q]%>" /> 
+                                            <% } else { %>
+                                                <% console.log('jiji') %>
+                                                
+                                                <img style="display:none;" src="data:image/png;base64,<%= user.imagesFormated[q]%>" /> 
+                                            <% } %>
+                                                    
+                                        <% } %>
+
+                                        <% q = z %>
+                                        
+                                    </div>
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </div>
+                                <div class='neihborhood-icons'>
+                                    <i class='far fa-comment'></i>
+                                    <i class='fas fa-retweet'></i>
+                                    <i class='far fa-heart'></i>
+                                    <i class='fas fa-share-alt'></i>
+                                </div>
                             </div>
-                            <div class='neihborhood-icons'>
-                                <i class='far fa-comment'></i>
-                                <i class='fas fa-retweet'></i>
-                                <i class='far fa-heart'></i>
-                                <i class='fas fa-share-alt'></i>
-                            </div>
                         </div>
-                    </div>
-                   
-                <% } %>
-
-            </div>
-
-
-
-            </div>
-            <!-- end of profile content --> 
-
-
-            <div class = 'neighborhood-details'> <!-------------  follow-->
-                <h3 class = 'neighborhood-details-heading'>Explote neighborhood details</h3><!------------- follow-heading-->
-       
-                <div class='neighborhood-details-buttons'>
-
-                    <div class='explore-detail-btn-wraper'>
-                        <button type ='button' class='explore-detail-btn'><i class='fas fa-chevron-down'></i>Map</button>
-                        <div class='explore-detail-div'>
-                            <svg id='nhd-places-map-svg'width="300" height="300" ></svg>
-                        </div>
-                    </div>
-
-                    <div class='explore-detail-btn-wraper'>
-                        <button type ='button' class='explore-detail-btn'> <i class='fas fa-chevron-down'></i>This is how I feel about my neighborhood</button>
-                        <div class='explore-detail-div'>
-                           
-                            <svg class='nhd-satisfact-svg'width="350" height="480"></svg>
-                            <ol id="legends"></ol>
-                        </div>
-                    </div>
+                    
+                    <% } %>
 
                 </div>
 
 
-                <div class ='show-more-link'> <!-------------- follow-link-->
-                    <a href='#'>Show more</a>
-                </div>
-                <footer class='profile-footer'> <!-------------  follow-footer-->
-                    <ul>
-                        <li><a href='#'>Terms</a></li>
-                        <li><a href='#'>Privacy Policy</a></li>
-                        <li><a href='#'>Cookies</a></li>
-                        <li><a href='#'>About</a></li>
-                        <li><a href='#'>More</a></li>
-                    </ul>
-                </footer>
-            </div>
 
+                </div>
+                <!-- end of profile content --> 
+
+
+                <div class = 'neighborhood-details'> <!-------------  follow-->
+                    <h3 class = 'neighborhood-details-heading'>Explote neighborhood details</h3><!------------- follow-heading-->
+        
+                    <div class='neighborhood-details-buttons'>
+
+                        <div class='explore-detail-btn-wraper'>
+                            <button type ='button' class='explore-detail-btn'><i class='fas fa-chevron-down'></i>Map</button>
+                            <div class='explore-detail-div'>
+                                <svg id='nhd-places-map-svg'width="300" height="300" ></svg>
+                            </div>
+                        </div>
+
+                        <div class='explore-detail-btn-wraper'>
+                            <button type ='button' class='explore-detail-btn'> <i class='fas fa-chevron-down'></i>This is how I feel about my neighborhood</button>
+                            <div class='explore-detail-div'>
+                            
+                                <svg class='nhd-satisfact-svg'width="350" height="480"></svg>
+                                <ol id="legends"></ol>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class ='show-more-link'> <!-------------- follow-link-->
+                        <a href='#'>Show more</a>
+                    </div>
+                    <footer class='profile-footer'> <!-------------  follow-footer-->
+                        <ul>
+                            <li><a href='#'>Terms</a></li>
+                            <li><a href='#'>Privacy Policy</a></li>
+                            <li><a href='#'>Cookies</a></li>
+                            <li><a href='#'>About</a></li>
+                            <li><a href='#'>More</a></li>
+                        </ul>
+                    </footer>
+                </div>
+
+            </div>
         </div>
         <!-- end of profile content -->
 

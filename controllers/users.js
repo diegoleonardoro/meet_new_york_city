@@ -470,6 +470,8 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
     let user = await User.find({ 'slug': slug }) // <<<<--------------------------------------------------------
     let favPlaces = user[0]['favoritePlaces'];
 
+    console.log('holaholahoalhaasdf');
+
     let arr = [];
     let amountOfPhotosPerPlace = [];
 
