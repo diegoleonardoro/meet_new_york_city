@@ -1535,7 +1535,8 @@
             "40.69277463916089"
         ],
         "Name": "Cambria Heights",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "The name Cambria Heights was coined in the mid 1920s when the Cambria Title Savings and Trust Company, a bank based in Cambria County, Pennsylvania, provided financing for early development which was aimed at families seeking to relocate from rental apartments in other boroughs. At an elevation of 50 feet (15 m) above sea level, it is considered to be one of the highest points in Queens, together with Jackson Heights and Richmond Hill."
     },
     {
         "the_geom": [
@@ -1543,7 +1544,8 @@
             "40.65981643342812"
         ],
         "Name": "Rosedale",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "During the mid-1970s, African American and Caribbean families started moving into what had been a mostly Irish, Italian, and Jewish community. Many black families' homes were firebombed to harass them and cajole them to leave. The U.S. government filed a civil-rights lawsuit in 1975 against a group named Return Our American Rights (ROAR), alleging that ROAR had been harassing white homeowners who tried to sell to black clients, and implicating ROAR in some of the firebombings. In 1976, Bill Moyers presented a documentary titled Rosedale: The Way It Is, which addressed the racial tensions in the community."
     },
     {
         "the_geom": [
@@ -1551,7 +1553,8 @@
             "40.60313443250093"
         ],
         "Name": "Far Rockaway",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "Far Rockaway attracted tourists and vacationers from the other boroughs. Bungalows were the homes of choice for many residents who lived in Far Rockaway. The railroad abandoned the Rockaway Beach Branch in 1950 because of the shift of many people to driving private cars. In addition, this destination had to compete with the many others that people were visiting by car and air travel, which created access to even more distant destinations and heightened competition for travel dollars. As the neighborhood's heyday as a resort community declined in the 1950s, the city built substantial numbers of public housing developments to try to replace substandard housing after World War II. Bungalows and other residential housing were converted to year-round use for low-income residents. Some bungalows were used as public housing."
     },
     {
         "the_geom": [
@@ -1559,7 +1562,8 @@
             "40.603026583512424"
         ],
         "Name": "Broad Channel",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "Broad Channel is a neighborhood in the southern portion of the New York City borough of Queens. It occupies the southern portion of Rulers Bar Hassock (known colloquially as 'Broad Channel Island'), the only inhabited island in Jamaica Bay."
     },
     {
         "the_geom": [
@@ -1567,7 +1571,8 @@
             "40.557401288454564"
         ],
         "Name": "Breezy Point",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description" : "Due to its history of population by Irish-Americans, Breezy Point has been called the 'Irish Riviera.' Since the mid-1990s, Italians and Jews have also moved into Breezy Point, making the concentration of Irish-Americans drop."
     },
     {
         "the_geom": [
@@ -1575,7 +1580,8 @@
             "40.77592301564293"
         ],
         "Name": "Steinway",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "Richard Hellmann, creator of Hellmann's mayonnaise, had his first big factory at 495 / 497 Steinway Street from 1915 to 1922. In 1922, operations moved to a larger factory at 34-08 Northern Boulevard."
     },
     {
         "the_geom": [
@@ -1583,7 +1589,8 @@
             "40.792781403600515"
         ],
         "Name": "Beechhurst",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "During the Silent Movie era, Beechhurst was a favorite vacation area for the rich and famous. Estates lined the waterfront, including the Arthur and Dorothy Dalton Hammerstein House, the former house of Arthur Hammerstein and Dorothy Dalton, which is a New York City designated landmark."
     },
     {
         "the_geom": [
@@ -1591,7 +1598,8 @@
             "40.7828428062456"
         ],
         "Name": "Bay Terrace",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" :  "Bay Terrace is a neighborhood in the northeastern section of the New York City borough of Queens. It is often considered part of the larger area of Bayside. Bay Terrace overlooks the East River and the approaches to the Throgs Neck Bridge from the Clearview Expressway and Cross Island Parkway. It is bounded on the west by the Clearview Expressway, on the south by 26th and 28th Avenues, to the east by the Little Neck Bay, and to the north by the East River."
     },
     {
         "the_geom": [
@@ -1599,7 +1607,8 @@
             "40.59564180736854"
         ],
         "Name": "Edgemere",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" :  "Edgemere is a neighborhood in the New York City borough of Queens, extending from Beach 32nd to Beach 52nd Street on the Rockaway Peninsula. It contains Rockaway Community Park. Arverne is to the west, and Far Rockaway to the east. Edgemere was founded in 1892 by Frederick J. Lancaster, who originally called it New Venice."
     },
     {
         "the_geom": [
@@ -1607,7 +1616,8 @@
             "40.58914394372975"
         ],
         "Name": "Arverne",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "Located on the Rockaway Boardwalk, Arverne became well-known as a beachfront community with inexpensive summer bungalows, and hotels of varying levels of expense and luxury as well as amusements and boardwalk concessions. It also attracted year-round residents. On January 3, 1914, a storm devastated the peninsula's neighborhoods and swept the 1,200-seat Arverne Pier Theater out to sea. On June 15, 1922, a fire leveled a large part of Arverne, leaving about 10,000 people homeless, although the neighborhood was quick to rebuild. In 1928, a project to build 5,000 bungalows in Arverne was announced."
     },
     {
         "the_geom": [
@@ -1615,7 +1625,8 @@
             "40.58280169684563"
         ],
         "Name": "Seaside",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description" :"Seaside is a section of the Rockaway Peninsula in the New York City borough of Queens. It is bordered by the Rockaway Beach neighborhood on the east, and by the neighborhood of Rockaway Park on the west. Formerly a resort community of small seasonal bungalows, Seaside is today dominated by middle-income high-rise Mitchell-Lama apartment buildings along its south shore beachfront."
     },
     {
         "the_geom": [
@@ -1623,7 +1634,8 @@
             "40.57203673021705"
         ],
         "Name": "Neponsit",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "Neponsit is a small affluent neighborhood located on the western half of the Rockaway Peninsula, the southernmost area of the New York City borough of Queens. Neponsit is a Native American name meaning 'the place between waters', the waters of the Atlantic Ocean and of Jamaica Bay or Rockaway Inlet."
     },
     {
         "the_geom": [
@@ -1631,7 +1643,8 @@
             "40.7641261226141"
         ],
         "Name": "Murray Hill",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" :"Traditionally the home of families of Irish and Italian immigrants, many Korean and Chinese immigrants have moved into Murray Hill in recent years. Murray Hill within Flushing is often confused with the larger Murray Hill neighborhood on the East Side of Manhattan."
     },
     {
         "the_geom": [
@@ -1639,7 +1652,8 @@
             "40.74137842194548"
         ],
         "Name": "Floral Park",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : ""
     },
     {
         "the_geom": [
