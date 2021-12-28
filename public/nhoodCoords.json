@@ -1373,7 +1373,8 @@
             "40.781290766026984"
         ],
         "Name": "Whitestone",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Whitestone is a residential neighborhood in the northernmost part of the New York City borough of Queens. The neighborhood proper is located between the East River to the north; College Point and Whitestone Expressway to the west; Flushing and 25th Avenue to the south; and Bayside and Francis Lewis Boulevard to the east. Whitestone contains the subsection of Malba, which is bounded to the north by the East River, to the east by the Whitestone Expressway, to the south by 14th Avenue, and to the west by 138th Street. Malba was cited in a New York Times article as one of the few 'elite enclaves' of Queens."
     },
     {
         "the_geom": [
@@ -1381,7 +1382,8 @@
             "40.76604063281068"
         ],
         "Name": "Bayside",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Bayside is a neighborhood in the New York City borough of Queens. It is bounded by Whitestone to the northwest, the Long Island Sound and Little Neck Bay to the northeast, Douglaston to the east, Bellerose to the south, and Fresh Meadows to the west. CNN Money ranked Bayside as one of the most expensive housing markets nationally when analyzing comparable detached homes throughout the United States. Despite its large housing stock of free-standing homes, it nationally ranks high to very high in population density."
     },
     {
         "the_geom": [
@@ -1389,7 +1391,8 @@
             "40.761729549032665"
         ],
         "Name": "Auburndale",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description":"The most common style of house in Auburndale is the Tudor. The Auburndale Improvement Association, along with other groups, seeks 'to preserve the neighborhood’s small-scale, lawns-and-driveways character, which in some respects seems to have more in common with nearby suburban Nassau County than New York.' Along with Tudors, capacious Dutch colonials and Cape Cod houses also abound."
     },
     {
         "the_geom": [
@@ -1397,7 +1400,8 @@
             "40.77082619282674"
         ],
         "Name": "Little Neck",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description":"Douglaston–Little Neck is a neighborhood in the northeastern part of the New York City borough of Queens. The community is located on the North Shore of Long Island, bordered to the east by the region of Great Neck in Nassau County, to the south by Glen Oaks and the North Shore Towers, and to the west by Bayside. The neighborhood is composed of two main sections. Little Neck is generally used to refer to the area east of Marathon Parkway and/or north of Northern Boulevard, while Douglaston is the rest of the neighborhood; these classifications may overlap depending on different interpretations of neighborhood boundaries."
     },
     {
         "the_geom": [
@@ -1405,7 +1409,8 @@
             "40.766846097907674"
         ],
         "Name": "Douglaston",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description":"Douglaston–Little Neck is a neighborhood in the northeastern part of the New York City borough of Queens. The community is located on the North Shore of Long Island, bordered to the east by the region of Great Neck in Nassau County, to the south by Glen Oaks and the North Shore Towers, and to the west by Bayside. The neighborhood is composed of two main sections. Little Neck is generally used to refer to the area east of Marathon Parkway and/or north of Northern Boulevard, while Douglaston is the rest of the neighborhood; these classifications may overlap depending on different interpretations of neighborhood boundaries."
     },
     {
         "the_geom": [
@@ -1413,7 +1418,8 @@
             "40.74944079974336"
         ],
         "Name": "Glen Oaks",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description":"Garden apartments dominate this community, such as the Glen Oaks Village (circa 1947): This Cooperative Apartment complex extends from Little Neck Parkway eastwards to 263rd Street, north to the Royal Ranch, and south to Union Turnpike. The other section extends from Commonwealth Boulevard to 249th Street."
     },
     {
         "the_geom": [
@@ -1421,7 +1427,8 @@
             "40.72857318176679"
         ],
         "Name": "Bellerose",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "The neighborhood consists predominantly of detached houses with mostly Indian American, European American, and working and middle class populations. While the northeastern section of Queens Village is sometimes referred to as part of Bellerose, it is also called Bellerose Manor, which is recognized by the U.S. Postal Service as an 'acceptable alternate' to Queens Village and Jamaica in postal addresses."
     },
     {
         "the_geom": [
@@ -1429,7 +1436,8 @@
             "40.72257824422808"
         ],
         "Name": "Kew Gardens Hills",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Growth to Kew Gardens Hills came when Kew Gardens, Queens, to the south, gained a subway line at Queens Boulevard in 1936 and Flushing Meadows–Corona Park, directly to the northwest of the neighborhood, hosted the 1939 New York World's Fair. Early residents were mostly German, Irish and Italian. Many were relocating from Brooklyn and Manhattan. The area was hilly and Kew Gardens was known as a prestigious Queens neighborhood and so developers changed its name from Queens Valley to Kew Gardens Hills."
     },
     {
         "the_geom": [
@@ -1437,7 +1445,8 @@
             "40.734394465331334"
         ],
         "Name": "Fresh Meadows",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "The name 'Fresh Meadows' dates back to before the American Revolution. Fresh Meadows was part of the Town of Flushing, which had large areas of salt meadows, such as the original 'Flushing Meadows'. The wetlands in the hilly ground south and east of the village of Flushing, however, were fed by freshwater springs, and thus were 'fresh meadows'. Fresh Meadows Road (which today follows the same route under a number of names, including Fresh Meadows Lane and part of Utopia Parkway) traversed the area, and served as the route from the landing place at Whitestone to the village of Jamaica. In The Evening Post in 1805, farm owner James Smith advertised the sale of his 60-acre farm 'on the road to Fresh Meadows and Flushing'."
     },
     {
         "the_geom": [
@@ -1445,7 +1454,8 @@
             "40.710935472522756"
         ],
         "Name": "Briarwood",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Briarwood is a diverse community, according to 2010 census data that groups Briarwood with neighboring Jamaica Hills, the population consists of Asian-Americans (36.1%), White (21.5%), Hispanics (24.7%), and African Americans (11.5%). This is a marked change from the post-World War II period (1950s–1980s) when the neighborhood was almost exclusively white, with a large and active Jewish community. Economic activity is mostly confined to small restaurants, delis, markets, and other small businesses. The neighborhood contains housing for middle-class families."
     },
     {
         "the_geom": [
@@ -1453,7 +1463,8 @@
             "40.704657360687214"
         ],
         "Name": "Jamaica Center",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "The neighborhood was named Yameco, a corruption of the word yamecah, meaning 'beaver', in the language spoken by the Lenape, the Native Americans who lived in the area at the time of first European contact. The liquid 'y' sound of English is spelled with a 'j' in Dutch, the language of the first people to write about the area; the English retained this Dutch spelling, but, after repeated reading and speaking of 'Jamaica', slowly replaced the liquid sound with the hard 'j' of the English pronunciation of the name today."
     },
     {
         "the_geom": [
@@ -1461,7 +1472,8 @@
             "40.74561857141858"
         ],
         "Name": "Oakland Gardens",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Oakland Gardens is a middle class neighborhood in the southern part of Bayside, bounded to the north by the Long Island Expressway, to the east by Alley Pond Park, to the south by Union Turnpike, and to the west by Cunningham Park. Bayside proper is to the north, and Queens Village and Bellerose are to the south and southeast, respectively. Fredrick Newbold Lawrence built a mansion in the area in 1847 called 'The Oaks', and the neighborhood's name probably derives from that estate.[26] Many people refer to Oakland Gardens as 'southern Bayside'. "
     },
     {
         "the_geom": [
@@ -1469,7 +1481,8 @@
             "40.7188930921674"
         ],
         "Name": "Queens Village",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description":"Queens Village is a mostly residential middle class neighborhood in the eastern part of the New York City borough of Queens. It is bound by Hollis to the west, Cambria Heights to the south, Bellerose to the east, and Oakland Gardens to the north. Shopping in the community is located along Braddock Avenue, Hillside Avenue, Hempstead Avenue, and Jamaica Avenue (NY 25), as well as on Springfield Boulevard. Located just east of Queens Village, in Nassau County, is the Belmont Park race track."
     },
     {
         "the_geom": [
@@ -1477,7 +1490,8 @@
             "40.71124344191908"
         ],
         "Name": "Hollis",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description":"Hollis is a residential middle-class neighborhood within the southeastern section of the New York City borough of Queens. While a predominantly African-American community, there are small minorities of Hispanics and South Asians residing in the area. Boundaries are considered to be 181st Street to the west, Hillside Avenue to the north, Francis Lewis Boulevard to the east, and Murdock Avenue to the south. Hollis is located between Jamaica to the west and Queens Village to the east."
     },
     {
         "the_geom": [
@@ -1485,7 +1499,8 @@
             "40.69691125378992"
         ],
         "Name": "South Jamaica",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "South Jamaica is generally considered to be the area south of Downtown Jamaica (Jamaica Center) or Jamaica Avenue, with the Van Wyck Expressway to the west, and Merrick Boulevard to the east. The eastern border extends as far as the LIRR Montauk Branch tracks in the northern part of the neighborhood. John F. Kennedy International Airport lies to the south across the Belt Parkway."
     },
     {
         "the_geom": [
@@ -1493,7 +1508,8 @@
             "40.69444538522363"
         ],
         "Name": "St. Albans",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "St. Albans housing consists mostly of detached, one and two-family homes. Linden Boulevard is the major shopping street. In 2011 The New York Times reported that many foreclosures were occurring and there was a high level of unemployment. At that time, many black people were moving from St. Albans to the Southern United States."
     },
     {
         "the_geom": [
@@ -1501,7 +1517,8 @@
             "40.675211395917366"
         ],
         "Name": "Rochdale",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "Rochdale Village (pronounced /ˈrɑːtʃ.deɪl/[1]) is a housing cooperative and neighborhood in the southeastern corner of the New York City borough of Queens. Located in Community District 12, Rochdale Village is grouped as part of Greater Jamaica, corresponding to the former Town of Jamaica."
     },
     {
         "the_geom": [
@@ -1509,7 +1526,8 @@
             "40.666230490368626"
         ],
         "Name": "Springfield Gardens",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "The area was first settled by Europeans in 1660, and was subsequently farmed until the mid nineteenth-century. Today the area maintains its low-rise suburban nature. It is home to majority Afro-Caribbean and Indo-Caribbean populations including immigrants from Jamaica, Trinidad, Haiti and Guyana. Many homes have been torn down and remade for more families as more people move into the neighborhood. Part is in a Registered historic District."
     },
     {
         "the_geom": [
