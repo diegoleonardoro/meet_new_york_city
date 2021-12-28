@@ -826,7 +826,6 @@
         "Name": "Bergen Beach",
         "Borough": "Brooklyn",
         "Description": "Bergen Beach was originally an island. The Canarsie Indians who occupied the area referred to it as Winnipague. The island was renamed Bergen Island for early settler Hans Hansen Bergen. From 1896 to 1919, Percy G. Williams and Thomas Adams operated an amusement park in the area. Bergen Beach was connected to the rest of Brooklyn via landfill by 1918, although development did not come for many years. In the 1960s, a housing development called 'Georgetowne' was proposed for Bergen Beach, but it was never built due to opposition from local residents. As a result, much of Bergen Beach was not fully developed until the 1990s."
-
     },
     {
         "the_geom": [
@@ -834,7 +833,8 @@
             "40.62559589869847"
         ],
         "Name": "Midwood",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "The name, Midwood, derives from the Middle Dutch word, Midwout (middle woods; Modern Dutch: Midwoud), the name the settlers of New Netherland called the area of dense woodland midway between the towns of Boswyck (Bushwick) and Breuckelen (Brooklyn). Settlement was begun by the Dutch in 1652; they later gave way to the English, who conquered it in 1664, but the area remained rural and undeveloped for the most part until its annexation to the City of Brooklyn in the 1890s. It became more developed in the 1920s when large middle class housing tracts and apartment buildings were built."
     },
     {
         "the_geom": [
@@ -851,7 +851,8 @@
             "40.623845244784235"
         ],
         "Name": "Georgetown",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "Geographically, Georgetown forms somewhat of a triangle bounded by Ralph, Bergen, and Veterans avenues, with its eponymous shopping center on Ralph Avenue anchored by a beloved International House of Pancakes."
     },
     {
         "the_geom": [
@@ -859,7 +860,8 @@
             "40.65713927658277"
         ],
         "Name": "Spring Creek",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "For most of its history, the neighborhood of Spring Creek was considered the place where 'the city came to an end', consisting of undeveloped marshland used as illegal dumping grounds, and hosting several large landfills and an incinerator during the 20th century. Much of the area was designated as the Fresh Creek Urban Renewal Area in 1967."
     },
     {
         "the_geom": [
@@ -867,7 +869,8 @@
             "40.70849241041552"
         ],
         "Name": "East Williamsburg",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "The first wave of Italian immigration to East Williamsburg occurred in the second half of the 19th century. By the late 1880s, the neighborhood along Graham Avenue was inhabited by many Italian immigrants,[19] as evidenced by The Our Lady of the Snow Society at 410 Graham Avenue, established in 1888.[19] Italians also attended St. Cecilia's Catholic Church at 84 Herbert Street, which was established in 1871 and run mainly by Irish. Other Italian societies in the neighborhood include Sabino Society on Withers St., the San Cono Society on Ainslie St. A second wave of Italian immigration occurred from World War II until the 1970s. While the neighborhood has changed significantly, the established Italian community still thrives along the north end of Graham avenue, also referred to as 'Via Vespucci'. The neighborhood also was home to The Motion Lounge, the former nightclub at 420 Graham Avenue owned by Bonanno crime family caporegime Dominick Napolitano."
     },
     {
         "the_geom": [
@@ -875,7 +878,8 @@
             "40.714822906532056"
         ],
         "Name": "North Side",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "The North Side, above Grand Street, which separates the North Side from the South Side, is somewhat more expensive due to its proximity to the New York City Subway (specifically, the L train and G train on the BMT Canarsie Line and IND Crosstown Line, respectively)."
     },
     {
         "the_geom": [
@@ -883,7 +887,8 @@
             "40.710861472650684"
         ],
         "Name": "South Side",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "Williamsburg Collegiate Charter School, a consistently top-performing charter school[168] in New York City, is located on the South side. Williamsburg Northside Schools are three Reggio Emilia-inspired schools that have three distinct programs within three locations: Infant and Toddler Center, Williamsburg Northside Preschool, and Williamsburg Northside Lower School."
     },
     {
         "the_geom": [
@@ -891,7 +896,8 @@
             "40.698790872180545"
         ],
         "Name": "Navy Yard",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "The Brooklyn Navy Yard was established in 1801. From the early 1810s through the 1960s, it was an active shipyard for the United States Navy, and was also known as the United States Naval Shipyard, Brooklyn and New York Naval Shipyard at various points in its history. The Brooklyn Navy Yard produced wooden ships for the U.S. Navy through the 1870s, and steel ships after the American Civil War in the 1860s."
     },
     {
         "the_geom": [
@@ -899,7 +905,8 @@
             "40.61305976667946"
         ],
         "Name": "Ocean Parkway",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "Much of Ocean Parkway is zoned for mid-to-high rise residential structures.[21] Around 1900, homes were constructed along the perimeter of the parkway, and during World War I, many mansions were built. Buyers came to Ocean Parkway from Bedford-Stuyvesant, Brooklyn Heights, and Bushwick. In the 1920s, apartment complexes and one- and two-family homes were constructed; the northernmost portion of the parkway became the site of luxurious, elevator-equipped apartment buildings. Apartments began to replace older homes in the vicinity of the parkway after World War II."
     },
     {
         "the_geom": [
@@ -907,7 +914,8 @@
             "40.6147681269423"
         ],
         "Name": "Fort Hamilton",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "Fort Hamilton is the only active-duty Department of Defense military post in New York City. Fort Hamilton was once a sister fortification to Fort Wadsworth on Staten Island."
     },
     {
         "the_geom": [
@@ -915,7 +923,8 @@
             "40.715618422314364"
         ],
         "Name": "Chinatown",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Manhattan's Chinatown is a neighborhood in Lower Manhattan, New York City, bordering the Lower East Side to its east, Little Italy to its north, Civic Center to its south, and Tribeca to its west. Historically, Chinatown was primarily populated by Cantonese speakers. However, in the 1980s and 1990s, large numbers of Fuzhounese-speaking immigrants also arrived and formed a sub-neighborhood annexed to the eastern portion of Chinatown east of The Bowery."
     },
     {
         "the_geom": [
@@ -923,7 +932,8 @@
             "40.85190252555309"
         ],
         "Name": "Washington Heights",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Washington Heights is named for Fort Washington, a fortification constructed at the highest natural point on Manhattan Island by Continental Army troops to defend the area from the British forces during the American Revolutionary War. While some Dominican immigrants had been arriving in Washington Heights throughout the 1950s and 60s, the pace increased drastically during the regime of Joaquín Balaguer, who took power in 1966 following the Dominican Civil War."
     },
     {
         "the_geom": [
@@ -931,7 +941,8 @@
             "40.86768396449919"
         ],
         "Name": "Inwood",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The residents of Inwood were substantially of Irish descent for much of the 20th century. The neighborhood exhibited a strong Irish identity with many Irish shops, pubs, and even a Gaelic football field in Inwood Hill Park. The second-largest group during this time was Jewish, an extension of the large Jewish population of Washington Heights. However, in the 1960s through the 1980s, many Irish and Jewish residents moved out to the outer boroughs (for example, Riverdale and Spuyten Duyvil in the Bronx) and the suburbs, in a pattern consistent with overall trends in the city at that time. During the same period, there was a rise in the number of Dominican immigrants to the area."
     },
     {
         "the_geom": [
@@ -939,7 +950,8 @@
             "40.82360428481197"
         ],
         "Name": "Hamilton Heights",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Hamilton Heights is a neighborhood in the northern part of Manhattan in New York City. It is the northernmost part of the West Harlem area, along with Manhattanville and Morningside Heights to its south, and it contains the sub-neighborhood and historic district of Sugar Hill. Washington Heights lies to Hamilton Heights' north, and to its east is Central Harlem."
     },
     {
         "the_geom": [
@@ -947,7 +959,8 @@
             "40.81693442949784"
         ],
         "Name": "Manhattanville",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Throughout the 19th century, Manhattanville bustled around a wharf active with ferry and daily river conveyances. It was the first station on the Hudson River Railroad running north from the city, and the hub of daily stage coach, omnibus and streetcar lines. Situated near Bloomingdale Road, its hotels, houses of entertainment and post office made it an alluring destination of suburban retreat from the city, yet its direct proximity to the Hudson River also made it an invaluable industrial entry point for construction materials and other freight bound for Upper Manhattan. With the construction of road and railway viaducts over the valley in which the town sat, Manhattanville, increasingly absorbed into the growing city, became a marginalized industrial area."
     },
     {
         "the_geom": [
@@ -955,7 +968,8 @@
             "40.81597606742418"
         ],
         "Name": "Central Harlem",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "In 1910, Central Harlem population was about 10% black people. By 1930, it had reached 70%. Starting around the time of the end of World War I, Harlem became associated with the New Negro movement, and then the artistic outpouring known as the Harlem Renaissance, which extended to poetry, novels, theater, and the visual arts. So many black people came that it threatened the very existence of some of the leading industries of Georgia, Florida, Tennessee and Alabama."
     },
     {
         "the_geom": [
@@ -963,7 +977,8 @@
             "40.79224946663037"
         ],
         "Name": "East Harlem",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "East Harlem, also known as Spanish Harlem or El Barrio, is one of the largest predominantly Latino communities in New York City, mostly made up of Puerto Ricans, as well as sizeable numbers of Dominican, Cuban and Mexican immigrants. The community is notable for its contributions to Latin freestyle and salsa music. East Harlem also includes the area formerly known as Italian Harlem, in which the remnants of a once predominantly Italian community remain."
     },
     {
         "the_geom": [
@@ -971,7 +986,8 @@
             "40.77563857330185"
         ],
         "Name": "Upper East Side",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The Upper East Side, sometimes abbreviated UES, is host to some of the most famous museums in the world. The string of museums along Fifth Avenue fronting Central Park has been dubbed 'Museum Mile', running between 82nd and 105th Streets."
     },
     {
         "the_geom": [
@@ -979,7 +995,8 @@
             "40.77592984988492"
         ],
         "Name": "Yorkville",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "For much of the 19th and into the 20th centuries, Yorkville was a mostly German enclave of middle- to working-class families. Over time, many people of Czech, Slovak, Irish, Polish, Hungarian, and Lebanese descent moved in. The neighborhood became more affluent. From 1880, Yorkville became a destination for German-born immigrants. However, by the 1900s, many German residents moved to Yorkville and other neighborhoods from 'Kleindeutschland' (Little Germany) on the Lower East Side after the General Slocum disaster on June 15, 1904. The ship caught fire in the East River just off the shores of Yorkville, leading family members to move closer to the site of the incident. Most of the passengers on the ship were German."
     },
     {
         "the_geom": [
@@ -987,7 +1004,8 @@
             "40.76811265828737"
         ],
         "Name": "Lenox Hill",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The neighborhood is named for the hill that 'stood at what became 70th Street and Park Avenue.' The name 'Lenox' is that of the immigrant Scottish merchant Robert Lenox (1759-1839),[11] who owned about 30 acres (120,000 m2) of land 'at the five-mile (8 km) stone', reaching from Fifth to Fourth (now Park) Avenues and from East 74th to 68th Streets."
     },
     {
         "the_geom": [
@@ -995,7 +1013,8 @@
             "40.762403730702246"
         ],
         "Name": "Roosevelt Island",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Although Roosevelt Island is located directly under the Queensboro Bridge, it is no longer directly accessible from the bridge itself. A trolley used to connect passengers from Queens and Manhattan to a stop in the middle of the bridge, where passengers took an elevator down to the island. The trolley operated from the bridge's opening in 1909 until April 7, 1957. Between 1930 and 1955, the only vehicular access to the island was provided by an elevator system in the Elevator Storehouse that transported cars and commuters between the bridge and the island. The elevator was closed to the public after the construction of the Roosevelt Island Bridge between the island and Astoria in Queens in 1955; the elevator was demolished in 1970, but a similar elevator ran from the Queensboro Bridge to the island as late as 1973."
     },
     {
         "the_geom": [
@@ -1003,7 +1022,8 @@
             "40.7876579985349"
         ],
         "Name": "Upper West Side",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The apartment buildings along Central Park West, facing the park, are some of the city's most opulent. The Dakota at 72nd St. has been home to numerous celebrities including John Lennon, Leonard Bernstein and Lauren Bacall. Other buildings on CPW include the Art Deco Century Apartments (Irwin Chanin, 1931), and The Majestic, also by Chanin. The San Remo, The El Dorado and The Beresford were all designed by Emery Roth, as was 41 West 96th Street (completed in 1926). The Alden, a sister hotel to The Beresford, was also designed by Roth. His first commission, the Belle Époque Belleclaire, is on Broadway, while the moderne Normandie holds forth on Riverside at 86th Street. Along Broadway are several Beaux-Arts apartment houses: The Belnord (1908) – the fronting block of which was co-named in honor of longtime resident I.B. Singer, plus The Apthorp (1908), The Ansonia (1902), The Dorilton and the Manhasset. All are individually designated New York City landmarks."
     },
     {
         "the_geom": [
@@ -1011,7 +1031,8 @@
             "40.773528889421705"
         ],
         "Name": "Lincoln Square",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "During the 1950s and 1960s, a consortium of civic leaders and others led by John D. Rockefeller III built the Lincoln Center as part of the 'Lincoln Square Renewal Project' during urban planner Robert Moses's program of urban renewals.[7] Respected architects were contracted to design the major buildings on the site, and construction started in 1959.[8] Over the next thirty years the previously blighted area around Lincoln Center became a new cultural hub. Over 7,700 residents were displaced during the redevelopment project."
     },
     {
         "the_geom": [
@@ -1019,7 +1040,8 @@
             "40.758333686906404"
         ],
         "Name": "Clinton",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Hell's Kitchen, also known as Clinton, is a neighborhood on the West Side of Midtown Manhattan in New York City. Until the 1970s, Hell's Kitchen was a bastion of poor and working-class Irish Americans. Though its gritty reputation had long held real-estate prices below those of most other areas of Manhattan, by 1969, the City Planning Commission's Plan for New York City reported that development pressures related to its Midtown location were driving people of modest means from the area."
     },
     {
         "the_geom": [
@@ -1027,7 +1049,8 @@
             "40.75469110270627"
         ],
         "Name": "Midtown",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Midtown Manhattan is the central portion of the New York City borough of Manhattan. Midtown is home to some of the city's most prominent buildings, including the Empire State Building, the Chrysler Building, the Hudson Yards Redevelopment Project, the headquarters of the United Nations, Grand Central Terminal, and Rockefeller Center, as well as tourist destinations such as Broadway and Times Square. Midtown Manhattan is the largest central business district in the world and ranks among the most expensive pieces of real estate; Fifth Avenue in Midtown Manhattan commands the world's highest retail rents."
     },
     {
         "the_geom": [
@@ -1035,7 +1058,8 @@
             "40.74830307725222"
         ],
         "Name": "Murray Hill",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Murray Hill derives its name from Robert Murray (1721–1786), an Irish-born merchant, whose family had a large estate in what is now the modern-day neighborhood.[4][5] The modern neighborhood was once an abrupt, steep-sided mound of glacial till typical of Manhattan Island's still-unmodified post-glacial terrain."
     },
     {
         "the_geom": [
@@ -1043,7 +1067,8 @@
             "40.74403470674802"
         ],
         "Name": "Chelsea",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The neighborhood is primarily residential, with a mix of tenements, apartment blocks, city housing projects, townhouses, and renovated rowhouses, but its many retail businesses reflect the ethnic and social diversity of the population. The area has a large LGBTQ population. Chelsea is also known as one of the centers of the city's art world, with over 200 galleries in the neighborhood. As of 2015, due to the area's gentrification, there is a widening income gap between the wealthy living in luxury buildings and the poor living in housing projects, who are, at times, across the street from each other."
     },
     {
         "the_geom": [
@@ -1051,7 +1076,8 @@
             "40.72693288536132"
         ],
         "Name": "Greenwich Village",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description":"Its name comes from Groenwijck, Dutch for 'Green District'. In the 20th century, Greenwich Village was known as an artists' haven, the bohemian capital, the cradle of the modern LGBT movement, and the East Coast birthplace of both the Beat and '60s counterculture movements. Greenwich Village contains Washington Square Park, as well as two of New York City's private colleges, New York University (NYU) and The New School."
     },
     {
         "the_geom": [
@@ -1059,7 +1085,8 @@
             "40.72784677727029"
         ],
         "Name": "East Village",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "In the mid-20th century, Ukrainians created a Ukrainian enclave in the neighborhood, centered around Second Avenue and 6th and 7th Streets.[66][67] The Polish enclave in the East Village persisted as well. Numerous other immigrant groups had moved out, and their former churches were sold and became Orthodox cathedrals. Latin American immigrants started to move to the East Side, settling in the eastern part of the neighborhood and creating an enclave that later came to be known as Loisaida."
     },
     {
         "the_geom": [
@@ -1067,7 +1094,8 @@
             "40.71780674892769"
         ],
         "Name": "Lower East Side",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The Lower East Side, sometimes abbreviated as LES and sometimes referred to as Loisaida, is a neighborhood in the southeastern part of the New York City borough of Manhattan, roughly between the Bowery and the East River from Canal to Houston streets. Traditionally an immigrant, working-class neighborhood, it began rapid gentrification in the mid-2000s, prompting the National Trust for Historic Preservation to place the neighborhood on their list of America's Most Endangered Places."
     },
     {
         "the_geom": [
@@ -1075,7 +1103,8 @@
             "40.72152196744325"
         ],
         "Name": "Tribeca",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "Tribeca, originally written as TriBeCa, is a neighborhood in Lower Manhattan in New York City. Its name is a syllabic abbreviation of 'Triangle Below Canal Street'. The neighborhood began as farmland, then was a residential neighborhood in the early 19th century, before becoming a mercantile area centered on produce, dry goods, and textiles, and then transitioning to artists and then actors, models, entrepreneurs and other celebrities. The neighborhood is home to the Tribeca Film Festival, which was created in response to the September 11 attacks, to reinvigorate the neighborhood and downtown after the destruction caused by the terrorist attacks."
     },
     {
         "the_geom": [
@@ -1083,7 +1112,8 @@
             "40.71932379395911"
         ],
         "Name": "Little Italy",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "In 1910 Little Italy had almost 10,000 Italians; that was the peak of the community's Italian population. At the turn of the 20th century, over 90% of the residents of the Fourteenth Ward were of Italian birth or origins.[4] Tonelli said that it meant 'that residents began moving out to more spacious digs almost as soon as they arrived.' Such a vastly growing community impacted the 'U.S. labor movement in the 20th century' by making up much of the labor population in the garment industry."
     },
     {
         "the_geom": [
@@ -1091,7 +1121,8 @@
             "40.72218384131798"
         ],
         "Name": "Soho",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The name 'SoHo; derives from the area being 'South of Houston Street', and was coined in 1962 by Chester Rapkin, an urban planner and author of The South Houston Industrial Area study. Since the 20th century it has been the location of many artists' lofts and art galleries, and has also been known for its variety of shops ranging from trendy upscale boutiques to national and international chain store outlets. The area's history is an archetypal example of inner-city regeneration and gentrification, encompassing socioeconomic, cultural, political, and architectural developments."
     },
     {
         "the_geom": [
@@ -1099,7 +1130,8 @@
             "40.734433935724375"
         ],
         "Name": "West Village",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The West Village is a neighborhood in the western section of the larger Greenwich Village neighborhood. Residential property sale prices in West Village are among the most expensive in the United States. The West Village historically was known as an important landmark on the map of American bohemian culture in the early and mid-twentieth century. The neighborhood was known for its colorful, artistic residents and the alternative culture they propagated. Due in part to the progressive attitudes of many of its residents, the Village was a focal point of new movements and ideas, whether political, artistic, or cultural. This tradition as an enclave of avant-garde and alternative culture was established during the 19th century and into the 20th century, when small presses, art galleries, and experimental theater thrived."
     },
     {
         "the_geom": [
@@ -1107,7 +1139,8 @@
             "40.7973070417029"
         ],
         "Name": "Manhattan Valley",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description":"By the 1950s and 1960s, the area went into decline, in line with a trend of general urban deterioration in Manhattan.[17] As middle-class residents left for the suburbs, buildings were allowed to fall into disrepair and were divided into small units for new low-rent tenants."
     },
     {
         "the_geom": [
@@ -1115,7 +1148,8 @@
             "40.80799973816586"
         ],
         "Name": "Morningside Heights",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "A large portion of Morningside Heights is part of the campus of Columbia University, a private Ivy League university. Morningside Heights contains numerous other educational institutions such as Teachers College, Barnard College, the Manhattan School of Music, Bank Street College of Education, Union Theological Seminary, and the Jewish Theological Seminary of America."
     },
     {
         "the_geom": [
@@ -1123,7 +1157,8 @@
             "40.737209832715045"
         ],
         "Name": "Gramercy",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description": "The area received its name as an anglicization of 'Crommessie', which is derived from the Dutch Krom Moerasje, meaning 'little crooked swamp', or Krom Mesje, meaning 'little crooked knife', describing the shape of the swamp, brook and hill on the site"
     },
     {
         "the_geom": [
@@ -1131,7 +1166,8 @@
             "40.71193198394569"
         ],
         "Name": "Battery Park City",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description":  "Battery Park City is a mainly residential 92-acre planned community and neighborhood on the west side of the southern tip of the island of Manhattan in New York City. It is bounded by the Hudson River on the west, the Hudson River shoreline on the north and south, and the West Side Highway on the east. The neighborhood is named for The Battery, formerly known as Battery Park, located directly to the south."
     },
     {
         "the_geom": [
@@ -1139,7 +1175,8 @@
             "40.70710710727052"
         ],
         "Name": "Financial District",
-        "Borough": "Manhattan"
+        "Borough": "Manhattan",
+        "Description":  "The City of New York was created in the Financial District in 1624, and the neighborhood roughly overlaps with the boundaries of the New Amsterdam settlement in the late 17th century. The district comprises the offices and headquarters of many of the city's major financial institutions, including the New York Stock Exchange and the Federal Reserve Bank of New York. Anchored on Wall Street in the Financial District, New York City has been called both the most financially powerful city and the leading financial center of the world, and the New York Stock Exchange is the world's largest stock exchange by total market capitalization."
     },
     {
         "the_geom": [
