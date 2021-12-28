@@ -363,6 +363,9 @@ function displayMap(flag) {
                     const profileButton = document.getElementById('visitUserProfile');
 
                     const loadingUserProfileIllustration = document.getElementsByClassName('loadingUserProfileIllustration')[0];
+                    const loadingUserProfileText = document.getElementById('loadingUserProfileText');
+
+                    const divSvgNhoodText = document.getElementById('divSvgNhoodText');
 
                     const addHrefValueToButton = new Promise((resolve, reject) => {
 
@@ -375,11 +378,11 @@ function displayMap(flag) {
                             var linkToUserProfile = document.getElementById('linkToUserProfile');
                             linkToUserProfile.href = `/users/user-profile/${slug}`;
                             linkToUserProfile.click();
-    
+
                             resolve('continue')
                         })
 
-              
+
                     })
 
 
@@ -387,7 +390,13 @@ function displayMap(flag) {
                         console.log(value);
 
                         divmap.style.display = 'none';
+                        // divSvgNhoodText.style.display = 'inline';
                         loadingUserProfileIllustration.style.display = 'inline';
+
+
+                        loadingUserProfileText.style.display = 'inline';
+
+                        loadingUserProfileText.innerHTML = `Loading ${userName}'s profile.`
                         chageBuildingsWindowsColors();
                     })
 
