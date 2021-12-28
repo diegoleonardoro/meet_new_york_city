@@ -1184,7 +1184,8 @@
             "40.768508593354966"
         ],
         "Name": "Astoria",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Astoria was first settled by the Dutch, English, and Germans in the 17th century. Many Irish settled in the area during the waves of Irish immigration into New York City during the 19th and early 20th centuries. Italians were the next significant immigrants in Astoria, and numerous Italian restaurants, delis, bakeries, and pizza shops are found throughout Astoria, particularly in the Ditmars Boulevard area. By the early 21st century, Astoria was one of the most ethnically diverse neighborhoods in Queens, with people from around 100 countries residing there as of 2015."
     },
     {
         "the_geom": [
@@ -1192,7 +1193,8 @@
             "40.746349088602265"
         ],
         "Name": "Woodside",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Reflecting its longtime diverse foods and drink, the neighborhood is filled with many cultural restaurants and pubs. It is also home to some of the city's most popular Thai, Filipino, and South American eateries."
     },
     {
         "the_geom": [
@@ -1200,7 +1202,8 @@
             "40.751981380073715"
         ],
         "Name": "Jackson Heights",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Jackson Heights retains much of its residential character in the modern day. It also has numerous commercial establishments clustered around 37th Avenue, as well as along several side streets served by subway stations. The main retail thoroughfare is 37th Avenue from 72nd Street to Junction Boulevard, with more retail on 73rd, 74th, and 82nd streets between 37th and Roosevelt avenues. Stores and restaurants on and near 74th Street tend to cater to the large population from the Indian subcontinent in the neighborhood, with sari and jewelry stores, Indian and Bengali music and movie retailers and many restaurants."
     },
     {
         "the_geom": [
@@ -1208,7 +1211,8 @@
             "40.744048505122066"
         ],
         "Name": "Elmhurst",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description":  "Elmhurst contains a variety of zoning districts, including manufacturing, commercial, residential, and mixed-use. Much of the neighborhood is composed of detached or multi-family houses, though there are also rowhouse districts, apartment buildings of up to six or seven stories, and large developments."
     },
     {
         "the_geom": [
@@ -1216,7 +1220,8 @@
             "40.6542252773849"
         ],
         "Name": "Howard Beach",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Howard Beach was established in 1897 by William J. Howard, a Brooklyn glove manufacturer who operated a 150-acre (0.61 km²) goat farm on meadow land near Aqueduct Racetrack as a source of skin for kid gloves. In 1897, he bought more land and filled it in and the following year, built 18 cottages and opened a hotel near the water, which he operated until it was destroyed by fire in October 1907. He gradually bought more land and formed the Howard Estates Development Company in 1909. He dredged and filled the land until he was able to accumulate 500 acres (2 km²) by 1914. He laid out several streets, water mains and gas mains, and built 35 houses that were priced in the $2,500–$5,000 range."
     },
     {
         "the_geom": [
@@ -1224,7 +1229,8 @@
             "40.7423817501567"
         ],
         "Name": "South Corona",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Corona has a multicultural population with a Latino majority, and is the site of historic African American and Italian American communities. After World War II, the majority of the neighborhood's residents were mostly Italian, German, Irish and of other European ancestries. Corona also has a significant Chinese population."
     },
     {
         "the_geom": [
@@ -1232,7 +1238,8 @@
             "40.725263782165065"
         ],
         "Name": "Forest Hills",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "The southern part of Forest Hills contains a particularly diverse mixture of upscale housing, ranging from single-family houses, attached townhouses, and both low-rise and high-rise apartment buildings. South of the Long Island Rail Road, the Forest Hills Gardens area is a private community that features some of the most expensive residential properties in Queens County"
     },
     {
         "the_geom": [
@@ -1240,7 +1247,8 @@
             "40.705179035414844"
         ],
         "Name": "Kew Gardens",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Kew Gardens was one of seven planned garden communities built in Queens from the late 19th century to 1950. Much of the area was acquired in 1868 by Englishman Albon P. Man, who developed the neighborhood of Hollis Hill to the south, chiefly along Jamaica Avenue, while leaving the hilly land to the north undeveloped."
     },
     {
         "the_geom": [
@@ -1248,7 +1256,8 @@
             "40.69794731471767"
         ],
         "Name": "Richmond Hill",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Originally, many European families (Italian, Dutch, British, Irish, Scots, Danish, and German) lived in Richmond Hill. In the 1970s, the neighborhood was predominantly Hispanic. Today, the south side of Richmond Hill consists mostly of South Asian Americans (Indians, Pakistanis, and Bangladeshis) and Indo-Caribbean Americans (Trinidadians, Guyanese, Surinamese, and Jamaicans), who have steadily emigrated to the United States since the 1960s.[18][36] Richmond Hill also has the largest Sikh population in the city, and 101st Avenue has evolved into Little Punjab, or Punjab Avenue, has emerged in Richmond Hill, Queens."
     },
     {
         "the_geom": [
@@ -1256,7 +1265,8 @@
             "40.76116362081876"
         ],
         "Name": "Downtown Flushing",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description":  "In the 21st century, Flushing has cemented its status as an international 'melting pot', predominantly attracting immigrants from Asia, particularly from throughout the various provinces of China, but including newcomers from all over the world. Flushing Chinatown is centered around Main Street and the area to its west, most prominently along Roosevelt Avenue, which have become the primary nexus of Flushing Chinatown. However, Chinatown continues to expand southeastward along Kissena Boulevard and northward beyond Northern Boulevard. The Flushing Chinatown houses over 30,000 individuals born in China alone, the largest Chinatown by this metric outside Asia and one of the largest and fastest-growing Chinatowns in the world. In January 2019, the New York Post named Flushing as New York City's 'most dynamic outer-borough neighborhood.'"
     },
     {
         "the_geom": [
@@ -1264,7 +1274,8 @@
             "40.75021734610532"
         ],
         "Name": "Long Island City",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "In 2001, the neighborhood was rezoned from an industrial neighborhood to a residential neighborhood, and the area underwent gentrification, with developments such as Hunter's Point South being built in the area.[28] Since then, there has been substantial commercial and residential growth in Long Island City, with 41 new residential apartment buildings being built just between 2010 and 2017."
     },
     {
         "the_geom": [
@@ -1272,7 +1283,8 @@
             "40.74017628351928"
         ],
         "Name": "Sunnyside",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description":"The name 'Sunnyside' originates with the Bragaw family, French Huguenots who had purchased the land in 1713 and named their estate 'Sunnyside Hill'. Sunnyside was a rural hamlet mostly consisting of small farms and marshland. It was incorporated into Long Island City in 1870, and developed into a bedroom community after the Queensboro Bridge was completed in 1909. A large portion of the neighborhood is six-story apartment buildings constructed during the 1920s and 1930s."
     },
     {
         "the_geom": [
@@ -1280,7 +1292,8 @@
             "40.764073238830946"
         ],
         "Name": "East Elmhurst",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "East Elmhurst is a residential neighborhood in the northwest section of the New York City borough of Queens. It is bounded to the south by Jackson Heights and Corona, to the north and east by Bowery Bay, and to the west by Woodside and Ditmars Steinway. The area includes LaGuardia Airport, located on the shore of Flushing Bay, and Astoria Heights."
     },
     {
         "the_geom": [
@@ -1288,7 +1301,8 @@
             "40.72542737409365"
         ],
         "Name": "Maspeth",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "The name 'Maspeth' is derived from the name of Mespeatches Indians, one of the 13 main Indian tribes that inhabited Long Island. It is translated to mean 'at the bad waterplace' relating to the many stagnant swamps that existed in the area. The area known today as Maspeth was chartered by New Netherlanders and British settlers in the early 17th century. "
     },
     {
         "the_geom": [
@@ -1296,7 +1310,8 @@
             "40.70832315613862"
         ],
         "Name": "Ridgewood",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Ridgewood was among New York City's most quickly-developing neighborhoods between at least 1906 and 1911. Much of the new housing was originally settled by Germans, who had mostly moved from other neighborhoods such as Williamsburg. To the German newcomers, the modern and more expansive houses in Ridgewood provided an improvement over the cramped housing stock in their former neighborhoods. A 1913 Real Estate Record article stated that, for several years, Germans had been moving to Ridgewood from the city's other boroughs."
     },
     {
         "the_geom": [
@@ -1304,7 +1319,8 @@
             "40.702762429678415"
         ],
         "Name": "Glendale",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Glendale was built on a swampy area previously called Fresh Pond. The neighborhood was later developed into an industrial area, though it is now a more residential neighborhood. Glendale's land area is long on its east-west axis and narrow on its north-south axis. The area is surrounded mainly by cemeteries, although the neighborhood also contains several large parks, including part of Forest Park."
     },
     {
         "the_geom": [
@@ -1312,7 +1328,8 @@
             "40.72897409480739"
         ],
         "Name": "Rego Park",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Rego Park has long had a significant Jewish population, most of which have Georgian and Russian Jewish ancestors, with a number of synagogues and kosher restaurants. Many Holocaust survivors settled in Rego Park after 1945. In the 1990s, Jewish immigrants from the former Soviet Union, especially from Central Asia, moved in. Most of the residents are Bukharan Jewish, and the effect of life in the Soviet Union on the population has led Rego Park to have a Russian feel with many signs in Russian Cyrillic. Most of the Bukharan Jewish immigrants in the neighborhood come from Uzbekistan and Tajikistan, and there is also Uzbek and Tajik cuisine in many Rego Park restaurants."
     },
     {
         "the_geom": [
@@ -1320,7 +1337,8 @@
             "40.689886879157925"
         ],
         "Name": "Woodhaven",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "Woodhaven, once known as Woodville, has one of the greatest tree populations in the borough and is known for its proximity to the hiking trails of Forest Park. Woodhaven contains a mixture of urban and suburban land uses, with both low-density residential and commercial sections.[5][6] It retains the small-town feel of bygone days and is home to people of many different ethnicities."
     },
     {
         "the_geom": [
@@ -1328,7 +1346,8 @@
             "40.68070846826546"
         ],
         "Name": "Ozone Park",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description":"A diverse neighborhood known for its large Italian-American population, Ozone Park has become a more diverse community made up of Caribbean, Hispanic, and East/South Asian residents."
     },
     {
         "the_geom": [
@@ -1336,7 +1355,8 @@
             "40.66854957767199"
         ],
         "Name": "South Ozone Park",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "South Ozone Park is a neighborhood in the southwestern section of the New York City borough of Queens. It is just north of John F. Kennedy International Airport, between Aqueduct Racetrack to the west and the Van Wyck Expressway to the east."
     },
     {
         "the_geom": [
@@ -1344,7 +1364,8 @@
             "40.78490274926025"
         ],
         "Name": "College Point",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "College Point is a mostly residential ethnically diverse community with some industrial areas. The neighborhood is served by several parks and contains two yacht clubs."
     },
     {
         "the_geom": [
