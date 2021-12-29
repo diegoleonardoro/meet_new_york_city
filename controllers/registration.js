@@ -98,6 +98,9 @@ const sendTokenResponse = (user, statusCode, res) => {
 
     var flag = user.formResponded;
 
+    console.log(token);
+    console.log(options);
+
     if (flag) {
         res
             .status(statusCode)
