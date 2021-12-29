@@ -43,6 +43,7 @@ exports.Registration_Interface = (req, res, next) => {
 //@access   public
 exports.register_User = asyncHandler(async (req, res, next) => {
     const user = await User.create(req.body);
+    console.log('hoaholaholahoolahola jijiijijijij')
     sendTokenResponse(user, 200, res);
 })
 
