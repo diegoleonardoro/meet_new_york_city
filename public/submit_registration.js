@@ -40,6 +40,7 @@ registration_form.addEventListener('submit', function (e) {
         // log response
         let token = '';
         xhr.onload = () => {
+            console.log(xhr.response);
             token = JSON.parse(xhr.response).token;
         };
 
