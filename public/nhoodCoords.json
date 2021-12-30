@@ -1653,7 +1653,7 @@
         ],
         "Name": "Floral Park",
         "Borough": "Queens", 
-        "Description" : ""
+        "Description" : "The area that is now Floral Park once marked the western edge of the great Hempstead Plains, and by some reports was initially known as Plainfield. Farms and tiny villages dominated the area through the 1870s when the development of the Long Island Rail Road Hempstead Branch and Jericho Turnpike cut through the area. Hinsdale had more than two dozen flower farms after the Civil War. The present-day village of Floral Park was once called East Hinsdale."
     },
     {
         "the_geom": [
@@ -1661,7 +1661,8 @@
             "40.720957207644446"
         ],
         "Name": "Holliswood",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" :"Holliswood is a neighborhood in New York City, New York with a population of 8,096. Holliswood is in Queens County. Living in Holliswood offers residents a dense urban feel and most residents own their homes. In Holliswood there are a lot of restaurants, coffee shops, and parks. Many young professionals and retirees live in Holliswood and residents tend to be liberal. The public schools in Holliswood are above average."
     },
     {
         "the_geom": [
@@ -1669,7 +1670,8 @@
             "40.716804830146174"
         ],
         "Name": "Jamaica Estates",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" : "The area is characterized by million-dollar homes and a multitude of trees. Midland Parkway, a four-lane boulevard with a wide, landscaped median strip whose renovation was completed in 2007, is the area's main artery. The neighborhood consists of mostly upper-middle-class residents. Most houses are single-family detached homes in the Tudor, Craftsman, Cape Cod, or Mediterranean styles. Out of 14,000 residents, 45% are foreign-born. In the 2000 United States Census, 43% of residents were white, Bangladeshis comprise 11% of residents, while Filipinos make up 10%, Haitians 7%, Guyanese 5%, and Russians 4%. A population of over 1,000 Bukharan Jews live in the area."
     },
     {
         "the_geom": [
@@ -1677,7 +1679,8 @@
             "40.744572309286745"
         ],
         "Name": "Queensboro Hill",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" :"Queensboro Hill in southern Flushing is bordered to the west by College Point Boulevard, to the north by Kissena Park and Kissena Corridor Park, to the south by Reeves Avenue and the Long Island Expressway, and to the east by Kissena Boulevard. Queensboro Hill is a part of ZIP Codes 11355 and 11367 and contains the NewYork–Presbyterian/Queens hospital. One of the leading churches is the Queensboro Hill Community Church, a multi-racial congregation of the Reformed Church in America. Turtle Playground serves the residents of this section of Flushing. This area is often referred to as South Flushing."
     },
     {
         "the_geom": [
@@ -1685,7 +1688,8 @@
             "40.72382490182924"
         ],
         "Name": "Hillcrest",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" :"Hillcrest is a neighborhood in the center of Queens; the name comes from its location on the hills between Flushing and Jamaica. Hillcrest stretches from the Grand Central Parkway to 73rd Avenue, between Utopia Parkway and Parsons Boulevard. Its main commercial street is Union Turnpike. Hillcrest is part of Queens Community Board 8. The ZIP Codes for the neighborhood are 11366 (Fresh Meadows and Flushing zip code) for anything above Union Turnpike, and 11432 or 11439 (Jamaica zip codes) for the southern part of the neighborhood (below Union Turnpike, north of Grand Central Parkway)."
     },
     {
         "the_geom": [
@@ -1693,7 +1697,8 @@
             "40.76170452605419"
         ],
         "Name": "Ravenswood",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" :"Like most of New York City’s other neighborhoods, Ravenswood was first settled by the Dutch when Captain Francis Fyn acquired what would later be called Roosevelt Island and the strip of land facing it across the East River on Long Island in 1651. That island’s namesake for decades was Robert Blackwell; his mansion on Blackwell’s, now Roosevelt, Island still stands, and his son, Jacob, built an imposing dwelling on the East River at about today’s 37th Avenue in 1744 that was razed in 1901. A group of impressive mansions was arrayed on Vernon Boulevard (neé Avenue) in the mid-1800s, none of which remain today."
     },
     {
         "the_geom": [
@@ -1701,7 +1706,8 @@
             "40.66391841925143"
         ],
         "Name": "Lindenwood",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description" :"After World War II, parts of Queens went through a residential boom where co-op apartment buildings, single-family homes, and duplexes were built quickly. Thus, Lindenwood was born. Now, the community is a mix of housing stock and residents—its own little world in the middle of New York City’s largest borough. In addition to proximity to John F. Kennedy International Airport and Jamaica Bay, Lindenwood offers affordable homes compared to other NYC neighborhoods."
     },
     {
         "the_geom": [
@@ -1709,7 +1715,8 @@
             "40.667883896602504"
         ],
         "Name": "Laurelton",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description":"Laurelton derives its name from the Laurelton station on the Long Island Rail Road, which was named for the laurels that grew there over 100 years ago. It was developed by Dean Alvord and was modeled after an English village, with stately Tudor-style homes, both attached and detached. A few co-ops exist in a former garden apartment complex, there has been some new construction but no high-rise buildings, which has enabled Laurelton to keep its small town feel."
     },
     {
         "the_geom": [
@@ -1717,7 +1724,8 @@
             "40.73607457083084"
         ],
         "Name": "Lefrak City",
-        "Borough": "Queens"
+        "Borough": "Queens",
+        "Description": "LeFrak City is a 4,605-apartment development in the southernmost region of Corona and the easternmost part of Elmhurst, a neighborhood in the New York City borough of Queens. It is located between Junction Boulevard to the west, 57th Avenue to the north, 99th Street to the east, and the Long Island Expressway to the south."
     },
     {
         "the_geom": [
@@ -1725,7 +1733,8 @@
             "40.57615556543113"
         ],
         "Name": "Belle Harbor",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description":"Belle Harbor is a small residential neighborhood in the New York City borough of Queens, located on the western half of the Rockaway Peninsula, the southernmost area of the borough. Belle Harbor commonly refers to the area from Beach 126th to Beach 141st Streets. The makings of Belle Harbor began in 1900, when a New York State judge ordered that the land west of Rockaway Park be put up for auction."
     },
     {
         "the_geom": [
@@ -1733,7 +1742,8 @@
             "40.58034295646135"
         ],
         "Name": "Rockaway Park",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "The heavily Irish Rockaway Park has been called the 'Irish Riviera'. The 2000 United States Census showed that 36.0% of the population were of Irish ancestry in the ZCTA for ZIP Code 11694. The Saint Patrick's Day parade in Rockaway is the second-largest St. Patrick's Day Parade in New York City, second only to New York City's Saint Patrick's Day Parade up Fifth Avenue in Manhattan."
     },
     {
         "the_geom": [
@@ -1741,7 +1751,8 @@
             "40.59771061565772"
         ],
         "Name": "Somerville",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Somerville is a neighborhood in Queens with a total population of 13,113. It occupies approximately 0.77 square miles. There are 48 street trees per square mile."
     },
     {
         "the_geom": [
@@ -1749,7 +1760,8 @@
             "40.66000322733616"
         ],
         "Name": "Brookville",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Brookville is served by the Rosedale and Laurelton Long Island Rail Road stations. Service is provided by the Far Rockaway Branch and Long Beach Branch. The CityTicket program is available at these stations."
     },
     {
         "the_geom": [
@@ -1757,7 +1769,8 @@
             "40.73301404027838"
         ],
         "Name": "Bellaire",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Bellaire is a mixed working class sub neighborhood of Queens Village. Bellaire, zip code 11429 is 1/3 of the greater area known as Queens Village. The other 2 sections are Hollis Hills 11427 & Queens Village Proper. Bellaire is the largest area of Queens Village, which some residents have affectionately tabbed, Shadyville."
     },
     {
         "the_geom": [
@@ -1765,7 +1778,8 @@
             "40.75407099904894"
         ],
         "Name": "North Corona",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description":  "Based on data from the 2010 United States Census, the population of North Corona was 52,037, a change of 4,881 (9.4%) from the 47,156 counted in 2000. Covering an area of 413.24 acres (167.23 ha), the neighborhood had a population density of 125.9 inhabitants per acre (80,600/sq mi; 31,100/km2). The racial makeup of the neighborhood was 1.8% (929) White, 4.9% (2,566) African American, 0.1% (67) Native American, 6.9% (3,597) Asian, 0% (5) Pacific Islander, 0.7% (351) from other races, and 0.5% (259) from two or more races. Hispanic or Latino of any race were 85.1% (44,263) of the population. The 2020 census data from New York City Department of City Planning showed North Corona having between 30,000 to 39,999 Hispanic residents, meanwhile each the White, Black, and Asian residents were all each less than 5000 residents."
     },
     {
         "the_geom": [
@@ -1773,7 +1787,8 @@
             "40.71461108151174"
         ],
         "Name": "Forest Hills Gardens",
-        "Borough": "Queens"
+        "Borough": "Queens", 
+        "Description": "Grosvenor Atterbury, a renowned architect, was given the commission to design Forest Hills Gardens. The neighborhood was planned on the model of the garden communities of England, with its own inn, garage, and post office. It also included narrow, winding roads to limit through traffic. As a result, there are many Tudor-style homes in Forest Hills."
     },
     {
         "the_geom": [
@@ -1781,7 +1796,8 @@
             "40.64498157100444"
         ],
         "Name": "St. George",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island", 
+        "Description":"Originally, Staten Island was inhabited by the Munsee-speaking Lenape Native Americans. The Lenape relocated during different seasons, moving toward the shore to fish during the summers, and moving inland to hunt and grow crops during the fall and winter. The present-day area of New York City was inhabited in 1624 by Dutch settlers as part of New Netherland. In 1664, the Dutch gave New Netherland to the British, and six years later the British finalized a purchase agreement with the Lenape."
     },
     {
         "the_geom": [
@@ -1789,7 +1805,8 @@
             "40.64061455913515"
         ],
         "Name": "New Brighton",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"New Brighton is a neighborhood located on the North Shore of Staten Island in New York City. The neighborhood comprises an older industrial and residential harbor front area along the Kill Van Kull west of St. George. New Brighton is bounded by Kill Van Kull on the north, Jersey Street on the east, Brighton and Castleton Avenues to the south, and Lafayette Avenue and Snug Harbor Cultural Center to the west. It is adjacent to St. George to the east, Tompkinsville to the south, and West New Brighton to the west."
     },
     {
         "the_geom": [
@@ -1797,7 +1814,8 @@
             "40.6269276253818"
         ],
         "Name": "Stapleton",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"Stapleton is one of the older waterfront neighborhoods of the borough, built in the 1830s on land once owned by the Vanderbilt family. It was a long-time commercial center of the island, but has struggled to revive after several decades of neglect following the 1964 construction of the Verrazzano-Narrows Bridge, which shifted the commercial development of the island to its interior."
     },
     {
         "the_geom": [
@@ -1805,7 +1823,8 @@
             "40.61530494652765"
         ],
         "Name": "Rosebank",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"The neighborhood once had a federal quarantine station for incoming immigrants (closed in 1971) and was the home of noted photographer Alice Austen, one of Staten Island's best-known historic figures. The Garibaldi-Meucci Museum is co-named for longtime resident Antonio Meucci, who had some claim to the invention of a working telephone. But he was too impoverished to obtain a patent or market his discovery. When Giuseppe Garibaldi, in exile from Italy, visited the United States, he stayed for a time at Meucci's home. That later inspired the museum's name, honoring both men."
     },
     {
         "the_geom": [
@@ -1813,7 +1832,8 @@
             "40.63187892654611"
         ],
         "Name": "West Brighton",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"This area of Staten Island was originally settled by the Dutch in the 1600s, who were then followed by English settlers. During the American Revolution residents of West Brighton overtly remained loyal to the Crown. Successive waves of immigrants to the US then led to the area becoming populated by the Irish. Today, the neighborhood consists mostly of Irish followed by Germans, Italians, African Americans, and Hispanics."
     },
     {
         "the_geom": [
@@ -1821,7 +1841,8 @@
             "40.62418479131304"
         ],
         "Name": "Grymes Hill",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description": "Grymes Hill, which has views of Lower New York Bay and the Narrows, is the second highest point on Staten Island after Todt Hill, reaching its greatest elevation of 374 feet (114 m) above sea level. Hero Park, 3 acres (12,000 m2) in size, is located at the intersection of Victory Boulevard and Louis Street, abutting the Notre Dame Academy property."
     },
     {
         "the_geom": [
@@ -1829,7 +1850,8 @@
             "40.59706851814676"
         ],
         "Name": "Todt Hill",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description": "The name Todt comes from the German word 'Tod' for 'dead' and may refer to the cemetery (the present Moravian Cemetery, opened in 1740 and now the island's largest cemetery) on the southwestern foot of the ridge near the town of New Dorp that has been in use since colonial days. An alternate explanation is that the name was given by early Dutch settlers because of treeless rocky exposures on the hilltop, caused by the soil of the Staten Island Serpentinite locality."
     },
     {
         "the_geom": [
@@ -1837,7 +1859,8 @@
             "40.5802474135096"
         ],
         "Name": "South Beach",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description": "South Beach contains a boardwalk with an eponymous beach on its southeastern coast. Directly east of the beach are two small islands, Hoffman Island and Swinburne Island. The northern part of South Beach is sometimes known as Arrochar."
     },
     {
         "the_geom": [
@@ -1845,7 +1868,8 @@
             "40.63366930554369"
         ],
         "Name": "Port Richmond",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"Formerly an independent village, it is one of the oldest neighborhoods on the island. In the 19th century it was an important transportation and industrial center of the island, but this role has vanished nearly completely, leaving a largely blue collar residential area bypassed by the shift of development of the island to its interior after the 1960s. The formerly bustling commercial center along Richmond Avenue (now Port Richmond Avenue) had been largely abandoned at the time, but many small businesses have opened in the area since the late 20th century."
     },
     {
         "the_geom": [
@@ -1853,7 +1877,8 @@
             "40.63254639048117"
         ],
         "Name": "Mariner's Harbor",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"Mariners Harbor was home to large shipping and dry dock companies in the first half of the 20th century, including Bethlehem Steel, which owned a considerable portion of land in the area with headquarters along the waterfront on Richmond Terrace across from Mersereau Avenue and Brewers Dry Dock. Bethlehem Steel built United States Navy Destroyers during World War II."
     },
     {
         "the_geom": [
@@ -1861,7 +1886,8 @@
             "40.63968297845546"
         ],
         "Name": "Port Ivory",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"The area bore the name of Milliken originally, and became locally known as Port Ivory after Ivory Soap, one of the best-known products from Procter & Gamble, which operated a factory at the site from 1907 until 1991, when the soap making operation was moved to Mexico."
     },
     {
         "the_geom": [
@@ -1869,7 +1895,8 @@
             "40.613335937667465"
         ],
         "Name": "Castleton Corners",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description": "The word 'corners' in the neighborhood's name refers to the intersection of Victory Boulevard and Manor Road, which forms its core. This part of Castleton, Staten Island was once called Centerville, but became more popularly known as Castleton Corners when a post office by that name was opened there in 1872. 'Castleton' refers to Cassiltowne, County Kildare, Ireland, the birthplace of Thomas Dongan, the colonial governor of the Province of New York after it was obtained from the Dutch—who had called it New Amsterdam—in 1682. The post office later closed, but reopened in 1949, and today it is the general, or main, post office for Staten Island as a whole, its ZIP Code being 10314."
     },
     {
         "the_geom": [
@@ -1877,7 +1904,8 @@
             "40.59425237916174"
         ],
         "Name": "New Springville",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"New Springville remained largely rural until 1964, when the E. J. Korvette department store chain opened an outlet on the site of a former chicken farm. This was followed, in 1973, by the opening of the Staten Island Mall on the grounds of what had been a little-used airport, which changed the character of the neighborhood completely; soon adjacent land was converted to business (mostly retail) use as well."
     },
     {
         "the_geom": [
