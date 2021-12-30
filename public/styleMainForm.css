@@ -195,11 +195,12 @@ h2{
     position: relative;
     border: none;
     z-index: 99;
-margin-top:-1.3rem;
+    margin-top:-1.3rem;
     left: 0;
     right: 0;
   }
-  .autocomplete-items span {
+
+.autocomplete-items span {
     padding: 10px;
     cursor: pointer;
     background-color: #fff; 
@@ -209,7 +210,7 @@ margin-top:-1.3rem;
 
     margin-left:50%;
     transform:translate(-50%, -50%);
-  }
+}
   
   /*when hovering an item:*/
   .autocomplete-items span:hover {

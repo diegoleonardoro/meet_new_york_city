@@ -19,7 +19,7 @@
     
   }
 
-  .about{
+  .about {
     cursor: pointer;
     padding: 0.5rem 1rem;
   }
@@ -28,10 +28,30 @@
     background-color:#2D4859;
     border-radius: 3rem;
     color:white;
-
   }
 
+  .registerButton{
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
 
+  .registerButton:hover{
+    border:0.1rem solid #2D4859;
+    background-color:#2D4859;
+    border-radius: 3rem;
+    color:white;
+  }
+  
+  .loginButton{
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+  .loginButton:hover{
+    border:0.1rem solid #2D4859;
+    background-color:#2D4859;
+    border-radius: 3rem;
+    color:white;
+  }
 
   .exploreNhoodsButoon_Illustration{
     display:flex;
@@ -272,9 +292,15 @@
 
   #exploreNeighborhoodstext{
       margin-top:2%;
-      margin-left:5%;
-      width:15.5%;
+      /*position: relative;*/
+      /*left:25%;
+      width:15.5%;*/
+
       padding:1%;
+      margin-bottom: 2%;
+
+      margin-left: 50%;
+      transform:translate(-50%, 0%);
      
       color: black;
       font-family: korolev-compressed, sans-serif;
@@ -376,6 +402,7 @@
       'manhattanTitle brooklynTitle bronxTitle queensTitle statenIslandTitle'
       'manhattanNeighborhoodsContainer brooklynNeighborhoodsContainer bronxNeighborhoodsContainer queensNeighborhoodsContainer statenIslandNeighborhoodsContainer' ;
 
+      justify-content: center;
   }
 
   #manhattanNeighborhoodsContainer{
@@ -386,6 +413,13 @@
     gap:1%;
     overflow-y: scroll;
     grid-area: manhattanNeighborhoodsContainer;
+
+   
+
+    /*
+    left :50%;
+    transform:translate(50%, 0%);
+    */
     
   }
 
@@ -438,7 +472,11 @@
   .neighborhood {
     background-color: rgb(223, 240, 241); 
     text-align: center;
-    padding-top:10%;
+
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center;
+
     cursor: pointer;
     transition: all 0.5s;
     font-size: 75%;

@@ -373,26 +373,19 @@ function displayMap(flag) {
 
                             e.stopPropagation();
 
-                            console.log('holaHola');
-
                             var linkToUserProfile = document.getElementById('linkToUserProfile');
                             linkToUserProfile.href = `/users/user-profile/${slug}`;
                             linkToUserProfile.click();
 
                             resolve('continue')
                         })
-
-
                     })
 
-
                     addHrefValueToButton.then((value) => {
-                        console.log(value);
 
                         divmap.style.display = 'none';
                         // divSvgNhoodText.style.display = 'inline';
                         loadingUserProfileIllustration.style.display = 'inline';
-
 
                         loadingUserProfileText.style.display = 'inline';
 
@@ -437,10 +430,6 @@ function displayMap(flag) {
                 // ------ end of  resize the photo of the place and add text 
 
             });
-
-
-
-
 
 
         })

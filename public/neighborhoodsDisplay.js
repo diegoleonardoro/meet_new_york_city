@@ -748,20 +748,33 @@ autocomplete(document.getElementById("neighborhoodName"), neighborhoods);
 
 
 
-// Create a get request to the About button:
-
-//setTimeout(() => {
-
-
-
+// Create a request link for the About button:
 const aboutButton = document.getElementsByClassName('about')[0];
 aboutButton.addEventListener('click', () => {
 
     var aboutLink = document.getElementById('aboutLink');
     aboutLink.href = `/about`;
     aboutLink.click()
+});
 
+// Create a request link for the register button:
+const registerButton = document.getElementsByClassName('registerButton')[0];
+registerButton.addEventListener('click', () => {
+
+    var registerLink = document.getElementById('registerLink');
+    registerLink.href = `/register`;
+    registerLink.click()
 });
 
 
-//}, 100);
+// Create a request link for the login button:
+const loginButton = document.getElementsByClassName('loginButton')[0];
+loginButton.addEventListener('click', () => {
+
+    var loginLink = document.getElementById('loginLink');
+    loginLink.href = `/register/login`;
+    loginLink.click()
+});
+
+
+
