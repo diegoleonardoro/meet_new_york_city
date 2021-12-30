@@ -43,7 +43,6 @@ function autocomplete(inp, arr) {
 
                             var path = d3.geoPath().projection(projection);
 
-
                             const readNeighborhoodCoords = new Promise((resolve, reject) => {
                                 d3.csv('NHoodNameCentroids.csv', function (data) {
                                     for (var i = 0; i < data.length; i++) {

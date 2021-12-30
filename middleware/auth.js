@@ -96,27 +96,15 @@ exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this 
     try {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET); // Here we are verifying that the token sent by the client matches the the JWT_SECRET value that we set on the config env variables.
-        // (the token includes the 'user id' encrypted )
-        // Once verified, decoded is going to have an id value, which is the id belonging to the client trying to login, and which we'll use to get the user from the database.
 
         var id_ = decoded.id;
 
-
-        //req.user = await User.findById(id_.toObjectId()).populate('input'); // ======>>>>>----->>>>>  req.user is being set to the user from the database whose id field matches decoded.id 
-
-
-
         req.user = await User.find({ _id: id_.toObjectId() });
 
-
-        // req.user will always be the currently logged user.
-        // In any route where we use the "protect" middleware we will have access to "req.user".
-
-        // console.log('2')
         next();// this 'next' will call the next middleware 
 
     } catch (err) {
-        // console.log('3')
+       
         return next(new ErrorResponse('Not authorized to access this route', 401));
     }
 

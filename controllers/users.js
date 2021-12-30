@@ -239,11 +239,9 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 
     let favPlaces = req.user[0].favoritePlaces;
 
-    console.log(favPlaces);
-
     let arr = [];
     let amountOfPhotosPerPlace = [];
-    //let filesNamesArrayMain = [];
+
     for (var w = 0; w < favPlaces.length; w++) {
         let filesNamesArray = [];
         amountOfPhotosPerPlace.push(favPlaces[w]['placeImage'].length);
@@ -253,55 +251,50 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
         for (var c = 0; c < currentPlace['placeImage'].length; c++) {
             let filesNames = currentPlace['placeImage'][c].filename;
 
-            console.log(filesNames);
-
             filesNamesArray.push(filesNames)
 
             arr.push(filesNames)
         }
-        //filesNamesArrayMain.push(filesNamesArray)
+
     };
 
 
-    console.log(arr);
 
-
+    // ---- create stream function that will retreive buffer data from database 
     let streamFlag = 0;
-
     let imageFormated;
-
     let newArr = [];
 
     function createStream() {
 
-
         let filename = arr[streamFlag];
-        let readstream = gfs.createReadStream(filename);
-        let fileChunks = [];
-        readstream.on('data', function (chunk) {
-            fileChunks.push(chunk);
-        });
-        readstream.on('end', function () {
-            let concatFile = Buffer.concat(fileChunks);
-            imageFormated = Buffer(concatFile).toString("base64");
-            //mainArray.push(imageFormated);
 
-            newArr.push(imageFormated);
+        if (filename) {
+            let readstream = gfs.createReadStream(filename);
+            let fileChunks = [];
+            readstream.on('data', function (chunk) {
+                fileChunks.push(chunk);
+            });
+            readstream.on('end', function () {
+                let concatFile = Buffer.concat(fileChunks);
+                imageFormated = Buffer(concatFile).toString("base64");
 
-            streamFlag = streamFlag + 1;
+                newArr.push(imageFormated);
 
-            if (newArr.length < arr.length) {
-                createStream()
-            }
-        });
+                streamFlag = streamFlag + 1;
+
+                if (newArr.length < arr.length) {
+                    createStream()
+                }
+            });
+        }
     }
-
     createStream();
+    // end of create stream function that will retreive buffer data from database 
+
+
 
     setTimeout(() => {
-        //console.log('arreee: ', newArr.length);
-
-
         let livingInNhood;
         if (req.user[0].lengthLivingInNeighborhood === 'do not live there') {
             livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
@@ -332,9 +325,8 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             'intro': intro,
             'amountOfPhotosPerPlace': amountOfPhotosPerPlace
         }
+
         res.render("user_profile", { user });
-
-
 
     }, 10000);
 
@@ -466,11 +458,8 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
 
     var slug = req.params.slug;
 
-
     let user = await User.find({ 'slug': slug }) // <<<<--------------------------------------------------------
     let favPlaces = user[0]['favoritePlaces'];
-
-    console.log('holaholahoalhaasdf');
 
     let arr = [];
     let amountOfPhotosPerPlace = [];
@@ -541,7 +530,7 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
 
         var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
 
-         user = {
+        user = {
             'name': user[0].name,
             'neighborhood': user[0].neighborhood,
             'threeWordsToDecribeNeighborhood': user[0].threeWordsToDecribeNeighborhood,
