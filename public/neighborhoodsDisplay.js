@@ -26,11 +26,73 @@ function autocomplete(inp, arr) {
                     b.innerHTML += arr[i].substr(val.length);
                     b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
 
+
+
+                    // ---- if the input typed by the user is equal to any of the neighborhoods in the list
+                    if (val.toUpperCase() === arr[i].toUpperCase()) {
+
+                        var map = document.getElementById('MapSVG_');
+
+                        if (map.children.length > 1) {
+                            map.removeChild(map.lastChild);
+                        }
+
+                        var typedNhood = arr[i]
+
+                        d3.json("nhoodCoords.json", function (neighborhoodsData) {
+
+                            for (var r = 0; r < neighborhoodsData.length; r++) {
+
+                                if (typedNhood=== neighborhoodsData[r]['Name']) {
+
+                                    var lat = neighborhoodsData[r]['the_geom'][1];
+                                    var lon = neighborhoodsData[r]['the_geom'][0];
+                                    d3.json('geo-data.json', function (error, data) {
+
+                                        var districts = topojson.feature(data, data.objects.districts);
+
+                                        var height = 500;
+                                        var width = 500;
+                                        var projection = d3.geoMercator();
+                                        var path = d3.geoPath().projection(projection);
+
+                                        var b, s, t;
+                                        projection.scale(1).translate([0, 0]);
+                                        var b = path.bounds(districts); // bounds represent a two dimensional array : [[left, bottom], [right, top]],
+                                        var s = .85 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
+                                        var t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+                                        projection.scale(s).translate(t);
+
+                                        // LAT AND LNG OF THE NEIGHBORHOOD:
+                                        //var neighborhoodCoordinates = response['items'][0]['position'];
+
+                                        var divLeftStyle = projection([lon, lat])[0];
+                                        var divTopStyle = projection([lon, lat])[1];
+
+                                        var map = d3.select("#MapSVG_")
+                                            .append("circle")
+                                            .attr("cx", divLeftStyle)
+                                            .attr("cy", divTopStyle)
+                                            .attr("id", "placeCircle")
+                                            .attr("r", 6)
+                                            .attr("fill", "#ffe577")
+                                            .attr("id", "placeCircle");
+                                    })
+                                }
+                            }
+                        })
+
+                    }
+                    // end of if the input typed by the user is equal to any of the neighborhoods in the list
+
+
+
                     b.addEventListener("click", function (e) {
                         inp.value = this.getElementsByTagName("input")[0].value;
 
                         closeAllLists();
 
+                        // this if statement applies to the search neighborhood bar in the main page
                         if (inp.className.indexOf('search-bar-input') > -1) {
 
                             var chosenNeighborhood = inp.value;
@@ -56,9 +118,7 @@ function autocomplete(inp, arr) {
                                 })
                             })
 
-
                             readNeighborhoodCoords.then(value => {
-
 
                                 let coordinates = value['the_geom'];
                                 let neighborhood = value['Name'];
@@ -131,15 +191,11 @@ function autocomplete(inp, arr) {
 
 
 
-
-
                                     // align the view with the neighborhood description container
                                     //var neighborhoodDescription = document.getElementById('neighborhoodDescription');
                                     var neighborhoodDescriptiontBoundingBox = neighborhoodDescription.getBoundingClientRect();
                                     window.scrollTo({ top: neighborhoodDescriptiontBoundingBox.bottom - 740, behavior: 'smooth' });
                                     // end of align the view with the neighborhood description container
-
-
 
 
 
@@ -181,8 +237,6 @@ function autocomplete(inp, arr) {
 
 
 
-
-
                                     // make an http request that gets data of who can show the selected neighborhood 
                                     const xhr = new XMLHttpRequest();
                                     let neighborhoodUsers
@@ -194,7 +248,6 @@ function autocomplete(inp, arr) {
                                             }, 100);
                                         }
                                     });
-
                                     xhr.open('GET', `/users/neighborhood/${neighborhood}`);
                                     xhr.send();
                                     // end of make an http request that gets data of who can show the selected neighborhood 
@@ -203,7 +256,6 @@ function autocomplete(inp, arr) {
 
 
                                     // use the data from the previous http request and insert it into the place description container
-
                                     getResponseData.then(resValue => {
 
                                         neighborhoodUsers = JSON.parse(neighborhoodUsers);
@@ -221,8 +273,6 @@ function autocomplete(inp, arr) {
                                         let imagesFormated = neighborhoodUsers['data']['imagesFormated'];
 
 
-
-
                                         whoCanShow =
                                             `<div class='whoCanShow'>
                                                 <p class='whoCanShowItem'> <b>Name:</b> ${userName} </p>
@@ -232,7 +282,6 @@ function autocomplete(inp, arr) {
 
                                         let place = favoritePlaces[0]['place'];
                                         let placDescription = favoritePlaces[0]['description'];
-
 
 
                                         whoCanShow = whoCanShow +
@@ -252,11 +301,8 @@ function autocomplete(inp, arr) {
                                             </div>
                                             <button type='submit' id ='visitUserProfile'><a id ='linkToUserProfile' href=''></a> Visit ${userName}'s profile </button>`
 
-                                
-
 
                                         whoCanShowArray.push(whoCanShow);
-
 
                                         setTimeout(() => {
                                             const profileButton = document.getElementById('visitUserProfile');
@@ -302,8 +348,7 @@ function autocomplete(inp, arr) {
                                 })
                             })
 
-                        } else {
-
+                        } else {// this else statement applies when the user searches for a neighborhood in the main form.
 
                             var map = document.getElementById('MapSVG_');
 
@@ -345,24 +390,13 @@ function autocomplete(inp, arr) {
                                                 .attr("cy", divTopStyle)
                                                 .attr("id", "placeCircle")
                                                 .attr("r", 6)
-                                                .attr("fill", "blue")
+                                                .attr("fill", "#ffe577")
                                                 .attr("id", "placeCircle");
                                         })
                                     }
                                 }
                             })
-
-
                         }
-
-
-
-
-
-
-
-
-
                     });
                     a.appendChild(b);
                 }
