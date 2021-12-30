@@ -28,6 +28,74 @@ form.addEventListener("submit", function (err) {
 
     err.preventDefault();
 
+
+
+    //  remove the header and form section 
+    const mainForm = document.getElementsByClassName('main-form-page')[0];
+    mainForm.style.display = 'none';
+    // end of remove the header and form section 
+
+
+
+
+    // Change display value of the loading illustration
+    // --- illustration:
+    const loadingUserProfileIllustration = document.getElementsByClassName('loadingUserProfileIllustration')[0];
+    loadingUserProfileIllustration.style.display = 'inline';
+    // --- text:
+    const loadingUserProfileText = document.getElementById('loadingUserProfileText');
+    loadingUserProfileText.style.display = 'inline';
+    // end of change display value of the loading illustration
+
+
+
+
+    // function that selects the loading illustration windows and dynamically changes their color
+
+    var windowColors = ['black', 'white'];
+
+    let colorFlag = 0
+
+    function chageBuildingsWindowsColors() {
+
+        var windowParent = document.getElementsByClassName('window');
+
+        for (var g = 0; g < windowParent.length; g++) {
+
+            var randomNum = Math.floor(Math.random() * windowParent.length);
+
+            let groupOfWindows = windowParent[randomNum];
+
+            let windows = groupOfWindows.children;
+
+            for (var a = 0; a < windows.length; a++) {
+
+                windows[a].style.fill = windowColors[colorFlag];
+            }
+
+        }
+
+        if (colorFlag === 0) {
+            colorFlag = 1;
+
+        } else {
+            colorFlag = 0;
+        }
+
+        setTimeout(() => {
+            chageBuildingsWindowsColors();
+        }, 500);
+
+    }
+
+    chageBuildingsWindowsColors();
+
+    // end of  function that selects the loading illustration windows and dynamically changes their color
+
+
+
+
+
     var formElementsLength = form.elements.length;
     var formData = new FormData();
 
@@ -70,17 +138,13 @@ form.addEventListener("submit", function (err) {
 
                                 numberOfPhotos = numberOfPhotos + 1;
 
-                                console.log(favoritePlace[v].files[0]);
-
+                                //console.log(favoritePlace[v].files[0]);
 
                                 formData.append(favoritePlace[v].getAttribute("name"), favoritePlace[v].files[0]);
-
 
                             }
                         }
                     }
-
-                    //console.log(numberOfPhotos);
 
                     favPlaces['numberOfPhotos'] = numberOfPhotos;
                     //formData.append('placeImage', imagesArray);
@@ -90,10 +154,6 @@ form.addEventListener("submit", function (err) {
                     favoritePlaces.push(favPlaces);
                 }
             }
-
-
-
-
 
         } else if (form.elements[i].className.indexOf('selectBoro') > -1) {
 
@@ -179,7 +239,7 @@ form.addEventListener("submit", function (err) {
     // log response
     xhr.onload = () => {
         token = xhr.response.token;
-        console.log(token);
+        //console.log(token);
         var formLink = document.getElementById('goToUserProfile');
         formLink.href = `users/profile/${token}`
         formLink.click()
@@ -188,21 +248,9 @@ form.addEventListener("submit", function (err) {
 
     xhr.open('POST', `/inputs/userId`);
 
-
-
     setTimeout(() => {
         xhr.send(formData);
     }, 1000);
-
-
-
-    // setTimeout(() => {
-    //    var formLink = document.getElementById('goToUserProfile');
-    ///    formLink.href = `users/profile/${token}`
-    //formLink.pathname = `users/profile/${token}`
-    //    formLink.click()
-    // }, 10000);
-
 
 
 })

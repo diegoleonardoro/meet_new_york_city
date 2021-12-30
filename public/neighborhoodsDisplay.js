@@ -211,8 +211,6 @@ function autocomplete(inp, arr) {
                                         let whoCanShowArray = [];
                                         let whoCanShow = '';
 
-                                        console.log(2)
-
                                         let userName = neighborhoodUsers['data']['name'];
                                         let lengthLivingInNeighborhood = neighborhoodUsers['data']['lengthLivingInNeighborhood'];
                                         let favAspectsOfNeighborhood = neighborhoodUsers['data']['favAspectsOfNeighborhood'];
@@ -232,7 +230,6 @@ function autocomplete(inp, arr) {
                                                 <p class='whoCanShowItem'> <b>Description:</b> I have lived in this neighborhood for ${lengthLivingInNeighborhood}. ${favAspectsOfNeighborhood}</p>
                                                 <p class='whoCanShowItem'> This is one of my favorite places in this neighborhood: </p>
                                                 `
-                                        // for (var u = 0; u < favoritePlaces.length; u++) {///
 
                                         let place = favoritePlaces[0]['place'];
                                         let placDescription = favoritePlaces[0]['description'];
@@ -256,7 +253,7 @@ function autocomplete(inp, arr) {
                                             </div>
                                             <button type='submit' id ='visitUserProfile'><a id ='linkToUserProfile' href=''></a> Visit ${userName}'s profile </button>`
 
-                                        //}///
+                                
 
 
                                         whoCanShowArray.push(whoCanShow);
@@ -272,7 +269,6 @@ function autocomplete(inp, arr) {
 
                                             })
                                         }, 100);
-
 
 
                                         neighborhoodDescription.innerHTML = neighborhoodDescription.innerHTML + whoCanShowArray[0];
@@ -302,19 +298,7 @@ function autocomplete(inp, arr) {
 
                                     });
 
-
-
-
-
-
                                     // end of use the data from the previous http request and insert it into the place description container
-
-
-
-
-
-
-
 
                                 })
                             })

@@ -237,7 +237,7 @@ function displayMap(flag) {
                 neighborhoodDescription.appendChild(p3);
 
 
-                // append the nhoos loading illustration and text
+                // append the nhoods loading illustration and text
                 var svgNhoodsIllustration = document.getElementsByClassName('svgNhoodsIllustration')[0];
 
                 var nhoodIllustrationSvg = svgNhoodsIllustration.cloneNode(true);
@@ -348,12 +348,9 @@ function displayMap(flag) {
 
 
 
-
                 // Add an event listener to the profile button
                 // This event listener will query the database using the slug 
                 // to get the user profile page.
-
-
 
 
                 var divmap = document.getElementById('map');
@@ -384,12 +381,13 @@ function displayMap(flag) {
                     addHrefValueToButton.then((value) => {
 
                         divmap.style.display = 'none';
-                        // divSvgNhoodText.style.display = 'inline';
+        
                         loadingUserProfileIllustration.style.display = 'inline';
 
                         loadingUserProfileText.style.display = 'inline';
 
-                        loadingUserProfileText.innerHTML = `Loading ${userName}'s profile.`
+                        loadingUserProfileText.innerHTML = `Loading ${userName}'s profile.`;
+
                         chageBuildingsWindowsColors();
                     })
 
@@ -464,12 +462,10 @@ exploreNeighborhoods.addEventListener('mouseout', () => {
 
 
 
+
 //funtcion that slects all the windows of the neighborhood illustration and change their color:
 
-
-
 var windowColors = ['black', 'white'];
-
 
 let g = 0;
 let c = 1;
@@ -507,8 +503,6 @@ function chageBuildingsWindowsColors() {
     setTimeout(() => {
         chageBuildingsWindowsColors();
     }, 1000);
-
-
 
 }
 
