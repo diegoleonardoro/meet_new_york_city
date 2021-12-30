@@ -332,7 +332,9 @@
     margin-bottom: 3%;
     background-color: #2D4859;
     color:white;
-  }
+
+   
+}
 
 #brooklynTitle{
   font-family: 'Poppins', sans-serif;
@@ -403,6 +405,7 @@
       'manhattanNeighborhoodsContainer brooklynNeighborhoodsContainer bronxNeighborhoodsContainer queensNeighborhoodsContainer statenIslandNeighborhoodsContainer' ;
 
       justify-content: center;
+
   }
 
   #manhattanNeighborhoodsContainer{
@@ -414,7 +417,13 @@
     overflow-y: scroll;
     grid-area: manhattanNeighborhoodsContainer;
 
-   
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 
     /*
     left :50%;
@@ -432,6 +441,14 @@
     gap:1%;
     overflow-y: scroll;
     grid-area: brooklynNeighborhoodsContainer;
+
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
   }
   #bronxNeighborhoodsContainer{
     width:100%;
@@ -441,6 +458,14 @@
     gap:1%;
     overflow-y: scroll;
     grid-area: bronxNeighborhoodsContainer;
+
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
   }
 
   #queensNeighborhoodsContainer{
@@ -451,6 +476,13 @@
     gap:1%;
     overflow-y: scroll;
     grid-area: queensNeighborhoodsContainer;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
   }
 
 
@@ -462,6 +494,14 @@
     gap:1%;
     overflow-y: scroll;
     grid-area: statenIslandNeighborhoodsContainer;
+
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 
   
   }
@@ -534,7 +574,8 @@
 }
 
 #loadingUserProfileText{
-
+    font-size: 75%;
+    font-family: 'Poppins', sans-serif;
 }
 
 
