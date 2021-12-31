@@ -1913,7 +1913,8 @@
             "40.58631375103285"
         ],
         "Name": "Travis",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island", 
+        "Description": "Also know as Chelsea, Travis is mostly open marsh and is relatively undeveloped, although there are some businesses and one-family houses. It borders on the Teleport and is the site of Staten Island's West Shore Plaza and the Metropolitan Transportation Authority's Meredith Avenue Bus Depot. "
     },
     {
         "the_geom": [
@@ -1921,7 +1922,8 @@
             "40.57257231820636"
         ],
         "Name": "New Dorp",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description": "One of the earliest European settlements in the New York City area, New Dorp was founded by Dutch settlers from the New Netherland colony, and the name is an anglicization of Nieuw Dorp, meaning 'New Village' in Dutch. It was historically one of the most important towns on Staten Island, becoming a part of New York City in 1898 as part of the Borough of Richmond. In the 1960s New Dorp ceased to be a distinct town during New York City's suburbanization, where rapid housing development on Staten Island saw the town added to the city conurbation. Despite this, today New Dorp remains one of the main commercial and transport centers on Staten Island."
     },
     {
         "the_geom": [
@@ -1929,7 +1931,8 @@
             "40.558462243288844"
         ],
         "Name": "Oakwood",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island", 
+        "Description":"Dominated by farmland in the heights area, and an ocean resort in the beach area until the mid-20th century, Oakwood started suburbanization when a Staten Island Tunnel was proposed to connect to the New York City Subway. Development was rapid after the Verrazzano-Narrows Bridge opened in November 1964. Today, Oakwood is a middle-class neighborhood of one- and two-family homes and garden apartments, with important commercial establishments along Hylan Boulevard."
     },
     {
         "the_geom": [
@@ -1937,7 +1940,8 @@
             "40.54948022871365"
         ],
         "Name": "Great Kills",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island", 
+        "Description":"The term 'Great Kills' traces back informally at least to 1664, the final year of the Dutch colony of New Amsterdam, when French settler Jacques Guyon called the area 'La Grand Kills'."
     },
     {
         "the_geom": [
@@ -1945,7 +1949,8 @@
             "40.54223074745079"
         ],
         "Name": "Eltingville",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"In the early 20th century, Eltingville was settled primarily by Scandinavians, mostly Norwegians, to the point that unrelated families in the neighborhood often shared identical surnames, including Hansen, Johnson, Erickson, Ronning, Nygren, Bundesen and Swanson. These names were so common that people in Eltingville would differentiate between families by appending their trade or other defining characteristics with nicknames, such as 'delicatessen Hansen', 'fish Hansen', 'two-family' Hansen. A granddaughter of one of these Eltingville families is model Patti Hansen, wife of Rolling Stones guitarist Keith Richards."
     },
     {
         "the_geom": [
@@ -1953,7 +1958,8 @@
             "40.538114174745104"
         ],
         "Name": "Annadale",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"In 1929, immigrants from Spain purchased land along the Annadale shoreline, and founded a settlement that became known as the Spanish Camp, or Spanish Colony. First tents, and later bungalows, were built at the site. The site was purchased and buildings demolished at the end of the 20th century so that several large, upscale homes could be constructed."
     },
     {
         "the_geom": [
@@ -1961,7 +1967,8 @@
             "40.53745265012707"
         ],
         "Name": "Woodrow",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"The first Methodist church in the immediate New York City area opened in the neighborhood in 1771. Known today as the Woodrow United Methodist Church, its original congregants included some of the island's earliest well-known families. It was listed on the National Register of Historic Places in 1982."
     },
     {
         "the_geom": [
@@ -1969,7 +1976,8 @@
             "40.505333761156464"
         ],
         "Name": "Tottenville",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"During the colonial period and for a significant time thereafter, Tottenville was an important waypoint for travelers between New York City—of which Staten Island did not formally become a part until 1898—and Philadelphia. These were both sites of temporary capitals of the new United States. The town was the site of a ferry that crossed the Arthur Kill to the Ferry Slip in Perth Amboy, New Jersey. The ferry became less important when the Outerbridge Crossing opened in 1928, but continued to operate until 1963."
     },
     {
         "the_geom": [
@@ -1977,7 +1985,8 @@
             "40.63731606711036"
         ],
         "Name": "Tompkinsville",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"Tompkinsville contains an enclave of Sri Lankans. The neighborhood also hosts a number of live music and art venues, including Everything Goes Book Café, Deep Tanks Studio, Coyle Cavern, Ink Chyx Tattoo & Art Gallery, and the Staten Island LGBT Community Center, all of which take part in the north shore's monthly Second Saturday art walk."
     },
     {
         "the_geom": [
@@ -1985,7 +1994,8 @@
             "40.619193107926804"
         ],
         "Name": "Silver Lake",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"Silver Lake has a long history of both recreational and commercial uses. During the 19th century, a casino and saloon existed on the lakeshore and several companies harvested its ice. Staten Islanders used the lake for boating and ice skating in that era, and in February 1897, Silver Lake hosted the National Skating Amateur Championship races."
     },
     {
         "the_geom": [
@@ -1993,7 +2003,8 @@
             "40.612760157564935"
         ],
         "Name": "Sunnyside",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description":"Sunnyside was originally farmland on either side of Clove Road. As farms gave way to residential housing, the Vanderbilt family built homes in the area, including two which still stand at the corner of Victory Boulevard and Clove Road. The area was once known as Clove Valley or Clovenia, and then adopted the name Sunnyside from a boarding house that was established there in 1889."
     },
     {
         "the_geom": [
@@ -2001,7 +2012,8 @@
             "40.64367518334101"
         ],
         "Name": "Ditmas Park",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description":"This jaw-droppingly beautiful hood seems almost too good to be true: a charming suburb inside city limits, with a warm, diverse community and one of the country’s richest concentrations of Victorian architecture. If big porches, friendly neighbors, and a short commute to Manhattan are on your wish list, you can have it all in Ditmas Park."
     },
     {
         "the_geom": [
@@ -2009,7 +2021,8 @@
             "40.660946561881154"
         ],
         "Name": "Wingate",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description":"The neighborhood was originally named Pigtown. It was so named because it was the location of several major pig farms that supplied Brooklyn. Pigtown was at the southern periphery of the City of Brooklyn where it bordered the Town of Flatbush. On modern maps it is bounded on the north by Empire Boulevard (formerly Malbone Street), on the south by Midwood Street, on the east by Albany Avenue and on the west by Nostrand Avenue. Future drag racer Frederick DiNome and his criminal brother Richard DiNome were born and raised in Pigtown."
     },
     {
         "the_geom": [
@@ -2017,7 +2030,8 @@
             "40.65557231328081"
         ],
         "Name": "Rugby",
-        "Borough": "Brooklyn"
+        "Borough": "Brooklyn",
+        "Description": "Although it has been described as a 'subsection of the larger East Flatbush neighborhood,' with an estimated 60,000 residents, it has it own identity as 'the Remsen Village neighborhood of Brooklyn' and also as 'Rugby-Remsen Village.' "
     },
     {
         "the_geom": [
@@ -2025,7 +2039,8 @@
             "40.60919044434562"
         ],
         "Name": "Park Hill",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description": "Not only does Staten Island never make the NYC guidebooks, there might be parts of Staten Island that even Staten Islanders don’t know about. One of these neighborhoods is Park Hill, nestled along the Grymes foothills just south of Stapleton. Fewer Staten Islanders might remember that Park Hill is the former home of the National Football League in Staten Island."
     },
     {
         "the_geom": [
@@ -2033,7 +2048,8 @@
             "40.62109047275413"
         ],
         "Name": "Westerleigh",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description": "Westerleigh is home to the oldest tennis club in the US, tennis having been introduced to the US (from England, via Bermuda) at the home here of Mary Ewing Outerbridge. She played the first game in the US at the Staten Island Cricket Club on an hourglass shaped court. The location, on College Avenue, still sports a tennis court."
     },
     {
         "the_geom": [
@@ -2041,7 +2057,8 @@
             "40.62017151223193"
         ],
         "Name": "Graniteville",
-        "Borough": "Staten Island"
+        "Borough": "Staten Island",
+        "Description": "Largely rural well into the 20th century, Graniteville was the scene of a notable fire in March 1942, when an explosion at the Consolidated Fireworks Company on Richmond Avenue claimed the lives of five employees."
     },
     {
         "the_geom": [
