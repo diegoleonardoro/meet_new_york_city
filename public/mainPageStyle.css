@@ -1,6 +1,7 @@
 
   body, html {
       height: 100%;
+      background-color: #edf3f7;
   }
   
  .main-page-nav{
@@ -236,16 +237,20 @@
 
   #MainSection{
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr;
-    grid-template-rows: 55fr 15fr 2fr 2fr;
-    margin-top:5%;
+    grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
+    grid-template-rows: 25fr 25fr ;
+    margin-top:7%;
+    height:70%;
+
   }
 
 
   #headerMainDivContainer{
-    grid-column : 1/-1;
-    grid-row: 1/4;
+    grid-column : 2/4;
+    grid-row: 1/-1;
+    background-size: cover;
     background-image: url("https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/07mag-subways1-videoSixteenByNineJumbo1600.jpeg");  
+    border-radius:2rem;
   }
 
 
@@ -257,11 +262,11 @@
     font-size: 200%;
     letter-spacing: 0.5em;
     grid-column : 2/-1;
-    grid-row: 2/3;
+    grid-row: 1/2;
     align-self: flex-end;
     color: #FFFAFA;
     text-decoration: none;
-   
+    margin-left: 4rem;
   }
   
   
