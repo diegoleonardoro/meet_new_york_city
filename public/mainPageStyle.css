@@ -316,13 +316,25 @@
   }
 
 
+  #nhoodsMapSvgWrapper{
+    width:100%;
+    height:100%;
+
+
+    background-color: rgb(198, 226, 243);
+
+
+  }
+
 
 #exploreNeighborhoodsSection{
-      margin-top:5%;
+      /*margin-top:5%;*/
       width:100%;
-      height:100%;
 
       
+      height:100%;
+   
+   
   }
 
 
@@ -406,6 +418,9 @@
     width:100%;
     display: grid;
 
+    position: relative;
+    top: 6%;
+
     grid-template-areas: 
       'manhattanTitle brooklynTitle bronxTitle queensTitle statenIslandTitle'
       'manhattanNeighborhoodsContainer brooklynNeighborhoodsContainer bronxNeighborhoodsContainer queensNeighborhoodsContainer statenIslandNeighborhoodsContainer' ;
@@ -483,15 +498,17 @@
 
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 
-
+ 
   
   }
   .neighborhoodTitle{
     padding:2% 0%;
   }
 
+
+
   .neighborhood {
-    background-color: rgb(223, 240, 241); 
+    background-color: white; /*rgb(223, 240, 241);*/
     text-align: center;
 
     display: flex;
@@ -502,33 +519,55 @@
     transition: all 0.5s;
     font-size: 75%;
     font-family: 'Poppins', sans-serif;
+
+
+ 
   }
 
 
 .neighborhood:hover  {
   font-size: 90%;
-  background-color: #2D4859;
-  color:white;
+  background-color: rgb(239, 247, 252);
+
 
 }
 
 
 #map{
   width: 100%;
-  height:100%;
+  height:60%;
   display:flex;
   justify-content: space-evenly;
   transition: display 0.5s;
+
+position:relative;
+ top: 13%;
 }
 
 #MapSVG_{
   width:30%;
-  height:52%;
+ 
+
+  border-radius: 25px;
+
+ 
+  /*
+   transform:translate(0%, -50%);
   transition: all 3s;
-  margin-top: 5%;
-  /*margin-left:33%;*/
+  margin-left:33%;*/
   /*position:absolute;*/
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+
+.boundary{
+
+  /*
+  position: absolute;;
+  margin-top: 530%;
+  transform:translate(0%, -50%);
+  */
+
 }
 
 #neighborhoodDescription{
