@@ -26,7 +26,6 @@ exports.register = asyncHandler(async (req, res, next) => {
 //@access   Public
 exports.login = asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
-
     // Validate email & password
     if (!email || !password) {
         return next(new ErrorResponse('Please provide an email and passwrod', 400));
@@ -48,16 +47,53 @@ exports.login = asyncHandler(async (req, res, next) => {
 })
 
 
+
+//@desc     Confirm user's email  
+//@route    POST /auth/confirmEmailToken
+//@access   Private
+exports.confirmEmailToken =asyncHandler( async (req, res) => {
+
+    try {
+        const emailToken_ = req.params.emailToken;
+        if (emailToken !== null) {
+
+            //const accessToken = req.header('Authorization').split(' ')[1];
+            //const decodedAccessToken = jwt.verify(accessToken, process.env.SECRET_ACCESS_TOKEN);
+
+            // Check if the user exists:
+            const user = await User.findOne({ emailToken: emailToken_ });
+
+            // Check if email is areldy confirmed:
+            if (!user.emailConfirmed) {
+
+                // Check if provided email token matches user's email token
+                if (emailToken === user.emailToken) {
+                    await User.updateOne({ email: decodedAccessToken.email }, { $set: { emailConfirmed: true, emailToken: null } })
+                    res.status(200).json({ success: { status: 200, message: 'EMAIL_CONFIRMED' } });
+                } else {
+                    res.status(401).json({ error: { status: 401, message: "INVALID_EMAIL_TOKEN" } });
+                }
+            } else {
+                res.status(401).json({ error: { status: 401, message: "EMAIL_ALREADY_CONFIRMED" } });
+            }
+
+        } else {
+            res.status(400).json({ error: { status: 400, message: "BAD_REQUEST" } })
+        }
+    } catch (error) {
+        res.status(400).json({ error: { status: 400, message: 'BAD_REQUEST' } });
+    }
+})
+
+
 //@desc     Log user out / clear cookie 
 //@route    GET /auth/logout 
 //@access   Private
 exports.logout = asyncHandler(async (req, res, next) => {
-
     res.cookie('token', 'none', {
         expires: new Date(Date.now() + 10 * 1000),
         httpOnly: true
     })
-
     res.status(200).json({
         success: true,
         data: {}

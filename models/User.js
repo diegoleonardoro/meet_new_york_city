@@ -30,7 +30,7 @@ const favoritePlacesSchema = mongoose.Schema({
     coordinates: Object,
     numberOfPhotos: Number,
     placeImage: [
-        
+
         //{
         //    data: Buffer,
         //   contentType: String,
@@ -84,6 +84,30 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     },
 
+    emailToken: {
+        type: String
+    },
+
+    security: {
+        tokens: [{
+            refreshToken: String,
+            createdAt: Date
+        }],
+        passwordReset: {
+            token: {
+                type: String,
+                default: null
+            },
+            provisionalPassword: {
+                type: String,
+                default: null
+            },
+            expiry: {
+                type: Date,
+                default: null
+            }
+        }
+    },
 
 
     //================================//

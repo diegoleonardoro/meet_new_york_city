@@ -1,8 +1,10 @@
 const ErrorResponse = require("../utils/errorResponse");
 const UserRegistration = require("../models/User");// <<------ registration schema.
 const asyncHandler = require("../middleware/async");
-
+const { v4: uuidv4 } = require('uuid');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
 //const connectDB = require("../config/db");
 //const conn = connectDB();
 //const User = conn.model("User", require('../models/User'));
@@ -16,15 +18,6 @@ const conn = mongoose.createConnection(process.env.MONGO_URI, {
     useUnifiedTopology: true,
 });
 const User = conn.model("User", require('../models/User'));
-
-
-
-//init gfs
-//let gfs;
-//conn.once("open", () => {
-//   gfs = Grid(conn.db, mongoose.mongo);
-//    gfs.collection('uploads');
-//});
 
 
 
@@ -43,7 +36,44 @@ exports.Registration_Interface = (req, res, next) => {
 //@access   public
 exports.register_User = asyncHandler(async (req, res, next) => {
     const user = await User.create(req.body);
-    console.log('hoaholaholahoolahola jijiijijijij')
+
+
+    const emailToken = uuidv4();
+
+    const accessToken = jwt.sign({// ----------------------------------------------------------> create access token
+        _id: user.id,
+        email: user.email
+    }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRE });
+
+    const refreshToken = jwt.sign({// --------------------------------------------------------> create refresh token
+        _id: user.id,
+        email: user.email
+    }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
+
+
+
+
+    await User.updateOne({ email: user.email }, {// ------------------------------------------> update the created user with the 'refreshToken' 
+        $set: {
+            'emailToken': emailToken
+        },
+        $push: {
+            'security.tokens': {
+                refreshToken: refreshToken,
+                createdAt: new Date()
+            },
+        },
+    });
+
+
+
+
+
+    await sendEmailConfirmation({ email: user.email, emailToken: user.emailToken });
+
+
+
+
     sendTokenResponse(user, 200, res);
 })
 
@@ -82,8 +112,9 @@ exports.login = asyncHandler(async (req, res, next) => {
     };
 
     sendTokenResponse(user, 200, res);
-
 })
+
+
 
 
 
@@ -95,12 +126,7 @@ const sendTokenResponse = (user, statusCode, res) => {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000), // ---> This represents 30 days (time beyond which the token will expire)
         httpOnly: true
     };
-
     var flag = user.formResponded;
-
-    console.log(token);
-    console.log(options);
-
     if (flag) {
         res
             .status(statusCode)
@@ -118,10 +144,31 @@ const sendTokenResponse = (user, statusCode, res) => {
                 success: true,
                 token
             })
-
     }
-
-   
     return token;
 }
 
+
+
+const sendEmailConfirmation = async (user) => {
+
+    console.log(user.email);
+
+    const transport = nodemailer.createTransport({
+        //host: process.env.NODEMAILER_HOST,
+        //port: process.env.NODEMAILER_PORT,
+        service: 'Gmail',
+        auth: {
+            user: process.env.NODE_MAILER_GMAIL_USER,//process.env.NODEMAILER_USER,
+            pass: process.env.NODE_MAILER_GMAIL_PASSWORD //process.env.NODEMAILER_PASSWORD
+        }
+    });
+
+    const info = await transport.sendMail({
+        from: ' Diego ',
+        to: user.email,
+        subject: 'Confirm your email',
+        text: `Click the link to confirm your email https://meet-nyc.herokuapp.com//confirm-email/${user.emailToken}`,
+    })
+
+}
