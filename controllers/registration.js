@@ -136,7 +136,7 @@ const sendTokenResponse = (user, statusCode, res) => {
 
     console.log(user)
     console.log(flag)// prints undefined
-    
+
     if (flag) {
 
         console.log(3);
@@ -172,7 +172,8 @@ const sendEmailConfirmation = async (user) => {
         //host: process.env.NODEMAILER_HOST,
         //port: process.env.NODEMAILER_PORT,
         host: '	smtp.gmail.com',
-        port:'465',
+        port: '465',
+        secure: true,
         auth: {
             user: process.env.NODE_MAILER_GMAIL_USER,//process.env.NODEMAILER_USER,
             pass: process.env.NODE_MAILER_GMAIL_PASSWORD //process.env.NODEMAILER_PASSWORD
