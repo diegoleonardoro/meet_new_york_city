@@ -35,10 +35,13 @@ exports.Registration_Interface = (req, res, next) => {
 //@route    POST /register
 //@access   public
 exports.register_User = asyncHandler(async (req, res, next) => {
+
     const user = await User.create(req.body);
 
 
     const emailToken = uuidv4();
+
+    //console.log('emailToken: ', emailToken);
 
     const accessToken = jwt.sign({// ----------------------------------------------------------> create access token
         _id: user.id,
@@ -69,7 +72,7 @@ exports.register_User = asyncHandler(async (req, res, next) => {
 
 
 
-    //await sendEmailConfirmation({ email: user.email, emailToken: user.emailToken });
+    await sendEmailConfirmation({ email: user.email, emailToken: emailToken });
 
 
 
@@ -121,13 +124,22 @@ exports.login = asyncHandler(async (req, res, next) => {
 
 
 const sendTokenResponse = (user, statusCode, res) => {
+
+    console.log(1);
     const token = user.getSignedJwtToken();
     const options = {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000), // ---> This represents 30 days (time beyond which the token will expire)
         httpOnly: true
     };
+    console.log(2);
     var flag = user.formResponded;
+
+    console.log(user)
+    console.log(flag)// prints undefined
+    
     if (flag) {
+
+        console.log(3);
         res
             .status(statusCode)
             .cookie('token', token, options)
@@ -137,6 +149,8 @@ const sendTokenResponse = (user, statusCode, res) => {
                 flag
             })
     } else {
+
+        console.log(4);
         res
             .status(statusCode)
             .cookie('token', token, options)
@@ -145,6 +159,7 @@ const sendTokenResponse = (user, statusCode, res) => {
                 token
             })
     }
+    console.log(5)
     return token;
 }
 
@@ -152,25 +167,26 @@ const sendTokenResponse = (user, statusCode, res) => {
 
 const sendEmailConfirmation = async (user) => {
 
-    console.log(user.email);
 
     const transport = nodemailer.createTransport({
         //host: process.env.NODEMAILER_HOST,
         //port: process.env.NODEMAILER_PORT,
-        service: 'smtp-mail.outlook.com',
-        secureConnection: false,
-        port: 587, 
+        service: 'Gmail',
         auth: {
             user: process.env.NODE_MAILER_GMAIL_USER,//process.env.NODEMAILER_USER,
             pass: process.env.NODE_MAILER_GMAIL_PASSWORD //process.env.NODEMAILER_PASSWORD
         }
     });
 
-    const info = await transport.sendMail({
+    await transport.sendMail({
         from: ' Diego ',
         to: user.email,
         subject: 'Confirm your email',
-        text: `Click the link to confirm your email https://meet-nyc.herokuapp.com//confirm-email/${user.emailToken}`,
+        text: `Click the link to confirm your email http://localhost:9000/confirm-email/${user.emailToken}`,
     })
 
+
+
 }
+
+//heroku config:set REFRESH_JWT_EXPIRE="Keepthriving_0915"
