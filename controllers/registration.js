@@ -171,9 +171,13 @@ const sendEmailConfirmation = async (user) => {
     const transport = nodemailer.createTransport({
         //host: process.env.NODEMAILER_HOST,
         //port: process.env.NODEMAILER_PORT,
-        host: '	smtp.gmail.com',
-        port: '465',
-        secure: true,
+
+        //host: '	smtp.gmail.com',
+        //port: '465',
+        //secure: true,
+        service: 'gmail',
+        port: 8000,
+        secure: false,
         auth: {
             user: process.env.NODE_MAILER_GMAIL_USER,//process.env.NODEMAILER_USER,
             pass: process.env.NODE_MAILER_GMAIL_PASSWORD //process.env.NODEMAILER_PASSWORD
