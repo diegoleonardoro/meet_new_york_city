@@ -69,7 +69,7 @@ exports.register_User = asyncHandler(async (req, res, next) => {
 
 
 
-    await sendEmailConfirmation({ email: user.email, emailToken: user.emailToken });
+    //await sendEmailConfirmation({ email: user.email, emailToken: user.emailToken });
 
 
 
