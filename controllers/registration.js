@@ -158,6 +158,8 @@ const sendEmailConfirmation = async (user) => {
         //host: process.env.NODEMAILER_HOST,
         //port: process.env.NODEMAILER_PORT,
         service: 'smtp-mail.outlook.com',
+        secureConnection: false,
+        port: 587, 
         auth: {
             user: process.env.NODE_MAILER_GMAIL_USER,//process.env.NODEMAILER_USER,
             pass: process.env.NODE_MAILER_GMAIL_PASSWORD //process.env.NODEMAILER_PASSWORD
