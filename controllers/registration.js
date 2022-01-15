@@ -63,7 +63,7 @@ exports.register_User = asyncHandler(async (req, res, next) => {
         },
     });
 
-   
+
     await sendEmailConfirmation({ email: user.email, emailToken: emailToken });
 
     sendTokenResponse(user, 200, res);
@@ -119,7 +119,7 @@ const sendTokenResponse = (user, statusCode, res) => {
 
     const token = user.getSignedJwtToken();// getSignedJwtToken() is a User schema method which creates a token based on the user _id
     const options = {
-        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE), 
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE),
         httpOnly: true
     };
 
@@ -169,7 +169,7 @@ const sendEmailConfirmation = async (user) => {
         from: ' Diego ',
         to: user.email,
         subject: 'Confirm your email',
-        text: `Click the link to confirm your email http://localhost:3000/users/${user.emailToken}`,
+        text: `Click the link to confirm your email http://meet-nyc.herokuapp.com/users/${user.emailToken}`,
         //meet-nyc.herokuapp.com
     })
 }
