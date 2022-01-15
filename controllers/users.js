@@ -224,10 +224,14 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
 
 //@dsc      Render the form after the user has logged in
-//@route    GET /users/id:
+//@route    GET /users/:emailToken
 //@access   Private 
 exports.getFormInterface = asyncHandler(async (req, res, next) => {
-    res.sendFile(path.join(__dirname, '../public', 'index3.html'))
+
+    console.log(req.user);
+
+    res.sendFile(path.join(__dirname, '../public', 'index3.html'));
+
 })
 
 

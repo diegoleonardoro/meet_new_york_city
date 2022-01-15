@@ -25,22 +25,23 @@ router.route('/')
     .get(advancedResults(User), getUsers)
     .post(createUser);
 
+    
 router.route('/neighborhood/:neighborhood')
-    .get(getNeighborhood)
+    .get(getNeighborhood);
 
-router.route('/:id')
+
+router.route('/:emailToken')
     .get(protect, getFormInterface)
     .put(updateUser)
     .delete(deleteUser);
+
 
 router.route('/profile/:id')
     .get(protect, userProfile)
 
 
-
 router.route('/user-profile/:slug')
     .get(user_ProfilePublic)
-
 
 
 module.exports = router;

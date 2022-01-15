@@ -9,7 +9,7 @@ const {
 
 
 
-// Base route:  '/reigser'
+// Base route:  '/register'
 
 const router = express.Router();
 

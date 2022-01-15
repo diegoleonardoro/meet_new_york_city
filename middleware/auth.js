@@ -33,35 +33,31 @@ const User = conn.model("User", require('../models/User'));
 // Protect routes
 exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this method, we need to add it the route that we want to protect as a first parameter  
 
-    // This middleware is going to be in charge of checking that the user that is trying to 
-    // access a protected route has the correct token (is loged in).  
+    const token = req.headers.cookie.split('token=')[1];
+    if (token) {
+
+        try {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            var id_ = decoded.id;
+
+            req.user = await User.find({ _id: id_.toObjectId() });
+
+            if (req.user) {
+
+                await User.updateOne({ _id: id_.toObjectId() }, { $set: { emailConfirmed: true, emailToken: null } });
+
+                next();
+            }
+
+        } catch (err) {
+            return next(new ErrorResponse('Not authorized to access this route', 401));
+        }
+    } else {
+        return next(new ErrorResponse('ACCESS DENIED', 400));
+    }
 
 
-    // console.log(req.headers.cookie.split('token='));
 
-    let token;
-
-    //token = req.headers.cookie.slice(17)
-
-
-    console.log('=====================')
-    token = req.headers.cookie.split('token=')[1];
-
-
-    //console.log('hola tu....')
-
-
-    //console.log('token from auth', token);
-    //console.log('========================================')
-
-    //token = req.headers.cookie.split(';')[1].slice(7)
-
-
-
-
-    //console.log(req.headers.cookie.split(';')[1])
-
-    //====================================================================================
     //if (
     //    req.headers.authorization &&// ---> Here we are cheking if there is an authorization header 
     //    req.headers.authorization.startsWith('Bearer') // ---> in the headers, the token is sent with the "authorization" key and it starts with the word "Bearer"
@@ -71,42 +67,31 @@ exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this 
     //    console.log(token)
     //}
     //====================================================================================
-
-    //====================================================================================
+    //===================================================================================
 
     // Set token from a cookie
     // else if (req.cookies.token) { // This else if allows us to send the token as a cookie 
     //    console.log("lolissss"); 
     //   token = req.cookies.token;
     //} 
-
     //====================================================================================
 
-
-
-    // Make sure token exists
-    if (!token) {
-        //console.log('1')
-        return next(new ErrorResponse('Not authorized to access this route', 401));
-    }
-
-    // console.log(token);
-
-    // Verify token
+    /*
+    GETTING THE USER USING THE EMAIL TOKEN.
     try {
-
-        const decoded = jwt.verify(token, process.env.JWT_SECRET); // Here we are verifying that the token sent by the client matches the the JWT_SECRET value that we set on the config env variables.
-
-        var id_ = decoded.id;
-
-        req.user = await User.find({ _id: id_.toObjectId() });
-
-        next();// this 'next' will call the next middleware 
-
-    } catch (err) {
-       
+        const emailToken = req.params.emailToken;
+    
+        req.user = await User.find({ emailToken: emailToken });
+        
+        next();
+    } catch (error) {
         return next(new ErrorResponse('Not authorized to access this route', 401));
     }
+    */
+
+
+
+
 
 })
 

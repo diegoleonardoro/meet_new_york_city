@@ -183,6 +183,48 @@ body{
  
 
 
+/* sent email illustration */
+
+#checkEmailContainer{
+  display:none;
+  position:relative;
+  width:100%;
+  height:auto;
+}
+
+#checkEmailHeader{
+  font-size: 20px;
+  font-family: 'Rubik';
+  padding-top:5%;
+  margin-left:51%;
+  transform:translate(-50%, 0);
+}
+
+#divImgSvgSentEmailContainer{
+  position: relative;
+  margin-top:5%;
+}
+
+#sentEmailHandsLine{
+
+}
+
+#sentEmailHandsLine2{
+  fill:none;
+  stroke:#edf3f7;
+  stroke-dasharray: 40;
+  stroke-width: 2;
+  animation: dash2 10s infinite linear;
+}
+
+@keyframes dash2 {
+  from {
+    stroke-dashoffset: 1000;
+  }
+}
+/* end of sent email illustration */
+
+
 
 
 /*

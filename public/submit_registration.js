@@ -1,11 +1,22 @@
 var registration_form = document.getElementsByClassName('register-form')[0];
 
+
+const line = document.getElementById('sentEmailHandsLine');
+
+
+
+
 registration_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
 
     form_elements = registration_form.elements
 
+    const registerPage = document.getElementsByClassName('register-page')[0];
+    registerPage.style.display = 'none';
+
+    const checkEmailContainer = document.getElementById('checkEmailContainer');
+    checkEmailContainer.style.display = 'inline';
 
 
     const formData = new FormData();
@@ -30,7 +41,7 @@ registration_form.addEventListener('submit', function (e) {
 
     }
 
-    console.log(formValues);
+   
 
     if (enteredPassword === reenteredPassword) {
 
@@ -40,32 +51,24 @@ registration_form.addEventListener('submit', function (e) {
         // log response
         let token = '';
         xhr.onload = () => {
-            console.log(xhr.response);
+            //console.log(xhr.response);
             token = JSON.parse(xhr.response).token;
         };
 
-       
+
         xhr.open('POST', '/register');
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send(JSON.stringify(formValues));
 
-        setTimeout(() => {
 
-            console.log(token);
 
-            var registrationForm = document.getElementById('goToMainForm')
-    
-            registrationForm.href = `users/${token}`
-            
-            registrationForm.pathname = `users/${token}`
+        //setTimeout(() => {
+        //    var registrationForm = document.getElementById('goToMainForm');
+        //    registrationForm.href = `users/${token}`
+        //    registrationForm.pathname = `users/${token}`
+        //    registrationForm.click();
+        //}, 2000);
 
-            console.log(registrationForm.pathname);
-    
-            registrationForm.click()
-    
-        }, 2000);
-
-        //=======================
 
 
 

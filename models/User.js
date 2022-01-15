@@ -84,6 +84,12 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     },
 
+    emailConfirmed: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
+    
     emailToken: {
         type: String
     },
