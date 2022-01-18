@@ -29,16 +29,28 @@ const User = conn.model("User", require('../models/User'));
 
 
 
+exports.protect = asyncHandler(async (req, res, next) => {
 
-// Protect routes
-exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this method, we need to add it the route that we want to protect as a first parameter  
 
-    const token = req.headers.cookie.split('token=')[1];
+    const parseCookie = str =>
+        str
+            .split(';')
+            .map(v => v.split('='))
+            .reduce((acc, v) => {
+                acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+                return acc;
+            }, {});
+
+    const cookie = parseCookie(req.headers.cookie);
+    const token = cookie['token'];
+    const refreshToken = cookie['refreshToken'];
+
     if (token) {
 
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            var id_ = decoded.id;
+
+            var id_ = decoded._id;
 
             req.user = await User.find({ _id: id_.toObjectId() });
 
@@ -71,7 +83,6 @@ exports.protect = asyncHandler(async (req, res, next) => { // ----> to use this 
 
     // Set token from a cookie
     // else if (req.cookies.token) { // This else if allows us to send the token as a cookie 
-    //    console.log("lolissss"); 
     //   token = req.cookies.token;
     //} 
     //====================================================================================

@@ -1,9 +1,8 @@
 const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require("../middleware/async");
-
 const Grid = require("gridfs-stream");
-
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 
 //const User = require("../models/User");
@@ -155,14 +154,6 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
     createStream();
     //===============================//
 
-
-
-
-
-
-
-
-
     setTimeout(() => {
 
         responseObject['imagesFormated'] = newArr;
@@ -175,21 +166,6 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
         })
 
     }, 15000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //responseObject['favoritePlaces'] = favPlacesArray;
     //responseArray.push(responseObject);
@@ -215,9 +191,6 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
     */
 
 
-
-
-
 });
 
 
@@ -228,11 +201,48 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 //@access   Private 
 exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
-    console.log(req.user);
+
+    const parseCookie = str =>
+        str
+            .split(';')
+            .map(v => v.split('='))
+            .reduce((acc, v) => {
+                acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+                return acc;
+            }, {});
+
+    const cookie = parseCookie(req.headers.cookie);
+    const refreshToken = cookie['refreshToken'];
+
+
+
+    const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
+    const user = await User.findOne({ email: decodedRefreshToken.email });
+
+
+    const accessToken = jwt.sign({
+        _id: user.id,
+        email: user.email
+    }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
+
+
+    res
+        .status(200)
+        .cookie('token', accessToken)// token, options
+        .cookie('refreshToken', refreshToken)
+
+
 
     res.sendFile(path.join(__dirname, '../public', 'index3.html'));
 
+
 })
+
+
+
+
+
+
 
 
 
@@ -509,14 +519,9 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
         });
     }
 
-
-
     createStream();
 
-
     setTimeout(() => {
-
-
 
         let livingInNhood;
         if (user[0].lengthLivingInNeighborhood === 'do not live there') {
@@ -554,71 +559,7 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
 
     }, 10000);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /* 
-    
-    
         let favPlaces = input[0].favoritePlaces;
         let imagesFormated = [];
         for (var i = 0; i < favPlaces.length; i++) {
@@ -652,8 +593,7 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
         var introduction6 = `Please keep exploring my profile if you want to learn more about ${input[0].neighborhood}, and get to know New York City like very few visitors do.`
     
         var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
-    
-    
+
         console.log(input);
     
         user = {
@@ -669,24 +609,10 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
             'imagesFormated': imagesFormated,
             'intro': intro
         }
-    
-        res.render("user_profile", { user });
-    
-    
-    
-    */
-
-
-
-
-
-
-
+        res.render("user_profile", { user });        
+*/
 
 });
-
-
-
 
 
 
@@ -695,9 +621,6 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
 //@route    POST /auth/users
 //@access   Private/Admin
 exports.createUser = asyncHandler(async (req, res, next) => {
-
-    console.log(req.body);
-
     const user = await User.create(req.body);
     res.status(201).json({
         success: true,
@@ -734,6 +657,48 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
 });
 
 
+
+
+
+
+
+const addRefreshToken = async (user, refreshToken) => {
+    try {
+        const existingRefreshTokens = user.security.tokens;
+
+        if (existingRefreshTokens.length < 5) {// if the user has less than 5 tokens, then give it a new token 
+            await User.updateOne({ email: user.email }, {
+                $push: {
+                    'security.token': refreshToken,
+                    createdAt: new Date(),
+                }
+            });
+        } else {// if the user already has 5 tokens, then pull the last inserted token and add add a new one 
+
+            // Pull the last token
+            await User.updateOne({ email: user.email }, {
+                $pull: {
+                    'security.tokens': {
+                        _id: existingRefreshTokens[0]._id,
+                    },
+                },
+            });
+
+            // Push the new token 
+            await User.updateOne({ email: user.email }, {
+                $push: {
+                    'security.tokens': {
+                        refreshToken: refreshToken,
+                        createdAt: new Date()
+                    }
+                }
+            })
+        }
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
 
 
 
