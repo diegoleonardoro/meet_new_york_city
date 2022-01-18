@@ -214,10 +214,10 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
     const cookie = parseCookie(req.headers.cookie);
     const refreshToken = cookie['refreshToken'];
 
-
-
     const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
     const user = await User.findOne({ email: decodedRefreshToken.email });
+
+
 
 
     const accessToken = jwt.sign({
@@ -230,7 +230,9 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
         .status(200)
         .cookie('token', accessToken)// token, options
         .cookie('refreshToken', refreshToken)
-
+        .json({
+            user: 
+        })
 
 
     res.sendFile(path.join(__dirname, '../public', 'index3.html'));
@@ -373,15 +375,7 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
     //console.log('arr: ', arr);
     //console.log('files: ', files);
 
-
-
-
-
-
     // });
-
-
-
 
     /* 
     let mainArray = [];
