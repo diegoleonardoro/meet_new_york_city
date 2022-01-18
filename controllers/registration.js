@@ -44,14 +44,14 @@ exports.register_User = asyncHandler(async (req, res, next) => {
     const accessToken = jwt.sign({// ----------------------------------------------------------> create access token
         _id: user.id,
         email: user.email
-    }, process.env.JWT_SECRET, {expiresIn: process.env.JWT_COOKIE_EXPIRE});
+    }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
 
 
     // this refresh token will still be accesible when the user clicks the email confirmation link
     const refreshToken = jwt.sign({// --------------------------------------------------------> create refresh token
         _id: user.id,
         email: user.email
-    }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE});
+    }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
 
 
     await User.updateOne({ email: user.email }, {// ------------------------------------------> update the created user with the 'refreshToken' 
@@ -69,7 +69,7 @@ exports.register_User = asyncHandler(async (req, res, next) => {
 
     await sendEmailConfirmation({ email: user.email, emailToken: emailToken });
 
-   sendTokenResponse(user, 200, res, accessToken, refreshToken);
+    sendTokenResponse(user, 200, res, accessToken, refreshToken);
 
     /*
     res.status(200).header().json({
@@ -84,7 +84,9 @@ exports.register_User = asyncHandler(async (req, res, next) => {
             },
         },
     });
-     */
+    */
+
+
 })
 
 
