@@ -236,8 +236,8 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
         user: user
     })*/
 
-
-    res.sendFile(path.join(__dirname, '../public', 'index3.html'));
+    res.render("questionnaire", { user });
+    //res.sendFile(path.join(__dirname, '../public', 'index3.html'));
 
 
 })
