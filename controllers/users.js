@@ -230,7 +230,7 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
         .status(200)
         .cookie('token', accessToken)// token, options
         .cookie('refreshToken', refreshToken)
-        .send(user)
+        .json({user})
     /*.json(
         user: user
     })*/
