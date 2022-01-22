@@ -23,7 +23,7 @@ var engines = require('consolidate');
 
 const methodOverride = require('method-override');
 
-
+const as = require('./')
 
 
 

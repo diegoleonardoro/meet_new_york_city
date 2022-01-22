@@ -35,7 +35,7 @@ span{
 
   
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
     grid-column : 1/-1;
     grid-row: 1/2;
     background-color:rgb(250, 255, 255);
@@ -46,6 +46,7 @@ span{
 
 .main-form-page-page-nav ul{
     width:50rem;
+    justify-content: space-between;
     display:flex;
     align-items:flex-end;
     list-style: none;
