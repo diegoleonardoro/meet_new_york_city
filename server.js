@@ -45,10 +45,13 @@ app.use(bodyParser.json());//{ limit: '50mb' }
 
 app.use(methodOverride('_method'));
 
-
-
 // cookieParser is used to parse cookie header and populate req.cookie
 app.use(cookieParser());
+
+app.use(cors({
+    credentials:true, 
+    origin:"http://localhost:3000"
+}))
 
 // define the directory where the static files are
 app.use(express.static(path.join(__dirname, 'public')))

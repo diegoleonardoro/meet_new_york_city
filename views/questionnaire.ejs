@@ -28,15 +28,10 @@
 
 <body>
 
-        <script>
-
-                let user = <%- JSON.stringify(user) %>;
-        
-             
-                
-                console.log(user)
-        
-            </script>
+    <script>
+        let user = <%- JSON.stringify(user) %>;    
+        console.log(user)
+    </script>
 
 
     <!-- main form page -->
@@ -46,8 +41,17 @@
             <ul>
                 <li><a href='#'>Explore neighborhoods</a></li>
                 <li><a href='#'>About</a></li>
-                <li><a href='#'>Language: English</a></li>
             </ul>
+
+            <div class='user'>
+                <div class='user-image-wrapper'>
+                    <img src='https://media-exp1.licdn.com/dms/image/C4D03AQEj1JSX2oGPBg/profile-displayphoto-shrink_800_800/0/1589671182353?e=1640822400&v=beta&t=-mMk6bouHEzergtpKjrqsA-igIw9-UD8Lcd__ez08fk'/>
+                </div>
+                <a href='#' class='user-link'><%= user.name %></a>
+                <i class='fas fa-chevron-down'></i>
+            </div>
+
+
         </nav>
         <!-- end of main form page nav -->
 

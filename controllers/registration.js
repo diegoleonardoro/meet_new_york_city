@@ -40,36 +40,57 @@ exports.register_User = asyncHandler(async (req, res, next) => {
 
     const emailToken = uuidv4();
 
+
+
+
     // instead of sending this accessToken to the user, we are sending a token with the sendTokenResponse method.
-    const accessToken = jwt.sign({// ----------------------------------------------------------> create access token
+    const accessToken = jwt.sign({
         _id: user.id,
         email: user.email
     }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
 
 
+
+
     // this refresh token will still be accesible when the user clicks the email confirmation link
-    const refreshToken = jwt.sign({// --------------------------------------------------------> create refresh token
+    const refreshToken = jwt.sign({
         _id: user.id,
         email: user.email
     }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
 
 
-    await User.updateOne({ email: user.email }, {// ------------------------------------------> update the created user with the 'refreshToken' 
+
+
+    //console.log('refresh token register :')
+    //console.log(refreshToken);
+
+    await User.updateOne({ email: user.email }, {
         $set: {
             'emailToken': emailToken
-        },
+        }
+        /*
         $push: {
             'security.tokens': {
                 refreshToken: refreshToken,
                 createdAt: new Date()
             },
         },
+        */
     });
-
 
     await sendEmailConfirmation({ email: user.email, emailToken: emailToken });
 
-    sendTokenResponse(user, 200, res, accessToken, refreshToken);
+    /*
+        res
+        .status(200)
+        .cookie('token', accessToken)
+        .cookie('refreshToken', refreshToken)
+        .cookie('user', user)
+
+    */
+
+    //sendTokenResponse(user, 200, res, accessToken, refreshToken);
+
 
     /*
     res.status(200).header().json({
@@ -151,57 +172,36 @@ const sendTokenResponse = (user, statusCode, res, accessToken, refreshToken) => 
 
     var flag = user.formResponded;
 
-
-
-
     if (flag) {
         res
-            .status(statusCode).header().json({
-
-                success: {
-                    status: statusCode,
-                    accessToken: accessToken,
-                    refreshToken: refreshToken,
-                }
-            });
-
-        /*
-          .status(statusCode)
-          .cookie('token', accessToken)
-          .cookie('refreshToken', refreshToken)
-          .json({
-              success: true,
-              accessToken: accessToken,
-              refreshToken: refreshToken,
-              // token,
-              flag
-          })
-              */
-
-    } else {
-        res
-            /*
-            .status(statusCode).header().json({
-                success: {
-                    status: statusCode,
-                    accessToken: accessToken,
-                    refreshToken: refreshToken,
-                }
-            });
-            */
+        
             .status(statusCode)
-            .cookie('token', accessToken)// token, options
+            .cookie('token', accessToken)
             .cookie('refreshToken', refreshToken)
+
+
             .json({
                 success: true,
                 accessToken: accessToken,
                 refreshToken: refreshToken,
-                //token
+            })
+
+
+    } else {
+        res
+            .status(statusCode)
+            .cookie('token', accessToken)// token, options
+            .cookie('refreshToken', refreshToken)
+
+            .json({
+                success: true,
+                accessToken: accessToken,
+                refreshToken: refreshToken,
             })
 
     }
 
-    return accessToken;
+    //return accessToken;
 }
 
 

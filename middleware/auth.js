@@ -31,74 +31,101 @@ const User = conn.model("User", require('../models/User'));
 
 exports.protect = asyncHandler(async (req, res, next) => {
 
+    const emailToken = req.params.emailToken;
 
-    const parseCookie = str =>
-        str
-            .split(';')
-            .map(v => v.split('='))
-            .reduce((acc, v) => {
-                acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-                return acc;
-            }, {});
 
-    const cookie = parseCookie(req.headers.cookie);
-    const token = cookie['token'];
-    const refreshToken = cookie['refreshToken'];
+    if (req.headers.cookie) {
+        const parseCookie = str =>
+            str
+                .split(';')
+                .map(v => v.split('='))
+                .reduce((acc, v) => {
+                    acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+                    return acc;
+                }, {});
+        const cookie = parseCookie(req.headers.cookie);
+        const refreshToken = cookie['refreshToken'];
 
-    if (token) {
+   
 
-        try {
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
+        var id_ = decodedRefreshToken._id;
 
-            var id_ = decoded._id;
+     
 
-            req.user = await User.find({ _id: id_.toObjectId() });
+        req.user = await User.find({ _id: id_ });
+        //console.log( ' req.headers.cookie:' , req.user)
+        next();
 
-            if (req.user) {
+    } else if (emailToken) {
 
-                await User.updateOne({ _id: id_.toObjectId() }, { $set: { emailConfirmed: true, emailToken: null } });
+        req.user = await User.find({ emailToken: emailToken });
 
-                next();
-            }
-
-        } catch (err) {
-            return next(new ErrorResponse('Not authorized to access this route', 401));
+        console.log( 'emailToken: ' , req.user)
+        if (req.user) {
+            next();
         }
-    } else {
-        return next(new ErrorResponse('ACCESS DENIED', 400));
+
     }
 
 
 
-    //if (
-    //    req.headers.authorization &&// ---> Here we are cheking if there is an authorization header 
-    //    req.headers.authorization.startsWith('Bearer') // ---> in the headers, the token is sent with the "authorization" key and it starts with the word "Bearer"
-    //) {
-    //    // Set token from a Bearer token in header
-    //    token = req.headers.authorization.split(' ')[1];
-    //    console.log(token)
-    //}
-    //====================================================================================
-    //===================================================================================
 
-    // Set token from a cookie
-    // else if (req.cookies.token) { // This else if allows us to send the token as a cookie 
-    //   token = req.cookies.token;
-    //} 
-    //====================================================================================
+
+
+
+    // if (emailToken === req.user[0].emailToken) {
+    //     console.log(emailToken);
+    //    console.log(req.user[0]);
+    //     next();
+    //}
+
+
+
+    //if (refreshToken) {
+    //    const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
+    //    var id_ = decodedRefreshToken._id;
+    //    req.user = await User.find({ _id: id_.toObjectId() });
+
+    //    if (emailToken === req.user[0].emailToken) {
+    //        next();
+    //    }
+    //} else if (emailToken) {
+    //    req.user = await User.find({ emailToken: emailToken });
+    ///    if (req.user) {
+    //        next();
+    //    }
+    //}
+
+
+
+
+
+    //next();
 
     /*
-    GETTING THE USER USING THE EMAIL TOKEN.
-    try {
-        const emailToken = req.params.emailToken;
-    
-        req.user = await User.find({ emailToken: emailToken });
-        
-        next();
-    } catch (error) {
-        return next(new ErrorResponse('Not authorized to access this route', 401));
-    }
-    */
+    if (emailToken !== null) {
+        const parseCookie = str =>
+            str
+                .split(';')
+                .map(v => v.split('='))
+                .reduce((acc, v) => {
+                    acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+                    return acc;
+                }, {});
+        const cookie = parseCookie(req.headers.cookie);
+        const token = cookie['token'];
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        var id_ = decoded._id;
+        req.user = await User.find({ _id: id_.toObjectId() });
+
+        if (emailToken === req.user[0].emailToken) {
+            next();
+        }
+    } 
+     */
 
 
 
@@ -108,7 +135,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
 
 // Grant access to specific roles
-exports.authorize = (...roles) => { // The roles that are passed to this function in the routes file are the only ones that will be able to access that route. The "role" sent by the client be included in this "roles" array if he/she wants to access that route. 
+exports.authorize = (...roles) => {
     return (req, res, next) => {
         if (!roles.includes(req.user.role)) {
             // console.log('4')
@@ -116,7 +143,6 @@ exports.authorize = (...roles) => { // The roles that are passed to this functio
                 403
             ));
         }
-        //console.log('4')
         next();
     }
 }

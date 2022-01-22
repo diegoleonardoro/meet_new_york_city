@@ -202,41 +202,75 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
 
-    const parseCookie = str =>
-        str
-            .split(';')
-            .map(v => v.split('='))
-            .reduce((acc, v) => {
-                acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-                return acc;
-            }, {});
-
-    const cookie = parseCookie(req.headers.cookie);
-    const refreshToken = cookie['refreshToken'];
-
-    const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
-    const user = await User.findOne({ email: decodedRefreshToken.email });
+    //  const parseCookie = str =>
+    //      str
+    //         .split(';')
+    //         .map(v => v.split('='))
+    //         .reduce((acc, v) => {
+    //             acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+    //            return acc;
+    //        }, {});
 
 
 
+    //const cookie = parseCookie(req.headers.cookie);
+    //const token = cookie['token'];
+    // const refreshToken = cookie['refreshToken'];
 
-    const accessToken = jwt.sign({
-        _id: user.id,
-        email: user.email
+
+
+
+    //const decodedRefreshToken = jwt.verify(token, process.env.JWT_SECRET);
+    //const user = await User.findOne({ email: decodedRefreshToken.email });
+
+
+
+    const user = await User.find({ _id: req.user[0]._id });
+
+
+
+    const accessToken = await jwt.sign({
+        _id: user[0].id,
+        email: user[0].email
     }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
+
+    const refreshToken = jwt.sign({
+        _id: user[0].id,
+        email: user[0].email
+    }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
 
 
     res
         .status(200)
         .cookie('token', accessToken)// token, options
         .cookie('refreshToken', refreshToken)
-        .cookie('user', user)
+    // .cookie('user', user)
+    
 
-    /*.json(
-        user: user
-    })*/
 
-    res.render("questionnaire", { user });
+
+
+
+    /*
+    res.status(200).json({
+        success: {
+            status: 200,
+            message: 'LOGIN_SUCCES',
+            accessToken: accessToken,
+            refreshToken: refreshToken,
+        },
+    });
+    
+    .json({
+          success: true,
+          accessToken: accessToken,
+          refreshToken: refreshToken,
+      })
+    */
+
+
+
+    res.render("questionnaire", { user: user[0] });
     //res.sendFile(path.join(__dirname, '../public', 'index3.html'));
 
 

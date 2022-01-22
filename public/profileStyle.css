@@ -34,11 +34,10 @@
     display:flex;
     justify-content: center;
     box-shadow: 0 0 0.7rem rgba(0,0,0, 0.3);
-
-
     margin-bottom:1rem;
     
   }
+
   .icons{
     display:flex;
     align-items: center;
@@ -102,10 +101,10 @@
     font-size: 1.8rem;
     color:#444;
   }
-    .user i {
+.user i {
      color:#444;
     font-size:1.6rem;
-}
+    }
 /* end of profile navigation */
 
 
