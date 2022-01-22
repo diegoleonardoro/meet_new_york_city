@@ -109,14 +109,42 @@ body{
   justify-self: center;
   align-self: center;
 
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+
+#registerProfileImageContainer{
+
+  display: flex;
+  flex-direction: row;
+
 
 }
+
 .register-content h2{ 
   font-size:2.4rem;
   margin-bottom:3rem;
-  color:#2D4859/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
- 
+  color:#2D4859 ;
+  padding-top: 1.3rem;
 }
+
+.user-image-wrapper{
+  width:5rem;
+  height:5rem;
+}
+
+.user-image-wrapper img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 3rem;
+}
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------------------------------------- */
+
+
 .register-form{
   display:flex;
   flex-direction: column;
