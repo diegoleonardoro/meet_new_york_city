@@ -48,23 +48,6 @@ const storage = new GridFsStorage({
 });
 
 
-
-
-
-// Base route: '/inputs'
-// Multer:
-/* 
-const storage = multer.diskStorage({
-    destination: (req, res, cb) => {
-        cb(null, 'uploads')
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname);
-    }
-});
-*/
-
-
 const uploadFile = multer({
     storage
 });

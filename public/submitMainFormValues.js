@@ -130,18 +130,13 @@ form.addEventListener("submit", function (err) {
                     let numberOfPhotos = 0;
                     for (var v = 0; v < favoritePlace.length; v++) {
                         if (favoritePlace[v].type != 'file') {
-
                             favPlaces[favoritePlace[v].getAttribute("name")] = favoritePlace[v].innerHTML;
-
                         } else {
                             if (favoritePlace[v].files.length > 0) {
-
                                 numberOfPhotos = numberOfPhotos + 1;
 
-                                //console.log(favoritePlace[v].files[0]);
-
+                                console.log(favoritePlace[v].files[0])
                                 formData.append(favoritePlace[v].getAttribute("name"), favoritePlace[v].files[0]);
-
                             }
                         }
                     }

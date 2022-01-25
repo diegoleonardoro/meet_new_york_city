@@ -36,12 +36,14 @@ exports.Registration_Interface = (req, res, next) => {
 //@access   public
 exports.register_User = asyncHandler(async (req, res, next) => {
 
+
+
+    console.log('body: ', req.body);
+    console.log(req.file);
+
     const user = await User.create(req.body);
 
     const emailToken = uuidv4();
-
-
-
 
     // instead of sending this accessToken to the user, we are sending a token with the sendTokenResponse method.
     const accessToken = jwt.sign({
@@ -50,19 +52,12 @@ exports.register_User = asyncHandler(async (req, res, next) => {
     }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
 
 
-
-
     // this refresh token will still be accesible when the user clicks the email confirmation link
     const refreshToken = jwt.sign({
         _id: user.id,
         email: user.email
     }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
 
-
-
-
-    //console.log('refresh token register :')
-    //console.log(refreshToken);
 
     await User.updateOne({ email: user.email }, {
         $set: {
@@ -174,7 +169,7 @@ const sendTokenResponse = (user, statusCode, res, accessToken, refreshToken) => 
 
     if (flag) {
         res
-        
+
             .status(statusCode)
             .cookie('token', accessToken)
             .cookie('refreshToken', refreshToken)

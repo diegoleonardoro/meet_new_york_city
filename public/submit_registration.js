@@ -1,16 +1,40 @@
 var registration_form = document.getElementsByClassName('register-form')[0];
-
-
 const line = document.getElementById('sentEmailHandsLine');
 
+const imgDiv = document.querySelector('.user-image-wrapper');
+const img = document.querySelector('#photo');
+const file = document.querySelector('#file');
+const uploadBtn = document.querySelector('#uploadBtn');
 
+//if user hover on img div 
+imgDiv.addEventListener('mouseenter', function () {
+    uploadBtn.style.display = "block";
+});
+
+//if we hover out from img div
+imgDiv.addEventListener('mouseleave', function () {
+    uploadBtn.style.display = "none";
+});
+
+file.addEventListener('change', function () {
+
+    const choosedFile = this.files[0];
+    if (choosedFile) {
+        const reader = new FileReader();
+        reader.addEventListener('load', function () {
+            img.setAttribute('src', reader.result);
+        });
+        reader.readAsDataURL(choosedFile);
+    }
+});
 
 
 registration_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
 
-    form_elements = registration_form.elements
+    form_elements = registration_form.elements;
+    const profilePic = file.files[0];
 
     const registerPage = document.getElementsByClassName('register-page')[0];
     registerPage.style.display = 'none';
@@ -18,10 +42,9 @@ registration_form.addEventListener('submit', function (e) {
     const checkEmailContainer = document.getElementById('checkEmailContainer');
     checkEmailContainer.style.display = 'inline';
 
-
     const formData = new FormData();
 
-    const formValues = {}
+    const formValues = {};
 
     let enteredPassword = '';
     let reenteredPassword = '';
@@ -41,12 +64,19 @@ registration_form.addEventListener('submit', function (e) {
 
     }
 
-   
+
+    if (profilePic) {
+        formData.append('profileImage', profilePic);
+        //formValues['profileImage'] = profilePic;
+        formValues['profileImage'] = profilePic;
+    }
+
 
     if (enteredPassword === reenteredPassword) {
 
         const xhr = new XMLHttpRequest();
         formValues['role'] = 'publisher';
+        xhr.responseType = 'json';
 
         // log response
         let token = '';
@@ -55,12 +85,12 @@ registration_form.addEventListener('submit', function (e) {
             token = JSON.parse(xhr.response).token;
         };
 
-
         xhr.open('POST', '/register');
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr.send(JSON.stringify(formValues));
 
+        xhr.send(formData);
 
+        //JSON.stringify(formValues)
+        //formData
 
         //setTimeout(() => {
         //    var registrationForm = document.getElementById('goToMainForm');
@@ -68,7 +98,6 @@ registration_form.addEventListener('submit', function (e) {
         //    registrationForm.pathname = `users/${token}`
         //    registrationForm.click();
         //}, 2000);
-
 
 
 

@@ -110,12 +110,9 @@ export function changeImage(input) {
 
     let imagePreview = document.getElementsByClassName("previewImage")[flag];
 
-
-
     if (addPlaceButtonflag2 === 0) {
         imagePreview.className = imagePreview.className + ' ' + addPlaceButtonflag;
     }
-
 
     let newImagePreview = imagePreview.cloneNode();
     addPlaceButtonflag2 = 1;
@@ -124,8 +121,6 @@ export function changeImage(input) {
     newImagePreview.style.transform = `rotate(${rotation}deg)`;
 
     flag = flag + 1;
-
-    //var imageInputElement = document.getElementsByClassName('favoritePlace1')[flagImageInput];
 
     var imageInputElementClone = input.cloneNode(true);
     imageInputElementClone.value = '';
@@ -178,11 +173,6 @@ export function changeImage(input) {
                 }
 
                 imagePreview.setAttribute('src', e.target.result);// imagePreview changes as the user adds more images 
-
-
-                // inside this onload function, we are assigning dimension properties to 'imagePreview' (the element that displays the uplaoded image)
-                // and as its 'src' value we are giving it 'e.target.result' which is the uploaded image.
-
 
             }
         }

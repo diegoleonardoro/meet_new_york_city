@@ -85,27 +85,6 @@ exports.createInput = asyncHandler(async (req, res, next) => {
     var favoritePlaces = req.body.favoritePlaces;
 
 
-    /* 
-    for (var i = 0; i < favoritePlaces.length; i++) {
-        let photoArray = []
-        let numOfPhotos = favoritePlaces[i].numberOfPhotos;
-        for (var h = 0; h < numOfPhotos; h++) {
-            photoArray.push({
-
-                data: fs.readFileSync('/Users/diegoleoro/meet_nyc/uploads/' + req.files[h].filename),
-                contentType: 'image/png'
-
-            })
-        }
-        favoritePlaces[i]['placeImage'] = photoArray;
-        // console.log(photoArray);
-    };
-    */
-
-
-
-
-    //let photosFlag = 0;
 
     let h = 0;
     let z;
@@ -133,7 +112,6 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 
         favoritePlaces[i]['placeImage'] = photoArray;
 
-    
 
         //console.log('tftf: ', favoritePlaces[i]['placeImage'])
 

@@ -46,12 +46,12 @@ exports.protect = asyncHandler(async (req, res, next) => {
         const cookie = parseCookie(req.headers.cookie);
         const refreshToken = cookie['refreshToken'];
 
-   
+
 
         const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
         var id_ = decodedRefreshToken._id;
 
-     
+
 
         req.user = await User.find({ _id: id_ });
         //console.log( ' req.headers.cookie:' , req.user)
@@ -59,9 +59,11 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
     } else if (emailToken) {
 
-        req.user = await User.find({ emailToken: emailToken });
 
-        console.log( 'emailToken: ' , req.user)
+        console.log(emailToken)
+        req.user = await User.find({ emailToken: emailToken });
+        console.log(req.user)
+        console.log('emailToken: ', req.user)
         if (req.user) {
             next();
         }

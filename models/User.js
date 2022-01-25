@@ -94,6 +94,11 @@ const UserSchema = new mongoose.Schema({
         type: String
     },
 
+    profileImage:{
+        data: Buffer,
+        contentType: String,
+    },
+
     security: {
         tokens: [{
             refreshToken: String,
