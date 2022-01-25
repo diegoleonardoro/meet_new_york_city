@@ -66,20 +66,14 @@ exports.getUser = asyncHandler(async (req, res, next) => {
 exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
     var neighborhood = req.params.neighborhood;
-    var input = await Inputs.find({ 'neighborhood': neighborhood }).populate({  // <<<<--------------------------------------------------------
+    var input = await Inputs.find({ 'neighborhood': neighborhood }).populate({
         path: 'user'
     });
 
     var user = await User.find({ 'neighborhood': neighborhood });
 
-    console.log(user[0]);//['neighborhoodFactorDescription']
-
     let responseArray = [];
 
-    //for (var i = 0; i < input.length; i++) {
-
-
-    //just sending one user:
     let responseObject = {};
     responseObject['name'] = user[0]['name'];
     responseObject['lengthLivingInNeighborhood'] = user[0]['lengthLivingInNeighborhood'];
@@ -91,8 +85,6 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
     responseObject['favoritePlaces'] = user[0]['favoritePlaces'];
 
 
-
-
     let numofPlaces = []
     for (var l = 0; l < responseObject['favoritePlaces'].length; l++) {
         numofPlaces.push(responseObject['favoritePlaces'][l]['numberOfPhotos']);
@@ -102,34 +94,33 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
 
 
-    //===============================//
-
     let favPlaces = user[0].favoritePlaces;
-
-
     let arr = [];
     let amountOfPhotosPerPlace = [];
+
     for (var w = 0; w < favPlaces.length; w++) {
         let filesNamesArray = [];
         amountOfPhotosPerPlace.push(favPlaces[w]['placeImage'].length);
-
         let currentPlace = favPlaces[w];
-
         for (var c = 0; c < currentPlace['placeImage'].length; c++) {
             let filesNames = currentPlace['placeImage'][c].filename;
-
             filesNamesArray.push(filesNames)
-
             arr.push(filesNames)
         }
     };
+
+
+
 
 
     let streamFlag = 0;
     let imageFormated;
     let newArr = [];
 
+
+
     function createStream() {
+
         let filename = arr[streamFlag];
 
         console.log(filename)
@@ -201,35 +192,7 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 //@access   Private 
 exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
-
-    //  const parseCookie = str =>
-    //      str
-    //         .split(';')
-    //         .map(v => v.split('='))
-    //         .reduce((acc, v) => {
-    //             acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-    //            return acc;
-    //        }, {});
-
-
-
-    //const cookie = parseCookie(req.headers.cookie);
-    //const token = cookie['token'];
-    // const refreshToken = cookie['refreshToken'];
-
-
-
-
-
-
-    //const decodedRefreshToken = jwt.verify(token, process.env.JWT_SECRET);
-    //const user = await User.findOne({ email: decodedRefreshToken.email });
-
-
-
     const user = await User.find({ _id: req.user[0]._id });
-
-
 
     const accessToken = await jwt.sign({
         _id: user[0].id,
@@ -242,38 +205,39 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
     }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
 
 
+
+
+    const profileImgFormatted = [];
+
+    console.log('USER: ', user);
+
+    function createStream() {
+        let readstream = gfs.createReadStream(user[0].profileImage.filename);
+        let fileChunks = [];
+        readstream.on('data', function (chunk) {
+            fileChunks.push(chunk);
+        });
+        readstream.on('end', function () {
+            let concatFile = Buffer.concat(fileChunks);
+            imageFormated = Buffer(concatFile).toString("base64");
+            profileImgFormatted.push(imageFormated);
+        });
+    }
+
+    createStream();
+
+    const responseData = user[0];
+
     res
         .status(200)
         .cookie('token', accessToken)// token, options
         .cookie('refreshToken', refreshToken)
-    // .cookie('user', user)
-    
 
+    setTimeout(() => {
+ 
+        res.render("questionnaire", { user: responseData, profileImage: profileImgFormatted });
 
-
-
-
-    /*
-    res.status(200).json({
-        success: {
-            status: 200,
-            message: 'LOGIN_SUCCES',
-            accessToken: accessToken,
-            refreshToken: refreshToken,
-        },
-    });
-    
-    .json({
-          success: true,
-          accessToken: accessToken,
-          refreshToken: refreshToken,
-      })
-    */
-
-
-
-    res.render("questionnaire", { user: user[0] });
-    //res.sendFile(path.join(__dirname, '../public', 'index3.html'));
+    }, 1000);
 
 
 })

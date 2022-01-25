@@ -85,7 +85,6 @@ exports.createInput = asyncHandler(async (req, res, next) => {
     var favoritePlaces = req.body.favoritePlaces;
 
 
-
     let h = 0;
     let z;
     for (let i = 0; i < favoritePlaces.length; i++) {
@@ -100,30 +99,18 @@ exports.createInput = asyncHandler(async (req, res, next) => {
         }
 
         for (h; h < z; h++) {
-
-            //photosFlag = photosFlag + h;
             let file = req.files[h];
-            //console.log(file);
             photoArray.push(file);
-
         }
 
         h = numOfPhotos;
-
         favoritePlaces[i]['placeImage'] = photoArray;
-
-
-        //console.log('tftf: ', favoritePlaces[i]['placeImage'])
-
     }
-
 
      //console.log(favoritePlaces);
 
-
     req.body.favoritePlaces = favoritePlaces;
     req.body.user = req.user.id;
-
 
     // here, instead of creating an input, I would have to update the User with what he responded on the main form 
     const input = await Inputs.create(req.body); // <<<<--------------------------------------------------------
@@ -135,8 +122,6 @@ exports.createInput = asyncHandler(async (req, res, next) => {
     //console.log('image: ', inputData.favoritePlaces);
 
     const user = await User.findByIdAndUpdate({ _id: req.user[0].id.toObjectId() }, inputData)//.populate('input');
-
-
 
     sendTokenResponse(user, 200, res);
 

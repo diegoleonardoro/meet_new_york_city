@@ -58,12 +58,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
         next();
 
     } else if (emailToken) {
-
-
-        console.log(emailToken)
         req.user = await User.find({ emailToken: emailToken });
-        console.log(req.user)
-        console.log('emailToken: ', req.user)
         if (req.user) {
             next();
         }

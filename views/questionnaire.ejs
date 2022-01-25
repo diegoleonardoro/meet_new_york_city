@@ -31,6 +31,9 @@
     <script>
         let user = <%- JSON.stringify(user) %>;    
         console.log(user)
+        let profileImage = <%- JSON.stringify(profileImage) %>;
+        console.log(profileImage);
+
     </script>
 
 
@@ -45,7 +48,7 @@
 
             <div class='user'>
                 <div class='user-image-wrapper'>
-                    <img src='https://media-exp1.licdn.com/dms/image/C4D03AQEj1JSX2oGPBg/profile-displayphoto-shrink_800_800/0/1589671182353?e=1640822400&v=beta&t=-mMk6bouHEzergtpKjrqsA-igIw9-UD8Lcd__ez08fk'/>
+                    <img src="data:image/png;base64,<%= profileImage%>" />                 
                 </div>
                 <a href='#' class='user-link'><%= user.name %></a>
                 <i class='fas fa-chevron-down'></i>

@@ -38,21 +38,19 @@ exports.register_User = asyncHandler(async (req, res, next) => {
 
 
 
-    console.log('body: ', req.body);
-    console.log(req.file);
+
+    req.body.profileImage = req.file;
 
     const user = await User.create(req.body);
 
     const emailToken = uuidv4();
 
-    // instead of sending this accessToken to the user, we are sending a token with the sendTokenResponse method.
     const accessToken = jwt.sign({
         _id: user.id,
         email: user.email
     }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
 
 
-    // this refresh token will still be accesible when the user clicks the email confirmation link
     const refreshToken = jwt.sign({
         _id: user.id,
         email: user.email
