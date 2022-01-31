@@ -79,19 +79,3 @@ router
 
 
 module.exports = router;
-
-
-
-/*
-
-   <% for(var h = 0; h < user.imagesFormated[e].length; h ++){ %>
-                                    
-        <% if (h ===0) { %>
-            <img src="data:image/png;base64,<%-user.imagesFormated[e][h]%>" /> 
-        <% } else { %>
-            <img style="display:none;" src="data:image/png;base64,<%-user.imagesFormated[e][h]%>" /> 
-        <% } %>
-              
-    <% } %>
-
-*/

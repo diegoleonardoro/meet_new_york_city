@@ -237,7 +237,7 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
  
         res.render("questionnaire", { user: responseData, profileImage: profileImgFormatted });
 
-    }, 1000);
+    }, 2000);
 
 
 })

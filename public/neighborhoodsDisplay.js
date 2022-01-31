@@ -27,7 +27,6 @@ function autocomplete(inp, arr) {
                     b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
 
 
-
                     // ---- if the input typed by the user is equal to any of the neighborhoods in the list
                     if (val.toUpperCase() === arr[i].toUpperCase()) {
 

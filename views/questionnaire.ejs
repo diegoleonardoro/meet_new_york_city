@@ -30,10 +30,7 @@
 
     <script>
         let user = <%- JSON.stringify(user) %>;    
-        console.log(user)
         let profileImage = <%- JSON.stringify(profileImage) %>;
-        console.log(profileImage);
-
     </script>
 
 
@@ -377,39 +374,49 @@
                 <div class='favoritePlaces anythingElseAboutYou addFavPlaces _fav_Places'>
 
                     <h2 class='question'>What are your favorite places in this neighborhood? </h2>
-                    <label class='labelAddPlace'>Exact address of the place:</label>
-                    <input type="text" name="favoritePlaceAddress" class='nameOfPlace'></input>
-                    <label class='labelAddPlace'>Why is this one of you favorite places:</label>
-                    <textarea type="text" name="favoritePlaceDescription" class="textareaFavPlaceDescription"></textarea>
+                    <label class='labelAddPlace'>Name of place:</label>
 
+                    <div id='divNameOfPlace'>
+
+                
+                        <input type="text" name="favoritePlaceAddress" class='nameOfPlace'></input>
+                        
+                        <div id='divArrowNameOfPlace'>
+                            <span id ='tooltipNameOfPlace'>holaholahola</span>
+                            <div id ='nameOfPlaceTooltipArrow'></div>
+                        </div>
+
+                        
+                    </div>
+
+                    <label class='labelAddPlace'>Why is this one of you favorite places in your neighborhood:</label>
+                    <div id='divFavPlaceDescription'>
+
+                  
+                        <textarea type="text" name="favoritePlaceDescription" class="textareaFavPlaceDescription"></textarea>
+                        
+                        <div id='divArrowDescriptionOfPlace'>
+                            <span id ='tooltipPlaceDescription'>holaholahola</span>
+                            <div id ='descriptionOfPlaceTooltipArrow'></div>
+                        </div>
+                    </div>   
+                    
                     <span>
-                        <label class='placeLabel _fav_Places' id='imageLabel'>Share an image of this place:
-                            <input type="file" name="placeImage" class='labelPhoto favoritePlace1' />
+                        <label class='placeLabel _fav_Places' id='imageLabel'>Upload one or more images of this place
+                            <div id='divFavPlaceImage'>
+
+                                <input type="file" name="placeImage" class='labelPhoto favoritePlace1 inputImageOfFavPlace' />
+                                <div id='divArrowPhotoOfPlace'>
+                                    <span id ='tooltipPlaceImage'> holaholahola </span>
+                                    <div id ='photoOfPlaceTooltipArrow'></div>
+                                </div>
+                                
+                            </div>
                         </label>
-
-                        <!--
-                        <svg id="cameraSvg" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.18 222.68">
-                            <path class="camera cam1" d="M401.47,326.41H381.73s-24.23,2.24-26.48,30.51l-.44,114s-.9,30.52,27.37,35l249.49.45s29.17,0,31.87-30.06L664,357.82s0-29.61-33.65-31l-128.79-1.35-.45-24.23s.45-13.91-19.29-16.15l-60.58-.45s-14.81-.9-19.75,17.5Z"
-                                transform="translate(-354.3 -284.17)" />
-                            <rect class="camera" x="60.63" y="15.76" width="74.94" height="20.19" />
-                            <rect class="camera cam2" x="0.5" y="104.16" width="308.73" height="55.64" />
-                            <ellipse class="camera cam3" cx="69.38" cy="65.12" rx="12.79" ry="12.56" />
-                            <circle class="camera cam4" cx="171.92" cy="131.54" r="79.43" />
-                            <circle class="camera cam5" cx="172.37" cy="132.88" r="68.21" />
-                            <circle class="camera cam6" cx="171.25" cy="133.56" r="54.07" />
-                            <circle class="camera cam7" cx="171.7" cy="132.21" r="40.61" />
-                            <ellipse class="camera cam8" cx="182.02" cy="105.85" rx="22.21" ry="22.78" />
-                            <path class="camera cam9" d="M585,325.51V309.36s1.34-6.73,8.07-7.18H603a8.42,8.42,0,0,1,8.07,7.18l.45,16.15Z"
-                                transform="translate(-354.3 -284.17)" />
-                        </svg>
-                        -->
-
                         <img src="" id="preview" class='previewImage'>
-
-
                     </span>
-
-                    <label class='placeLabel' id='addPlaceLabel' for='addPlaceButton'>Add place </label>
+                   
+                    <label class='placeLabel' id='addPlaceLabel' for='addPlaceButton'>Add this place to your list to favorite places </label>
                     <button type='button' name="placeImage" multiple="multiple" id='addPlaceButton' class='labelPhoto'></button>
 
                 </div>
@@ -1175,7 +1182,7 @@
     <script src="https://kit.fontawesome.com/a8ea7ecad9.js" crossorigin="anonymous"></script>
 
 
-    <script type="module" src="addFavPlaces.js"></script>
+    <script type="module" src="addFavPlaces.js"></script> 
     <script type="module" src="addPicOfPlace.js"></script>
     <script type="module" src="neighborhoodsDisplay.js"></script>
     <script type="module" src="mainForm.js"></script>

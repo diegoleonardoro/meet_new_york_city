@@ -10,6 +10,7 @@ var mainForm = document.getElementsByClassName('form')[0];
 
 nextQuestion.addEventListener('click', () => {
 
+ 
     let displayedQuestion;
     let nextQuestionKeyWord;
 
