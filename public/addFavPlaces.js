@@ -2,7 +2,7 @@ import { changeImage } from '/addPicOfPlace.js';
 
 
 
-
+var divFavPlaceImage = document.getElementById('divFavPlaceImage');
 //---------------------------------------//
 
 var platform = new H.service.Platform({
@@ -30,6 +30,17 @@ const textareaFavPlaceDescription = document.getElementsByClassName('textareaFav
 let photoOfPlaceFlag = 1
 let favPlacePhoto = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag}`)[0];
 
+
+
+
+
+
+let photoOfPlaceFlag_InputsCompletionCheck = 1;
+let favPlacePhoto_InputsCompletionCheck = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag_InputsCompletionCheck}`)[0];
+
+
+
+
 // fav places input flags
 const divArrowNameOfPlace = document.getElementById('divArrowNameOfPlace');
 const divArrowDescriptionOfPlace = document.getElementById('divArrowDescriptionOfPlace');
@@ -55,7 +66,26 @@ favPlacePhoto.addEventListener('input', function (e) {
     divArrowPhotoOfPlace.style.display = 'none';
 })
 
+
+
+
+
 addPlace.addEventListener('click', () => {
+
+
+
+
+    //console.log(nameOfPlace.value);
+    //console.log(textareaFavPlaceDescription.value);
+    //console.log(favPlacePhoto_InputsCompletionCheck);
+
+
+
+
+    // console.log(favPlacePhoto_InputsCompletionCheck);
+    // console.log(favPlacePhoto_InputsCompletionCheck.value);
+
+
 
 
 
@@ -65,8 +95,8 @@ addPlace.addEventListener('click', () => {
 
     } else if (nameOfPlace.value != '') {
 
-        divArrowNameOfPlace.style.display = 'none';
 
+        divArrowNameOfPlace.style.display = 'none';
     }
     if (textareaFavPlaceDescription.value === '') {
 
@@ -77,11 +107,11 @@ addPlace.addEventListener('click', () => {
         divArrowDescriptionOfPlace.style.display = 'none';
 
     }
-    if (favPlacePhoto.value === '') {
+    if (favPlacePhoto_InputsCompletionCheck.value === '') { //favPlacePhoto_InputsCompletionCheck == undefined
 
         divArrowPhotoOfPlace.style.display = 'block';
 
-    } else if (favPlacePhoto.value != '') {
+    } else if (favPlacePhoto_InputsCompletionCheck.value != '') { // //favPlacePhoto_InputsCompletionCheck !== undefined
 
         divArrowPhotoOfPlace.style.display = 'none';
 
@@ -90,13 +120,13 @@ addPlace.addEventListener('click', () => {
 
 
 
-    if (nameOfPlace.value != '' && textareaFavPlaceDescription.value != '' && favPlacePhoto.value != '') {
 
+    if (nameOfPlace.value != '' && textareaFavPlaceDescription.value != '' && favPlacePhoto_InputsCompletionCheck.value != '') {//favPlacePhoto.value != ''
 
         favPlacePhoto = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag}`)[0];
 
-        favPlacePhoto.addEventListener('input', function (e) {
 
+        favPlacePhoto.addEventListener('input', function (e) {
             divArrowPhotoOfPlace.style.display = 'none';
         });
 
@@ -138,7 +168,6 @@ addPlace.addEventListener('click', () => {
 
 
             //--------------------------------------//
-
             rectX = cxL - 3.8173;
             rectY = cyL - 43.9738;
             let newRect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
@@ -149,8 +178,7 @@ addPlace.addEventListener('click', () => {
             newRect.setAttribute('stroke-width', 1)
             newRect.setAttribute('x', rectX)
             newRect.setAttribute('y', rectY)
-            mapSvg.appendChild(newRect);// 3 -- append the new rect element to the place circle in the map svg 
-
+            mapSvg.appendChild(newRect);
             //--------------------------------------//
 
             var inputAddFavoritePlacesAddress = document.getElementsByClassName('nameOfPlace')[0]; // 4 -- select the name of place input element 
@@ -159,8 +187,8 @@ addPlace.addEventListener('click', () => {
             var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;// 5 -- select the value of the name of place input element 
             var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;// 6 -- select the value of the place description input element
 
-            inputAddFavoritePlacesAddress.value = ' '; // 7 -- remove what the user typed in the name of place input element 
-            inputAddFavoritePlacesDescription.value = ' ';// 8 -- remove what the user typed in the place description input element 
+            inputAddFavoritePlacesAddress.value = ''; // 7 -- remove what the user typed in the name of place input element 
+            inputAddFavoritePlacesDescription.value = '';// 8 -- remove what the user typed in the place description input element 
 
             // 9 -- this block will include what the user typed in the name of place input element inside the rect element that was appended to the map svg
             textX = rectX + 10;
@@ -213,25 +241,13 @@ addPlace.addEventListener('click', () => {
 
             //--------------------------------------//
             var imageInput = document.getElementById('preview'); // 11 --- select the img element that displays the first image the the user uploads. As more images are uploaded, more img elements will be added (this is done in the addPicOfPlace.js file )
-
             var imagesInput = document.getElementsByClassName('previewImage'); // 12 --- select the all the img elements, each of which contains one image for the specific place
-
-
-
 
             for (var i = 0; i < imagesInput.length; i++) {// 13 --- iterate through all the img elements, each containing an image of the specific place
 
                 if (imagesInput[i].className.indexOf(flag) > -1) { // 14 -- if the current img element contains 'flag' in its class name. Flag is 1. 
-
-
-
-
-
-
                     // here we should enter as many times as img elements with the flag in their class name there are + 1 .
                     // when the 'divArrowPhotoOfPlace' is given a display block value, we are not entering if statement
-
-
                     imageX = textX;
                     imageY = textY + 15;
                     let foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
@@ -250,49 +266,38 @@ addPlace.addEventListener('click', () => {
                     imagesInput[i].src = '';
                     imagesInput[i].setAttribute("width", 'auto');
                     imagesInput[i].setAttribute("width", 'auto');
-
                 }
             }
-
-            // inputAddFavoritePlacesAddress.value = ' ';
-            // inputAddFavoritePlacesDescription.value = ' ';
-
-
 
 
             var imageInputElement = document.getElementsByClassName('favoritePlace' + flag)[0];// 15 ---  select the input element that includes the first uploaded image 
 
-
-
-            //var imageInputElements = document.getElementsByClassName('labelPhoto favoritePlace' + flag);
-            //for (var x = 0; x < imageInputElements.length; x++) {
-            //    if (imageInputElements[x].value != '') {
-            //console.log(imageInputElements[x]);
-            //console.log(imageInputElements[x].files);
-            //    }
-            //}
-
             var imageInputElementClone = imageInputElement.cloneNode(true);// 16 -- clone the image input element that inclues the first uploaded image 
             imageInputElementClone.value = '';// 17 -- remove the value of the image input element that was cloned
 
-
             var a = flag + 1;
             imageInputElementClone.setAttribute('class', 'labelPhoto ' + 'favoritePlace' + a);// 18 -- assign a class name to cloned image input element, which in this case is favoritePlace2
-
-
-            console.log(imageInputElementClone);
 
             imageInputElementClone.addEventListener("change", function () {// 19 -- attach 'changeImage' as an event listener to the cloned image input element. 
                 changeImage(this);
             });
 
-     
-            imageInputElement.after(imageInputElementClone);
-
+            divFavPlaceImage.prepend(imageInputElementClone);
             imageInputElement.style.display = 'none';
+
+            photoOfPlaceFlag_InputsCompletionCheck += 1;
+            favPlacePhoto_InputsCompletionCheck = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag_InputsCompletionCheck}`)[0];
+
+            favPlacePhoto_InputsCompletionCheck.addEventListener('input', function (e) {
+                divArrowPhotoOfPlace.style.display = 'none';
+            })
+
 
 
         } else if (flag == 2) {
+
+
+
             cxL = parseFloat(cx) + 50.3407;
             cyL = parseFloat(cy) + 47.6287;
 
@@ -325,8 +330,8 @@ addPlace.addEventListener('click', () => {
             var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;
             var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;
 
-            inputAddFavoritePlacesAddress.value = ' ';
-            inputAddFavoritePlacesDescription.value = ' ';
+            inputAddFavoritePlacesAddress.value = '';
+            inputAddFavoritePlacesDescription.value = '';
 
             textX = rectX + 10;
             textY = rectY + 20;
@@ -381,11 +386,6 @@ addPlace.addEventListener('click', () => {
                 if (imagesInput[i].className.indexOf(flag) > -1) {
 
 
-
-                    console.log('hello');
-
-
-
                     imageX = textX;
                     imageY = textY + 15;
 
@@ -410,8 +410,8 @@ addPlace.addEventListener('click', () => {
                 }
             }
 
-            inputAddFavoritePlacesAddress.value = ' ';
-            inputAddFavoritePlacesDescription.value = ' ';
+            inputAddFavoritePlacesAddress.value = '';
+            inputAddFavoritePlacesDescription.value = '';
 
             var imageInputElement = document.getElementsByClassName('favoritePlace' + flag)[0];
             var imageInputElements = document.getElementsByClassName('labelPhoto favoritePlace' + flag);
@@ -422,30 +422,46 @@ addPlace.addEventListener('click', () => {
                 }
             }
 
+
             var imageInputElementClone = imageInputElement.cloneNode(true);
             imageInputElementClone.value = '';
 
 
 
 
-
-
             var a = flag + 1;
+            //console.log(a);
             imageInputElementClone.setAttribute('class', 'labelPhoto ' + 'favoritePlace' + a);
-
-
+            //console.log(imageInputElementClone);
 
 
 
             imageInputElementClone.addEventListener("change", function () {
+                // console.log(imageInputElementClone);
+                //console.log(this);
                 changeImage(this);
             });
 
-            var imageLabel = document.getElementById('imageLabel');
 
+
+            var imageLabel = document.getElementById('imageLabel');
             // imageLabel.insertBefore(imageInputElementClone, imageInputElement);
-            imageInputElement.after(imageInputElementClone);
+
+
+            divFavPlaceImage.prepend(imageInputElementClone);
+            //imageInputElement.after(imageInputElementClone);
+
             imageInputElement.style.display = 'none';
+
+
+            photoOfPlaceFlag_InputsCompletionCheck += 1;
+            favPlacePhoto_InputsCompletionCheck = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag_InputsCompletionCheck}`)[0];
+
+
+
+            favPlacePhoto_InputsCompletionCheck.addEventListener('input', function (e) {
+                divArrowPhotoOfPlace.style.display = 'none';
+            })
 
 
 
@@ -481,8 +497,8 @@ addPlace.addEventListener('click', () => {
 
             var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;
             var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;
-            inputAddFavoritePlacesAddress.value = ' ';
-            inputAddFavoritePlacesDescription.value = ' ';
+            inputAddFavoritePlacesAddress.value = '';
+            inputAddFavoritePlacesDescription.value = '';
 
             textX = rectX + 10;
             textY = rectY + 20;
@@ -596,10 +612,49 @@ addPlace.addEventListener('click', () => {
 
             //imageLabel.insertBefore(imageInputElementClone, imageInputElement);
             imageInputElement.style.display = 'none';
+
+
+            photoOfPlaceFlag_InputsCompletionCheck += 1;
+            favPlacePhoto_InputsCompletionCheck = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag_InputsCompletionCheck}`)[0];
+
+
+            //favPlacePhoto_InputsCompletionCheck.addEventListener('input', function (e) {
+            //    divArrowPhotoOfPlace.style.display = 'none';
+            //})
+
+
+            const _fav_Places = document.getElementsByClassName('_fav_Places')[0];
+            _fav_Places.style.display = 'none';
+
+
+            //var nextQuestionKeyWord = displayedQuestion.className.split(' ')[4];
+
+            const enoughPlaces = document.getElementById('enoughPlaces');
+            enoughPlaces.className = enoughPlaces.className + ' display';
+
+            setTimeout(() => {
+                enoughPlaces.className = enoughPlaces.className.replace('display', '');
+                const _anythingElseAboutYou = document.getElementById('_anythingElseAboutYou');
+                _anythingElseAboutYou.className = _anythingElseAboutYou.className + ' display';
+            }, 1000);
+
+
         }
 
-    }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 });
 
 

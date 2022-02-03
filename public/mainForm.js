@@ -26,6 +26,7 @@ nextQuestion.addEventListener('click', () => {
         if (displayAttribute === 'flex' || displayAttribute === 'block') {
 
             displayedQuestion = mainForm.children[i];
+
             nextQuestionKeyWord = displayedQuestion.className.split(' ')[1];
 
             if (displayedQuestion.className.split(' ')[0].indexOf('neighborhoodSatisfactionScale') > -1) {
@@ -46,7 +47,10 @@ nextQuestion.addEventListener('click', () => {
                     }
                 }
             }
+
+
             displayedQuestion.className = displayedQuestion.className.replace('display', '');
+            
             for (var e = 0; e < mainForm.children.length; e++) {
                 keyWord = mainForm.children[e].className.split(' ')[0];
 
@@ -72,4 +76,9 @@ nextQuestion.addEventListener('click', () => {
             break;
         }
     }
+
+
+
+
+
 })

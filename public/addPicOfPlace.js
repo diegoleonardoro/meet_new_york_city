@@ -2,6 +2,8 @@
 
 var tooltip = document.getElementsByClassName('cls-1r')[0];
 
+var divFavPlaceImage = document.getElementById('divFavPlaceImage');
+
 
 //var tooltipText = document.getElementById('textToolTip');
 // var imagePreview = document.getElementById("preview");
@@ -26,19 +28,28 @@ function show() {
     }
 }
 
-var inputPhoto = document.getElementsByName('placeImage')[0]; // 1. --- select first input element that will be use to upload the first image. 
+let inputPhoto = document.getElementsByName('placeImage')[0]; // 1. --- select first input element that will be use to upload the first image. 
 inputPhoto.addEventListener("change", function () {// 2. --- add 'changeImage' as an event listener to the input element that will be used to upload the first image. 
     changeImage(this);
 });
 
 
-let flag = 0
-let rotation = 27
+let flag = 0;
+
+let rotation = 27;
+
 let flagImageInput = 0;
+
 let addPlaceButtonflag = 1;
+
 let addPlaceButtonflag2 = 0;
 
-addPlaceButtonflag2 = 0;
+
+
+//addPlaceButtonflag2 = 0;
+
+
+
 var addPlaceButton = document.getElementById('addPlaceButton'); // 3. --- select the button that will add the places to the svg map.
 
 
@@ -59,23 +70,24 @@ addPlaceButton.addEventListener('click', () => {// 7. --- add an event listener 
     // so in order to check if image input element of the next place exists, we need to create 'photoOfPlaceFlag' and 'favPlacePhotoTest'
 
     let photoOfPlaceTestFlag = photoOfPlaceFlag += 1;
-    let favPlacePhotoTest =  document.getElementsByClassName(`favoritePlace${photoOfPlaceTestFlag}`)[0]
+    let favPlacePhotoTest = document.getElementsByClassName(`favoritePlace${photoOfPlaceTestFlag}`)[0]
 
 
-    if (nameOfPlace.value != '' && textareaFavPlaceDescription.value != '' &&  favPlacePhotoTest !== undefined ) {// 7.3 --- check if all the place input elements have a value 
+    if (nameOfPlace.value != '' && textareaFavPlaceDescription.value != '' && favPlacePhotoTest !== undefined) {// 7.3 --- check if all the place input elements have a value 
         /* //  && favPlacePhoto.value != ''  */
 
         addPlaceButtonflag = addPlaceButtonflag + 1; // 7.4 --- 'addPlaceButtonflag' original value is 1 and it will be included only in the class name of the first img element.
         photoOfPlaceFlag += 1;// 7.5 --- increase the value of the flag used to select the correct place image input element by one 
         favPlacePhoto = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag}`)[0];// 7.6  --- the new value of favPlacePhoto will be the newly added image input element. 
 
+
     };
 
     /*
-    this event listener will  check if all the place inputs have a value and if so, 
+    this event listener will  check if all the place inputs have a value and if so, it will give a new value to favPlacePhoto, which will be the new input element used to upload a photo of the next place
     */
 
-    addPlaceButtonflag2 = 0; // _____
+    addPlaceButtonflag2 = 0;
 
 })
 
@@ -90,8 +102,12 @@ addPlaceButton.addEventListener('click', () => {// 7. --- add an event listener 
 
 export function changeImage(input) {
 
-    if (flagImageInput != 0) { // 8. --- the only time that flagImageInput will be 0 is when the user sends the images of the first place.
-        var inputPhoto = document.getElementsByName('placeImage')[flagImageInput];
+    /* This function will be used as a call back function every time an image input element changes*/
+
+    if (flagImageInput != 0) { // 8. --- the only time that flagImageInput will be 0 is when the user sends the images of the first place, so we will enter this if statement every time except when favPlacePhoto represents the image input for the first place. 
+
+        inputPhoto = document.getElementsByName('placeImage')[flagImageInput];
+
         inputPhoto.addEventListener("change", function () {
             changeImage(this);
         });
@@ -114,24 +130,31 @@ export function changeImage(input) {
 
     let imagePreview = document.getElementsByClassName("previewImage")[flag];
 
+    flag = flag + 1;
+
     if (addPlaceButtonflag2 === 0) {
-        imagePreview.className = imagePreview.className + ' ' + addPlaceButtonflag;
+
+        imagePreview.className = 'previewImage' + ' ' + addPlaceButtonflag;
+        addPlaceButtonflag += 1;
+
     }
 
-    let newImagePreview = imagePreview.cloneNode();
-    addPlaceButtonflag2 = 1;
 
+    let newImagePreview = imagePreview.cloneNode();
+
+    addPlaceButtonflag2 = 1;
     imagePreview.parentNode.insertBefore(newImagePreview, imagePreview.nextSibling);
     newImagePreview.style.transform = `rotate(${rotation}deg)`;
 
-    flag = flag + 1;
+    var imageInputElementClone = input.cloneNode(true);//
 
-    var imageInputElementClone = input.cloneNode(true);
     imageInputElementClone.value = '';
     var imageLabel = document.getElementById('imageLabel');
     //imageLabel.insertBefore(imageInputElementClone, input.nextSibling);// input is not a node of imageInputElementClone
 
-    input.after(imageInputElementClone);
+
+    divFavPlaceImage.prepend(imageInputElementClone);
+    //input.after(imageInputElementClone);
 
     input.style.display = 'none';
     flagImageInput = flagImageInput + 1;
@@ -181,7 +204,6 @@ export function changeImage(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
 
 
 

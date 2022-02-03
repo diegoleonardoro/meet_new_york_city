@@ -577,6 +577,7 @@ h2{
 
 
 
+
 .addFavPlaces textarea{
     margin-top: 1.5rem;
     resize: none;
@@ -753,6 +754,18 @@ h2{
     left:80%;
 }
 /* end of favorite places */
+
+
+
+/* enough places div */
+
+#enoughPlaces{
+    font-size: 275%;
+
+}
+/* end of enough places div */
+
+
 
 
 /* more self introduction */

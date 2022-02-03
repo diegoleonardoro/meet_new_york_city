@@ -111,17 +111,24 @@ form.addEventListener("submit", function (err) {
     let zipcode;
     let neighborhood;
 
+    console.log('holahola');
+    
     for (var i = 0; i < formElementsLength; i++) {
-        if (form.elements[i].parentElement.className.indexOf('_fav_Places') > -1 && form.elements[i].id != 'addPlaceButton' && flag === 1) {
+        if (form.elements[i].parentElement.className.indexOf('_fav_Places') > -1 ) {//&& form.elements[i].id != 'addPlaceButton' && flag === 1
             // What are your favorite places in this neighborhood? 
             // - Name or address of the place:
             // - Why is this one of you favorite places:
             // - Share an image of this place:
 
+            console.log('asdfasdfasdf');
+            
             flag = flag + 1;
             for (var e = 1; e <= 4; e++) {//four times becaue there will be a maximum of 4 favorite place elements
+
                 let favPlaces = {};
                 var favoritePlace = document.getElementsByClassName('favoritePlace' + e);
+
+                console.log(favoritePlace);
 
                 if (favoritePlace.length > 1) {
 
@@ -137,6 +144,8 @@ form.addEventListener("submit", function (err) {
 
                                 console.log(favoritePlace[v].files[0])
                                 formData.append(favoritePlace[v].getAttribute("name"), favoritePlace[v].files[0]);
+
+
                             }
                         }
                     }
