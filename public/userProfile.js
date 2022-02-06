@@ -1,7 +1,5 @@
-
-
 // expand explore-detail-btn 
-
+/*
 var exploreDetailBtns = document.getElementsByClassName('explore-detail-btn');
 for (var i = 0; i < exploreDetailBtns.length; i++) {
 
@@ -23,6 +21,7 @@ for (var i = 0; i < exploreDetailBtns.length; i++) {
         }
     })
 }
+ */
 // end of expand explore-detail-btn 
 
 
@@ -62,6 +61,8 @@ function displayMap(callback) {
         if (error) return;
 
         // ---------- zoom function
+
+        /*
         var zoomed = function () {
 
             var neighborhoodsGroup = document.getElementsByClassName('neighborhoodsGroup')[0];
@@ -72,10 +73,12 @@ function displayMap(callback) {
             streetsGroup.setAttribute("transform", 'translate (' + d3.event.transform.x + ',' + d3.event.transform.y + ') scale (' + d3.event.transform.k + ')');
             parksGroup.setAttribute("transform", 'translate (' + d3.event.transform.x + ',' + d3.event.transform.y + ') scale (' + d3.event.transform.k + ')');
         };
-        var zoom = d3.zoom()
+         */
+        //var zoom = d3.zoom()
             //.scaleExtent([1, 8])
-            .on('zoom', zoomed)
+         //   .on('zoom', zoomed)
 
+         /*
         function clickZoom() {
             [[x0, y0], [x1, y1]] = example_bounds;
 
@@ -90,7 +93,7 @@ function displayMap(callback) {
                 //d3.pointer(event, svg_map.node())
             );
         }
-
+      
 
         setTimeout(() => {
             let x0,
@@ -100,6 +103,8 @@ function displayMap(callback) {
 
 
             [[x0, y0], [x1, y1]] = example_bounds;
+
+           
             svg_map.transition().duration(750).call(
                 zoom.transform,
                 d3.zoomIdentity
@@ -107,6 +112,8 @@ function displayMap(callback) {
                     .scale(Math.min(25, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
                     .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
             );
+
+         
 
             svg_map.style('margin-left', '7%')
 
@@ -116,23 +123,15 @@ function displayMap(callback) {
                 nycNeighborhoods_paths[t].style.strokeWidth = '0.03';
             }
 
-
-
             //svg_map.style.marginLeft = '-7%';
             var scaleX = svg_map.getBoundingClientRect().width / svg_mapd.offsetWidth;
 
-
-
-
-
-
-
         }, 7000);
-
-
-
-
+       */
         //------------- end of zoom function --- //
+
+
+
         neighborhoods = topojson.feature(nhoods_data, nhoods_data.objects['2010 Neighborhood Tabulation Areas (NTAs) (1)']);
 
         projection.scale(1).translate([0, 0]);
@@ -142,7 +141,7 @@ function displayMap(callback) {
         projection.scale(s).translate(t);
 
         var svg_map = d3.select("#nhd-places-map-svg")
-            .call(zoom)
+           // .call(zoom)
 
 
 
@@ -182,7 +181,9 @@ function displayMap(callback) {
 
 
 
+        /*
 
+        Display streets
         d3.json('/NYCStreetCenterline.json', function (error2, streets_data) {
 
             if (error2) return;
@@ -203,7 +204,15 @@ function displayMap(callback) {
                 .style("stroke", "black")
                 .attr("stroke-width", .005)
                 .attr("fill", "none")
-        })
+        });
+
+        */
+
+
+
+        /*
+        Display parks
+
         d3.json('/OpenSpace_Parks.json', function (error3, parks_data) {
 
             var parks = topojson.feature(parks_data, parks_data.objects['Open Space (Parks)']);
@@ -224,7 +233,9 @@ function displayMap(callback) {
                 .attr("stroke-width", .02)
                 .attr("fill", "#A9DFBF")
 
-        })
+        });
+        */
+
     })
 }
 
@@ -235,7 +246,7 @@ setTimeout(() => {
     var n_hoods_g_children = n_hoods_g.children;
 
     for (var e = 0; e < nyc_nhoods_paths['_enter'][0].length; e++) {
-        if (nyc_nhoods_paths['_enter'][0][e]['__data__']['properties']['ntaname'].includes(neighborhood)) {// here I need to use 'include'
+        if (nyc_nhoods_paths['_enter'][0][e]['__data__']['properties']['ntaname'].includes(neighborhood)) {
 
             example_bounds = path.bounds(nyc_nhoods_paths['_enter'][0][e]['__data__'])
 
@@ -301,7 +312,7 @@ let toggleClass = (i, toggle) => {
 var svg = d3.select(".nhd-satisfact-svg"),
     margin = { top: 22, right: 15, bottom: 30, left: 65 },
     width_bar_chart = 350 - margin.left - margin.right,
-    height_bar_chart = 400 - margin.top - margin.bottom;
+    height_bar_chart = 200 - margin.top - margin.bottom;
 
 var x = d3.scaleBand()
     .range([0, width_bar_chart])
@@ -503,3 +514,41 @@ for (let f = 0; f < prevPhotoArrows.length; f++) {
 //nextPhotoArrow.addEventListener('click', changePhotos);
 //prevPhotoArrow.addEventListener('click', changePhotos);
 //end of  add event listener to the prev and next image arrowws
+
+
+/*
+
+                <% for(var e = 0; e < user.favoritePlaces.length; e++){ %>
+
+                    <% let numOfPhotos = user.favoritePlaces[e].numberOfPhotos  %>
+
+                    <div class='neighborhood-description'>
+                        <div class='neighborhood-content'>
+                            <h4> <%- user.favoritePlaces[e].place%> </h4>
+                            <div class='neihborhood-image'>
+                                <i class="fas fa-arrow-circle-left"></i>       
+                                <div class ='divOfImages'>
+    
+                                    <% for(let q = 0; q < numOfPhotos ; q ++){ %>
+
+                                        <img src="data:image/png;base64,<%= user.imagesFormated[q]%>" />   
+                                        
+                                        <% user.imagesFormated.splice(q,1) %>
+                                        <% q-- %>
+
+                                    <% } %>
+
+                                </div>
+                                <i class="fas fa-arrow-circle-right"></i>
+                            </div>
+                            <p class='neihborhood-text'>
+                                <%- user.favoritePlaces[e].description %>
+                            </p> 
+                        </div>
+                    </div>
+
+                <% } %>
+
+*/
+
+//grid-column:<%= startColumn %> / <%= endColumn %>
