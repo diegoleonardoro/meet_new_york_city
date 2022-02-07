@@ -129,7 +129,7 @@ body{
 
 #intro_contact{
     grid-column: 1/2;
-    grid-row: 1/3;
+    grid-row: 1/-1;
 
     padding-right:4rem;
     padding-top:14rem;
@@ -197,7 +197,7 @@ body{
     margin-top: 10rem;
     display:grid;
     grid-template-columns : 35rem 35rem 35rem;
-    grid-template-rows : 5rem 24rem;
+    grid-template-rows : 5rem 33rem;
 
 }
 
@@ -240,8 +240,8 @@ body{
 }
 
 .neihborhood-image .divOfImages img{ 
-    width:70%; 
-    height:70%;
+    width:250px; 
+    height:180px;
     object-fit:cover;
     border-radius:1rem;
     margin-left:50%;

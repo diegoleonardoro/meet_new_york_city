@@ -120,7 +120,7 @@ form.addEventListener("submit", function (err) {
             // - Why is this one of you favorite places:
             // - Share an image of this place:
 
-            console.log('asdfasdfasdf');
+            
             
             flag = flag + 1;
             for (var e = 1; e <= 4; e++) {//four times becaue there will be a maximum of 4 favorite place elements

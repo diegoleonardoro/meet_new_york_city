@@ -89,12 +89,12 @@ const UserSchema = new mongoose.Schema({
         required: true,
         default: false,
     },
-    
+
     emailToken: {
         type: String
     },
 
-    profileImage:Object,
+    profileImage: Object,
 
     security: {
         tokens: [{
@@ -133,18 +133,48 @@ const UserSchema = new mongoose.Schema({
     threeWordsToDecribeNeighborhood: [String],
 
     neighborhoodSatisfaction: {
-        publicTransportation: String,
-        publicSpaces: String,
-        neighbors: String,
-        restaurants: String,
-        safety: String
+
+        usePublicTansportation: String,
+        walkAroundNeighborhood: String,
+        visitParks: String,
+        exploreRestaurants: String,
+        exploreNightLife: String,
+        visitInMorning: String,
+        visitInAfternoon: String,
+        visitAtNight: String,
+
+
+        /*
+         publicTransportation: String,
+         publicSpaces: String,
+         neighbors: String,
+         restaurants: String,
+         safety: String
+      */
+
     },
     neighborhoodFactorDescription: {
+
+        publicTransportationExplanation: String,
+        walkAroundNeighborhoodExplanation: String,
+        visitParksExplanation: String,
+        exploreRestaurantsExplanation: String,
+        exploreNightLifeExplanation: String,
+        visitInMorningExplanation: String,
+        visitInAfternoonExplanation: String,
+        visitAtNightExplanation: String
+
+
+
+        /* 
         publicTransportationExplanation: String,
         publicSpacesExplanation: String,
+
         neighborsExplanation: String,
         restaurantsVarietyExplanation: String,
         safetyExplanation: String
+*/
+
     },
     favoritePlaces: [{
         place: String,
