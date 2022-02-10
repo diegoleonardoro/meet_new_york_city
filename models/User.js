@@ -139,8 +139,8 @@ const UserSchema = new mongoose.Schema({
         visitParks: String,
         exploreRestaurants: String,
         exploreNightLife: String,
-        visitInMorning: String,
-        visitInAfternoon: String,
+        visitInTheMorning: String,
+        visitInTheAfternoon: String,
         visitAtNight: String,
 
 

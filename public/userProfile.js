@@ -75,59 +75,59 @@ function displayMap(callback) {
         };
          */
         //var zoom = d3.zoom()
-            //.scaleExtent([1, 8])
-         //   .on('zoom', zoomed)
+        //.scaleExtent([1, 8])
+        //   .on('zoom', zoomed)
 
-         /*
-        function clickZoom() {
-            [[x0, y0], [x1, y1]] = example_bounds;
+        /*
+       function clickZoom() {
+           [[x0, y0], [x1, y1]] = example_bounds;
 
-            event.stopPropagation();
-            d3.select(this).transition().style("fill", "red");
-            svg_map.transition().duration(750).call(
-                zoom.transform,
-                d3.zoomIdentity
-                    .translate(width / 2, height / 2)
-                    .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
-                    .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
-                //d3.pointer(event, svg_map.node())
-            );
-        }
-      
+           event.stopPropagation();
+           d3.select(this).transition().style("fill", "red");
+           svg_map.transition().duration(750).call(
+               zoom.transform,
+               d3.zoomIdentity
+                   .translate(width / 2, height / 2)
+                   .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
+                   .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
+               //d3.pointer(event, svg_map.node())
+           );
+       }
+     
 
-        setTimeout(() => {
-            let x0,
-                y0,
-                x1,
-                y1
-
-
-            [[x0, y0], [x1, y1]] = example_bounds;
-
-           
-            svg_map.transition().duration(750).call(
-                zoom.transform,
-                d3.zoomIdentity
-                    .translate(width / 2, height / 2)
-                    .scale(Math.min(25, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
-                    .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
-            );
-
-         
-
-            svg_map.style('margin-left', '7%')
+       setTimeout(() => {
+           let x0,
+               y0,
+               x1,
+               y1
 
 
-            var nycNeighborhoods_paths = document.getElementsByClassName('nycNeighborhoods_paths');
-            for (var t = 0; t < nycNeighborhoods_paths.length; t++) {
-                nycNeighborhoods_paths[t].style.strokeWidth = '0.03';
-            }
+           [[x0, y0], [x1, y1]] = example_bounds;
 
-            //svg_map.style.marginLeft = '-7%';
-            var scaleX = svg_map.getBoundingClientRect().width / svg_mapd.offsetWidth;
+          
+           svg_map.transition().duration(750).call(
+               zoom.transform,
+               d3.zoomIdentity
+                   .translate(width / 2, height / 2)
+                   .scale(Math.min(25, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
+                   .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
+           );
 
-        }, 7000);
-       */
+        
+
+           svg_map.style('margin-left', '7%')
+
+
+           var nycNeighborhoods_paths = document.getElementsByClassName('nycNeighborhoods_paths');
+           for (var t = 0; t < nycNeighborhoods_paths.length; t++) {
+               nycNeighborhoods_paths[t].style.strokeWidth = '0.03';
+           }
+
+           //svg_map.style.marginLeft = '-7%';
+           var scaleX = svg_map.getBoundingClientRect().width / svg_mapd.offsetWidth;
+
+       }, 7000);
+      */
         //------------- end of zoom function --- //
 
 
@@ -141,11 +141,7 @@ function displayMap(callback) {
         projection.scale(s).translate(t);
 
         var svg_map = d3.select("#nhd-places-map-svg")
-           // .call(zoom)
-
-
-
-
+        // .call(zoom)
 
 
         n_hoods_group = d3.select("#nhd-places-map-svg")
@@ -286,16 +282,25 @@ neighborhoodSatisfaction_entries = Object.entries(neighborhoodSatisfaction);
 neighborhoodFactorDescription_entries = Object.entries(neighborhoodFactorDescription);
 
 for (var i = 0; i < neighborhoodSatisfaction_entries.length; i++) {
+
     let obj = {}
     let item = neighborhoodSatisfaction_entries[i];
     let key = item[0];
+
+    let key_split = key.split(/(?=[A-Z])/).join(" ").toLowerCase()
+    key_split = key_split.charAt(0).toUpperCase() + key_split.slice(1);
+
     let value = item[1];
     let description = neighborhoodFactorDescription_entries[i];
     obj['satisfaction'] = value;
-    obj['factor'] = key;
+    obj['factor'] = key_split;
     obj['description'] = description[1];
     neighborhood_satisfaction.push(obj);
 }
+
+
+
+
 
 let toggleClass = (i, toggle) => {
     let bar = document.getElementsByClassName('bar')[i - 1];
@@ -309,9 +314,10 @@ let toggleClass = (i, toggle) => {
     }
     d3.select("#legends li:nth-child(" + i + ")").classed("highlightText", toggle);
 };
+
 var svg = d3.select(".nhd-satisfact-svg"),
-    margin = { top: 22, right: 15, bottom: 30, left: 65 },
-    width_bar_chart = 350 - margin.left - margin.right,
+    margin = { top: 22, right: 15, bottom: 30, left: 100 },
+    width_bar_chart = 550 - margin.left - margin.right,
     height_bar_chart = 200 - margin.top - margin.bottom;
 
 var x = d3.scaleBand()
@@ -322,8 +328,10 @@ var y = d3.scalePoint()
     .range([height_bar_chart, 0])
     .padding(0.9);
 
-var neighborhoodFactors = ['publicTransportation', 'publicSpaces', 'neighbors', 'restaurants', 'safety'];
-var satisfactionLevel = ['Dissatisfied', 'Neutral', 'Satisfied'];
+
+
+var neighborhoodFactors = ['Use public tansportation', 'Walk around neighborhood', 'Visit parks', 'Explore restaurants', 'Explore night life', 'Visit in the morning', 'Visit in the afternoon', 'Visit at night'];
+var satisfactionLevel = ['Not recommended', 'Neutral', 'Recommended'];
 
 x.domain(neighborhoodFactors);
 y.domain(satisfactionLevel);
@@ -336,9 +344,39 @@ g.append("g")
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + height_bar_chart + ")")
     .call(d3.axisBottom(x))
-    .selectAll("text") 
-    .attr("transform", "rotate(-65)")
-    .style("text-anchor", "end")
+    .selectAll("text")
+    //.attr("transform", "rotate(-65)")
+    .style("text-anchor", "middle")
+
+
+
+d3.selectAll(".tick text")
+    .attr('y', function (d, i) { return textYvalue(d, i) })
+    .call(wrap, x.bandwidth())
+
+d3.selectAll(".tick line")
+    .attr('y2', function (d, i) { return tickY2value(d, i) })
+
+function textYvalue(d, i) {
+
+    if (i % 2 === 0) {
+        return 50;
+    } else {
+        return 15
+    }
+
+}
+
+function tickY2value(d, i) {
+
+    if (i % 2 === 0) {
+        return 45;
+    } else {
+        return 10
+    }
+
+}
+
 
 
 g.append("g")
@@ -346,11 +384,16 @@ g.append("g")
     .attr("id", "rect-g")
     .call(d3.axisLeft(y))
     .append("text")
-    .attr("transform", "rotate(-90)")
+
     .attr("y", 6)
     .attr("dy", "0.71em")
-    .attr("text-anchor", "end")
-    .text("Frequency");
+    .attr('border', 'solid')
+//.selectAll("text")
+// .attr("transform", "rotate(-90)")
+
+
+
+
 
 g.selectAll(".bar")
     .data(neighborhood_satisfaction)
@@ -369,6 +412,87 @@ g.selectAll(".bar")
         toggleClass(i + 1, false)
     })
 
+
+d3.selectAll(".bar").each(function () {
+
+
+    var satisfact = this.__data__.satisfaction;
+    var factor = this.__data__.factor;
+
+
+
+    console.log(x(factor))
+    console.log(y(satisfact))
+
+    var xPosition = x(factor)
+    var yPosition =y(satisfact)
+
+    //var xPosition = this.getBoundingClientRect().x;
+    //var yPosition = this.getBoundingClientRect().y;
+
+
+    var foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+    foreignObject.setAttribute("x", xPosition);
+    foreignObject.setAttribute("y", yPosition-15);
+    foreignObject.setAttribute("width", x.bandwidth());
+    foreignObject.setAttribute("height", "10px");
+    foreignObject.setAttribute("position", "relative");
+
+
+
+    var img = document.createElement('img');
+    img.src = 'http://www.clker.com/cliparts/P/Z/w/n/R/W/red-smiley-face-hi.png';
+    img.setAttribute("height", "100%");
+    img.setAttribute("width", "100%");
+    foreignObject.appendChild(img)
+
+
+
+    //var p = document.createElement('p');
+    // p.innerText ='hola'
+    //this.parentNode.insertBefore(p, this.nextSibling);
+
+
+    this.parentNode.insertBefore(foreignObject, this.nextSibling);
+});
+
+
+
+/*    
+    .append("foreignObject")
+    .attr("x", "10%")
+    .attr("y", "10%")
+    .attr("width", "80%")
+    .attr("height", "80%")
+    .attr("preserveAspectRatio", "xMidYMin slice")
+    .append('xhtml:img').attr('src', 'http://www.clker.com/cliparts/P/Z/w/n/R/W/red-smiley-face-hi.png')
+    .attr("y", function (d) { return y(d.satisfaction); })
+    .attr("x", function (d) { return x(d.factor); })
+
+
+   .append("foreignObject")
+    .attr("width", 100)
+    .attr("height", 100)
+    .append('xhtml:img').attr('src', 'http://www.clker.com/cliparts/P/Z/w/n/R/W/red-smiley-face-hi.png')
+    .attr("y", function (d) { return y(d.satisfaction); })
+    .attr("x", function (d) { return x(d.factor); })
+
+
+
+
+.append('image')
+.attr('xlink:href', 'http://www.clker.com/cliparts/P/Z/w/n/R/W/red-smiley-face-hi.png')
+.attr("width", x.bandwidth())
+.attr("height", "28px")
+.attr("y", function (d) { return y(d.satisfaction); })
+.attr("x", function (d) { return x(d.factor); })
+.attr("preserveAspectRatio", "none")
+.exit().remove();
+*/
+
+
+
+
 var listSelection = d3.select('#legends')
     .selectAll('li')
     .data(neighborhood_satisfaction)
@@ -385,6 +509,37 @@ var listSelection = d3.select('#legends')
     .on('mouseout', (d, i) => {
         toggleClass(i + 1, false)
     })
+
+
+function wrap(text, width_bar_chart) {
+    text.each(function () {
+
+        var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, // ems
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em")
+
+
+
+        while (word = words.pop()) {
+            line.push(word)
+            tspan.text(line.join(" "))
+            if (tspan.node().getComputedTextLength() > width_bar_chart) {
+                line.pop()
+                tspan.text(line.join(" "))
+                line = [word]
+                tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
+            }
+        }
+
+
+    })
+}
 // end of display the neighborhood satisfaction chart 
 
 
