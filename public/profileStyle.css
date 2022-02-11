@@ -262,6 +262,15 @@ body{
     padding-left:2rem;
 }
 
+.highlightText {
+    font-weight: 700;
+    color: #0769ad;
+}
+   
+.highlightBar {
+    fill:rgb(249, 254, 255);
+}
+
 /* end of favorite places */
 
 
@@ -549,7 +558,6 @@ body{
 }
    
 .highlightBar {
-    
     fill:rgb(249, 254, 255);
 }
 .show-more-link{

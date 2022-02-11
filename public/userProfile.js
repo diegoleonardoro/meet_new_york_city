@@ -171,12 +171,6 @@ function displayMap(callback) {
         nyc_nhoods_paths.exit().remove();
 
 
-
-
-
-
-
-
         /*
 
         Display streets
@@ -296,6 +290,7 @@ for (var i = 0; i < neighborhoodSatisfaction_entries.length; i++) {
     obj['factor'] = key_split;
     obj['description'] = description[1];
     neighborhood_satisfaction.push(obj);
+
 }
 
 
@@ -316,7 +311,7 @@ let toggleClass = (i, toggle) => {
 };
 
 var svg = d3.select(".nhd-satisfact-svg"),
-    margin = { top: 22, right: 15, bottom: 30, left: 100 },
+    margin = { top: 22, right: 15, bottom: 30, left: 110 },
     width_bar_chart = 550 - margin.left - margin.right,
     height_bar_chart = 200 - margin.top - margin.bottom;
 
@@ -327,7 +322,6 @@ var x = d3.scaleBand()
 var y = d3.scalePoint()
     .range([height_bar_chart, 0])
     .padding(0.9);
-
 
 
 var neighborhoodFactors = ['Use public tansportation', 'Walk around neighborhood', 'Visit parks', 'Explore restaurants', 'Explore night life', 'Visit in the morning', 'Visit in the afternoon', 'Visit at night'];
@@ -345,9 +339,10 @@ g.append("g")
     .attr("transform", "translate(0," + height_bar_chart + ")")
     .call(d3.axisBottom(x))
     .selectAll("text")
-    //.attr("transform", "rotate(-65)")
     .style("text-anchor", "middle")
-
+    .attr("fill", function (d, i) { return xAxisTextColor(d, i) })
+    .attr("font-weight", 800)
+    .style("font-size", "12px")
 
 
 d3.selectAll(".tick text")
@@ -357,40 +352,58 @@ d3.selectAll(".tick text")
 d3.selectAll(".tick line")
     .attr('y2', function (d, i) { return tickY2value(d, i) })
 
-function textYvalue(d, i) {
 
+//-----------------------//
+// Call back functions:
+function xAxisTextColor(d, i) {
+
+    const neighborhood_factor = neighborhood_satisfaction[i];
+    const neighborhood_factor_satisfact = neighborhood_factor.satisfaction;
+
+    if (neighborhood_factor_satisfact === 'Recommended') {
+        return '#39b54a';
+    } else if (neighborhood_factor_satisfact === 'Neutral') {
+        return '#fbb03b';
+    } else if (neighborhood_factor_satisfact === 'Not recommended') {
+        return '#e74b50';
+    }
+}
+function textYvalue(d, i) {
     if (i % 2 === 0) {
-        return 50;
+        return 55;
     } else {
         return 15
     }
-
 }
-
 function tickY2value(d, i) {
-
     if (i % 2 === 0) {
-        return 45;
+        return 50;
     } else {
         return 10
     }
+}
+function yAxisTextColor(d, i) {
+
+    if (d === 'Not recommended') {
+        return '#e74b50';
+    } else if (d === 'Neutral') {
+        return '#fbb03b';
+    } else if (d === 'Recommended') {
+        return '#39b54a';
+    }
 
 }
-
+//-----------------------//
 
 
 g.append("g")
     .attr("class", "axis axis--y")
     .attr("id", "rect-g")
     .call(d3.axisLeft(y))
-    .append("text")
-
-    .attr("y", 6)
-    .attr("dy", "0.71em")
-    .attr('border', 'solid')
-//.selectAll("text")
-// .attr("transform", "rotate(-90)")
-
+    .selectAll("text")
+    .attr("font-weight", 800)
+    .style("font-size", "12px")
+    .attr("fill", function (d, i) { return yAxisTextColor(d, i) })
 
 
 
@@ -413,31 +426,43 @@ g.selectAll(".bar")
     })
 
 
+const recomendIllustration = document.getElementsByClassName('recommendedFace')[0];
+const neutralIllustration = document.getElementsByClassName('neutralFace')[0];
+const notRecommendedIllustration = document.getElementsByClassName('notRecommendedFace')[0];
+
+
 d3.selectAll(".bar").each(function () {
 
+    const satisfact = this.__data__.satisfaction;
+    const factor = this.__data__.factor;
 
-    var satisfact = this.__data__.satisfaction;
-    var factor = this.__data__.factor;
+    let satisfactIllustration;
 
-
-
-    console.log(x(factor))
-    console.log(y(satisfact))
+    if (satisfact === 'Recommended') {
+        satisfactIllustration = recomendIllustration.cloneNode(true);
+    } else if (satisfact === 'Neutral') {
+        satisfactIllustration = neutralIllustration.cloneNode(true);
+    } else if (satisfact === 'Not recommended') {
+        satisfactIllustration = notRecommendedIllustration.cloneNode(true);
+    }
 
     var xPosition = x(factor)
-    var yPosition =y(satisfact)
+    var yPosition = y(satisfact)
 
-    //var xPosition = this.getBoundingClientRect().x;
-    //var yPosition = this.getBoundingClientRect().y;
+
+    satisfactIllustration.setAttribute("x", xPosition);
+    satisfactIllustration.setAttribute("y", yPosition - 30);
+    satisfactIllustration.setAttribute("width", x.bandwidth());
+    satisfactIllustration.setAttribute("height", "30px");
+    satisfactIllustration.setAttribute("position", "relative");
 
 
     var foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
     foreignObject.setAttribute("x", xPosition);
-    foreignObject.setAttribute("y", yPosition-15);
+    foreignObject.setAttribute("y", yPosition - 43);
     foreignObject.setAttribute("width", x.bandwidth());
-    foreignObject.setAttribute("height", "10px");
+    foreignObject.setAttribute("height", "40px");
     foreignObject.setAttribute("position", "relative");
-
 
 
     var img = document.createElement('img');
@@ -446,49 +471,12 @@ d3.selectAll(".bar").each(function () {
     img.setAttribute("width", "100%");
     foreignObject.appendChild(img)
 
+    this.parentNode.insertBefore(satisfactIllustration, this.nextSibling);
 
-
-    //var p = document.createElement('p');
-    // p.innerText ='hola'
-    //this.parentNode.insertBefore(p, this.nextSibling);
-
-
-    this.parentNode.insertBefore(foreignObject, this.nextSibling);
 });
 
 
 
-/*    
-    .append("foreignObject")
-    .attr("x", "10%")
-    .attr("y", "10%")
-    .attr("width", "80%")
-    .attr("height", "80%")
-    .attr("preserveAspectRatio", "xMidYMin slice")
-    .append('xhtml:img').attr('src', 'http://www.clker.com/cliparts/P/Z/w/n/R/W/red-smiley-face-hi.png')
-    .attr("y", function (d) { return y(d.satisfaction); })
-    .attr("x", function (d) { return x(d.factor); })
-
-
-   .append("foreignObject")
-    .attr("width", 100)
-    .attr("height", 100)
-    .append('xhtml:img').attr('src', 'http://www.clker.com/cliparts/P/Z/w/n/R/W/red-smiley-face-hi.png')
-    .attr("y", function (d) { return y(d.satisfaction); })
-    .attr("x", function (d) { return x(d.factor); })
-
-
-
-
-.append('image')
-.attr('xlink:href', 'http://www.clker.com/cliparts/P/Z/w/n/R/W/red-smiley-face-hi.png')
-.attr("width", x.bandwidth())
-.attr("height", "28px")
-.attr("y", function (d) { return y(d.satisfaction); })
-.attr("x", function (d) { return x(d.factor); })
-.attr("preserveAspectRatio", "none")
-.exit().remove();
-*/
 
 
 
