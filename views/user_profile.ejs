@@ -57,7 +57,8 @@
                 <i class ='fas fa-search'></i>
                 <input type='text' placeholder ='Search' class ='search-bar-input'>
             </div>
-
+            
+            <!--
             <div class='user'>
                 <div class='user-image-wrapper'>
                     <img src='https://media-exp1.licdn.com/dms/image/C4D03AQEj1JSX2oGPBg/profile-displayphoto-shrink_800_800/0/1589671182353?e=1640822400&v=beta&t=-mMk6bouHEzergtpKjrqsA-igIw9-UD8Lcd__ez08fk'/>
@@ -65,10 +66,9 @@
                 <a href='#' class='user-link'><%= user.name %></a>
                 <i class='fas fa-chevron-down'></i>
             </div>
+            -->
         </nav>
         <!-- end of profile nav -->
-
-
 
 
 
@@ -78,10 +78,21 @@
 
 
             <!------------------->
-            <div id ='intro_contact'> 
-                <% for(var c = 0; c < user.intro.length; c++){ %>
-                    <p class ='self-intro-p'><%- user.intro[c]%></p>
-                <% } %>
+            <div id ='container_intro_contact'>
+                <div id ='intro_contact'> 
+
+                    <div class= 'profilePicIntro'>
+                        <div class='user-image-wrapper'>
+                            <img src= "data:image/png;base64,<%= user.profilePicture[0] %>" />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <% for(var c = 0; c < user.intro.length; c++){ %>
+                            <p class ='self-intro-p'><%- user.intro[c]%></p>
+                        <% } %>
+                    </div>
+                </div>
             </div>
             <!------------------->
 

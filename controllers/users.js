@@ -199,8 +199,6 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
 
     const profileImgFormatted = [];
-
-
     function createStream() {
         let readstream = gfs.createReadStream(user[0].profileImage.filename);
         let fileChunks = [];
@@ -224,15 +222,13 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
         .cookie('refreshToken', refreshToken)
 
     setTimeout(() => {
- 
+
         res.render("questionnaire", { user: responseData, profileImage: profileImgFormatted });
 
     }, 2000);
 
 
 })
-
-
 
 
 
@@ -253,18 +249,24 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
     for (var w = 0; w < favPlaces.length; w++) {
         let filesNamesArray = [];
         amountOfPhotosPerPlace.push(favPlaces[w]['placeImage'].length);
-
         let currentPlace = favPlaces[w];
 
         for (var c = 0; c < currentPlace['placeImage'].length; c++) {
             let filesNames = currentPlace['placeImage'][c].filename;
 
             filesNamesArray.push(filesNames)
-
             arr.push(filesNames)
         }
-
     };
+
+
+
+
+
+
+
+
+
 
 
 
@@ -273,6 +275,9 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
     let imageFormated;
     let newArr = [];
 
+    let profilePicFlag = true;
+
+    const profileImgFormatted = [];
     function createStream() {
 
         let filename = arr[streamFlag];
@@ -296,9 +301,30 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
                 }
             });
         }
+
+        if (req.user[0].profileImage && profilePicFlag) {
+
+            profilePicFlag = false;
+
+            let readstreamProfilePic = gfs.createReadStream(req.user[0].profileImage.filename);
+            let fileChunks = [];
+            readstreamProfilePic.on('data', function (chunk) {
+                fileChunks.push(chunk);
+            });
+            readstreamProfilePic.on('end', function () {
+                let concatFile = Buffer.concat(fileChunks);
+                imageFormated = Buffer(concatFile).toString("base64");
+                profileImgFormatted.push(imageFormated);
+            });
+
+        }
     }
     createStream();
     // end of create stream function that will retreive buffer data from database 
+
+
+
+
 
 
 
@@ -331,7 +357,9 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             'lengthLivingInNeighborhood': req.user[0].lengthLivingInNeighborhood,
             'imagesFormated': newArr,
             'intro': intro,
-            'amountOfPhotosPerPlace': amountOfPhotosPerPlace
+            'amountOfPhotosPerPlace': amountOfPhotosPerPlace,
+            'profilePicture': profileImgFormatted
+
         }
 
         res.render("user_profile", { user });
@@ -388,13 +416,13 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
         }
     }
     iterateArrayOfImages();
-
+ 
     setTimeout(() => { 
-
+ 
         let mainArrayDivided = [];
         let c = 0;
         let z
-
+ 
         for (var q = 0; q < amountOfPhotosPerPlace.length; q++) {
             var amountOfPhotosForPlace = amountOfPhotosPerPlace[q];
             if (q === 0) {
@@ -412,23 +440,23 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             c = amountOfPhotosForPlace;
             mainArrayDivided.push(arre)
         }
-
+ 
         let livingInNhood;
         if (req.user[0].lengthLivingInNeighborhood === 'do not live there') {
             livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
         } else {
             livingInNhood = `I have been living in this neighborhood ${req.user[0].lengthLivingInNeighborhood},and I know it well enough to take you to the best places.`
         }
-
+ 
         var introduction1 = `Hello! <span class='introHighlight'> My name is ${req.user[0].name}, and if you want to visit ${req.user[0].neighborhood} I can show around</span> . ${livingInNhood}`
         var introduction2 = `<b>I would describe ${req.user[0].neighborhood} as follows:</b> `
         var introduction3 = `${req.user[0].neighborhoodDescription}`
         var introduction4 = `<b>In three words, I would say ${req.user[0].neighborhood} is:</b>`
         var introduction5 = `${req.user[0].threeWordsToDecribeNeighborhood}`.split(',')
         var introduction6 = `Please keep exploring my profile if you want to learn more about ${req.user[0].neighborhood}, and get to know New York City like very few visitors do.`
-
+ 
         var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
-
+ 
         let user = {
             'name': req.user[0].name,
             'neighborhood': req.user[0].neighborhood,
