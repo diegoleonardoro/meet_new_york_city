@@ -297,7 +297,13 @@ for (var i = 0; i < neighborhoodSatisfaction_entries.length; i++) {
 
 
 
-let toggleClass = (i, toggle) => {
+let toggleClass = (d, i, toggle) => {
+
+
+    const satisfaction = d.satisfaction;
+
+
+    /*
     let bar = document.getElementsByClassName('bar')[i - 1];
     var clasNameHighlight = bar.className.baseVal + ' highlightBar';
     var classNameNotHighlight = 'bar';
@@ -307,13 +313,59 @@ let toggleClass = (i, toggle) => {
     } else {
         bar.setAttribute("class", classNameNotHighlight);
     }
-    d3.select("#legends li:nth-child(" + i + ")").classed("highlightText", toggle);
+    */
+
+    let fontColor;
+
+
+    if (toggle) {
+        if (satisfaction === 'Recommended') {
+            fontColor = '#39b54a';
+        } else if (satisfaction === 'Neutral') {
+            fontColor = '#fbb03b';
+        } else if (satisfaction === 'Not recommended') {
+            fontColor = '#e74b50';
+        }
+        d3.select("#legends li:nth-child(" + i + ")")
+            .style("font-size", "16px")
+            .style('color', fontColor)
+            .style("font-weight", 'bold');
+
+
+        d3.select("#legends li:nth-child(" + i + ") tspan")
+            .style("font-weight", 'bold');
+
+
+
+    } else {
+        d3.select("#legends li:nth-child(" + i + ")")
+            // .style("font-size", "92px")
+            .style('color', 'black')
+            .style("font-size", "12px")
+            .style("font-weight", 'bold');
+        d3.select("#legends li:nth-child(" + i + ") tspan")
+            .style("font-weight", 'normal');
+
+        //.style("font-weight", 900)
+
+
+
+
+    }
+
+
+
+
+
+
 };
 
 var svg = d3.select(".nhd-satisfact-svg"),
     margin = { top: 22, right: 15, bottom: 30, left: 110 },
     width_bar_chart = 550 - margin.left - margin.right,
-    height_bar_chart = 200 - margin.top - margin.bottom;
+    height_bar_chart = 100 - margin.top - margin.bottom;
+
+
 
 var x = d3.scaleBand()
     .range([0, width_bar_chart])
@@ -334,6 +386,7 @@ y.domain(satisfactionLevel);
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+// x axis:
 g.append("g")
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + height_bar_chart + ")")
@@ -383,7 +436,6 @@ function tickY2value(d, i) {
     }
 }
 function yAxisTextColor(d, i) {
-
     if (d === 'Not recommended') {
         return '#e74b50';
     } else if (d === 'Neutral') {
@@ -391,19 +443,55 @@ function yAxisTextColor(d, i) {
     } else if (d === 'Recommended') {
         return '#39b54a';
     }
+}
 
+function barsColors(d) {
+    const satisfact = d.satisfaction;
+    if (satisfact === 'Recommended') {
+        return '#39b54a';
+    } else if (satisfact === 'Neutral') {
+        return '#fbb03b';
+    } else if (satisfact === 'Not recommended') {
+        return '#e74b50';
+    }
 }
 //-----------------------//
 
-
+// y axis:
 g.append("g")
     .attr("class", "axis axis--y")
     .attr("id", "rect-g")
     .call(d3.axisLeft(y))
     .selectAll("text")
-    .attr("font-weight", 800)
-    .style("font-size", "12px")
+    .attr("font-weight", 700)
+    .style("font-size", "9px")
     .attr("fill", function (d, i) { return yAxisTextColor(d, i) })
+
+
+
+
+// Select both x and y axis to add a grid:
+d3.selectAll("g.axis--y g.tick")
+    .append("line")
+    .attr("class", "gridline")
+    .attr("x1", 0)
+    .attr("y1", 0)
+    .attr("x2", width_bar_chart)
+    .attr("y2", 0);
+
+d3.selectAll("g.axis--x g.tick")
+    .append("line")
+    .attr("class", "gridline")
+    .attr("x1", 0)
+    .attr("y1", -height_bar_chart)
+    .attr("x2", 0)
+    .attr("y2", 0);
+// end of select both x and y axis to add a grid:
+
+
+
+
+
 
 
 
@@ -416,13 +504,14 @@ g.selectAll(".bar")
     .attr("y", function (d) { return y(d.satisfaction); })
     .attr("width", x.bandwidth())
     .attr("height", function (d) { return height_bar_chart - y(d.satisfaction); })
-    .style("fill", "#2D4859")
+    .style("fill", function (d) { return barsColors(d) })
+    .style("opacity", '0.7')
     .on('mouseover', (d, i) => {
 
-        toggleClass(i + 1, true)
+        toggleClass(d, i + 1, true)
     })
     .on('mouseout', (d, i) => {
-        toggleClass(i + 1, false)
+        toggleClass(d, i + 1, false)
     })
 
 
@@ -449,11 +538,10 @@ d3.selectAll(".bar").each(function () {
     var xPosition = x(factor)
     var yPosition = y(satisfact)
 
-
     satisfactIllustration.setAttribute("x", xPosition);
     satisfactIllustration.setAttribute("y", yPosition - 30);
     satisfactIllustration.setAttribute("width", x.bandwidth());
-    satisfactIllustration.setAttribute("height", "30px");
+    satisfactIllustration.setAttribute("height", "20px");
     satisfactIllustration.setAttribute("position", "relative");
 
 
@@ -479,24 +567,32 @@ d3.selectAll(".bar").each(function () {
 
 
 
-
-
 var listSelection = d3.select('#legends')
     .selectAll('li')
     .data(neighborhood_satisfaction)
     .enter()
     .append('li')
     .attr('class', 'factorDescription')
+    .style('font-size', '12px')
+    .style("font-weight", 900)
     .text((d) => {
-        return d.factor + ': '
-            + d.description;
+        return d.factor + ': ';
     })
+
     .on('mouseover', (d, i) => {
         toggleClass(i + 1, true)
     })
     .on('mouseout', (d, i) => {
         toggleClass(i + 1, false)
     })
+    .append("tspan")
+    .style("font-weight", 300)
+    .text((d) => {
+        return d.description;
+    })
+
+
+
 
 
 function wrap(text, width_bar_chart) {
@@ -524,7 +620,6 @@ function wrap(text, width_bar_chart) {
                 tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
             }
         }
-
 
     })
 }
@@ -628,13 +723,7 @@ function changePhotos(e, r) {
     //divOfImages.children[imagesFlag].style.height = '100%';
     // divOfImages.children[imagesFlag].style.width = '100%';
 
-
-
-
-
-
     divOfImages.className = divOfImages.className + ' ' + imagesFlag;
-
 
     //console.log(divOfImages);
     //console.log(divOfImages.children[imagesFlag]);

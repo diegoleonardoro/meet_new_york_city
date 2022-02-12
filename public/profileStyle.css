@@ -113,18 +113,21 @@ body{
 
 
 /* profile content */
+
+.self-intro-p{
+    padding-top:1rem;
+    line-height: 1.5;
+    font-size: 12px;
+}
 #content{
     margin-right:2rem;
     margin-left:6rem;
-
     top:5rem;
     position:relative;
     display:grid;
     grid-template-columns: 280px auto;
     grid-template-rows: 15rem auto auto;
     justify-items: center;
-
-  
 }
 
 #intro_contact{
@@ -180,10 +183,17 @@ body{
 
 #legends{
     position:relative;
-    left:25%;
+    left:10%;
+}
+.factorDescription{
+    margin-top: 1rem;
 }
 
-
+.gridline{
+    stroke: black;
+    shape-rendering: crispEdges;
+    stroke-opacity: .2;
+    }
 
 
 

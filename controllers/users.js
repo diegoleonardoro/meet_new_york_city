@@ -93,7 +93,6 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
 
 
-
     let favPlaces = user[0].favoritePlaces;
     let arr = [];
     let amountOfPhotosPerPlace = [];
@@ -109,21 +108,15 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
         }
     };
 
-
-
-
-
     let streamFlag = 0;
     let imageFormated;
     let newArr = [];
-
 
 
     function createStream() {
 
         let filename = arr[streamFlag];
 
-        console.log(filename)
         let readstream = gfs.createReadStream(filename);
         let fileChunks = [];
         readstream.on('data', function (chunk) {
@@ -205,11 +198,8 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
     }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
 
 
-
-
     const profileImgFormatted = [];
 
-    console.log('USER: ', user);
 
     function createStream() {
         let readstream = gfs.createReadStream(user[0].profileImage.filename);
@@ -315,17 +305,17 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
     setTimeout(() => {
         let livingInNhood;
         if (req.user[0].lengthLivingInNeighborhood === 'do not live there') {
-            livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
+            livingInNhood = `I do not live in ${req.user[0].neighborhood} but I know it well enough to take you to the best places`
         } else {
-            livingInNhood = `I have been living in this neighborhood ${req.user[0].lengthLivingInNeighborhood},and I know it well enough to take you to the best places.`
+            livingInNhood = `I have been living in ${req.user[0].neighborhood} ${req.user[0].lengthLivingInNeighborhood}`
         }
 
-        var introduction1 = `Hello! <span class='introHighlight'> My name is ${req.user[0].name}, and if you want to visit ${req.user[0].neighborhood} I can show around</span> . ${livingInNhood}`
+        var introduction1 = `My name is ${req.user[0].name}. ${livingInNhood}, and if you want to visit, I can show around.`
         var introduction2 = `<b>I would describe ${req.user[0].neighborhood} as follows:</b> `
         var introduction3 = `${req.user[0].neighborhoodDescription}`
-        var introduction4 = `<b>In three words, I would say ${req.user[0].neighborhood} is:</b>`
+        var introduction4 = `<b>In three words, I would say ${req.user[0].neighborhood} is: </b>`
         var introduction5 = `${req.user[0].threeWordsToDecribeNeighborhood}`.split(',')
-        var introduction6 = `Please keep exploring my profile if you want to learn more about ${req.user[0].neighborhood}, and get to know New York City like very few visitors do.`
+        var introduction6 = `Please message me if you want me to show you ${req.user[0].neighborhood} around.`
 
         var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
 

@@ -118,8 +118,8 @@
                     <!--<button type ='button' class='explore-detail-btn'> <i class='fas fa-chevron-down'></i>This is how I feel about my neighborhood</button>-->
                     <h3>Neighborhood suggestions: </h3>
                     <div class='explore-detail-div'>        
-                        <svg class='nhd-satisfact-svg'width="550" height="280"></svg>
-                        <ol id="legends"></ol>
+                        <svg class='nhd-satisfact-svg'width="550" height="190"></svg>
+                        <ul id="legends"></ul>
                     </div>
                 </div>
 
@@ -225,7 +225,6 @@
 
                                     <% for(let q = 0; q < numOfPhotos ; q ++){ %>
 
-
                                             <% if (q===0){  %>
 
                                             <img src="data:image/png;base64,<%= user.imagesFormated[0]%>" />
@@ -246,24 +245,14 @@
    
                                 </div>
 
-
                                 <p class ='neighborhood-text'>
-
                                     <%- user.favoritePlaces[e].description %>
-
                                 </p>
-
-
-                                
                         </div>
-
                     </div>
-
                 <% } %>
-
             </div>
             <!------------------->
-
         </div>
 
 
