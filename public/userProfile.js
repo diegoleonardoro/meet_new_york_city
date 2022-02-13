@@ -38,8 +38,26 @@ let nyc_nhoods_paths;
 let nyc_streets_paths;
 let width;
 let height;
-
 let example_bounds;
+
+
+
+
+
+// load neighborhood coordinates data 
+let lat;
+let lon;
+d3.json("/nhoodCoords.json", function (neighborhoodsData) {
+    for (var r = 0; r < neighborhoodsData.length; r++) {
+        if (neighborhood === neighborhoodsData[r]['Name']) {
+            lat = neighborhoodsData[r]['the_geom'][1];
+            lon = neighborhoodsData[r]['the_geom'][0];
+        }
+    }
+})
+// end of load neighborhood coordinates data 
+
+
 
 
 function displayMap(callback) {
@@ -144,6 +162,7 @@ function displayMap(callback) {
         // .call(zoom)
 
 
+
         n_hoods_group = d3.select("#nhd-places-map-svg")
             .append('g')
             .attr('class', 'neighborhoodsGroup')
@@ -171,8 +190,23 @@ function displayMap(callback) {
         nyc_nhoods_paths.exit().remove();
 
 
-        /*
 
+        // Display circle inside map svg
+        var divLeftStyle = projection([lon, lat])[0];
+        var divTopStyle = projection([lon, lat])[1];
+        d3.select("#nhd-places-map-svg")
+            .append("circle")
+            .attr("cx", divLeftStyle)
+            .attr("cy", divTopStyle)
+            .attr("id", "placeCircle")
+            .attr("r", 3)
+            .attr("fill", "#39b54a")
+            .attr("id", "placeCircle");
+        // end of display circle inside map svg
+
+
+
+        /*
         Display streets
         d3.json('/NYCStreetCenterline.json', function (error2, streets_data) {
 
@@ -197,8 +231,6 @@ function displayMap(callback) {
         });
 
         */
-
-
 
         /*
         Display parks
@@ -231,24 +263,25 @@ function displayMap(callback) {
 
 
 
+
+
 setTimeout(() => {
     var n_hoods_g = document.getElementsByClassName('neighborhoodsGroup')[0];
     var n_hoods_g_children = n_hoods_g.children;
 
-    for (var e = 0; e < nyc_nhoods_paths['_enter'][0].length; e++) {
-        if (nyc_nhoods_paths['_enter'][0][e]['__data__']['properties']['ntaname'].includes(neighborhood)) {
 
-            example_bounds = path.bounds(nyc_nhoods_paths['_enter'][0][e]['__data__'])
-
-        }
-    }
 
     for (var i = 0; i < n_hoods_g_children.length; i++) {
-        if (n_hoods_g_children[i].id === neighborhood) {
+        if (n_hoods_g_children[i].id.indexOf(neighborhood) > -1) {
+
             //console.log(path.bounds(n_hoods_g_children[i]));
+            // console.log(n_hoods_g_children[i]);
             n_hoods_g_children[i].style.fill = 'yellow';
         }
     }
+
+
+
 
 }, 3000);
 

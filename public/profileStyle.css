@@ -197,7 +197,8 @@ body{
     height:auto;
 }
 #section_map{
-    padding-left:5rem;
+    padding-left:10rem;
+    padding-top:10rem;
     
 }
 #section_chart{
