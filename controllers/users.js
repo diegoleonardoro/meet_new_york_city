@@ -358,7 +358,8 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             'imagesFormated': newArr,
             'intro': intro,
             'amountOfPhotosPerPlace': amountOfPhotosPerPlace,
-            'profilePicture': profileImgFormatted
+            'profilePicture': profileImgFormatted,
+            'borough': req.user[0].borough
 
         }
 

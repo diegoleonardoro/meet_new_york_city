@@ -47,11 +47,14 @@ let example_bounds;
 // load neighborhood coordinates data 
 let lat;
 let lon;
+let neighborhood_blurb;
+
 d3.json("/nhoodCoords.json", function (neighborhoodsData) {
     for (var r = 0; r < neighborhoodsData.length; r++) {
         if (neighborhood === neighborhoodsData[r]['Name']) {
             lat = neighborhoodsData[r]['the_geom'][1];
             lon = neighborhoodsData[r]['the_geom'][0];
+            neighborhood_blurb = neighborhoodsData[r]['Description'];
         }
     }
 })
@@ -131,11 +134,8 @@ function displayMap(callback) {
                    .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
            );
 
-        
-
+    
            svg_map.style('margin-left', '7%')
-
-
            var nycNeighborhoods_paths = document.getElementsByClassName('nycNeighborhoods_paths');
            for (var t = 0; t < nycNeighborhoods_paths.length; t++) {
                nycNeighborhoods_paths[t].style.strokeWidth = '0.03';
@@ -158,7 +158,7 @@ function displayMap(callback) {
         t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
         projection.scale(s).translate(t);
 
-        var svg_map = d3.select("#nhd-places-map-svg")
+        var svg_map = document.getElementById('nhd-places-map-svg') //d3.select("#")
         // .call(zoom)
 
 
@@ -203,6 +203,28 @@ function displayMap(callback) {
             .attr("fill", "#39b54a")
             .attr("id", "placeCircle");
         // end of display circle inside map svg
+
+
+
+        // Display path that connects the circle to the neighborhood explanation box
+        let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+        newElement.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + divLeftStyle + " " + 0);
+        newElement.style.stroke = "#000";
+        newElement.style.strokeWidth = "1px";
+        svg_map.appendChild(newElement);
+        // end of display path that connects the circle to the neighborhood explanation box
+
+
+
+
+        // Insert neighborhood description
+        const neighborhood_description = document.getElementById('neighborhood_description');
+        neighborhood_description.innerText= neighborhood_blurb;
+
+        // end of insert neighborhood description
+
+
+
 
 
 
@@ -276,7 +298,7 @@ setTimeout(() => {
 
             //console.log(path.bounds(n_hoods_g_children[i]));
             // console.log(n_hoods_g_children[i]);
-            n_hoods_g_children[i].style.fill = 'yellow';
+            //n_hoods_g_children[i].style.fill = 'yellow';
         }
     }
 

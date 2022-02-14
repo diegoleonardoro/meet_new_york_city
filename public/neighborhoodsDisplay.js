@@ -76,6 +76,8 @@ function autocomplete(inp, arr) {
                                             .attr("r", 6)
                                             .attr("fill", "#ffe577")
                                             .attr("id", "placeCircle");
+
+                                            
                                     })
                                 }
                             }

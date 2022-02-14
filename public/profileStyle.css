@@ -129,20 +129,18 @@ body{
     font-size: 12px;
 }
 #content{
-    margin-right:2rem;
     margin-left:6rem;
     top:5rem;
     position:relative;
     display:grid;
     grid-template-columns: 280px auto;
-    grid-template-rows: 15rem auto auto;
+    grid-template-rows: 10rem  auto auto;
     justify-items: center;
 }
 
 
 
-#container_intro_contact{
-
+#container_intro_contact{ /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
     grid-column: 1/2;
     grid-row: 1/-1;
     border-right: 1px solid black;
@@ -150,12 +148,6 @@ body{
     padding-right:4rem;
 }
 #intro_contact{
-
-    /*
-        grid-column: 1/2;
-    grid-row: 1/-1;
-    */
-
     padding:2rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
@@ -165,29 +157,29 @@ body{
 .profilePicIntro{
     margin-bottom:2rem;
 }
-#details{
+#details{/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
     height:3.5rem;
     display:flex;
-    grid-column: 2/3;
+    grid-column: 2/-1;
     grid-row: 1/2;
-    align-self: center;
- 
+    align-self: end;
     justify-content: space-evenly;
     align-items:center;
     width:100%;
-
     border-bottom: 1px solid black;
     border-top: 1px solid black;
     border-right: 1px solid black;
+
+    font-size: 12px;
 }
 
-#map_chart{
+#map_chart{ /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
     height:auto;
-    grid-column: 2/3;
+    grid-column: 2/-1;
     grid-row: 2/3;  
     display:flex;
     width:100%;
-
+    border-bottom: 1px solid black;
 }
 
 
@@ -198,11 +190,25 @@ body{
 }
 #section_map{
     padding-left:10rem;
-    padding-top:10rem;
-    
+    padding-right:3rem;
+    padding-top:5rem;
+
+    /*padding-top:10rem;*/
 }
+#neighborhood_description{
+    height:14rem;
+    padding:1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px inset, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px inset;
+    line-height: 1.8;
+    font-size: 11px;
+}
+
+
+
 #section_chart{
-    padding-left:5rem;
+    margin-right:4rem;
+    border-left:black solid 1px;
+    padding-top:5rem;
 }
 #section_chart h3{
     position:relative;
@@ -224,36 +230,31 @@ body{
     }
 
 
-
 /* end of profile content */
 
 
 
 /* favorite places */
-#fav_places{
-    grid-column: 2/3;
-    grid-row: 3/4;  
-
-    margin-top: 10rem;
+#fav_places{ /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
+    grid-column: 2/-1;
+    grid-row: 3/-1;  
+    margin-top: 5rem;
     display:grid;
     grid-template-columns : 35rem 35rem 35rem;
     grid-template-rows : 5rem 33rem;
-
 }
-
 
 #favorite_places_header{
     grid-column: 1/-1;
     grid-row: 1/2;
+    margin-left:4rem;
+   
 }
-
 
 .neighborhood-description{
     display:flex;
     border:0.1rem solid rgb(0, 0, 0);
     margin-left:5%;   
-
-
 }
 .neighborhood-content{
     padding-top: 2rem;
@@ -264,19 +265,15 @@ body{
 }
 
 
-
 .neihborhood-image{
     display:flex;
     justify-content: space-between;
-   
     margin-left:1rem;
     margin-right:1rem;
     margin-bottom:1rem;
     padding-top:2rem;
-
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px inset, rgba(17, 17, 26, 0.1) 0px 0px 8px inset;
 
- 
 }
 
 .neihborhood-image .divOfImages img{ 

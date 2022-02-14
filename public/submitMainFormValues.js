@@ -111,24 +111,21 @@ form.addEventListener("submit", function (err) {
     let zipcode;
     let neighborhood;
 
-    console.log('holahola');
+  
     
     for (var i = 0; i < formElementsLength; i++) {
+
         if (form.elements[i].parentElement.className.indexOf('_fav_Places') > -1 ) {//&& form.elements[i].id != 'addPlaceButton' && flag === 1
             // What are your favorite places in this neighborhood? 
             // - Name or address of the place:
             // - Why is this one of you favorite places:
             // - Share an image of this place:
-
-            
-            
             flag = flag + 1;
+
             for (var e = 1; e <= 4; e++) {//four times becaue there will be a maximum of 4 favorite place elements
 
                 let favPlaces = {};
                 var favoritePlace = document.getElementsByClassName('favoritePlace' + e);
-
-                console.log(favoritePlace);
 
                 if (favoritePlace.length > 1) {
 
@@ -142,17 +139,12 @@ form.addEventListener("submit", function (err) {
                             if (favoritePlace[v].files.length > 0) {
                                 numberOfPhotos = numberOfPhotos + 1;
 
-                                console.log(favoritePlace[v].files[0])
                                 formData.append(favoritePlace[v].getAttribute("name"), favoritePlace[v].files[0]);
-
-
                             }
                         }
                     }
 
                     favPlaces['numberOfPhotos'] = numberOfPhotos;
-                    //formData.append('placeImage', imagesArray);
-                    //console.log(imagesArray);
 
                     imagesArrayMain.push(imagesArray);
                     favoritePlaces.push(favPlaces);
@@ -162,6 +154,9 @@ form.addEventListener("submit", function (err) {
         } else if (form.elements[i].className.indexOf('selectBoro') > -1) {
 
             //what borough:
+            console.log(form.elements[i]);
+            console.log(form.elements[i].value);
+
             formData.append(form.elements[i].name, form.elements[i].value);
             borough = form.elements[i].value;
 
@@ -216,11 +211,8 @@ form.addEventListener("submit", function (err) {
         }
     }
 
-
     //console.log(imagesArrayMain);
     //console.log(favoritePlaces);
-
-
 
     var neighborhoodSatisfaction_ = JSON.stringify(neighborhoodSatisfaction);
     var neighborhoodFactorDescription_ = JSON.stringify(neighborhoodFactorDescription);
@@ -251,6 +243,10 @@ form.addEventListener("submit", function (err) {
 
 
     xhr.open('POST', `/inputs/userId`);
+
+    for(var pair of formData.entries()) {
+        console.log(pair[0]+ ', '+ pair[1]);
+     }
 
     setTimeout(() => {
         xhr.send(formData);

@@ -73,20 +73,12 @@ favPlacePhoto.addEventListener('input', function (e) {
 addPlace.addEventListener('click', () => {
 
 
-
-
     //console.log(nameOfPlace.value);
     //console.log(textareaFavPlaceDescription.value);
     //console.log(favPlacePhoto_InputsCompletionCheck);
 
-
-
-
     // console.log(favPlacePhoto_InputsCompletionCheck);
     // console.log(favPlacePhoto_InputsCompletionCheck.value);
-
-
-
 
 
     if (nameOfPlace.value === '') {
@@ -167,6 +159,7 @@ addPlace.addEventListener('click', () => {
             mapSvg.appendChild(newElement); // 2 -- append the new path element to the place circle in the map svg 
 
 
+            
             //--------------------------------------//
             rectX = cxL - 3.8173;
             rectY = cyL - 43.9738;

@@ -101,14 +101,12 @@
             <!------------------->
             <div id='details'>
                 <p>
-                    Name: <%= user.name %>
+                   <b>Neighborhood:</b>  <%= user.neighborhood %>
                 </p>
                 <p>
-                    Borough: ___
+                    <b>Borough:</b>  <%= user.borough %>
                 </p>
-                <p>
-                    Neighborhood: <%= user.neighborhood %>
-                </p>
+       
             </div>
             <!------------------->
 
@@ -120,6 +118,8 @@
 
                 <div id ='section_map' class='explore-detail-btn-wraper'>
                    <!-- <button type ='button' class='explore-detail-btn'><i class='fas fa-chevron-down'></i>Map</button>-->
+                   <div id='neighborhood_description'>
+                   </div>
                     <div class='explore-detail-div'>
                         <svg id='nhd-places-map-svg'width="300" height="300" ></svg>
                     </div>
@@ -127,7 +127,7 @@
 
                 <div id ='section_chart'class='explore-detail-btn-wraper'>
                     <!--<button type ='button' class='explore-detail-btn'> <i class='fas fa-chevron-down'></i>This is how I feel about my neighborhood</button>-->
-                    <h3>Neighborhood suggestions: </h3>
+                    <h3> <%= user.name %>'s neighborhood suggestions: </h3>
                     <div class='explore-detail-div'>        
                         <svg class='nhd-satisfact-svg'width="550" height="190"></svg>
                         <ul id="legends"></ul>
@@ -207,7 +207,7 @@
             <!------------------->
             <div id ='fav_places'>
 
-                <h5 id ='favorite_places_header'>Favorite places in <%= user.neighborhood %> </h5>
+                <h1 id ='favorite_places_header'><%= user.name %>'s favorite places in <%= user.neighborhood %>: </h1>
 
                 <% let startColumn = 0; %>
 
