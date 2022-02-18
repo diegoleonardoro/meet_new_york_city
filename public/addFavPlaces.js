@@ -155,11 +155,11 @@ addPlace.addEventListener('click', () => {
             let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
             newElement.setAttribute("d", "M " + " " + cx + " " + cy + " L" + " " + cxL.toString() + " " + cyL.toString());
             newElement.style.stroke = "#000";
-            newElement.style.strokeWidth = "5px";
+            newElement.style.strokeWidth = "1px";
             mapSvg.appendChild(newElement); // 2 -- append the new path element to the place circle in the map svg 
 
 
-            
+
             //--------------------------------------//
             rectX = cxL - 3.8173;
             rectY = cyL - 43.9738;
@@ -183,84 +183,81 @@ addPlace.addEventListener('click', () => {
             inputAddFavoritePlacesAddress.value = ''; // 7 -- remove what the user typed in the name of place input element 
             inputAddFavoritePlacesDescription.value = '';// 8 -- remove what the user typed in the place description input element 
 
-            // 9 -- this block will include what the user typed in the name of place input element inside the rect element that was appended to the map svg
+
+
+
+
+
+
             textX = rectX + 10;
             textY = rectY + 20;
-            let textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-            textElement.setAttribute('x', textX);
-            textElement.setAttribute('y', textY);
-            textElement.setAttribute('width', 50);
-            textElement.setAttribute('class', 'favoritePlace' + flag); // 9.1 -- give a class name of 'favoritePlace1' to the text element that includes what the user typed in the name of place input element 
-            textElement.setAttribute('name', 'place');
-            textElement.style.fill = 'black';
-            textElement.style.fontFamily = 'Calibri';
-            textElement.style.fontSize = '15';
-            textElement.style.fontWeight = 50;
-            textElement.innerHTML = inputAddFavoritePlacesAddressValue;
-            mapSvg.appendChild(textElement);
-
-
-            // 10 -- this block will include what the user typed in the place description input element inside the rect element that was appended to the map svg
-            textY = rectY + 40;
-            textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-            textElement.setAttribute('x', textX);
-            textElement.setAttribute('y', textY);
-            textElement.setAttribute('width', 50);
-            textElement.setAttribute('class', 'favoritePlace' + flag); // 10.1 -- give a class name of 'favoritePlace1' to the text element that includes what the user typed in the place description input element 
-            textElement.setAttribute('name', 'description');
-            textElement.style.fill = 'black';
-            textElement.style.fontFamily = 'Calibri';
-            textElement.style.fontSize = '15';
-            textElement.style.fontWeight = 50;
-            textElement.innerHTML = inputAddFavoritePlacesDescriptionValue;
-            mapSvg.appendChild(textElement);
-
-
-            // -------------------------------- place coordinates --------------------------------
-            let fullAddress = `${inputAddFavoritePlacesAddressValue}, ${nhood}, ${boro}, New York, NY, ${zcode}`;
-            getPlaceInfo(fullAddress, (error, response) => {
-                let coords = response['items'][0]['position'];
-                textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-                textElement.setAttribute('class', 'favoritePlace' + flag);
-                textElement.setAttribute('name', 'coordinates');
-                textElement.style.display = 'none';
-                textElement.innerHTML = JSON.stringify(coords);
-                mapSvg.appendChild(textElement);
-
-            })
-            //---------------------------------------------------------------------------------
 
 
 
-            //--------------------------------------//
-            var imageInput = document.getElementById('preview'); // 11 --- select the img element that displays the first image the the user uploads. As more images are uploaded, more img elements will be added (this is done in the addPicOfPlace.js file )
-            var imagesInput = document.getElementsByClassName('previewImage'); // 12 --- select the all the img elements, each of which contains one image for the specific place
+            let mainDivPlaceDesciptionForeignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+            mainDivPlaceDesciptionForeignObject.setAttribute("x", textX);
+            mainDivPlaceDesciptionForeignObject.setAttribute("y", textY);
+            mainDivPlaceDesciptionForeignObject.setAttribute("width", "180");
+            mainDivPlaceDesciptionForeignObject.setAttribute("height", "80");
 
-            for (var i = 0; i < imagesInput.length; i++) {// 13 --- iterate through all the img elements, each containing an image of the specific place
 
-                if (imagesInput[i].className.indexOf(flag) > -1) { // 14 -- if the current img element contains 'flag' in its class name. Flag is 1. 
-                    // here we should enter as many times as img elements with the flag in their class name there are + 1 .
-                    // when the 'divArrowPhotoOfPlace' is given a display block value, we are not entering if statement
-                    imageX = textX;
-                    imageY = textY + 15;
-                    let foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
-                    foreignObject.setAttribute("x", imageX);
-                    foreignObject.setAttribute("y", imageY);
-                    foreignObject.setAttribute("width", "180");
-                    foreignObject.setAttribute("height", "80");
+            const mainDivPlaceDesciption = document.createElement('div');
+            mainDivPlaceDesciption.setAttribute("width", "180");
+            mainDivPlaceDesciption.setAttribute("height", "80");
+
+
+            mainDivPlaceDesciptionForeignObject.appendChild(mainDivPlaceDesciption);
+            mapSvg.appendChild(mainDivPlaceDesciptionForeignObject);
+
+
+            const divPlaceName = document.createElement('div');
+            divPlaceName.innerHTML = inputAddFavoritePlacesAddressValue
+            divPlaceName.setAttribute('class', 'favoritePlace' + flag);
+            divPlaceName.setAttribute('name', 'place');
+            mainDivPlaceDesciption.appendChild(divPlaceName);
+
+
+            const divPlaceDescription = document.createElement('div');
+            divPlaceDescription.innerHTML = inputAddFavoritePlacesDescriptionValue;
+            divPlaceDescription.setAttribute('class', 'favoritePlace' + flag);
+            divPlaceDescription.setAttribute('name', 'description');
+            mainDivPlaceDesciption.appendChild(divPlaceDescription);
+
+
+            var imageInput = document.getElementById('preview');
+            var imagesInput = document.getElementsByClassName('previewImage');
+
+            for (var i = 0; i < imagesInput.length; i++) {
+
+                if (imagesInput[i].className.indexOf(flag) > -1) {
+
+                   
+
                     var newImg = document.createElement('img');
-                    newImg.src = imagesInput[i].src;// 14.1 --- assign src value to a newly created img element that will be appended to the map svg
+                    newImg.src = imagesInput[i].src;
                     newImg.setAttribute("width", imagesInput[i].width);
                     newImg.setAttribute("height", imagesInput[i].height);
                     newImg.setAttribute('name', 'image');
-                    foreignObject.appendChild(newImg);
-                    mapSvg.appendChild(foreignObject);
+
+                    mainDivPlaceDesciption.appendChild(newImg);
+
+
+                    console.log(newImg)
 
                     imagesInput[i].src = '';
                     imagesInput[i].setAttribute("width", 'auto');
                     imagesInput[i].setAttribute("width", 'auto');
+
                 }
+
+
             }
+
+
+
+
+
+
 
 
             var imageInputElement = document.getElementsByClassName('favoritePlace' + flag)[0];// 15 ---  select the input element that includes the first uploaded image 
@@ -287,6 +284,9 @@ addPlace.addEventListener('click', () => {
 
 
 
+
+
+
         } else if (flag == 2) {
 
 
@@ -297,7 +297,7 @@ addPlace.addEventListener('click', () => {
             let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
             newElement.setAttribute("d", "M " + " " + cx + " " + cy + " L" + " " + cxL.toString() + " " + cyL.toString());
             newElement.style.stroke = "#000";
-            newElement.style.strokeWidth = "5px";
+            newElement.style.strokeWidth = "1px";
             mapSvg.appendChild(newElement);
 
 
@@ -326,82 +326,83 @@ addPlace.addEventListener('click', () => {
             inputAddFavoritePlacesAddress.value = '';
             inputAddFavoritePlacesDescription.value = '';
 
+
+
             textX = rectX + 10;
             textY = rectY + 20;
-            let textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-            textElement.setAttribute('x', textX);
-            textElement.setAttribute('y', textY);
-            textElement.setAttribute('width', 50);
-            textElement.setAttribute('class', 'favoritePlace' + flag);
-            textElement.setAttribute('name', 'place');
-            textElement.style.fill = 'black';
-            textElement.style.fontFamily = 'Calibri';
-            textElement.style.fontSize = '15';
-            textElement.style.fontWeight = 50;
-            textElement.innerHTML = inputAddFavoritePlacesAddressValue;
-            mapSvg.appendChild(textElement);
-
-            textY = rectY + 40;
-            textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-            textElement.setAttribute('x', textX);
-            textElement.setAttribute('y', textY);
-            textElement.setAttribute('width', 50);
-            textElement.setAttribute('class', 'favoritePlace' + flag);
-            textElement.setAttribute('name', 'description');
-            textElement.style.fill = 'black';
-            textElement.style.fontFamily = 'Calibri';
-            textElement.style.fontSize = '15';
-            textElement.style.fontWeight = 50;
-            textElement.innerHTML = inputAddFavoritePlacesDescriptionValue;
-            mapSvg.appendChild(textElement);
 
 
-            // -------------------------------- place coordinates --------------------------------
-            let fullAddress = `${inputAddFavoritePlacesAddressValue}, ${nhood}, ${boro}, New York, NY, ${zcode}`;
-            getPlaceInfo(fullAddress, (error, response) => {
-                let coords = response['items'][0]['position'];
-                textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-                textElement.setAttribute('class', 'favoritePlace' + flag);
-                textElement.setAttribute('name', 'coordinates');
-                textElement.style.display = 'none';
-                textElement.innerHTML = JSON.stringify(coords);
-                mapSvg.appendChild(textElement);
 
-            })
-            //---------------------------------------------------------------------------------
 
-            //--------------------------------------//
+
+            let mainDivPlaceDesciptionForeignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+            mainDivPlaceDesciptionForeignObject.setAttribute("x", textX);
+            mainDivPlaceDesciptionForeignObject.setAttribute("y", textY);
+            mainDivPlaceDesciptionForeignObject.setAttribute("width", "180");
+            mainDivPlaceDesciptionForeignObject.setAttribute("height", "80");
+
+
+            const mainDivPlaceDesciption = document.createElement('div');
+            mainDivPlaceDesciption.setAttribute("width", "180");
+            mainDivPlaceDesciption.setAttribute("height", "80");
+
+
+            mainDivPlaceDesciptionForeignObject.appendChild(mainDivPlaceDesciption);
+            mapSvg.appendChild(mainDivPlaceDesciptionForeignObject);
+
+
+            const divPlaceName = document.createElement('div');
+            divPlaceName.innerHTML = inputAddFavoritePlacesAddressValue
+            divPlaceName.setAttribute('class', 'favoritePlace' + flag);
+            divPlaceName.setAttribute('name', 'place');
+            mainDivPlaceDesciption.appendChild(divPlaceName);
+
+
+            const divPlaceDescription = document.createElement('div');
+            divPlaceDescription.innerHTML = inputAddFavoritePlacesDescriptionValue;
+            divPlaceDescription.setAttribute('class', 'favoritePlace' + flag);
+            divPlaceDescription.setAttribute('name', 'description');
+            mainDivPlaceDesciption.appendChild(divPlaceDescription);
+
+
             var imageInput = document.getElementById('preview');
             var imagesInput = document.getElementsByClassName('previewImage');
+
+
+
+
+
 
             for (var i = 0; i < imagesInput.length; i++) {
 
                 if (imagesInput[i].className.indexOf(flag) > -1) {
+  
 
-
-                    imageX = textX;
-                    imageY = textY + 15;
-
-                    let foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
-                    foreignObject.setAttribute("x", imageX);
-                    foreignObject.setAttribute("y", imageY);
-                    foreignObject.setAttribute("width", "180");
-                    foreignObject.setAttribute("height", "80");
                     var newImg = document.createElement('img');
                     newImg.src = imagesInput[i].src;
                     newImg.setAttribute("width", imagesInput[i].width);
                     newImg.setAttribute("height", imagesInput[i].height);
                     newImg.setAttribute('name', 'image');
-                    foreignObject.appendChild(newImg);
-                    mapSvg.appendChild(foreignObject);
+
+                    mainDivPlaceDesciption.appendChild(newImg);
+
+
+                    console.log(newImg)
 
                     imagesInput[i].src = '';
                     imagesInput[i].setAttribute("width", 'auto');
                     imagesInput[i].setAttribute("width", 'auto');
-
-
                 }
+
+
             }
+
+
+
+
+
+
+
 
             inputAddFavoritePlacesAddress.value = '';
             inputAddFavoritePlacesDescription.value = '';
@@ -421,36 +422,23 @@ addPlace.addEventListener('click', () => {
 
 
 
-
             var a = flag + 1;
-            //console.log(a);
-            imageInputElementClone.setAttribute('class', 'labelPhoto ' + 'favoritePlace' + a);
-            //console.log(imageInputElementClone);
 
+            imageInputElementClone.setAttribute('class', 'labelPhoto ' + 'favoritePlace' + a);
 
 
             imageInputElementClone.addEventListener("change", function () {
-                // console.log(imageInputElementClone);
-                //console.log(this);
                 changeImage(this);
             });
 
 
 
-            var imageLabel = document.getElementById('imageLabel');
-            // imageLabel.insertBefore(imageInputElementClone, imageInputElement);
-
-
             divFavPlaceImage.prepend(imageInputElementClone);
-            //imageInputElement.after(imageInputElementClone);
 
             imageInputElement.style.display = 'none';
 
-
             photoOfPlaceFlag_InputsCompletionCheck += 1;
             favPlacePhoto_InputsCompletionCheck = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag_InputsCompletionCheck}`)[0];
-
-
 
             favPlacePhoto_InputsCompletionCheck.addEventListener('input', function (e) {
                 divArrowPhotoOfPlace.style.display = 'none';
@@ -466,7 +454,7 @@ addPlace.addEventListener('click', () => {
             let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
             newElement.setAttribute("d", "M " + " " + cx + " " + cy + " L" + " " + cxL.toString() + " " + cyL.toString());
             newElement.style.stroke = "#000";
-            newElement.style.strokeWidth = "5px";
+            newElement.style.strokeWidth = "1px";
             mapSvg.appendChild(newElement);
 
             //--------------------------------------//
@@ -495,53 +483,37 @@ addPlace.addEventListener('click', () => {
 
             textX = rectX + 10;
             textY = rectY + 20;
-            let textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-            textElement.setAttribute('x', textX);
-            textElement.setAttribute('y', textY);
-            textElement.setAttribute('width', 50);
-            textElement.setAttribute('class', 'favoritePlace' + flag + ' imageInput');
-            textElement.setAttribute('name', 'place');
-            textElement.style.fill = 'black';
-            textElement.style.fontFamily = 'Calibri';
-            textElement.style.fontSize = '15';
-            textElement.style.fontWeight = 50;
-            textElement.innerHTML = inputAddFavoritePlacesAddressValue;
-            mapSvg.appendChild(textElement);
 
 
-            textY = rectY + 40;
-            textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-            textElement.setAttribute('x', textX);
-            textElement.setAttribute('y', textY);
-            textElement.setAttribute('width', 50);
-            textElement.setAttribute('class', 'favoritePlace' + flag);
-            textElement.setAttribute('name', 'description');
-            textElement.style.fill = 'black';
-            textElement.style.fontFamily = 'Calibri';
-            textElement.style.fontSize = '15';
-            textElement.style.fontWeight = 50;
-            textElement.innerHTML = inputAddFavoritePlacesDescriptionValue;
-            mapSvg.appendChild(textElement);
-            //--------------------------------------//
-
-            // -------------------------------- place coordinates --------------------------------
-
-            let fullAddress = `${inputAddFavoritePlacesAddressValue}, ${nhood}, ${boro}, New York, NY, ${zcode}`;
+            let mainDivPlaceDesciptionForeignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+            mainDivPlaceDesciptionForeignObject.setAttribute("x", textX);
+            mainDivPlaceDesciptionForeignObject.setAttribute("y", textY);
+            mainDivPlaceDesciptionForeignObject.setAttribute("width", "180");
+            mainDivPlaceDesciptionForeignObject.setAttribute("height", "80");
 
 
-            getPlaceInfo(fullAddress, (error, response) => {
+            const mainDivPlaceDesciption = document.createElement('div');
+            mainDivPlaceDesciption.setAttribute("width", "180");
+            mainDivPlaceDesciption.setAttribute("height", "80");
 
-                let coords = response['items'][0]['position'];
 
-                textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
-                textElement.setAttribute('class', 'favoritePlace' + flag);
-                textElement.setAttribute('name', 'coordinates');
-                textElement.style.display = 'none';
-                textElement.innerHTML = JSON.stringify(coords);
-                mapSvg.appendChild(textElement);
+            mainDivPlaceDesciptionForeignObject.appendChild(mainDivPlaceDesciption);
+            mapSvg.appendChild(mainDivPlaceDesciptionForeignObject);
 
-            })
-            //---------------------------------------------------------------------------------
+
+            const divPlaceName = document.createElement('div');
+            divPlaceName.innerHTML = inputAddFavoritePlacesAddressValue
+            divPlaceName.setAttribute('class', 'favoritePlace' + flag);
+            divPlaceName.setAttribute('name', 'place');
+            mainDivPlaceDesciption.appendChild(divPlaceName);
+
+
+            const divPlaceDescription = document.createElement('div');
+            divPlaceDescription.innerHTML = inputAddFavoritePlacesDescriptionValue;
+            divPlaceDescription.setAttribute('class', 'favoritePlace' + flag);
+            divPlaceDescription.setAttribute('name', 'description');
+            mainDivPlaceDesciption.appendChild(divPlaceDescription);
+
 
             var imageInput = document.getElementById('preview');
             var imagesInput = document.getElementsByClassName('previewImage');
@@ -549,32 +521,35 @@ addPlace.addEventListener('click', () => {
             for (var i = 0; i < imagesInput.length; i++) {
 
                 if (imagesInput[i].className.indexOf(flag) > -1) {
-                    // console.log(imagesInput[i]);
-                    // console.log(imagesInput[i].src);
 
-                    imageX = textX;
-                    imageY = textY + 15;
-                    let foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
-                    foreignObject.setAttribute("x", imageX);
-                    foreignObject.setAttribute("y", imageY);
-                    foreignObject.setAttribute("width", "180");
-                    foreignObject.setAttribute("height", "80");
+                
+
                     var newImg = document.createElement('img');
                     newImg.src = imagesInput[i].src;
                     newImg.setAttribute("width", imagesInput[i].width);
                     newImg.setAttribute("height", imagesInput[i].height);
                     newImg.setAttribute('name', 'image');
-                    foreignObject.appendChild(newImg);
-                    mapSvg.appendChild(foreignObject);
+
+                    mainDivPlaceDesciption.appendChild(newImg);
+
+
+                    console.log(newImg)
 
                     imagesInput[i].src = '';
                     imagesInput[i].setAttribute("width", 'auto');
                     imagesInput[i].setAttribute("width", 'auto');
-
-
                 }
+            }
 
-            };
+
+
+
+
+
+
+
+
+
 
             inputAddFavoritePlacesAddress.value = ' ';
             inputAddFavoritePlacesDescription.value = ' ';
@@ -637,18 +612,95 @@ addPlace.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
     }
 });
 
 
 
+
+            // 9 -- this block will include what the user typed in the name of place input element inside the rect element that was appended to the map svg
+            //textX = rectX + 10;
+            //textY = rectY + 20;
+
+
+
+            /*
+            let textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+            textElement.setAttribute('x', textX);
+            textElement.setAttribute('y', textY);
+            textElement.setAttribute('width', 50);
+            textElement.setAttribute('class', 'favoritePlace' + flag); // 9.1 -- give a class name of 'favoritePlace1' to the text element that includes what the user typed in the name of place input element 
+            textElement.setAttribute('name', 'place');
+            textElement.style.fill = 'black';
+            textElement.style.fontFamily = 'Calibri';
+            textElement.style.fontSize = '15';
+            textElement.style.fontWeight = 50;
+            textElement.innerHTML = inputAddFavoritePlacesAddressValue;
+            mapSvg.appendChild(textElement);
+
+
+            textY = rectY + 40;
+            textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+            textElement.setAttribute('x', textX);
+            textElement.setAttribute('y', textY);
+            textElement.setAttribute('width', 50);
+            textElement.setAttribute('class', 'favoritePlace' + flag); // 10.1 -- give a class name of 'favoritePlace1' to the text element that includes what the user typed in the place description input element 
+            textElement.setAttribute('name', 'description');
+            textElement.style.fill = 'black';
+            textElement.style.fontFamily = 'Calibri';
+            textElement.style.fontSize = '15';
+            textElement.style.fontWeight = 50;
+            textElement.innerHTML = inputAddFavoritePlacesDescriptionValue;
+            mapSvg.appendChild(textElement);
+
+            
+            let texttForeignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+            texttForeignObject.setAttribute("x", textX);
+            texttForeignObject.setAttribute("y", textY);
+            texttForeignObject.setAttribute("width", "180");
+            texttForeignObject.setAttribute("height", "80");
+   
+
+            var divTextArea = document.createElement('div');
+            divTextArea.setAttribute("width",  "180" );
+            divTextArea.setAttribute("height","80" );
+            divTextArea.setAttribute('class', 'favoritePlace' + flag);
+            divTextArea.setAttribute('name', 'description');
+
+            divTextArea.innerHTML = inputAddFavoritePlacesDescriptionValue;
+
+            texttForeignObject.appendChild(divTextArea);
+            mapSvg.appendChild(texttForeignObject);
+
+              
+            imageX = textX;
+            imageY = textY + 15;
+            let foreignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+            foreignObject.setAttribute("x", imageX);
+            foreignObject.setAttribute("y", imageY);
+            foreignObject.setAttribute("width", "180");
+            foreignObject.setAttribute("height", "80");
+    
+            foreignObject.appendChild(newImg);
+            mapSvg.appendChild(foreignObject);
+
+
+
+                 // -------------------------------- place coordinates --------------------------------
+            let fullAddress = `${inputAddFavoritePlacesAddressValue}, ${nhood}, ${boro}, New York, NY, ${zcode}`;
+            getPlaceInfo(fullAddress, (error, response) => {
+                let coords = response['items'][0]['position'];
+                textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+                textElement.setAttribute('class', 'favoritePlace' + flag);
+                textElement.setAttribute('name', 'coordinates');
+                textElement.style.display = 'none';
+                textElement.innerHTML = JSON.stringify(coords);
+                mapSvg.appendChild(textElement);
+
+            })
+            //---------------------------------------------------------------------------------
+
+
+
+
+            */

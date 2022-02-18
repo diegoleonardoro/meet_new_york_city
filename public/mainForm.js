@@ -1,6 +1,5 @@
 
 
-
 // grab the arrows
 
 var prevQuestion = document.getElementById('prevQuestionSvg');
@@ -10,7 +9,7 @@ var mainForm = document.getElementsByClassName('form')[0];
 
 nextQuestion.addEventListener('click', () => {
 
- 
+
     let displayedQuestion;
     let nextQuestionKeyWord;
 
@@ -19,17 +18,19 @@ nextQuestion.addEventListener('click', () => {
 
     let keywordsLikerExplanation = [];
 
-    for (var i = 0; i < mainForm.children.length; i++) {
+    for (var i = 0; i < mainForm.children.length; i++) {// 1. --> iterate through all form children 
 
-        var displayAttribute = getComputedStyle(mainForm.children[i]).display;
+        var displayAttribute = getComputedStyle(mainForm.children[i]).display;// 2. --> get the display value of the form children.
 
-        if (displayAttribute === 'flex' || displayAttribute === 'block') {
+        if (displayAttribute === 'flex' || displayAttribute === 'block') {// 3. --> if the display value of that form children is 'flex' of 'block'
 
-            displayedQuestion = mainForm.children[i];
+            displayedQuestion = mainForm.children[i]; // 4. ---> 'displayedQuestion' represents the fomr child that is displayed.
 
-            nextQuestionKeyWord = displayedQuestion.className.split(' ')[1];
+            nextQuestionKeyWord = displayedQuestion.className.split(' ')[1]; // 5. ---> 'nextQuestionKeyWord' represents the key word that will display the next question
 
-            if (displayedQuestion.className.split(' ')[0].indexOf('neighborhoodSatisfactionScale') > -1) {
+
+
+            if (displayedQuestion.className.split(' ')[0].indexOf('neighborhoodSatisfactionScale') > -1) {// 
                 for (let c = 0; c < displayedQuestion.children.length; c++) {
 
                     let span = displayedQuestion.children[c];
@@ -49,10 +50,11 @@ nextQuestion.addEventListener('click', () => {
             }
 
 
-            displayedQuestion.className = displayedQuestion.className.replace('display', '');
-            
-            for (var e = 0; e < mainForm.children.length; e++) {
-                keyWord = mainForm.children[e].className.split(' ')[0];
+            displayedQuestion.className = displayedQuestion.className.replace('display', '');// 6. ---> hide the questions that was being displayed when the arrow was clicked
+
+            for (var e = 0; e < mainForm.children.length; e++) {// 7. ---> iterate again through the form children.
+
+                keyWord = mainForm.children[e].className.split(' ')[0];// 8. ---> 'keyWord' represents the word that will show the next questions
 
                 if (keyWord === nextQuestionKeyWord) {
                     nextQuestion = mainForm.children[e];
@@ -72,13 +74,88 @@ nextQuestion.addEventListener('click', () => {
                     }
                     break;
                 }
+
             }
+
             break;
         }
     }
 
+})
+
+
+// previous arrow:
+
+
+prevQuestion.addEventListener('click', () => {
+
+
+    let displayedQuestion;
+    let prevQuestionKeyWord;
+
+    let keyWord;
+    let prevQuestion;
+
+    let keywordsLikerExplanation = [];
+
+    for (var i = 0; i < mainForm.children.length; i++) {// 1. --> iterate through all form children 
+
+        var displayAttribute = getComputedStyle(mainForm.children[i]).display;// 2. --> get the display value of the form children.
+
+        if (displayAttribute === 'flex' || displayAttribute === 'block') {// 3. --> if the display value of that form children is 'flex' of 'block'
+
+            displayedQuestion = mainForm.children[i]; // 4. ---> 'displayedQuestion' represents the fomr child that is displayed.
+
+
+            console.log(displayedQuestion)
+
+
+            prevQuestionKeyWord = displayedQuestion.className.split(' ')[0];  // 5. ---> 'prevQuestionKeyWord' represents the key word that will display the previous question
+
+
+        
+            displayedQuestion.className = displayedQuestion.className.replace('display', ' ');// 6. ---> hide the questions that was being displayed when the arrow was clicked
 
 
 
+
+        
+            for (var e = 0; e < mainForm.children.length; e++) {// 7. ---> iterate again through the form children.
+
+
+                keyWord = mainForm.children[e].className.split(' ')[1];// 8. ---> 'keyWord' represents the word that will show the previous question
+
+                if (keyWord === prevQuestionKeyWord) {
+
+                    prevQuestion = mainForm.children[e];
+
+
+                    if (keyWord != 'neighborhoodSatisfactionScale') {
+                        prevQuestion.className = prevQuestion.className + ' display';
+                    } else if (keyWord === 'neighborhoodSatisfactionScale') {
+                        prevQuestion.className = prevQuestion.className + ' displayLikert';
+                    }
+
+                    if (keyWord === 'satisfactionScaleExplanation') {
+                        for (var w = 0; w < prevQuestion.children.length; w++) {
+                            if (keywordsLikerExplanation.includes(prevQuestion.children[w].className.split(' ')[1])) {
+                                prevQuestion.children[w].className = prevQuestion.children[w].className + ' display';
+
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+
+
+            
+
+
+
+            break;
+
+        }
+    }
 
 })

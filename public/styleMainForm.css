@@ -175,8 +175,7 @@ span{
     width:120%;
 }
 .form  input:not(.form-checkbox){
-   
-    height:3rem;
+    height:2.3rem;
     transition: background-color 0.3s;
 }
 
@@ -463,7 +462,7 @@ h2{
 .likertOptions{
     display:flex;
     justify-content: space-between;
-    margin:1.5rem 0;
+    margin-top:1.5rem;
     position:relative;
     padding-top:1rem;
     padding-bottom:1rem;
@@ -490,20 +489,52 @@ h2{
 
 
 /* likert explanation */
-.explainLikert div h4{
+.explainLikert div h2{
     margin-bottom: 1rem;
     position: relative;
     color: #2D4859;
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.5rem;
+}
+.explainLikert div span{
+    background-color: rgb(255, 255, 217);
+    display:inline;
+    padding:0.2rem;
 }
 .explainLikert div textarea{
-    height:4rem;
+    height:2rem;
     resize: none;
     border: 1px #2D4859 solid;
     position: relative;
     padding-top: 1rem;
     padding-left: 2.5rem;
-    background-color: rgb(245, 254, 255)
+    background-color: rgb(245, 254, 255);
+    line-height: 2rem;
 }
+
+
+
+.explainLikert div input{
+    border:none;
+    border-bottom: 1px #2D4859 solid;
+    padding-left: 2.5rem;
+    /**margin-top:-1rem;
+    /*background-color: rgb(245, 254, 255);*/
+    /*transition: transform .2s ease-out;*/
+}
+
+.explainLikert div input:focus{
+    border-bottom: 2px rgb(160, 209, 240) solid;
+}
+
+
+
+
+
+
+
+
 
 
 .explainLikert div textarea:focus{

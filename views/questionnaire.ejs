@@ -135,13 +135,15 @@
                     </div>
                 </div>
 
-                <div class='favAspectsOfNeighborhood describeNeighborhoodInThreeWords neighbhdDescription'>
+                <div class='favAspectsOfNeighborhood neighborhoodSatisfactionScale neighbhdDescription'>
                     <h2>How would you describe your neighborhood to someone who is visiting for the
                         first time?
                     </h2>
                     <textarea name="neighborhoodDescription" class="textAreaExplanation"></textarea>
                 </div>
 
+
+                <!--
                 <div class='describeNeighborhoodInThreeWords neighborhoodSatisfactionScale threeWordsDescribeNeighborhood'>
 
                     <h2 id='threeWorrdsDescribeNeighborhood'>Describe your neighborhood in 3 words: </h2>
@@ -162,7 +164,7 @@
                     </label>
 
                 </div>
-
+                -->
 
                 <div class='neighborhoodSatisfactionScale satisfactionScaleExplanation likert'>
 
@@ -337,135 +339,129 @@
 
 
 
-                <div class='satisfactionScaleExplanation neighborhoodTips explainLikert'>
-
-                    <h2>Tell us more about your previous answers</h2>
-
+                <div class='satisfactionScaleExplanation favoritePlaces explainLikert'>
                     <!-------------------------------------------------------------->
                     <div class='likertScaleExplanation whyRecommendPublicTransportation'>
-                        <h4>Why do you recommend using public transportation?</h4>
-                        <textarea type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>recommend</u> <span>using public transportation</span>?</h2>
+                        <input type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
                         <!-- add class to this text area -->
                     </div>
                     <div class='likertScaleExplanation whyNeutralPublicTransportation'>
-                        <h4>Why do you feel neutral about using public transportation?</h4>
-                        <textarea type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you feel <u>neutral</u> about <span>using public transportation</span>?</h2>
+                        <input type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyNotRecommendPublicTransportation'>
-                        <h4>Why do not recommend using public transportation?</h4>
-                        <textarea type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>not recommend</u> <span>using public transportation</span>?</h2>
+                        <input type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <!-------------------------------------------------------------->
 
                     <div class='likertScaleExplanation whyRecommendWalkAroundNeighborhood'>
-                        <h4>Why do you recommend walking around the neighborhood?</h4>
-                        <textarea type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>recommend</u> <span>walking around the neighborhood</span>?</h2>
+                        <input type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyNeutralWalkAroundNeighborhood'>
-                        <h4>Why do you feel neutral about walking around the neighborhood?</h4>
-                        <textarea type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you feel <u>neutral</u> about <span>walking around the neighborhood</span>?</h2>
+                        <input type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyDoNotRecommendWalkAroundNeighborhood'>
-                        <h4>Why do you not recommend walking around the neighborhood?</h4>
-                        <textarea type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>not recommend</u> <span>walking around the neighborhood</span>?</h2>
+                        <input type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <!-------------------------------------------------------------->
 
 
                     <div class='likertScaleExplanation whyRecommendVisitParks'>
-                        <h4>Why do you recommend visiting parks? </h4>
-                        <textarea type="text" name="visitParksExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>recommend</u> <span>visiting parks</span>? </h2>
+                        <input type="text" name="visitParksExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyNeutralVisitParks'>
-                        <h4>Why do you feel neutral about visiting parks?</h4>
-                        <textarea type="text" name="visitParksExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you feel <u>neutral</u> about <span>visiting parks</span>?</h2>
+                        <input type="text" name="visitParksExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyDoNotRecommendVisitParks'>
-                        <h4>Why do you not recommend visiting parks? </h4>
-                        <textarea type="text" name="visitParksExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>not recommend</u> <span>visiting parks</span>? </h2>
+                        <input type="text" name="visitParksExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <!-------------------------------------------------------------->
 
                     <div class='likertScaleExplanation whyRecommendExploringRestaurants'>
-                        <h4>Why do you recommend exploring restaurants? </h4>
-                        <textarea type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>recommend</u> <span>exploring restaurants</span>? </h2>
+                        <input type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyNeutralRestaurants'>
-                        <h4>Why do you feel neutral about exploring restaurants?</h4>
-                        <textarea type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you feel <u>neutral</u> about <span>exploring restaurants</span>?</h2>
+                        <input type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyDoNotRecommendExploringRestaurants'>
-                        <h4>Why do you not recommend exploring restaurants?</h4>
-                        <textarea type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>not recommend</u> <span>exploring restaurants</span>?</h2>
+                        <input type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <!-------------------------------------------------------------->
 
                     <div class='likertScaleExplanation whyRecommendExploringNightLife'>
-                        <h4>Why do you recommend exploring the night life?</h4>
-                        <textarea type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>recommend</u> <span>exploring the night life</span>?</h2>
+                        <input type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyNeutralExploringNightLife'>
-                        <h4>Why do you feel neurtal about exploring the night life?</h4>
-                        <textarea type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you feel <u>neurtal</u> about <span>exploring the night life</span>?</h2>
+                        <input type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyDoNotRecommendExploringNightLife'>
-                        <h4>Why do you not recommend exploring the night life?</h4>
-                        <textarea type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>not recommend</u> <span>exploring the night life</span>?</h2>
+                        <input type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></input>
                     </div>
 
                     <!-------------------------------------------------------------->
 
                     <div class='likertScaleExplanation whyRecommendVisitInMorning'>
-                        <h4>Why do you recommend visiting in the morning?</h4>
-                        <textarea type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>recommend</u> <span>visiting in the morning</span>?</h2>
+                        <input type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyNeutralVisitInMorning'>
-                        <h4>Why do you feel neurtal about visiting in the morning?</h4>
-                        <textarea type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you feel <u>neurtal</u> about <span>visiting in the morning</span>?</h2>
+                        <input type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyDoNotRecommendVisitInMorning'>
-                        <h4>Why do you not recommend visiting in the morning?</h4>
-                        <textarea type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you not <u>recommend</u> <span>visiting in the morning</span>?</h2>
+                        <input type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></input>
                     </div>
 
                     <!-------------------------------------------------------------->
 
                     <div class='likertScaleExplanation whyRecommendVisitInAfternoon'>
-                        <h4>Why do you recommend visiting in the afternoon?</h4>
-                        <textarea type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>recommend</u> <span>visiting in the afternoon</span>?</h2>
+                        <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyNeutralVisitInAfternoon'>
-                        <h4>Why do you feel neurtal about visiting in the afternoon?</h4>
-                        <textarea type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you feel <u>neurtal</u> about <span>visiting in the afternoon</span>?</h2>
+                        <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyDoNotRecommendVisitInAfternoon'>
-                        <h4>Why do you not recommend visiting in the afternoon?</h4>
-                        <textarea type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>not recommend</u> <span>visiting in the afternoon</span>?</h2>
+                        <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
                     </div>
 
                     <!-------------------------------------------------------------->
 
                     <div class='likertScaleExplanation whyRecommendVisitAtNight'>
-                        <h4>Why do you recommend visiting at night?</h4>
-                        <textarea type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>recommend</u> <span>visiting at night</span>?</h2>
+                        <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyNeutralVisitAtNight'>
-                        <h4>Why do you feel neurtal about visiting at night?</h4>
-                        <textarea type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you feel <u>neurtal</u> about <span>visiting at night</span>?</h2>
+                        <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
                     </div>
                     <div class='likertScaleExplanation whyDoNotRecommendVisitAtNight'>
-                        <h4>Why do you not recommend visiting at night?</h4>
-                        <textarea type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></textarea>
+                        <h2>Why do you <u>not recommend</u> <span>visiting at night</span>?</h2>
+                        <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
                     </div>
 
                 </div>
 
 
 
-
-
-
-
+                <!--
                 <div class='neighborhoodTips favoritePlaces tips'>
                     <h2>Share any tips for visitors to better enjoy your neighborhood: </h2>
 
@@ -494,6 +490,7 @@
 
                     </svg>
                 </div>
+                -->
 
 
                 <div class='favoritePlaces anythingElseAboutYou addFavPlaces _fav_Places enoughPlaces'>

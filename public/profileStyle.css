@@ -143,9 +143,11 @@ body{
 #container_intro_contact{ /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
     grid-column: 1/2;
     grid-row: 1/-1;
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(201, 201, 201);
     padding-top:10rem;
     padding-right:4rem;
+
+    
 }
 #intro_contact{
     padding:2rem;
@@ -164,12 +166,10 @@ body{
     grid-row: 1/2;
     align-self: end;
     justify-content: space-evenly;
-    align-items:center;
+    /*align-items:center;*/
+    padding-top:3rem;
     width:100%;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-
+    /*border-top: 1px solid rgb(201, 201, 201);*/
     font-size: 12px;
 }
 
@@ -179,7 +179,11 @@ body{
     grid-row: 2/3;  
     display:flex;
     width:100%;
-    border-bottom: 1px solid black;
+    /*border-bottom: 1px solid black;*/
+    justify-content: space-evenly;
+    box-shadow: inset 0px 0px 16px 0px #cecece
+
+
 }
 
 
@@ -189,10 +193,11 @@ body{
     height:auto;
 }
 #section_map{
-    padding-left:10rem;
+    padding-left:7rem;
     padding-right:3rem;
     padding-top:5rem;
 
+    /*width:50%;*/
     /*padding-top:10rem;*/
 }
 #neighborhood_description{
@@ -201,14 +206,19 @@ body{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px inset, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px inset;
     line-height: 1.8;
     font-size: 11px;
+    overflow-y: scroll;
+    width:35rem;
+    display:table-cell;
+    vertical-align: middle;
 }
 
 
 
 #section_chart{
-    margin-right:4rem;
-    border-left:black solid 1px;
-    padding-top:5rem;
+    /*border-left:black solid 1px;*/
+    padding:4rem;
+    line-height:2rem;
+    /*width:50%;*/
 }
 #section_chart h3{
     position:relative;
@@ -217,10 +227,16 @@ body{
 
 #legends{
     position:relative;
-    left:10%;
+    list-style: none;
 }
 .factorDescription{
     margin-top: 1rem;
+    /*height:5rem;*/
+
+    /*overflow-y: scroll;*/
+    padding: 1rem;
+    margin-bottom:2rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .gridline{
@@ -253,7 +269,7 @@ body{
 
 .neighborhood-description{
     display:flex;
-    border:0.1rem solid rgb(0, 0, 0);
+    border:0.1rem solid rgb(201, 201, 201);
     margin-left:5%;   
 }
 .neighborhood-content{

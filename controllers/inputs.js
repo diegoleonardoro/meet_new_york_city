@@ -74,6 +74,7 @@ exports.getAllInputs = asyncHandler(async (req, res, next) => {
 exports.createInput = asyncHandler(async (req, res, next) => {
 
     //console.log(req.files);
+    //console.log('=============================');
 
 
     req.body.neighborhoodSatisfaction = JSON.parse(req.body.neighborhoodSatisfaction);
@@ -87,27 +88,63 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 
     let h = 0;
     let z;
-    for (let i = 0; i < favoritePlaces.length; i++) {
 
-        let photoArray = []
-        let numOfPhotos = favoritePlaces[i]['numberOfPhotos'];
 
-        if (i===0){
-            z = numOfPhotos;
-        }else{
-            z = h + numOfPhotos;
+
+
+    for (let i = 0; i < favoritePlaces.length; i++) {// 1. iterate through all the favorite places 
+
+        let photoArray = [];
+
+
+
+        let numOfPhotos = favoritePlaces[i]['numberOfPhotos'];// 2. access the amount of photos per place
+
+
+
+
+        for (var u = 0; u < numOfPhotos; u++) {
+
+            let file = req.files[0];
+            photoArray.push(file);
+
+            req.files.splice(0, 1)
+        }
+
+        favoritePlaces[i]['placeImage'] = photoArray;
+
+
+
+        /*
+
+        if (i === 0) {
+            z = numOfPhotos;// 3. in the first iteration through all the favorite places, 'z' will be equal to the number of photos.
+        } else {
+            z = h + numOfPhotos;// 4. in the all the iterations but the first one, 'z' will be equal to the current number of photos plus the number of photos of the previous place
         }
 
         for (h; h < z; h++) {
             let file = req.files[h];
             photoArray.push(file);
         }
-
         h = numOfPhotos;
+
         favoritePlaces[i]['placeImage'] = photoArray;
+         */
+
+
+
+
+        console.log(favoritePlaces[i]['placeImage']);
+
+
     }
 
-     //console.log(favoritePlaces);
+
+
+
+
+
 
     req.body.favoritePlaces = favoritePlaces;
     req.body.user = req.user.id;

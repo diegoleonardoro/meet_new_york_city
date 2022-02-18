@@ -243,6 +243,8 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 
     let favPlaces = req.user[0].favoritePlaces;
 
+
+
     let arr = [];
     let amountOfPhotosPerPlace = [];
 
@@ -257,8 +259,8 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             filesNamesArray.push(filesNames)
             arr.push(filesNames)
         }
-    };
 
+    };
 
 
 
@@ -278,6 +280,9 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
     let profilePicFlag = true;
 
     const profileImgFormatted = [];
+
+
+
     function createStream() {
 
         let filename = arr[streamFlag];
@@ -302,6 +307,7 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             });
         }
 
+
         if (req.user[0].profileImage && profilePicFlag) {
 
             profilePicFlag = false;
@@ -318,6 +324,8 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             });
 
         }
+
+
     }
     createStream();
     // end of create stream function that will retreive buffer data from database 
@@ -327,8 +335,9 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 
 
 
-
     setTimeout(() => {
+
+
         let livingInNhood;
         if (req.user[0].lengthLivingInNeighborhood === 'do not live there') {
             livingInNhood = `I do not live in ${req.user[0].neighborhood} but I know it well enough to take you to the best places`
@@ -536,7 +545,13 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
 
     createStream();
 
+
+
+
+
     setTimeout(() => {
+
+
 
         let livingInNhood;
         if (user[0].lengthLivingInNeighborhood === 'do not live there') {

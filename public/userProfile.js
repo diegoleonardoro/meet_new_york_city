@@ -219,10 +219,8 @@ function displayMap(callback) {
 
         // Insert neighborhood description
         const neighborhood_description = document.getElementById('neighborhood_description');
-        neighborhood_description.innerText= neighborhood_blurb;
-
+        neighborhood_description.innerText = neighborhood_blurb;
         // end of insert neighborhood description
-
 
 
 
@@ -276,9 +274,10 @@ function displayMap(callback) {
                 .style("stroke", "none")
                 .attr("stroke-width", .02)
                 .attr("fill", "#A9DFBF")
-
         });
         */
+
+
 
     })
 }
@@ -382,12 +381,13 @@ let toggleClass = (d, i, toggle) => {
             fontColor = '#e74b50';
         }
         d3.select("#legends li:nth-child(" + i + ")")
-            .style("font-size", "16px")
-            .style('color', fontColor)
+            //.style("font-size", "16px")
+            //.style('color', fontColor)
             .style("font-weight", 'bold');
 
 
         d3.select("#legends li:nth-child(" + i + ") tspan")
+            .style('color', fontColor)
             .style("font-weight", 'bold');
 
 
@@ -396,9 +396,10 @@ let toggleClass = (d, i, toggle) => {
         d3.select("#legends li:nth-child(" + i + ")")
             // .style("font-size", "92px")
             .style('color', 'black')
-            .style("font-size", "12px")
+            //.style("font-size", "12px")
             .style("font-weight", 'bold');
         d3.select("#legends li:nth-child(" + i + ") tspan")
+            .style('color', "black")
             .style("font-weight", 'normal');
 
         //.style("font-weight", 900)
@@ -448,7 +449,7 @@ g.append("g")
     .call(d3.axisBottom(x))
     .selectAll("text")
     .style("text-anchor", "middle")
-    .attr("fill", function (d, i) { return xAxisTextColor(d, i) })
+    .attr("fill", "black")
     .attr("font-weight", 800)
     .style("font-size", "12px")
 

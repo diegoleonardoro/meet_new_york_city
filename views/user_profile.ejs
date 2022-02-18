@@ -30,14 +30,16 @@
 
         let user = <%- JSON.stringify(user) %>;
 
-        var imagesFormated = user.imagesFormated[0];
+        var imagesFormated = user.imagesFormated;
 
         var favoritePlaces = user.favoritePlaces;
 
         var amountOfPlacesArray= user.amountOfPhotosPerPlace;
      
         
+        
         console.log(user);
+        console.log('EJSSSS: ', imagesFormated);
 
 
         
@@ -211,9 +213,9 @@
 
                 <% let startColumn = 0; %>
 
-                <% for(var e = 0; e < user.favoritePlaces.length; e++){ %>
+                <% for(var e = 0; e < user.favoritePlaces.length; e++){ %> <!-- 1. iterate through all the favorite places -->
 
-                    <% let numOfPhotos = user.favoritePlaces[e].numberOfPhotos  %>
+                    <% let numOfPhotos = user.favoritePlaces[e].numberOfPhotos  %> <!-- 2. access the number of places per place -->
 
                     <% startColumn += 1; %>
 
@@ -234,19 +236,22 @@
                                     
                                     <div class ='divOfImages'>
 
-                                    <% for(let q = 0; q < numOfPhotos ; q ++){ %>
+                                    <% for(let q = 0; q < numOfPhotos ; q ++){ %> <!-- 3. iterate the number of photos of the specific place  -->
 
                                             <% if (q===0){  %>
 
-                                            <img src="data:image/png;base64,<%= user.imagesFormated[0]%>" />
+                                            <img src="data:image/png;base64,<%= user.imagesFormated[0]%>" /><!-- 4. display the first image  -->
 
                                             <% } else {  %>
 
-                                                <img style="display:none;" src="data:image/png;base64,<%= user.imagesFormated[0]%>" />
+                                                <img style="display:none;" src="data:image/png;base64,<%= user.imagesFormated[0]%>" /><!-- 5. hide but insert images that are not 1 -->
 
                                             <% }   %>   
 
-                                            <% user.imagesFormated.splice(0,1) %>
+                                            <% console.log(user.imagesFormated.length) %>
+
+                                            
+                                            <% user.imagesFormated.splice(0,1) %><!-- 6. remove the currently iterated image -->
 
                                     <% } %>
 

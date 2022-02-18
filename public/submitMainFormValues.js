@@ -111,11 +111,11 @@ form.addEventListener("submit", function (err) {
     let zipcode;
     let neighborhood;
 
-  
-    
+
+
     for (var i = 0; i < formElementsLength; i++) {
 
-        if (form.elements[i].parentElement.className.indexOf('_fav_Places') > -1 ) {//&& form.elements[i].id != 'addPlaceButton' && flag === 1
+        if (form.elements[i].parentElement.className.indexOf('_fav_Places') > -1) {//&& form.elements[i].id != 'addPlaceButton' && flag === 1
             // What are your favorite places in this neighborhood? 
             // - Name or address of the place:
             // - Why is this one of you favorite places:
@@ -140,6 +140,8 @@ form.addEventListener("submit", function (err) {
                                 numberOfPhotos = numberOfPhotos + 1;
 
                                 formData.append(favoritePlace[v].getAttribute("name"), favoritePlace[v].files[0]);
+
+
                             }
                         }
                     }
@@ -148,14 +150,15 @@ form.addEventListener("submit", function (err) {
 
                     imagesArrayMain.push(imagesArray);
                     favoritePlaces.push(favPlaces);
+
+
+
                 }
             }
 
         } else if (form.elements[i].className.indexOf('selectBoro') > -1) {
 
             //what borough:
-            console.log(form.elements[i]);
-            console.log(form.elements[i].value);
 
             formData.append(form.elements[i].name, form.elements[i].value);
             borough = form.elements[i].value;
@@ -172,7 +175,7 @@ form.addEventListener("submit", function (err) {
                 neighborhoodSatisfaction[form.elements[i].name] = form.elements[i].value
 
             }
-        } else if (form.elements[i].type === "text") {
+        } else if (form.elements[i].type === "text" && form.elements[i].className.indexOf('textAreaLikertExplain') === -1) {
 
             if (form.elements[i].name === "threeWordsToDecribeNeighborhood") {
 
@@ -211,14 +214,17 @@ form.addEventListener("submit", function (err) {
         }
     }
 
-    //console.log(imagesArrayMain);
-    //console.log(favoritePlaces);
+
+
+
+    console.log(favoritePlaces);
+
 
     var neighborhoodSatisfaction_ = JSON.stringify(neighborhoodSatisfaction);
     var neighborhoodFactorDescription_ = JSON.stringify(neighborhoodFactorDescription);
     var favoritePlaces_ = JSON.stringify(favoritePlaces);
 
-    //console.log(favoritePlaces)
+
 
     formData.append('threeWordsToDecribeNeighborhood', threeWordsToDecribeNeighborhood);
     formData.append('neighborhoodSatisfaction', neighborhoodSatisfaction_);
@@ -227,6 +233,14 @@ form.addEventListener("submit", function (err) {
     formData.append('neighborhoodTips', neighborhoodTips);
     //formData.append('placeImage', imagesArrayMain);
 
+
+
+    //console.log('==========================')
+    //console.log('==========================')
+
+    //for (var pair of formData.entries()) {
+    //    console.log(pair[0] + ', ' + pair[1]);
+    //}
 
     let token = '';
     const xhr = new XMLHttpRequest();
@@ -244,9 +258,9 @@ form.addEventListener("submit", function (err) {
 
     xhr.open('POST', `/inputs/userId`);
 
-    for(var pair of formData.entries()) {
-        console.log(pair[0]+ ', '+ pair[1]);
-     }
+
+
+
 
     setTimeout(() => {
         xhr.send(formData);
