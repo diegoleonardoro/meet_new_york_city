@@ -586,24 +586,19 @@ addPlace.addEventListener('click', () => {
             favPlacePhoto_InputsCompletionCheck = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag_InputsCompletionCheck}`)[0];
 
 
-            //favPlacePhoto_InputsCompletionCheck.addEventListener('input', function (e) {
-            //    divArrowPhotoOfPlace.style.display = 'none';
-            //})
 
 
             const _fav_Places = document.getElementsByClassName('_fav_Places')[0];
             _fav_Places.style.display = 'none';
 
 
-            //var nextQuestionKeyWord = displayedQuestion.className.split(' ')[4];
-
             const enoughPlaces = document.getElementById('enoughPlaces');
             enoughPlaces.className = enoughPlaces.className + ' display';
 
             setTimeout(() => {
                 enoughPlaces.className = enoughPlaces.className.replace('display', '');
-                const _anythingElseAboutYou = document.getElementById('_anythingElseAboutYou');
-                _anythingElseAboutYou.className = _anythingElseAboutYou.className + ' display';
+                const _submitForm = document.getElementById('_submitForm');
+                _submitForm.className = _submitForm.className + ' display';
             }, 1000);
 
 

@@ -181,26 +181,31 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
 
 //@dsc      Render the form after the user has logged in
-//@route    GET /users/:emailToken
+//@route    GET /users/questionnaire
 //@access   Private 
 exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
-    const user = await User.find({ _id: req.user[0]._id });
+
+    //const user = await User.find({ _id: req.user[0]._id });
 
     const accessToken = await jwt.sign({
-        _id: user[0].id,
-        email: user[0].email
+        _id: req.user.id,
+        email: req.user.email
     }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
 
+
+    /*
     const refreshToken = jwt.sign({
         _id: user[0].id,
         email: user[0].email
     }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
+    */
 
 
     const profileImgFormatted = [];
+
     function createStream() {
-        let readstream = gfs.createReadStream(user[0].profileImage.filename);
+        let readstream = gfs.createReadStream(req.user.profileImage.filename);
         let fileChunks = [];
         readstream.on('data', function (chunk) {
             fileChunks.push(chunk);
@@ -211,21 +216,24 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
             profileImgFormatted.push(imageFormated);
         });
     }
-
     createStream();
 
-    const responseData = user[0];
+    const responseData = req.user;
+
+
 
     res
         .status(200)
         .cookie('token', accessToken)// token, options
-        .cookie('refreshToken', refreshToken)
+    //.cookie('refreshToken', refreshToken)
+
 
     setTimeout(() => {
-
+        // here, instead of rendering the questionnaire, render the main page with the user logged in. 
         res.render("questionnaire", { user: responseData, profileImage: profileImgFormatted });
 
     }, 2000);
+
 
 
 })
@@ -237,13 +245,12 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
 
 //@dsc      Render the form after the user has logged in
-//@route    GET /users/:id/profile
+//@route    GET /users/profile
 //@access   Private 
 exports.userProfile = asyncHandler(async (req, res, next) => {
 
-    let favPlaces = req.user[0].favoritePlaces;
 
-
+    let favPlaces = req.user.favoritePlaces;
 
     let arr = [];
     let amountOfPhotosPerPlace = [];
@@ -259,18 +266,7 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             filesNamesArray.push(filesNames)
             arr.push(filesNames)
         }
-
     };
-
-
-
-
-
-
-
-
-
-
 
     // ---- create stream function that will retreive buffer data from database 
     let streamFlag = 0;
@@ -280,7 +276,6 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
     let profilePicFlag = true;
 
     const profileImgFormatted = [];
-
 
 
     function createStream() {
@@ -308,11 +303,11 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
         }
 
 
-        if (req.user[0].profileImage && profilePicFlag) {
+        if (req.user.profileImage && profilePicFlag) {
 
             profilePicFlag = false;
 
-            let readstreamProfilePic = gfs.createReadStream(req.user[0].profileImage.filename);
+            let readstreamProfilePic = gfs.createReadStream(req.user.profileImage.filename);
             let fileChunks = [];
             readstreamProfilePic.on('data', function (chunk) {
                 fileChunks.push(chunk);
@@ -333,42 +328,53 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 
 
 
+    const accessToken = await jwt.sign({
+        _id: req.user.id,
+        email: req.user.email
+    }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
+
+
+    res
+        .status(200)
+        .cookie('token', accessToken)// token, options
+
+
 
 
     setTimeout(() => {
 
 
         let livingInNhood;
-        if (req.user[0].lengthLivingInNeighborhood === 'do not live there') {
-            livingInNhood = `I do not live in ${req.user[0].neighborhood} but I know it well enough to take you to the best places`
+        if (req.user.lengthLivingInNeighborhood === 'do not live there') {
+            livingInNhood = `I do not live in ${req.user.neighborhood} but I know it well enough to take you to the best places`
         } else {
-            livingInNhood = `I have been living in ${req.user[0].neighborhood} ${req.user[0].lengthLivingInNeighborhood}`
+            livingInNhood = `I have been living in ${req.user.neighborhood} ${req.user.lengthLivingInNeighborhood}`
         }
 
-        var introduction1 = `My name is ${req.user[0].name}. ${livingInNhood}, and if you want to visit, I can show around.`
-        var introduction2 = `<b>I would describe ${req.user[0].neighborhood} as follows:</b> `
-        var introduction3 = `${req.user[0].neighborhoodDescription}`
-        var introduction4 = `<b>In three words, I would say ${req.user[0].neighborhood} is: </b>`
-        var introduction5 = `${req.user[0].threeWordsToDecribeNeighborhood}`.split(',')
-        var introduction6 = `Please message me if you want me to show you ${req.user[0].neighborhood} around.`
+        var introduction1 = `My name is ${req.user.name}. ${livingInNhood}, and if you want to visit, I can show around.`
+        var introduction2 = `<b>I would describe ${req.user.neighborhood} as follows:</b> `
+        var introduction3 = `${req.user.neighborhoodDescription}`
+        var introduction4 = `<b>In three words, I would say ${req.user.neighborhood} is: </b>`
+        var introduction5 = `${req.user.threeWordsToDecribeNeighborhood}`.split(',')
+        var introduction6 = `Please message me if you want me to show you ${req.user.neighborhood} around.`
 
         var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
 
         let user = {
-            'name': req.user[0].name,
-            'neighborhood': req.user[0].neighborhood,
-            'threeWordsToDecribeNeighborhood': req.user[0].threeWordsToDecribeNeighborhood,
-            'neighborhoodTips': req.user[0].neighborhoodTips,
-            'neighborhoodDescription': req.user[0].neighborhoodDescription,
-            'neighborhoodSatisfaction': req.user[0].neighborhoodSatisfaction,
-            'neighborhoodFactorDescription': req.user[0].neighborhoodFactorDescription,
-            'favoritePlaces': req.user[0].favoritePlaces,
-            'lengthLivingInNeighborhood': req.user[0].lengthLivingInNeighborhood,
+            'name': req.user.name,
+            'neighborhood': req.user.neighborhood,
+            'threeWordsToDecribeNeighborhood': req.user.threeWordsToDecribeNeighborhood,
+            'neighborhoodTips': req.user.neighborhoodTips,
+            'neighborhoodDescription': req.user.neighborhoodDescription,
+            'neighborhoodSatisfaction': req.user.neighborhoodSatisfaction,
+            'neighborhoodFactorDescription': req.user.neighborhoodFactorDescription,
+            'favoritePlaces': req.user.favoritePlaces,
+            'lengthLivingInNeighborhood': req.user.lengthLivingInNeighborhood,
             'imagesFormated': newArr,
             'intro': intro,
             'amountOfPhotosPerPlace': amountOfPhotosPerPlace,
             'profilePicture': profileImgFormatted,
-            'borough': req.user[0].borough
+            'borough': req.user.borough
 
         }
 

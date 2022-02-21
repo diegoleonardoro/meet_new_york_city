@@ -242,16 +242,17 @@ form.addEventListener("submit", function (err) {
     //    console.log(pair[0] + ', ' + pair[1]);
     //}
 
-    let token = '';
+    //let token = '';
     const xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
 
     // log response
     xhr.onload = () => {
-        token = xhr.response.token;
+        //token = xhr.response.token;
         //console.log(token);
+       
         var formLink = document.getElementById('goToUserProfile');
-        formLink.href = `users/profile/${token}`
+        formLink.href = 'users/profile'///${token}
         formLink.click()
     };
 

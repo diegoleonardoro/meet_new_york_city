@@ -6,6 +6,7 @@ const geoCoder = require("../utils/geoCoder");
 const fs = require('fs');
 //const User = require("../models/User");
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 
 
@@ -96,11 +97,7 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 
         let photoArray = [];
 
-
-
         let numOfPhotos = favoritePlaces[i]['numberOfPhotos'];// 2. access the amount of photos per place
-
-
 
 
         for (var u = 0; u < numOfPhotos; u++) {
@@ -112,8 +109,6 @@ exports.createInput = asyncHandler(async (req, res, next) => {
         }
 
         favoritePlaces[i]['placeImage'] = photoArray;
-
-
 
         /*
 
@@ -131,19 +126,7 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 
         favoritePlaces[i]['placeImage'] = photoArray;
          */
-
-
-
-
-        console.log(favoritePlaces[i]['placeImage']);
-
-
     }
-
-
-
-
-
 
 
     req.body.favoritePlaces = favoritePlaces;
@@ -158,9 +141,28 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 
     //console.log('image: ', inputData.favoritePlaces);
 
-    const user = await User.findByIdAndUpdate({ _id: req.user[0].id.toObjectId() }, inputData)//.populate('input');
+    const user = await User.findByIdAndUpdate({ _id: req.user.id.toObjectId() }, inputData)//.populate('input');
 
-    sendTokenResponse(user, 200, res);
+
+
+    const accessToken = jwt.sign({
+        _id: user.id,
+        email: user.email
+    }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
+
+    res
+        .status(200)
+        //.cookie('token', accessToken, { httpOnly: true })
+        .json({
+            success: true,
+        })
+
+
+
+    //sendTokenResponse(user, 200, res);//  I THINK IN THIS ROUTE I DO NOT NEED TO SEND A TOKEN.
+
+
+
 
 })
 

@@ -30,13 +30,17 @@ router.route('/neighborhood/:neighborhood')
     .get(getNeighborhood);
 
 
-router.route('/:emailToken')
+
+
+router.route('/questionnaire')//:refreshToken
     .get(protect, getFormInterface)
     .put(updateUser)
     .delete(deleteUser);
 
 
-router.route('/profile/:id')
+
+
+router.route('/profile')///:id
     .get(protect, userProfile)
 
 

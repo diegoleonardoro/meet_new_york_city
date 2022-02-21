@@ -5,6 +5,10 @@ const { v4: uuidv4 } = require('uuid');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
+
+
+
+//const Grid = require("gridfs-stream");
 //const connectDB = require("../config/db");
 //const conn = connectDB();
 //const User = conn.model("User", require('../models/User'));
@@ -17,7 +21,24 @@ const conn = mongoose.createConnection(process.env.MONGO_URI, {
     useFindAndModify: false,
     useUnifiedTopology: true,
 });
+
+
+
+// Initialize GrigFs to retreive images from database
+/*
+let gfs;
+conn.once("open", () => {
+    gfs = Grid(conn.db, mongoose.mongo);
+    gfs.collection('uploads');
+});
+ */
+// ========= ========= ========= ========= =========
+
+
 const User = conn.model("User", require('../models/User'));
+
+
+
 
 
 
@@ -35,8 +56,6 @@ exports.Registration_Interface = (req, res, next) => {
 //@route    POST /register
 //@access   public
 exports.register_User = asyncHandler(async (req, res, next) => {
-
-
 
 
     req.body.profileImage = req.file;
@@ -57,48 +76,68 @@ exports.register_User = asyncHandler(async (req, res, next) => {
     }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
 
 
+
+
+
     await User.updateOne({ email: user.email }, {
         $set: {
             'emailToken': emailToken
-        }
-        /*
+        },
+
         $push: {
             'security.tokens': {
                 refreshToken: refreshToken,
                 createdAt: new Date()
             },
         },
-        */
+
+
     });
 
     await sendEmailConfirmation({ email: user.email, emailToken: emailToken });
 
+
+
+    //Create the function to access the profile image:
     /*
-        res
+    const profileImgFormatted = [];
+    function createStream() {
+        let readstream = gfs.createReadStream(user[0].profileImage.filename);
+        let fileChunks = [];
+        readstream.on('data', function (chunk) {
+            fileChunks.push(chunk);
+        });
+        readstream.on('end', function () {
+            let concatFile = Buffer.concat(fileChunks);
+            imageFormated = Buffer(concatFile).toString("base64");
+            profileImgFormatted.push(imageFormated);
+        });
+    }
+    createStream();
+    */
+    // ====== ====== ====== ====== ====== ====== ======
+
+
+
+
+
+    // send the response data to the user
+    res
         .status(200)
-        .cookie('token', accessToken)
-        .cookie('refreshToken', refreshToken)
-        .cookie('user', user)
-
-    */
-
-    //sendTokenResponse(user, 200, res, accessToken, refreshToken);
+        .cookie('token', accessToken, { httpOnly: true })// token, options
+        .cookie('refreshToken', refreshToken, { httpOnly: true })
+        .json({
+            success: true,
+        })
 
 
     /*
-    res.status(200).header().json({
-        success: {
-            status: 200,
-            message: 'REGISTER_SUCCESS',
-            accessToken: accessToken,
-            refreshToken: refreshToken,
-            user: {
-                id: user.id,
-                email: user.email,
-            },
-        },
-    });
+    const responseData = user;
+    setTimeout(() => {
+        res.render("questionnaire", { user: responseData, profileImage: profileImgFormatted });
+    }, 2000);
     */
+    // ====== ====== ====== ====== ====== 
 
 
 })

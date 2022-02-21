@@ -31,9 +31,46 @@ const User = conn.model("User", require('../models/User'));
 
 exports.protect = asyncHandler(async (req, res, next) => {
 
-    const emailToken = req.params.emailToken;
+    //const emailToken = req.params.emailToken;
 
 
+
+
+
+    try {
+        //const refreshToken = req.params.refreshToken;
+
+        const refreshToken = req.cookies['refreshToken'];
+
+        try {
+            const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
+            const user = await User.findOne({ email: decodedRefreshToken.email });
+            const existingRefreshTokens = user.security.tokens;
+
+            if (existingRefreshTokens.some(token => token.refreshToken === refreshToken)) {
+
+                req.user = user;
+
+                next();
+
+            } else {
+                res.status(401).json({ error: { status: 401, message: "INVALID_REFRESH_TOKEN" } })
+            }
+
+        } catch (error) {
+
+            res.status(401).json({ error: { status: 401, message: "INVALID_REFRESH_TOKEN" } })
+        }
+
+
+    } catch (error) {
+        res.staus(400).json({ error: { status: 400, message: "BAD_REQUEST" } })
+    }
+
+
+
+
+    /*
     if (req.headers.cookie) {
         const parseCookie = str =>
             str
@@ -43,18 +80,15 @@ exports.protect = asyncHandler(async (req, res, next) => {
                     acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
                     return acc;
                 }, {});
+
         const cookie = parseCookie(req.headers.cookie);
         const refreshToken = cookie['refreshToken'];
-
-
 
         const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
         var id_ = decodedRefreshToken._id;
 
-
-
         req.user = await User.find({ _id: id_ });
-        //console.log( ' req.headers.cookie:' , req.user)
+
         next();
 
     } else if (emailToken) {
@@ -62,68 +96,8 @@ exports.protect = asyncHandler(async (req, res, next) => {
         if (req.user) {
             next();
         }
-
     }
-
-
-
-
-
-
-
-    // if (emailToken === req.user[0].emailToken) {
-    //     console.log(emailToken);
-    //    console.log(req.user[0]);
-    //     next();
-    //}
-
-
-
-    //if (refreshToken) {
-    //    const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
-    //    var id_ = decodedRefreshToken._id;
-    //    req.user = await User.find({ _id: id_.toObjectId() });
-
-    //    if (emailToken === req.user[0].emailToken) {
-    //        next();
-    //    }
-    //} else if (emailToken) {
-    //    req.user = await User.find({ emailToken: emailToken });
-    ///    if (req.user) {
-    //        next();
-    //    }
-    //}
-
-
-
-
-
-    //next();
-
-    /*
-    if (emailToken !== null) {
-        const parseCookie = str =>
-            str
-                .split(';')
-                .map(v => v.split('='))
-                .reduce((acc, v) => {
-                    acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-                    return acc;
-                }, {});
-        const cookie = parseCookie(req.headers.cookie);
-        const token = cookie['token'];
-
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-        var id_ = decoded._id;
-        req.user = await User.find({ _id: id_.toObjectId() });
-
-        if (emailToken === req.user[0].emailToken) {
-            next();
-        }
-    } 
-     */
-
+    */
 
 
 

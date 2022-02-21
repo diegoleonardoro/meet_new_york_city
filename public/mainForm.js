@@ -113,10 +113,7 @@ prevQuestion.addEventListener('click', () => {
             prevQuestionKeyWord = displayedQuestion.className.split(' ')[0];  // 5. ---> 'prevQuestionKeyWord' represents the key word that will display the previous question
 
 
-        
             displayedQuestion.className = displayedQuestion.className.replace('display', ' ');// 6. ---> hide the questions that was being displayed when the arrow was clicked
-
-
 
 
         

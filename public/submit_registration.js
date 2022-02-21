@@ -36,11 +36,14 @@ registration_form.addEventListener('submit', function (e) {
     form_elements = registration_form.elements;
     const profilePic = file.files[0];
 
+
+
+    // Hide the registration lay out and show confirm email illustration
     const registerPage = document.getElementsByClassName('register-page')[0];
     registerPage.style.display = 'none';
-
     const checkEmailContainer = document.getElementById('checkEmailContainer');
     checkEmailContainer.style.display = 'inline';
+    // ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== 
 
     const formData = new FormData();
 
@@ -78,34 +81,34 @@ registration_form.addEventListener('submit', function (e) {
         formValues['role'] = 'publisher';
         xhr.responseType = 'json';
 
-        // log response
-        let token = '';
+
+
+        //let token = '';
+
         xhr.onload = () => {
-            //console.log(xhr.response);
-            token = JSON.parse(xhr.response).token;
+
+            // token = JSON.parse(xhr.response).token;
+
+            // direct the user to the main form
+            var registrationForm = document.getElementById('goToMainForm');
+            registrationForm.href = 'users/questionnaire'//${token}
+            registrationForm.click();
+            // ==== ==== ==== ==== ==== ==== ==== 
+
         };
 
+        //send the registration data to the /register route 
         xhr.open('POST', '/register');
-
         xhr.send(formData);
-
-        //JSON.stringify(formValues)
-        //formData
-
-        //setTimeout(() => {
-        //    var registrationForm = document.getElementById('goToMainForm');
-        //    registrationForm.href = `users/${token}`
-        //    registrationForm.pathname = `users/${token}`
-        //    registrationForm.click();
-        //}, 2000);
-
-
+        // ===== ===== ===== ===== ===== ===== ===== ===== 
 
     } else {
-        console.log('passwords do not match')
+
+
+        console.log('passwords do not match');
+
+
+        
     }
-
-
-
 
 })
