@@ -117,9 +117,6 @@ const UserSchema = new mongoose.Schema({
         }
     },
 
-
-    //================================//
-
     neighborhood: String,
 
     borough: String,
@@ -129,8 +126,6 @@ const UserSchema = new mongoose.Schema({
     lengthLivingInNeighborhood: String,
 
     neighborhoodDescription: String,
-
-    threeWordsToDecribeNeighborhood: [String],
 
     neighborhoodSatisfaction: {
 
@@ -142,16 +137,6 @@ const UserSchema = new mongoose.Schema({
         visitInTheMorning: String,
         visitInTheAfternoon: String,
         visitAtNight: String,
-
-
-        /*
-         publicTransportation: String,
-         publicSpaces: String,
-         neighbors: String,
-         restaurants: String,
-         safety: String
-      */
-
     },
     neighborhoodFactorDescription: {
 
@@ -164,17 +149,6 @@ const UserSchema = new mongoose.Schema({
         visitInAfternoonExplanation: String,
         visitAtNightExplanation: String
 
-
-
-        /* 
-        publicTransportationExplanation: String,
-        publicSpacesExplanation: String,
-
-        neighborsExplanation: String,
-        restaurantsVarietyExplanation: String,
-        safetyExplanation: String
-*/
-
     },
     favoritePlaces: [{
         place: String,
@@ -185,14 +159,12 @@ const UserSchema = new mongoose.Schema({
     }],
     neighborhoodTips: [String],
 
-    moreSelfIntroduction: String,
-
     slug: { type: String, slug: ["neighborhood", "borough", "name"], unique: true },
 
-    //================================//
-
-
 })
+
+
+
 
 /* 
 , {

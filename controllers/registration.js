@@ -124,7 +124,7 @@ exports.register_User = asyncHandler(async (req, res, next) => {
     // send the response data to the user
     res
         .status(200)
-        .cookie('token', accessToken, { httpOnly: true })// token, options
+        .cookie('token', accessToken, { httpOnly: true, secure:true })// token, options
         .cookie('refreshToken', refreshToken, { httpOnly: true })
         .json({
             success: true,

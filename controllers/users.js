@@ -352,13 +352,17 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
         }
 
         var introduction1 = `My name is ${req.user.name}. ${livingInNhood}, and if you want to visit, I can show around.`
-        var introduction2 = `<b>I would describe ${req.user.neighborhood} as follows:</b> `
-        var introduction3 = `${req.user.neighborhoodDescription}`
-        var introduction4 = `<b>In three words, I would say ${req.user.neighborhood} is: </b>`
-        var introduction5 = `${req.user.threeWordsToDecribeNeighborhood}`.split(',')
-        var introduction6 = `Please message me if you want me to show you ${req.user.neighborhood} around.`
+        //var introduction2 = `<b>I would describe ${req.user.neighborhood} as follows:</b> `
+        var introduction2 = `I would describe ${req.user.neighborhood} as follows: ${req.user.neighborhoodDescription}`
+        //var introduction4 = `<b>In three words, I would say ${req.user.neighborhood} is: </b>`
+        //var introduction4 = `${req.user.threeWordsToDecribeNeighborhood}`.split(',')
+        var introduction3 = `Please message me if you want me to show you ${req.user.neighborhood} around.`
 
-        var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
+
+        //console.log(introduction2)
+        //console.log(introduction3)
+
+        var intro = [introduction1, introduction2, introduction3];
 
         let user = {
             'name': req.user.name,
