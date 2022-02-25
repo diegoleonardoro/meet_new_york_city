@@ -1,36 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- USED -->
+    <!-- USED -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sign Up</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+            integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,600;1,300;1,500;1,700&display=swap"
-        rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,600;1,300;1,500;1,700&display=swap"
+            rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Exo+2:wght@800&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Exo+2:wght@800&display=swap"
+            rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+            rel="stylesheet">
 
-    <link rel="stylesheet" href="registrationstyle.css">
-</head>
+        <link rel="stylesheet" href="registrationstyle.css">
+    </head>
 
-<body>
+    <body>
 
-    <!-- login page -->
+        <!-- register page -->
+
+
+
+        <div class="header-container">
+
+            <header>
+
+                <div class='logo'>
+                    <div> <a href='#'> <i class="fas fa-map-signs"></i> </a>
+                    </div>
+                    <div class='logoText'>Meet NYC </div>
+                </div>
+
+                <nav>
+                    <a class='navButton'href="#">About</a>
+                    <a class='navButton' href="#">Explore neighborhoods</a>
+                </nav>
+
+
+                <div class="mob-wrapper">
+                    <img class='burger-menu'src="./images/icon-burger-menu.svg"
+                        alt="Mobile
+                        Menu Icon" style='width:40px'>
+
+                    <div class="mob-nav">
+                        <a class='navButtonSmaller' href="#">About</a>
+                        <a class='navButtonSmaller' href="#">Explore
+                            neighborhoods</a>
+
+                    </div>
+                </div>
+
+            </header>
+
+        </div>
+
+
+        <div class='img_form_container'>
+
+            <div class='img_container'>
+                <img
+                    src="https://raw.githubusercontent.com/diegoleonardoro/meet_new_york_city/main/public/images/32-7-train-queens.jpeg"
+                    alt="">
+            </div>
+
+
+            <div class="container">
+
+                <div id='registerProfileImageContainer'>
+                    <h2>Register</h2>
+                    <div class='user-image-wrapper'>
+                        <img id='photo'
+                            src='https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/2feca4c9330929232091f910dbff7f87.jpeg'>
+                        <input type="file" name="profileImage" id="file">
+                        <label for="file" id="uploadBtn">Choose Photo</label>
+                    </div>
+                </div>
+
+                <form class='register-form'>
+                    <input type="text" name="name" id="name" placeholder="Name"
+                        />
+                    <input type="email" name="email" id="email"
+                        placeholder="Email" />
+                    <input type="password" name="password" id="pass"
+                        placeholder="Create password" />
+                    <input type="password" name="re_pass" placeholder="Repeat
+                        password" />
+                    <div>
+                        <button type='submit' class='register-form-btn'>Register</button>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!--
     <section class='register-page'>
-        <!-- login page nav -->
+     
         <nav class='register-page-nav'>
             <ul>
                 <li class='brand'><a href='#'> <i class="fas fa-map-signs"></i>Log in </a></li>
@@ -39,9 +132,9 @@
                 <li><a href='#'>Language: English</a></li>
             </ul>
         </nav>
-        <!-- end of login page nav -->
+ 
 
-        <!-- register -->
+
         <div class='register'>
             <div class='register-content'> 
                 <div id ='registerProfileImageContainer'>
@@ -71,11 +164,10 @@
                 <p>Already a member <a href='#'>Log in </a></p>
             </footer>
         </div>
-        <!-- end of register -->
+     
     </section>
-
-
-
+    -->
+        <!--
     <div id='checkEmailContainer'>
 
         <div id='divImgSvgSentEmailContainer'>
@@ -99,11 +191,11 @@
 
 
     </div>
-    <!-- end of login page -->
 
-    <script type="text/javascript" src="/submit_registration.js"></script>
+    -->
+        <!-- end of login page -->
 
-
-</body>
+        <script type="text/javascript" src="/submit_registration.js"></script>
+    </body>
 
 </html>
