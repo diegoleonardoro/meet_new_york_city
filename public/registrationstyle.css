@@ -262,6 +262,10 @@ header{
     width:125%;
   }
 
+  .img_container{
+    margin-top:10px;
+  }
+
 }
 
 @media (max-width: 516px){
