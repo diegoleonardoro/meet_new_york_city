@@ -76,7 +76,7 @@ header{
 .img_form_container{
   width:90%;
   height:80%; 
-  z-index: -1;
+  /* z-index: -1; */
 
 /* 
   display:flex; */
@@ -277,6 +277,7 @@ header{
   .mob-wrapper{
     display:block;
     padding-right: 40px;
+    z-index: 1;
   }
 
   .mob-nav{
