@@ -70,12 +70,14 @@ header{
 }
 
 .mob-wrapper{/* menu wraper for mobile */
-  /* display:none; */
+   display:none; 
 }
 
 .img_form_container{
   width:90%;
   height:80%; 
+  z-index: -1;
+
 /* 
   display:flex; */
   position: absolute;
@@ -262,7 +264,33 @@ header{
 
 }
 
+@media (max-width: 516px){
 
+  nav{
+    display:none;
+  }
+
+  .mob-wrapper{
+    display:block;
+    padding-right: 40px;
+  }
+
+  .mob-nav{
+    display:none;
+    position: absolute;
+    padding-top:10px;
+  }
+
+  .navButtonSmaller{
+    display:block;
+    padding: 10px 5px; 
+    margin-left: -35px;
+    text-align: center; 
+    background-color: #2D4859;
+    color:white;
+  }
+
+}
 
 
 
