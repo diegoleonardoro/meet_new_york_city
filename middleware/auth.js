@@ -42,10 +42,16 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
         const refreshToken = req.cookies['refreshToken'];
 
+        console.log('refreshToken', refreshToken)
+
         try {
             const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
             const user = await User.findOne({ email: decodedRefreshToken.email });
             const existingRefreshTokens = user.security.tokens;
+
+            console.log('decodedRefreshToken', decodedRefreshToken)
+            console.log('user', user)
+            console.log('existingRefreshTokens', existingRefreshTokens)
 
             if (existingRefreshTokens.some(token => token.refreshToken === refreshToken)) {
 
@@ -54,12 +60,12 @@ exports.protect = asyncHandler(async (req, res, next) => {
                 next();
 
             } else {
-                res.status(401).json({ error: { status: 401, message: "INVALID_REFRESH_TOKEN" } })
+                res.status(401).json({ error: { status: 401, message: "INVALID_REFRESH_TOKEN 1 " } })
             }
 
         } catch (error) {
 
-            res.status(401).json({ error: { status: 401, message: "INVALID_REFRESH_TOKEN" } })
+            res.status(401).json({ error: { status: 401, message: "INVALID_REFRESH_TOKEN 2 " } })
         }
 
 
