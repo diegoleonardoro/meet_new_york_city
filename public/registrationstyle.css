@@ -240,7 +240,7 @@ header{
     padding-bottom: 10px;
   }
   .img_container img{
-    width: 400px;
+    width: 300px;
   }
 
 }
@@ -263,17 +263,18 @@ header{
     transform: translate(0, -50%);
   }
 
-  .img_container img{
+  /* .img_container img{
     width: 100px;
-  }
+  } */
 
   .register-form input:not(.register-form-checkbox) {
     width:125%;
   }
 
-  .img_container{
-    margin-top:10px;
+  .img_container {
+    display:none;
   }
+
 
 }
 
@@ -302,6 +303,10 @@ header{
     text-align: center; 
     background-color: #2D4859;
     color:white;
+  }
+
+  .img_container {
+    display:none;
   }
 
 }
