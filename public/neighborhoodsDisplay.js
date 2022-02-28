@@ -367,8 +367,8 @@ function autocomplete(inp, arr) {
 
                                             var districts = topojson.feature(data, data.objects.districts);
 
-                                            var height = 500;
-                                            var width = 500;
+                                            var height = 350;
+                                            var width = 350;
                                             var projection = d3.geoMercator();
                                             var path = d3.geoPath().projection(projection);
 

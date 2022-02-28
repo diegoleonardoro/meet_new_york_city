@@ -107,9 +107,6 @@ prevQuestion.addEventListener('click', () => {
             displayedQuestion = mainForm.children[i]; // 4. ---> 'displayedQuestion' represents the fomr child that is displayed.
 
 
-            console.log(displayedQuestion)
-
-
             prevQuestionKeyWord = displayedQuestion.className.split(' ')[0];  // 5. ---> 'prevQuestionKeyWord' represents the key word that will display the previous question
 
 

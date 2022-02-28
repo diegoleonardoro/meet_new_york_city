@@ -34,14 +34,31 @@
     </script>
 
 
-    <!-- main form page -->
-    <section class='main-form-page'>
-        <!-- main form page nav -->
-        <nav class='main-form-page-page-nav'>
-            <ul>
-                <li><a href='#'>Explore neighborhoods</a></li>
-                <li><a href='#'>About</a></li>
-            </ul>
+
+
+    <div class ='header-container'>
+
+        <header>
+
+            <nav>
+                <div> <a href='#'> <i class="fas fa-map-signs"></i> </a></div>
+                <a class='navButton'href="#">About</a>
+                <a class='navButton' href="#">Explore neighborhoods</a>
+            </nav>
+
+            <div class="mob-wrapper">
+                <img
+                    class='burger-menu'src="https://raw.githubusercontent.com/diegoleonardoro/meet_new_york_city/b67a0c74d9427adc923aa684074c92ea67bc88f4/public/images/icon-burger-menu.svg"
+                    alt="Mobile
+                    Menu Icon" style='width:30px'>
+
+                <div class="mob-nav">
+                    <a class='navButtonSmaller' href="#">About</a>
+                    <a class='navButtonSmaller' href="#">Explore
+                        neighborhoods</a>
+
+                </div>
+            </div>
 
             <div class='user'>
                 <div class='user-image-wrapper'>
@@ -52,16 +69,507 @@
                 <i class='fas fa-chevron-down'></i>
             </div>
 
+        </header>
 
-        </nav>
-        <!-- end of main form page nav -->
 
-        <!-- form -->
+    </div>
+
+
+
+    <div class='img_form_container'>
+
+            <div class='formWrapper'>
+
+                    <form class='form'>
+        
+                        <div class='display howLongLivingInNeighborhood whatNeighborhood '>
+                            <h2>What neighborhood do you live in?</h2>
+                            <span>
+                                <input type="text" name="neighborhood" id="neighborhoodName" />
+                            </span>
+        
+                            <div class='borough_Zipcode'>
+                                <span class='boroSpan'>
+                                    <select name='borough' class='selectBoro'>
+                                        <option value=''>Borough</option>
+                                        <option value='Brooklyn'>Brooklyn</option>
+                                        <option value='Manhattan'>Manhattan</option>
+                                        <option value='Queens'>Queens</option>
+                                        <option value='The Bronx'>The Bronx</option>
+                                        <option value='Staten Island'>Staten Island</option>
+                                    </select>
+                                    <!--<i class="fas fa-caret-square-down"></i>-->
+                                </span>
+                                <input type="text" placeholder="Zipcode" name="zipcode" id='zipcodeInput' />
+                            </div>
+        
+                        </div>
+        
+                        <div class='howLongLivingInNeighborhood favAspectsOfNeighborhood '>
+                            <div class='lengthLivingInNeighborhood'>
+                                <h2>How long have you been living in this neighborhood?</h2>
+        
+                                <div>
+                                    <input class='form-checkbox' type="radio" value="less than one year" name="lengthLivingInNeighborhood"
+                                        id="livingLessThanOneYear"></input>
+                                    <label for="livingLessThanOneYear">Less than one year</label>
+                                </div>
+        
+                                <div>
+                                    <input class='form-checkbox' type="radio" value="between 1 and 5 years" name="lengthLivingInNeighborhood"
+                                        id="living1and5Years"></input>
+                                    <label for="living1and5Years">Between 1 and 5 years</label>
+                                </div>
+        
+                                <div>
+                                    <input class='form-checkbox' type="radio" value="between 6 and 10 years" name="lengthLivingInNeighborhood"
+                                        id="living6and10Years"></input>
+                                    <label for="living6and10Years">Between 6 and 10 years</label>
+                                </div>
+        
+                                <div>
+                                    <input class='form-checkbox' type="radio" value="between 11 and 15 years" name="lengthLivingInNeighborhood"
+                                        id="living11and15Years"></input>
+                                    <label for="living11and15Years">Between 11 and 15 years</label>
+                                </div>
+        
+                                <div>
+                                    <input class='form-checkbox' type="radio" value="between 11 and 15 years" name="lengthLivingInNeighborhood"
+                                        id="living16and20Years"></input>
+                                    <label for="living16and20Years">Between 16 and 20 years</label>
+                                </div>
+        
+                                <div>
+                                    <input class='form-checkbox' type="radio" value="between 11 and 15 years" name="lengthLivingInNeighborhood"
+                                        id="livingMore20Years"></input>
+                                    <label for="livingMore20Years">For more than 20 years</label>
+                                </div>
+        
+                                <div>
+                                    <input class='form-checkbox' type="radio" value="do not live there" name="lengthLivingInNeighborhood"
+                                        id="doNotLiveThere"></input>
+                                    <label for="doNotLiveThere">I do not live in this neighborhood</label>
+                                </div>
+        
+                            </div>
+                        </div>
+        
+                        <div class='favAspectsOfNeighborhood neighborhoodSatisfactionScale neighbhdDescription'>
+                            <h2>How would you describe your neighborhood to someone who is visiting for the
+                                first time?
+                            </h2>
+                            <textarea name="neighborhoodDescription" class="textAreaExplanation"></textarea>
+                        </div>
+        
+        
+                        <div class='neighborhoodSatisfactionScale satisfactionScaleExplanation likert'>
+        
+                            <h2>How do you feel with the following aspects of your neighborhood: </h2>
+        
+                            <span class='likertOptions'>
+                                <h3>Use Public Transportation: </h3>
+                                <span>
+                                    <input class='whyRecommendPublicTransportation form-checkbox likertScale' type="radio" name="usePublicTansportation"
+                                        value="Recommended" id='publicTransportationRecommend'>
+                                    <label for='publicTransportationRecommend'>Recommended</label>
+                                </span>
+                                <span>
+                                    <input class='whyNeutralPublicTransportation form-checkbox likertScale' type="radio" name="usePublicTansportation"
+                                        value="Neutral" id='publicTransportationNeutral'>
+                                    <label for='publicTransportationNeutral'>Neutral</label>
+                                </span>
+                                <span>
+                                    <input class='whyNotRecommendPublicTransportation form-checkbox likertScale' type="radio"
+                                        name="usePublicTansportation" value="Not recommended" id='publicTransportationDoNotRecommend'>
+                                    <label for='publicTransportationDoNotRecommend'>Not recommended</label>
+                                </span>
+                            </span>
+                            <!-------------------------------------------------------------->
+                            <span class='likertOptions'>
+                                <h3>Walk around the neighborhood: </h3>
+                                <span>
+                                    <input class='whyRecommendWalkAroundNeighborhood form-checkbox likertScale' type="radio"
+                                        name="walkAroundNeighborhood" value="Recommended" id='walkRecommend'>
+                                    <label for='walkRecommend'>Recommended</label>
+                                </span>
+                                <span>
+                                    <input class='whyNeutralWalkAroundNeighborhood form-checkbox likertScale' type="radio" name="walkAroundNeighborhood"
+                                        value="Neutral" id='walkNeutral'>
+                                    <label for='walkNeutral'>Neutral</label>
+                                </span>
+                                <span>
+                                    <input class='whyDoNotRecommendWalkAroundNeighborhood form-checkbox likertScale' type="radio"
+                                        name="walkAroundNeighborhood" value="Not recommended" id='walkDoNotRecommend'>
+                                    <label for='walkDoNotRecommend'>Not recommended</label>
+                                </span>
+                            </span>
+                            <!-------------------------------------------------------------->
+                            <span class='likertOptions'>
+                                <h3>Visit parks: </h3>
+                                <span>
+                                    <input class='whyRecommendVisitParks form-checkbox likertScale' type="radio" name="visitParks"
+                                        value="Recommended" id='parksRecommend'>
+                                    <label for='parksRecommend'>Recommended</label>
+                                </span>
+                                <span>
+                                    <input class='whyNeutralVisitParks form-checkbox likertScale' type="radio" name="visitParks"
+                                        value="Neutral" id='parksNeutral'>
+                                    <label for='parksNeutral'>Neutral</label>
+                                </span>
+                                <span>
+                                    <input class='whyDoNotRecommendVisitParks form-checkbox likertScale' type="radio" name="visitParks"
+                                        value="Not recommended" id='parksDoNotRecommend'>
+                                    <label for='parksDoNotRecommend'>Not recommended</label>
+                                </span>
+                            </span>
+                            <!-------------------------------------------------------------->
+                            <span class='likertOptions'>
+                                <h3>Explore restaurants: </h3>
+                                <span>
+                                    <input class='whyRecommendExploringRestaurants form-checkbox likertScale' type="radio" name="exploreRestaurants"
+                                        value="Recommended" id='restaurantsRecommend'>
+                                    <label for='restaurantsRecommend'>Recommended</label>
+                                </span>
+                                <span>
+                                    <input class='whyNeutralRestaurants form-checkbox likertScale' type="radio" name="exploreRestaurants"
+                                        value="Neutral" id='restaurantsNeutral'>
+                                    <label for='restaurantsNeutral'>Neutral</label>
+                                </span>
+                                <span>
+                                    <input class='whyDoNotRecommendExploringRestaurants form-checkbox likertScale' type="radio"
+                                        name="exploreRestaurants" value="Not recommended" id='restaurantsDoNotRecommend'>
+                                    <label for='restaurantsDoNotRecommend'>Not recommended</label>
+                                </span>
+                            </span>
+        
+                            <!-------------------------------------------------------------->
+                            <span class='likertOptions'>
+                                <h3>Explore night life: </h3>
+                                <span>
+                                    <input class='whyRecommendExploringNightLife form-checkbox likertScale' type="radio" name="exploreNightLife"
+                                        value="Recommended" id='nighLifeRecommend'>
+                                    <label for='nighLifeRecommend'>Recommended</label>
+                                </span>
+                                <span>
+                                    <input class='whyNeutralExploringNightLife form-checkbox likertScale' type="radio" name="exploreNightLife"
+                                        value="Neutral" id='nighLifeNeutral'>
+                                    <label for='nighLifeNeutral'>Neutral</label>
+                                </span>
+                                <span>
+                                    <input class='whyDoNotRecommendExploringNightLife form-checkbox likertScale' type="radio"
+                                        name="exploreNightLife" value="Not recommended" id='nighLifeDoNotRecommend'>
+                                    <label for='nighLifeDoNotRecommend'>Not recommended</label>
+                                </span>
+                            </span>
+                            <!-------------------------------------------------------------->
+                            <span class='likertOptions'>
+                                <h3>Visit in the morning: </h3>
+                                <span>
+                                    <input class='whyRecommendVisitInMorning form-checkbox likertScale' type="radio" name="visitInTheMorning"
+                                        value="Recommended" id='visitInMorningRecommend'>
+                                    <label for='visitInMorningRecommend'>Recommended</label>
+                                </span>
+                                <span>
+                                    <input class='whyNeutralVisitInMorning form-checkbox likertScale' type="radio" name="visitInTheMorning"
+                                        value="Neutral" id='visitInMorningNeutral'>
+                                    <label for='visitInMorningNeutral'>Neutral</label>
+                                </span>
+                                <span>
+                                    <input class='whyDoNotRecommendVisitInMorning form-checkbox likertScale' type="radio" name="visitInTheMorning"
+                                        value="Not recommended" id='visitInMorningDoNotRecommend'>
+                                    <label for='visitInMorningDoNotRecommend'>Not recommended</label>
+                                </span>
+                            </span>
+        
+                            <!-------------------------------------------------------------->
+                            <span class='likertOptions'>
+                                <h3>Visit in the afternoon: </h3>
+                                <span>
+                                    <input class='whyRecommendVisitInAfternoon form-checkbox likertScale' type="radio" name="visitInTheAfternoon"
+                                        value="Recommended" id='visitInAfternoonRecommend'>
+                                    <label for='visitInAfternoonRecommend'>Recommended</label>
+                                </span>
+                                <span>
+                                    <input class='whyNeutralVisitInAfternoon form-checkbox likertScale' type="radio" name="visitInTheAfternoon"
+                                        value="Neutral" id='visitInAfternoonNeutral'>
+                                    <label for='visitInAfternoonNeutral'>Neutral</label>
+                                </span>
+                                <span>
+                                    <input class='whyDoNotRecommendVisitInAfternoon form-checkbox likertScale' type="radio"
+                                        name="visitInTheAfternoon" value="Not recommended" id='visitInAfternoonDoNotRecommend'>
+                                    <label for='visitInAfternoonDoNotRecommend'>Not recommended</label>
+                                </span>
+                            </span>
+        
+                            <!-------------------------------------------------------------->
+                            <span class='likertOptions'>
+                                <h3>Visit at night: </h3>
+                                <span>
+                                    <input class='whyRecommendVisitAtNight form-checkbox likertScale' type="radio" name="visitAtNight"
+                                        value="Recommended" id='visitAtNightRecommend'>
+                                    <label for='visitAtNightRecommend'>Recommended</label>
+                                </span>
+                                <span>
+                                    <input class='whyNeutralVisitAtNight form-checkbox likertScale' type="radio" name="visitAtNight"
+                                        value="Neutral" id='visitAtNightNeutral'>
+                                    <label for='visitAtNightNeutral'>Neutral</label>
+                                </span>
+                                <span>
+                                    <input class='whyDoNotRecommendVisitAtNight form-checkbox likertScale' type="radio"
+                                        name="visitAtNight" value="Not recommended" id='visitAtNightDoNotRecommend'>
+                                    <label for='visitAtNightDoNotRecommend'>Not recommended</label>
+                                </span>
+                            </span>
+                            <!-------------------------------------------------------------->
+        
+        
+                        </div>
+        
+                        <div class='satisfactionScaleExplanation favoritePlaces explainLikert'>
+                            <!-------------------------------------------------------------->
+                            <div class='likertScaleExplanation whyRecommendPublicTransportation'>
+                                <h2>Why do you <u>recommend</u> <span>using public transportation</span>?</h2>
+                                <input type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
+                                <!-- add class to this text area -->
+                            </div>
+                            <div class='likertScaleExplanation whyNeutralPublicTransportation'>
+                                <h2>Why do you feel <u>neutral</u> about <span>using public transportation</span>?</h2>
+                                <input type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyNotRecommendPublicTransportation'>
+                                <h2>Why do you <u>not recommend</u> <span>using public transportation</span>?</h2>
+                                <input type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <!-------------------------------------------------------------->
+        
+                            <div class='likertScaleExplanation whyRecommendWalkAroundNeighborhood'>
+                                <h2>Why do you <u>recommend</u> <span>walking around the neighborhood</span>?</h2>
+                                <input type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyNeutralWalkAroundNeighborhood'>
+                                <h2>Why do you feel <u>neutral</u> about <span>walking around the neighborhood</span>?</h2>
+                                <input type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyDoNotRecommendWalkAroundNeighborhood'>
+                                <h2>Why do you <u>not recommend</u> <span>walking around the neighborhood</span>?</h2>
+                                <input type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <!-------------------------------------------------------------->
+        
+        
+                            <div class='likertScaleExplanation whyRecommendVisitParks'>
+                                <h2>Why do you <u>recommend</u> <span>visiting parks</span>? </h2>
+                                <input type="text" name="visitParksExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyNeutralVisitParks'>
+                                <h2>Why do you feel <u>neutral</u> about <span>visiting parks</span>?</h2>
+                                <input type="text" name="visitParksExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyDoNotRecommendVisitParks'>
+                                <h2>Why do you <u>not recommend</u> <span>visiting parks</span>? </h2>
+                                <input type="text" name="visitParksExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <!-------------------------------------------------------------->
+        
+                            <div class='likertScaleExplanation whyRecommendExploringRestaurants'>
+                                <h2>Why do you <u>recommend</u> <span>exploring restaurants</span>? </h2>
+                                <input type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyNeutralRestaurants'>
+                                <h2>Why do you feel <u>neutral</u> about <span>exploring restaurants</span>?</h2>
+                                <input type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyDoNotRecommendExploringRestaurants'>
+                                <h2>Why do you <u>not recommend</u> <span>exploring restaurants</span>?</h2>
+                                <input type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <!-------------------------------------------------------------->
+        
+                            <div class='likertScaleExplanation whyRecommendExploringNightLife'>
+                                <h2>Why do you <u>recommend</u> <span>exploring the night life</span>?</h2>
+                                <input type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyNeutralExploringNightLife'>
+                                <h2>Why do you feel <u>neutral</u> about <span>exploring the night life</span>?</h2>
+                                <input type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyDoNotRecommendExploringNightLife'>
+                                <h2>Why do you <u>not recommend</u> <span>exploring the night life</span>?</h2>
+                                <input type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+        
+                            <!-------------------------------------------------------------->
+        
+                            <div class='likertScaleExplanation whyRecommendVisitInMorning'>
+                                <h2>Why do you <u>recommend</u> <span>visiting in the morning</span>?</h2>
+                                <input type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyNeutralVisitInMorning'>
+                                <h2>Why do you feel <u>neutral</u> about <span>visiting in the morning</span>?</h2>
+                                <input type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyDoNotRecommendVisitInMorning'>
+                                <h2>Why do you not <u>recommend</u> <span>visiting in the morning</span>?</h2>
+                                <input type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+        
+                            <!-------------------------------------------------------------->
+        
+                            <div class='likertScaleExplanation whyRecommendVisitInAfternoon'>
+                                <h2>Why do you <u>recommend</u> <span>visiting in the afternoon</span>?</h2>
+                                <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyNeutralVisitInAfternoon'>
+                                <h2>Why do you feel <u>neutral</u> about <span>visiting in the afternoon</span>?</h2>
+                                <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyDoNotRecommendVisitInAfternoon'>
+                                <h2>Why do you <u>not recommend</u> <span>visiting in the afternoon</span>?</h2>
+                                <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+        
+                            <!-------------------------------------------------------------->
+        
+                            <div class='likertScaleExplanation whyRecommendVisitAtNight'>
+                                <h2>Why do you <u>recommend</u> <span>visiting at night</span>?</h2>
+                                <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyNeutralVisitAtNight'>
+                                <h2>Why do you feel <u>neutral</u> about <span>visiting at night</span>?</h2>
+                                <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+                            <div class='likertScaleExplanation whyDoNotRecommendVisitAtNight'>
+                                <h2>Why do you <u>not recommend</u> <span>visiting at night</span>?</h2>
+                                <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
+                            </div>
+        
+                        </div>
+        
+        
+        
+                        <div class='favoritePlaces submitForm addFavPlaces _fav_Places enoughPlaces'>
+        
+                            <h2 class='question'>What are your favorite places in this neighborhood? </h2>
+                            <label class='labelAddPlace'>Name of place:</label>
+        
+                            <div id='divNameOfPlace'>
+        
+        
+                                <input type="text" name="favoritePlaceAddress" class='nameOfPlace'></input>
+        
+                                <div id='divArrowNameOfPlace'>
+                                    <span id='tooltipNameOfPlace'>Add name</span>
+                                    <div id='nameOfPlaceTooltipArrow'></div>
+                                </div>
+        
+        
+                            </div>
+        
+                            <label class='labelAddPlace'>Why is this one of you favorite places in your neighborhood:</label>
+                            <div id='divFavPlaceDescription'>
+        
+        
+                                <textarea type="text" name="favoritePlaceDescription" class="textareaFavPlaceDescription"></textarea>
+        
+                                <div id='divArrowDescriptionOfPlace'>
+                                    <span id='tooltipPlaceDescription'>Add description</span>
+                                    <div id='descriptionOfPlaceTooltipArrow'></div>
+                                </div>
+                            </div>
+        
+                            <span>
+                                <label class='placeLabel _fav_Places' id='imageLabel'>Upload one or more images of this place
+                                    <div id='divFavPlaceImage'>
+        
+                                        <input type="file" name="placeImage" class='labelPhoto favoritePlace1 inputImageOfFavPlace' />
+                                        <div id='divArrowPhotoOfPlace'>
+                                            <span id='tooltipPlaceImage'> Add photo</span>
+                                            <div id='photoOfPlaceTooltipArrow'></div>
+                                        </div>
+        
+                                    </div>
+                                </label>
+                                <img src="" id="preview" class='previewImage'>
+                            </span>
+        
+                            <label class='placeLabel' id='addPlaceLabel' for='addPlaceButton'>Add this place to your list to
+                                favorite places </label>
+                            <button type='button' name="placeImage" multiple="multiple" id='addPlaceButton' class='labelPhoto'></button>
+        
+                        </div>
+        
+        
+        
+        
+                        <div id='enoughPlaces' class='enoughPlaces submitForm'>
+                            3 places is enough for now ;)
+                        </div>
+        
+    
+        
+                        <div id ='_submitForm'class='submitForm submitForm'>
+                            <input type='submit'><a id='goToUserProfile' href=''></a></input>
+                        </div>
+        
+                        <div class='displayArrows arrows'>
+                            <svg id="prevQuestionSvg">
+                                <path id="pathPrevQuestion" d="M 5 40 L 30 65 , 30 15  Z"></path>
+                            </svg>
+                            <svg id="nextQuestionSvg">
+                                <path id="pathNextQuestion" d="M 85 40 L 60 65 , 60 15  Z"></path>
+                            </svg>
+                        </div>
+        
+                    </form>
+        
+                   
+        
+                </div>
+        
+              
+        <div class='formIllustration'> </div>
+            
+      
+
+        <!-- <footer class='footer'>
+            <p>Already a member <a href='#'>Log in </a></p>
+        </footer> -->
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+    <section class='main-form-page'>
+
         <div class='formWrapper'>
 
             <form class='form'>
-
-
 
                 <div class='display howLongLivingInNeighborhood whatNeighborhood '>
                     <h2>What neighborhood do you live in?</h2>
@@ -79,7 +587,6 @@
                                 <option value='The Bronx'>The Bronx</option>
                                 <option value='Staten Island'>Staten Island</option>
                             </select>
-                            <!--<i class="fas fa-caret-square-down"></i>-->
                         </span>
                         <input type="text" placeholder="Zipcode" name="zipcode" id='zipcodeInput' />
                     </div>
@@ -143,29 +650,6 @@
                 </div>
 
 
-                <!--
-                <div class='describeNeighborhoodInThreeWords neighborhoodSatisfactionScale threeWordsDescribeNeighborhood'>
-
-                    <h2 id='threeWorrdsDescribeNeighborhood'>Describe your neighborhood in 3 words: </h2>
-
-                    <label class='threeWordsDescribeNeighborhoodWrapper'>
-                        <span>1.</span>
-                        <input type="text" name="threeWordsToDecribeNeighborhood"></input>
-                    </label>
-
-                    <label class='threeWordsDescribeNeighborhoodWrapper'>
-                        <span>2.</span>
-                        <input type="text" name="threeWordsToDecribeNeighborhood"></input>
-                    </label>
-
-                    <label class='threeWordsDescribeNeighborhoodWrapper'>
-                        <span>3.</span>
-                        <input type="text" name="threeWordsToDecribeNeighborhood"></input>
-                    </label>
-
-                </div>
-                -->
-
                 <div class='neighborhoodSatisfactionScale satisfactionScaleExplanation likert'>
 
                     <h2>How do you feel with the following aspects of your neighborhood: </h2>
@@ -188,7 +672,7 @@
                             <label for='publicTransportationDoNotRecommend'>Not recommended</label>
                         </span>
                     </span>
-                    <!-------------------------------------------------------------->
+
                     <span class='likertOptions'>
                         <h3>Walk around the neighborhood: </h3>
                         <span>
@@ -207,7 +691,7 @@
                             <label for='walkDoNotRecommend'>Not recommended</label>
                         </span>
                     </span>
-                    <!-------------------------------------------------------------->
+                  
                     <span class='likertOptions'>
                         <h3>Visit parks: </h3>
                         <span>
@@ -226,7 +710,7 @@
                             <label for='parksDoNotRecommend'>Not recommended</label>
                         </span>
                     </span>
-                    <!-------------------------------------------------------------->
+                    
                     <span class='likertOptions'>
                         <h3>Explore restaurants: </h3>
                         <span>
@@ -245,8 +729,6 @@
                             <label for='restaurantsDoNotRecommend'>Not recommended</label>
                         </span>
                     </span>
-
-                    <!-------------------------------------------------------------->
                     <span class='likertOptions'>
                         <h3>Explore night life: </h3>
                         <span>
@@ -265,7 +747,7 @@
                             <label for='nighLifeDoNotRecommend'>Not recommended</label>
                         </span>
                     </span>
-                    <!-------------------------------------------------------------->
+                   
                     <span class='likertOptions'>
                         <h3>Visit in the morning: </h3>
                         <span>
@@ -285,7 +767,7 @@
                         </span>
                     </span>
 
-                    <!-------------------------------------------------------------->
+                   
                     <span class='likertOptions'>
                         <h3>Visit in the afternoon: </h3>
                         <span>
@@ -305,7 +787,7 @@
                         </span>
                     </span>
 
-                    <!-------------------------------------------------------------->
+                   
                     <span class='likertOptions'>
                         <h3>Visit at night: </h3>
                         <span>
@@ -324,27 +806,17 @@
                             <label for='visitAtNightDoNotRecommend'>Not recommended</label>
                         </span>
                     </span>
-                    <!-------------------------------------------------------------->
+                    
 
 
                 </div>
 
-
-
-
-
-
-
-
-
-
-
                 <div class='satisfactionScaleExplanation favoritePlaces explainLikert'>
-                    <!-------------------------------------------------------------->
+                 
                     <div class='likertScaleExplanation whyRecommendPublicTransportation'>
                         <h2>Why do you <u>recommend</u> <span>using public transportation</span>?</h2>
                         <input type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></textarea>
-                        <!-- add class to this text area -->
+                   
                     </div>
                     <div class='likertScaleExplanation whyNeutralPublicTransportation'>
                         <h2>Why do you feel <u>neutral</u> about <span>using public transportation</span>?</h2>
@@ -354,7 +826,7 @@
                         <h2>Why do you <u>not recommend</u> <span>using public transportation</span>?</h2>
                         <input type="text" name="publicTransportationExplanation" class='textAreaLikertExplain'></input>
                     </div>
-                    <!-------------------------------------------------------------->
+                   
 
                     <div class='likertScaleExplanation whyRecommendWalkAroundNeighborhood'>
                         <h2>Why do you <u>recommend</u> <span>walking around the neighborhood</span>?</h2>
@@ -368,7 +840,7 @@
                         <h2>Why do you <u>not recommend</u> <span>walking around the neighborhood</span>?</h2>
                         <input type="text" name="walkAroundNeighborhoodExplanation" class='textAreaLikertExplain'></input>
                     </div>
-                    <!-------------------------------------------------------------->
+                    
 
 
                     <div class='likertScaleExplanation whyRecommendVisitParks'>
@@ -383,7 +855,7 @@
                         <h2>Why do you <u>not recommend</u> <span>visiting parks</span>? </h2>
                         <input type="text" name="visitParksExplanation" class='textAreaLikertExplain'></input>
                     </div>
-                    <!-------------------------------------------------------------->
+                    
 
                     <div class='likertScaleExplanation whyRecommendExploringRestaurants'>
                         <h2>Why do you <u>recommend</u> <span>exploring restaurants</span>? </h2>
@@ -397,7 +869,7 @@
                         <h2>Why do you <u>not recommend</u> <span>exploring restaurants</span>?</h2>
                         <input type="text" name="exploreRestaurantsExplanation" class='textAreaLikertExplain'></input>
                     </div>
-                    <!-------------------------------------------------------------->
+                    
 
                     <div class='likertScaleExplanation whyRecommendExploringNightLife'>
                         <h2>Why do you <u>recommend</u> <span>exploring the night life</span>?</h2>
@@ -412,7 +884,7 @@
                         <input type="text" name="exploreNightLifeExplanation" class='textAreaLikertExplain'></input>
                     </div>
 
-                    <!-------------------------------------------------------------->
+                    
 
                     <div class='likertScaleExplanation whyRecommendVisitInMorning'>
                         <h2>Why do you <u>recommend</u> <span>visiting in the morning</span>?</h2>
@@ -427,7 +899,7 @@
                         <input type="text" name="visitInMorningExplanation" class='textAreaLikertExplain'></input>
                     </div>
 
-                    <!-------------------------------------------------------------->
+                  
 
                     <div class='likertScaleExplanation whyRecommendVisitInAfternoon'>
                         <h2>Why do you <u>recommend</u> <span>visiting in the afternoon</span>?</h2>
@@ -442,7 +914,7 @@
                         <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
                     </div>
 
-                    <!-------------------------------------------------------------->
+                  
 
                     <div class='likertScaleExplanation whyRecommendVisitAtNight'>
                         <h2>Why do you <u>recommend</u> <span>visiting at night</span>?</h2>
@@ -459,38 +931,6 @@
 
                 </div>
 
-
-
-                <!--
-                <div class='neighborhoodTips favoritePlaces tips'>
-                    <h2>Share any tips for visitors to better enjoy your neighborhood: </h2>
-
-                    <span>1.</span>
-                    <input type="text" name="neighborhoodTips"></input>
-
-                    <span>2.</span>
-                    <input type="text" name="neighborhoodTips"></input>
-
-                    <span>3.</span>
-                    <input type="text" name="neighborhoodTips"></input>
-
-
-                    <svg class='addNewTip' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style='height:30px; width:30px'>
-                        <path class="cls-1vv" d="M515.5,369.66V332.5h47.94v37.35S516.13,370.29,515.5,369.66Zm23.49-30v21.57M529,350.6h20.41"
-                            transform="translate(-514.23 -331.25)" />
-
-                        <path class="cls-2vv" d="M516.75,369.66V332.5l-1.25,1.25h47.94l-1.25-1.25v37.35l1.25-1.25q-11.36.11-22.73.14c-5.36,0-10.71,0-16.07,0-2.09,0-7,.56-8.51-.14s-2.71,1.46-1.26,2.16c1.92.92,5.06.42,7.09.45,5.58.08,11.16.07,16.74.05q12.38,0,24.74-.14a1.26,1.26,0,0,0,1.25-1.25V332.5a1.26,1.26,0,0,0-1.25-1.25H515.5a1.26,1.26,0,0,0-1.25,1.25v37.16A1.25,1.25,0,0,0,516.75,369.66Z"
-                            transform="translate(-514.23 -331.25)" />
-
-                        <path class="cls-2vv" d="M537.74,339.62v21.57a1.25,1.25,0,0,0,2.5,0V339.62a1.25,1.25,0,0,0-2.5,0Z"
-                            transform="translate(-514.23 -331.25)" />
-
-                        <path class="cls-2vv" d="M529,351.85h20.41a1.25,1.25,0,0,0,0-2.5H529a1.25,1.25,0,0,0,0,2.5Z"
-                            transform="translate(-514.23 -331.25)" />
-
-                    </svg>
-                </div>
-                -->
 
 
                 <div class='favoritePlaces submitForm addFavPlaces _fav_Places enoughPlaces'>
@@ -551,15 +991,6 @@
                     3 places is enough for now ;)
                 </div>
 
-
-                <!--
-                <div id='_anythingElseAboutYou' class='anythingElseAboutYou submitForm moreSelfIntroduction'>
-                    <h2>If there is anything else that would like to share about yourself to people who may visit your
-                        neighborhood, plese do so: </h2>
-                    <textarea name="moreSelfIntroduction" class="textAreaExplanation"></textarea>
-                </div>
-                -->
-
                 <div id ='_submitForm'class='submitForm submitForm'>
                     <input type='submit'><a id='goToUserProfile' href=''></a></input>
                 </div>
@@ -577,16 +1008,18 @@
 
             <div class='formIllustration'>
 
-            </div>
+        </div>
 
             <footer class='footer'>
                 <p>Already a member <a href='#'>Log in </a></p>
             </footer>
 
         </div>
-        <!-- end of form -->
-    </section>
-    <!-- end of main form page -->
+    </section> 
+-->
+
+
+
 
 
 

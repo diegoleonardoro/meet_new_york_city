@@ -54,7 +54,8 @@
 
 
                 <div class="mob-wrapper">
-                    <img class='burger-menu'src="https://raw.githubusercontent.com/diegoleonardoro/meet_new_york_city/b67a0c74d9427adc923aa684074c92ea67bc88f4/public/images/icon-burger-menu.svg"
+                    <img
+                        class='burger-menu'src="https://raw.githubusercontent.com/diegoleonardoro/meet_new_york_city/b67a0c74d9427adc923aa684074c92ea67bc88f4/public/images/icon-burger-menu.svg"
                         alt="Mobile
                         Menu Icon" style='width:30px'>
 
@@ -75,10 +76,8 @@
 
 
 
-
-
             <div class='image_and_form_container'>
-                
+
                 <div class='img_container'>
                     <img
                         src="https://raw.githubusercontent.com/diegoleonardoro/meet_new_york_city/main/public/images/32-7-train-queens.jpeg"
@@ -98,18 +97,14 @@
                     </div>
 
                     <form class='register-form'>
-                        <input type="text" name="name" id="name"
-                            placeholder="Name"
-                            />
-                        <input type="email" name="email" id="email"
-                            placeholder="Email" />
-                        <input type="password" name="password" id="pass"
-                            placeholder="Create password" />
-                        <input type="password" name="re_pass"
-                            placeholder="Repeat
-                            password" />
+                        <input class='formElement' type="text" name="name" id="name" placeholder="Name"/>
+                        <input class='formElement'type="email" name="email" id="email" placeholder="Email" />
+                        <input class='formElement'type="password" name="password" id="pass" placeholder="Create password" />
+                        <input class='formElement'type="password" name="re_pass" placeholder="Repeat password" />
                         <div>
                             <button type='submit' class='register-form-btn'>Register</button>
+                            <input type='checkbox' class='register-form-checkbox' id='check'> <a id='goToMainForm' href=''></a></input>
+
                         </div>
                     </form>
 
@@ -121,6 +116,34 @@
         </div>
 
 
+        <div id='checkEmailContainer'>
+
+            <div id='divImgSvgSentEmailContainer'>
+                <img style='position: absolute; left:50%; transform:
+                    translate(-50%,0);'
+                    src="https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/emailSent2png.png">
+                <svg style='position: absolute; left:49.5%; transform:
+                    translate(-50%,270%);' xmlns="http://www.w3.org/2000/svg"
+                    width='60' viewBox="0 0 56.12 82.25">
+                    <defs>
+                        <style>.cls-1_{fill:none;stroke:#00addc;stroke-width:2px;}</style>
+                    </defs>
+                    <path class="cls-1_" id='sentEmailHandsLine'
+                        d="M703.2,341.77c-10.81-1-22-1.14-23,2.3-1.44,4.82,18.32,12.16,17.23,18.38-1.29,7.37-39.1,2.27-40.21,8-.75,3.87,15.39,8.79,14.55,13.41-.87,4.79-19,3.41-19.91,8-1.18,5.78,25.94,12.95,25.27,19.92-.31,3.24-6.69,6.85-29.87,9.57"
+                        transform="translate(-647.16 -340.17)" />
+
+                        <path class="cls-1_" id='sentEmailHandsLine2'
+                            d="M703.2,341.77c-10.81-1-22-1.14-23,2.3-1.44,4.82,18.32,12.16,17.23,18.38-1.29,7.37-39.1,2.27-40.21,8-.75,3.87,15.39,8.79,14.55,13.41-.87,4.79-19,3.41-19.91,8-1.18,5.78,25.94,12.95,25.27,19.92-.31,3.24-6.69,6.85-29.87,9.57"
+                            transform="translate(-647.16 -340.17)" />
+                        </svg>
+                    </div>
+
+                    <h3 id='checkEmailHeader'>We just sent you an email to
+                        verify your
+                        identity</h3>
+
+
+                </div>
 
 
 
@@ -129,8 +152,7 @@
 
 
 
-
-        <!--
+                <!--
     <section class='register-page'>
      
         <nav class='register-page-nav'>
@@ -176,36 +198,14 @@
      
     </section>
     -->
-        <!--
-    <div id='checkEmailContainer'>
+                <!--
 
-        <div id='divImgSvgSentEmailContainer'>
-            <img style='position: absolute; left:50%;  transform: translate(-50%,0);' src="https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/emailSent2png.png">
-
-            <svg style='position: absolute; left:49.5%;  transform: translate(-50%,270%);' xmlns="http://www.w3.org/2000/svg"
-                width='60' viewBox="0 0 56.12 82.25">
-                <defs>
-                    <style>.cls-1_{fill:none;stroke:#00addc;stroke-width:2px;}</style>
-                </defs>
-                <path class="cls-1_" id='sentEmailHandsLine' d="M703.2,341.77c-10.81-1-22-1.14-23,2.3-1.44,4.82,18.32,12.16,17.23,18.38-1.29,7.37-39.1,2.27-40.21,8-.75,3.87,15.39,8.79,14.55,13.41-.87,4.79-19,3.41-19.91,8-1.18,5.78,25.94,12.95,25.27,19.92-.31,3.24-6.69,6.85-29.87,9.57"
-                    transform="translate(-647.16 -340.17)" />
-
-                <path class="cls-1_" id='sentEmailHandsLine2' d="M703.2,341.77c-10.81-1-22-1.14-23,2.3-1.44,4.82,18.32,12.16,17.23,18.38-1.29,7.37-39.1,2.27-40.21,8-.75,3.87,15.39,8.79,14.55,13.41-.87,4.79-19,3.41-19.91,8-1.18,5.78,25.94,12.95,25.27,19.92-.31,3.24-6.69,6.85-29.87,9.57"
-                    transform="translate(-647.16 -340.17)" />
-            </svg>
-        </div>
-
-        <h3 id ='checkEmailHeader'>We just sent you an email to verify your
-                identity</h3>
-
-
-    </div>
 
     -->
-        <!-- end of login page -->
+                <!-- end of login page -->
 
-        <script type="text/javascript" src="/submit_registration.js"></script>
-        <script type="text/javascript" src="/nav_button.js"></script>
-    </body>
+                <script type="text/javascript" src="/submit_registration.js"></script>
+                <script type="text/javascript" src="/nav_button.js"></script>
+            </body>
 
-</html>
+        </html>

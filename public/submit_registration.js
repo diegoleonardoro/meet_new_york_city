@@ -1,4 +1,9 @@
 var registration_form = document.getElementsByClassName('register-form')[0];
+
+
+const formElements = document.getElementsByClassName('formElement');
+
+
 const line = document.getElementById('sentEmailHandsLine');
 
 const imgDiv = document.querySelector('.user-image-wrapper');
@@ -39,8 +44,8 @@ registration_form.addEventListener('submit', function (e) {
 
 
     // Hide the registration lay out and show confirm email illustration
-    const registerPage = document.getElementsByClassName('register-page')[0];
-    registerPage.style.display = 'none';
+    const img_form_container = document.getElementsByClassName('img_form_container')[0];
+    img_form_container.style.display = 'none';
     const checkEmailContainer = document.getElementById('checkEmailContainer');
     checkEmailContainer.style.display = 'inline';
     // ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== 
@@ -52,18 +57,22 @@ registration_form.addEventListener('submit', function (e) {
     let enteredPassword = '';
     let reenteredPassword = '';
 
-    for (var i = 0; i < form_elements.length - 2; i++) {
+    for (var i = 0; i < formElements.length; i++) {
 
-        if (form_elements[i].name === 'password') {
-            enteredPassword = form_elements[i].value
+
+        console.log(formElements[i].name)
+        console.log(formElements[i].value)
+
+        if (formElements[i].name === 'password') {
+            enteredPassword = formElements[i].value
         }
 
-        if (form_elements[i].name === 're_pass') {
-            reenteredPassword = form_elements[i].value;
+        if (formElements[i].name === 're_pass') {
+            reenteredPassword = formElements[i].value;
         }
 
-        formData.append(form_elements[i].name, form_elements[i].value)
-        formValues[form_elements[i].name] = form_elements[i].value
+        formData.append(formElements[i].name, formElements[i].value)
+        formValues[formElements[i].name] = formElements[i].value
 
     }
 
@@ -74,14 +83,13 @@ registration_form.addEventListener('submit', function (e) {
         formValues['profileImage'] = profilePic;
     }
 
+ 
 
     if (enteredPassword === reenteredPassword) {
 
         const xhr = new XMLHttpRequest();
         formValues['role'] = 'publisher';
         xhr.responseType = 'json';
-
-
 
         //let token = '';
 
@@ -92,9 +100,10 @@ registration_form.addEventListener('submit', function (e) {
             // direct the user to the main form
             var registrationForm = document.getElementById('goToMainForm');
             registrationForm.href = 'users/questionnaire'//${token}
-            registrationForm.click();
-            // ==== ==== ==== ==== ==== ==== ==== 
 
+            registrationForm.click();
+
+            // ==== ==== ==== ==== ==== ==== ==== 
         };
 
         //send the registration data to the /register route 
@@ -104,11 +113,8 @@ registration_form.addEventListener('submit', function (e) {
 
     } else {
 
-
         console.log('passwords do not match');
 
-
-        
     }
 
 })

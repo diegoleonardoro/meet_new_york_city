@@ -73,6 +73,7 @@ header{
    display:none; 
 }
 
+
 .img_form_container{
   width:90%;
   height:80%; 
@@ -213,6 +214,14 @@ header{
   font-size:1.6rem;
   font-weight:300;
   margin-right:1rem;
+}
+
+
+#checkEmailContainer{
+  display:none;
+  position:relative;
+  width:100%;
+  height:auto;
 }
 
 

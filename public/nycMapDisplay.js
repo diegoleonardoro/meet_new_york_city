@@ -3,8 +3,8 @@
 function displayMap(callback) {
 
 
-    var height = 500,
-        width = 500,
+    var height = 350,
+        width = 350,
         projection = d3.geoMercator(), // geoMercator() is a way of projecting the map. 
         nyc = void 0,
         map
@@ -18,8 +18,7 @@ function displayMap(callback) {
         .attr("width", width)
         .attr("height", height)
         .style("position", "relative")
-        .style("top", "0%")
-        .style("left", "10%")
+        // .style("top", "0%")
         .style("opacity", "0.8")
         .style("overflow", 'visible');
 
