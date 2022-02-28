@@ -657,10 +657,7 @@ fill:rgb(245, 254, 255);
     flex-direction:column;
    
 
-   
-  
 }
-
 
 .form .displayLikert{
     display:block;
@@ -682,7 +679,7 @@ fill:rgb(245, 254, 255);
 
 
 
-
+/* tablet view */
 @media (max-width: 1299px){
 
     .img_form_container{
@@ -696,6 +693,28 @@ fill:rgb(245, 254, 255);
     }
     .formWrapper{
         height:40%;
+    }
+
+
+
+}
+
+
+
+/* mobile view */
+@media (max-width: 860px){
+
+
+    .formIllustration{
+        display:none;
+    }
+
+    .img_form_container{
+        width:100%;
+    }
+
+    .formWrapper{
+        height: 80%;
     }
 
 }
