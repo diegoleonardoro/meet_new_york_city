@@ -165,14 +165,39 @@
                             <textarea name="neighborhoodDescription" class="textAreaExplanation"></textarea>
                         </div>
         
-        
+
+
+
+<!-- 
+                        <span class='boroSpan'>
+                                <select name='borough' class='selectBoro'>
+                                    <option value=''>Borough</option>
+                                    <option value='Brooklyn'>Brooklyn</option>
+                                    <option value='Manhattan'>Manhattan</option>
+                                    <option value='Queens'>Queens</option>
+                                    <option value='The Bronx'>The Bronx</option>
+                                    <option value='Staten Island'>Staten Island</option>
+                                </select>
+                         
+                        </span> -->
+
+
+
                         <div class='neighborhoodSatisfactionScale satisfactionScaleExplanation likert'>
         
                             <h2>How do you feel with the following aspects of your neighborhood: </h2>
         
                             <span class='likertOptions'>
                                 <h3>Use Public Transportation: </h3>
-                                <span>
+
+                                <select name='usePublicTansportation' class='recommendations'>
+                                        <option value=''>Select an option </option>
+                                        <option  class='whyRecommendPublicTransportation'value='Recommended'>I recommend it </option>
+                                        <option class='whyNeutralPublicTransportation' value='Neutral'>I feel neutral</option>
+                                        <option class='whyNotRecommendPublicTransportation '  value='Not recommended'>I do not recommend it </option>
+                                </select>
+                             
+                                <!-- <span>
                                     <input class='whyRecommendPublicTransportation form-checkbox likertScale' type="radio" name="usePublicTansportation"
                                         value="Recommended" id='publicTransportationRecommend'>
                                     <label for='publicTransportationRecommend'>Recommended</label>
@@ -186,12 +211,21 @@
                                     <input class='whyNotRecommendPublicTransportation form-checkbox likertScale' type="radio"
                                         name="usePublicTansportation" value="Not recommended" id='publicTransportationDoNotRecommend'>
                                     <label for='publicTransportationDoNotRecommend'>Not recommended</label>
-                                </span>
+                                </span> -->
                             </span>
                             <!-------------------------------------------------------------->
                             <span class='likertOptions'>
                                 <h3>Walk around the neighborhood: </h3>
-                                <span>
+
+                                <select name='walkAroundNeighborhood' class='recommendations'>
+                                        <option value=''>Select an option </option>
+                                        <option  class='whyRecommendWalkAroundNeighborhood'value='Recommended'>I recommend it </option>
+                                        <option class='whyNeutralWalkAroundNeighborhood' value='Neutral'>I feel neutral</option>
+                                        <option class='whyDoNotRecommendWalkAroundNeighborhood'  value='Not recommended'>I do not recommend it </option>
+                                </select>
+
+
+                                <!-- <span>
                                     <input class='whyRecommendWalkAroundNeighborhood form-checkbox likertScale' type="radio"
                                         name="walkAroundNeighborhood" value="Recommended" id='walkRecommend'>
                                     <label for='walkRecommend'>Recommended</label>
@@ -205,12 +239,21 @@
                                     <input class='whyDoNotRecommendWalkAroundNeighborhood form-checkbox likertScale' type="radio"
                                         name="walkAroundNeighborhood" value="Not recommended" id='walkDoNotRecommend'>
                                     <label for='walkDoNotRecommend'>Not recommended</label>
-                                </span>
+                                </span> -->
                             </span>
                             <!-------------------------------------------------------------->
                             <span class='likertOptions'>
                                 <h3>Visit parks: </h3>
-                                <span>
+
+                                <select name='visitParks' class='recommendations'>
+                                        <option value=''>Select an option </option>
+                                        <option  class='whyRecommendVisitParks'value='Recommended'>I recommend it </option>
+                                        <option class='whyNeutralVisitParks' value='Neutral'>I feel neutral</option>
+                                        <option class='whyDoNotRecommendVisitParks'  value='Not recommended'>I do not recommend it </option>
+                                </select>
+
+
+                                <!-- <span>
                                     <input class='whyRecommendVisitParks form-checkbox likertScale' type="radio" name="visitParks"
                                         value="Recommended" id='parksRecommend'>
                                     <label for='parksRecommend'>Recommended</label>
@@ -224,12 +267,20 @@
                                     <input class='whyDoNotRecommendVisitParks form-checkbox likertScale' type="radio" name="visitParks"
                                         value="Not recommended" id='parksDoNotRecommend'>
                                     <label for='parksDoNotRecommend'>Not recommended</label>
-                                </span>
+                                </span> -->
                             </span>
                             <!-------------------------------------------------------------->
                             <span class='likertOptions'>
                                 <h3>Explore restaurants: </h3>
-                                <span>
+
+                                <select name='exploreRestaurants' class='recommendations'>
+                                        <option value=''>Select an option </option>
+                                        <option  class='whyRecommendExploringRestaurants'value='Recommended'>I recommend it </option>
+                                        <option class='whyNeutralRestaurants' value='Neutral'>I feel neutral</option>
+                                        <option class='whyDoNotRecommendExploringRestaurants'  value='Not recommended'>I do not recommend it </option>
+                                </select>
+
+                                <!-- <span>
                                     <input class='whyRecommendExploringRestaurants form-checkbox likertScale' type="radio" name="exploreRestaurants"
                                         value="Recommended" id='restaurantsRecommend'>
                                     <label for='restaurantsRecommend'>Recommended</label>
@@ -244,12 +295,22 @@
                                         name="exploreRestaurants" value="Not recommended" id='restaurantsDoNotRecommend'>
                                     <label for='restaurantsDoNotRecommend'>Not recommended</label>
                                 </span>
+                                 -->
                             </span>
         
                             <!-------------------------------------------------------------->
                             <span class='likertOptions'>
                                 <h3>Explore night life: </h3>
-                                <span>
+
+
+                                <select name='exploreNightLife' class='recommendations'>
+                                        <option value=''>Select an option </option>
+                                        <option  class='whyRecommendExploringNightLife'value='Recommended'>I recommend it </option>
+                                        <option class='whyNeutralExploringNightLife' value='Neutral'>I feel neutral</option>
+                                        <option class='whyDoNotRecommendExploringNightLife'  value='Not recommended'>I do not recommend it </option>
+                                </select>
+
+                                <!-- <span>
                                     <input class='whyRecommendExploringNightLife form-checkbox likertScale' type="radio" name="exploreNightLife"
                                         value="Recommended" id='nighLifeRecommend'>
                                     <label for='nighLifeRecommend'>Recommended</label>
@@ -263,12 +324,22 @@
                                     <input class='whyDoNotRecommendExploringNightLife form-checkbox likertScale' type="radio"
                                         name="exploreNightLife" value="Not recommended" id='nighLifeDoNotRecommend'>
                                     <label for='nighLifeDoNotRecommend'>Not recommended</label>
-                                </span>
+                                </span> -->
                             </span>
                             <!-------------------------------------------------------------->
                             <span class='likertOptions'>
                                 <h3>Visit in the morning: </h3>
-                                <span>
+
+
+                                <select name='visitInTheMorning' class='recommendations'>
+                                        <option value=''>Select an option </option>
+                                        <option  class='whyRecommendVisitInMorning'value='Recommended'>I recommend it </option>
+                                        <option class='whyNeutralVisitInMorning' value='Neutral'>I feel neutral</option>
+                                        <option class='whyDoNotRecommendVisitInMorning'  value='Not recommended'>I do not recommend it </option>
+                                </select>
+
+
+                                <!-- <span>
                                     <input class='whyRecommendVisitInMorning form-checkbox likertScale' type="radio" name="visitInTheMorning"
                                         value="Recommended" id='visitInMorningRecommend'>
                                     <label for='visitInMorningRecommend'>Recommended</label>
@@ -282,49 +353,11 @@
                                     <input class='whyDoNotRecommendVisitInMorning form-checkbox likertScale' type="radio" name="visitInTheMorning"
                                         value="Not recommended" id='visitInMorningDoNotRecommend'>
                                     <label for='visitInMorningDoNotRecommend'>Not recommended</label>
-                                </span>
+                                </span> -->
                             </span>
         
                             <!-------------------------------------------------------------->
-                            <span class='likertOptions'>
-                                <h3>Visit in the afternoon: </h3>
-                                <span>
-                                    <input class='whyRecommendVisitInAfternoon form-checkbox likertScale' type="radio" name="visitInTheAfternoon"
-                                        value="Recommended" id='visitInAfternoonRecommend'>
-                                    <label for='visitInAfternoonRecommend'>Recommended</label>
-                                </span>
-                                <span>
-                                    <input class='whyNeutralVisitInAfternoon form-checkbox likertScale' type="radio" name="visitInTheAfternoon"
-                                        value="Neutral" id='visitInAfternoonNeutral'>
-                                    <label for='visitInAfternoonNeutral'>Neutral</label>
-                                </span>
-                                <span>
-                                    <input class='whyDoNotRecommendVisitInAfternoon form-checkbox likertScale' type="radio"
-                                        name="visitInTheAfternoon" value="Not recommended" id='visitInAfternoonDoNotRecommend'>
-                                    <label for='visitInAfternoonDoNotRecommend'>Not recommended</label>
-                                </span>
-                            </span>
-        
-                            <!-------------------------------------------------------------->
-                            <span class='likertOptions'>
-                                <h3>Visit at night: </h3>
-                                <span>
-                                    <input class='whyRecommendVisitAtNight form-checkbox likertScale' type="radio" name="visitAtNight"
-                                        value="Recommended" id='visitAtNightRecommend'>
-                                    <label for='visitAtNightRecommend'>Recommended</label>
-                                </span>
-                                <span>
-                                    <input class='whyNeutralVisitAtNight form-checkbox likertScale' type="radio" name="visitAtNight"
-                                        value="Neutral" id='visitAtNightNeutral'>
-                                    <label for='visitAtNightNeutral'>Neutral</label>
-                                </span>
-                                <span>
-                                    <input class='whyDoNotRecommendVisitAtNight form-checkbox likertScale' type="radio"
-                                        name="visitAtNight" value="Not recommended" id='visitAtNightDoNotRecommend'>
-                                    <label for='visitAtNightDoNotRecommend'>Not recommended</label>
-                                </span>
-                            </span>
-                            <!-------------------------------------------------------------->
+
         
         
                         </div>
@@ -419,33 +452,11 @@
         
                             <!-------------------------------------------------------------->
         
-                            <div class='likertScaleExplanation whyRecommendVisitInAfternoon'>
-                                <h2>Why do you <u>recommend</u> <span>visiting in the afternoon</span>?</h2>
-                                <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
-                            </div>
-                            <div class='likertScaleExplanation whyNeutralVisitInAfternoon'>
-                                <h2>Why do you feel <u>neutral</u> about <span>visiting in the afternoon</span>?</h2>
-                                <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
-                            </div>
-                            <div class='likertScaleExplanation whyDoNotRecommendVisitInAfternoon'>
-                                <h2>Why do you <u>not recommend</u> <span>visiting in the afternoon</span>?</h2>
-                                <input type="text" name="visitInAfternoonExplanation" class='textAreaLikertExplain'></input>
-                            </div>
         
-                            <!-------------------------------------------------------------->
         
-                            <div class='likertScaleExplanation whyRecommendVisitAtNight'>
-                                <h2>Why do you <u>recommend</u> <span>visiting at night</span>?</h2>
-                                <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
-                            </div>
-                            <div class='likertScaleExplanation whyNeutralVisitAtNight'>
-                                <h2>Why do you feel <u>neutral</u> about <span>visiting at night</span>?</h2>
-                                <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
-                            </div>
-                            <div class='likertScaleExplanation whyDoNotRecommendVisitAtNight'>
-                                <h2>Why do you <u>not recommend</u> <span>visiting at night</span>?</h2>
-                                <input type="text" name="visitAtNightExplanation" class='textAreaLikertExplain'></input>
-                            </div>
+              
+        
+                            
         
                         </div>
         
@@ -1756,7 +1767,7 @@
     <script type="module" src="mainForm.js"></script>
     <script type="module" src="submitMainFormValues.js"></script>
     <script type="module" src="nycMapDisplay.js"></script>
-
+    <script type="text/javascript" src="/nav_button.js"></script>
 
 
 

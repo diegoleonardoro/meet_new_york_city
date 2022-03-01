@@ -7,6 +7,9 @@ var nextQuestion = document.getElementById('nextQuestionSvg');
 
 var mainForm = document.getElementsByClassName('form')[0];
 
+
+let keywordsLikerExplanation = [];
+
 nextQuestion.addEventListener('click', () => {
 
 
@@ -16,7 +19,7 @@ nextQuestion.addEventListener('click', () => {
     let keyWord;
     let nextQuestion;
 
-    let keywordsLikerExplanation = [];
+
 
     for (var i = 0; i < mainForm.children.length; i++) {// 1. --> iterate through all form children 
 
@@ -31,21 +34,32 @@ nextQuestion.addEventListener('click', () => {
 
 
             if (displayedQuestion.className.split(' ')[0].indexOf('neighborhoodSatisfactionScale') > -1) {// 
+
+
                 for (let c = 0; c < displayedQuestion.children.length; c++) {
 
                     let span = displayedQuestion.children[c];
                     if (span.className.indexOf('likertOptions') > -1) {
-                        for (let d = 1; d < span.children.length; d++) {
 
-                            let span2 = span.children[d];
-                            let input = span2.children[0];
 
-                            if (input.checked) {
-                                var className = input.className.split(' ')[0];
-                                keywordsLikerExplanation.push(className);
-                            }
-                        }
+                        let selectInput = span.children[1]
+                        keywordsLikerExplanation.push(selectInput.options[selectInput.selectedIndex].className);
+
+
+                        // var className = selectInput.className.split(' ')[0];
+
+                        // for (let d = 1; d < span.children.length; d++) {
+                        //     let span2 = span.children[d];
+                        //     let input = span2.children[0];
+                        //     if (input.checked) {
+                        //         var className = input.className.split(' ')[0];
+                        //         keywordsLikerExplanation.push(className);
+                        //     }
+                        // }
+
                     }
+
+
                 }
             }
 
@@ -67,6 +81,7 @@ nextQuestion.addEventListener('click', () => {
                     if (keyWord === 'satisfactionScaleExplanation') {
                         for (var w = 0; w < nextQuestion.children.length; w++) {
                             if (keywordsLikerExplanation.includes(nextQuestion.children[w].className.split(' ')[1])) {
+
                                 nextQuestion.children[w].className = nextQuestion.children[w].className + ' display';
 
                             }
@@ -76,6 +91,8 @@ nextQuestion.addEventListener('click', () => {
                 }
 
             }
+
+
 
             break;
         }
@@ -87,6 +104,8 @@ nextQuestion.addEventListener('click', () => {
 // previous arrow:
 
 
+
+
 prevQuestion.addEventListener('click', () => {
 
 
@@ -96,7 +115,8 @@ prevQuestion.addEventListener('click', () => {
     let keyWord;
     let prevQuestion;
 
-    let keywordsLikerExplanation = [];
+    keywordsLikerExplanation = [];
+
 
     for (var i = 0; i < mainForm.children.length; i++) {// 1. --> iterate through all form children 
 
@@ -113,16 +133,39 @@ prevQuestion.addEventListener('click', () => {
             displayedQuestion.className = displayedQuestion.className.replace('display', ' ');// 6. ---> hide the questions that was being displayed when the arrow was clicked
 
 
-        
-            for (var e = 0; e < mainForm.children.length; e++) {// 7. ---> iterate again through the form children.
 
+
+
+            
+
+            if (displayedQuestion.className.indexOf('explainLikert') > -1) {
+
+                for (let c = 0; c < displayedQuestion.children.length; c++) {
+
+                    if (displayedQuestion.children[c].className.indexOf('display') > -1) {
+
+                        displayedQuestion.children[c].className = displayedQuestion.children[c].className.replace('display', ' ');
+
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+            for (var e = 0; e < mainForm.children.length; e++) {// 7. ---> iterate again through the form children.
 
                 keyWord = mainForm.children[e].className.split(' ')[1];// 8. ---> 'keyWord' represents the word that will show the previous question
 
                 if (keyWord === prevQuestionKeyWord) {
 
                     prevQuestion = mainForm.children[e];
-
 
                     if (keyWord != 'neighborhoodSatisfactionScale') {
                         prevQuestion.className = prevQuestion.className + ' display';
@@ -141,14 +184,7 @@ prevQuestion.addEventListener('click', () => {
                     break;
                 }
             }
-
-
-            
-
-
-
             break;
-
         }
     }
 

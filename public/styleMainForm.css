@@ -83,7 +83,7 @@ nav i{
  .formWrapper{
     /* grid-column : 2/3;
     grid-row: 2/-1; */
-    background-color:rgb(136, 248, 248); 
+    background-color:rgb(187, 255, 255); 
     /* display:grid; */
     height: 80%;
     width:60%;
@@ -144,11 +144,11 @@ nav i{
   font-size:1.6rem;
 }
 
-.form input:not(.form-checkbox){
+/* .form input:not(.form-checkbox){
     height:2.3rem;
     transition: background-color 0.3s;
     background-color: rgb(136, 248, 248);
-}
+} */
 
 .form input{
     background-color: rgb(245, 254, 255);
@@ -361,8 +361,14 @@ h2{
     padding-bottom:1rem;
     border-bottom: double;
     border-bottom-color: #2D4859;
+
+    width: 70%;
+    margin: 0 auto;
+
 }
-.likertOptions h3{
+
+
+/* .likertOptions h3{
     color: #2D4859;
     width:25%;
 }
@@ -375,6 +381,17 @@ h2{
 .likertOptions span label{
     color: #2D4859;
     cursor: pointer;
+} */
+
+
+.recommendations{
+    padding:5px;
+    background-color: rgb(136, 248, 248);
+    border: solid 1px #2D4859;
+}
+
+.explainLikert div{
+    padding-bottom: 20px;
 }
 
 .explainLikert div h2{
@@ -405,11 +422,13 @@ h2{
     border:none;
     border-bottom: 1px #2D4859 solid;
     padding-left: 2.5rem;
+    padding-bottom: 14px;
+    background-color: rgb(136, 248, 248);
 
 }
 
 .explainLikert div input:focus{
-    border-bottom: 2px rgb(160, 209, 240) solid;
+   background-color: white;
 }
 
 
@@ -620,11 +639,10 @@ h2{
 
 
 #prevQuestionSvg{
-    
     height:8rem;
     width:10rem;
-
 }
+
 #pathPrevQuestion{
     cursor:pointer;
     stroke: #2D4859;
@@ -655,21 +673,16 @@ fill:rgb(245, 254, 255);
 .form .display{
     display:flex;
     flex-direction:column;
-   
-
 }
 
 .form .displayLikert{
     display:block;
-    align-items: center;
-   
+    align-items: center;   
 } 
-
 
 .form div{
     display:none;
 }
-
 
 .likertScaleExplanation{
     display: none;
@@ -696,6 +709,36 @@ fill:rgb(245, 254, 255);
     }
 
 
+    nav{
+        display:none
+    }
+
+
+
+
+    .mob-wrapper{
+        display:block;
+        padding-left: 30px;
+        z-index: 1;
+    }
+    
+    .mob-nav{
+        display:none;
+        position: absolute;
+        padding-top:10px;
+    }
+    
+    .navButtonSmaller{
+        display:block;
+        padding: 10px 5px; 
+        margin-left: -35px;
+        text-align: center; 
+        background-color: #2D4859;
+        color:white;
+      }
+
+
+
 
 }
 
@@ -714,7 +757,7 @@ fill:rgb(245, 254, 255);
     }
 
     .formWrapper{
-        height: 80%;
+        height: auto;
     }
 
 }

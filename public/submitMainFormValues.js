@@ -163,6 +163,17 @@ form.addEventListener("submit", function (err) {
             formData.append(form.elements[i].name, form.elements[i].value);
             borough = form.elements[i].value;
 
+
+
+        } else if (form.elements[i].className.indexOf('recommendations') > -1) {
+
+
+            // neighborhood recommendations (drop down menu )
+            formData.append(form.elements[i].name, form.elements[i].value);
+
+
+
+
         } else if (form.elements[i].type === "radio" && form.elements[i].checked) {
             if (form.elements[i].name === "lengthLivingInNeighborhood") {
 
@@ -250,7 +261,7 @@ form.addEventListener("submit", function (err) {
     xhr.onload = () => {
         //token = xhr.response.token;
         //console.log(token);
-       
+
         var formLink = document.getElementById('goToUserProfile');
         formLink.href = 'users/profile'///${token}
         formLink.click()
@@ -265,7 +276,7 @@ form.addEventListener("submit", function (err) {
 
     setTimeout(() => {
         xhr.send(formData);
-    }, 1000);
+    }, 10000000);
 
 
 })
