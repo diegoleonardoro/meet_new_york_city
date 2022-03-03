@@ -83,7 +83,7 @@ nav i{
  .formWrapper{
     /* grid-column : 2/3;
     grid-row: 2/-1; */
-    background-color:rgb(187, 255, 255); 
+    background-color: #2D4859; 
     /* display:grid; */
     height: 80%;
     width:60%;
@@ -147,16 +147,18 @@ nav i{
 /* .form input:not(.form-checkbox){
     height:2.3rem;
     transition: background-color 0.3s;
-    background-color: rgb(136, 248, 248);
+    background-color:  #2D4859;
 } */
 
-.form input{
+
+
+/* .form input{
     background-color: rgb(245, 254, 255);
 }
 
 .form input:focus{
     background-color: rgb(255, 255, 255);
-}
+} */
 
 .form label{
     font-size:1.3rem;
@@ -168,24 +170,27 @@ h2{
     color:#2D4859;
     text-align: center;
     line-height: 3rem;
+    color:white;
 }
 
 .whatNeighborhood #neighborhoodName{
     margin-bottom:1rem;
     margin-top: 3rem;
     padding-left: 1rem;
-    border:0.1rem solid #2D4859;
+    border:0.1rem solid white;
     font-size:1.5rem;
     width:70%;
     height:3.8rem;
     margin-left:50%;
     transform:translate(-50%, -50%);
     border-radius: 0.8rem;
-    background-color: rgb(136, 248, 248); 
+    background-color:  #2D4859; 
+
+    color:white;
 }
 
 .whatNeighborhood #neighborhoodName:focus{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(48, 95, 124);
 }
 
 .autocomplete-items {
@@ -237,29 +242,37 @@ h2{
     left:35%;
 }
 
+
+
+
 .whatNeighborhood span select{
     height:4rem;
-    border:0.1rem solid #2D4859;
+    border:0.1rem solid white;
     padding-left:1rem;
     
     width:100%;
     background-color: transparent;
     border-radius: 0.8rem;
 
+    color:white;
+
 }
 
 .whatNeighborhood #zipcodeInput{
     height:3.8rem;
-    border:0.1rem solid #2D4859;
+    border:0.1rem solid white;
     padding-left:1rem;
     width:40%;
     border-radius: 0.8rem;
-    background-color: rgb(136, 248, 248);
+    color:white;
+    background-color:  #2D4859;
 }
 
 .whatNeighborhood #zipcodeInput:focus{
-    background-color: #ffffff; 
+    background-color: rgb(48, 95, 124); 
 }
+
+
 
 
 .form .lengthLivingInNeighborhood {
@@ -288,7 +301,7 @@ h2{
     -mozilla-appearance: none;
     vertical-align: text-bottom;
     
-    border: 10px solid #2D4859;
+    border: 10px solid white;
     border-radius: 100%;
     margin-right: 1rem;
     transition: all 0.5s;
@@ -314,11 +327,12 @@ h2{
 .form .lengthLivingInNeighborhood div label{
     cursor: pointer;
     border: none;
-    border-bottom: 1px solid #2D4859;
+    border-bottom: 1px solid white;
     width:55%;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    padding-left: 3rem;  
+    padding-left: 3rem; 
+    color:white; 
 }
 
 .form .lengthLivingInNeighborhood div label:hover{
@@ -338,13 +352,15 @@ h2{
     margin-top:5rem;
     padding-top: 2rem;
     padding-left: 2.5rem;
-    border: 1px #2D4859 solid;
+    border: 1px white solid;
     resize: none;
-    background-color: rgb(136, 248, 248);
+    background-color:  #2D4859;
+
+    color:white;
 }
 
 .textAreaExplanation:focus{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(48, 95, 124);
 }
 
 
@@ -360,7 +376,9 @@ h2{
     padding-top:1rem;
     padding-bottom:1rem;
     border-bottom: double;
-    border-bottom-color: #2D4859;
+    border-bottom-color: white;
+
+    color:white;
 
     width: 70%;
     margin: 0 auto;
@@ -386,8 +404,9 @@ h2{
 
 .recommendations{
     padding:5px;
-    background-color: rgb(136, 248, 248);
-    border: solid 1px #2D4859;
+    background-color:  #2D4859;
+    border: solid 1px white;
+    color:white;
 }
 
 .explainLikert div{
@@ -397,59 +416,87 @@ h2{
 .explainLikert div h2{
     margin-bottom: 1rem;
     position: relative;
-    color: #2D4859;
+    /* color: #2D4859; */
     text-align: left;
     font-size: 13px;
     line-height: 1.5rem;
 }
 .explainLikert div span{
-    background-color: rgb(255, 255, 217);
+    background-color: #2D4859;
     display:inline;
     padding:0.2rem;
 }
 .explainLikert div textarea{
     height:2rem;
     resize: none;
-    border: 1px #2D4859 solid;
+    border: 1px white solid;
     position: relative;
     padding-top: 1rem;
     padding-left: 2.5rem;
-    background-color: rgb(245, 254, 255);
+    background-color: #2D4859;
     line-height: 2rem;
+    color:white;
 }
 
-.explainLikert div input{
-    border:none;
-    border-bottom: 1px #2D4859 solid;
-    padding-left: 2.5rem;
-    padding-bottom: 14px;
-    background-color: rgb(136, 248, 248);
-
-}
-
-.explainLikert div input:focus{
-   background-color: white;
-}
 
 
 .explainLikert div textarea:focus{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(48, 95, 124);
 }
+
+
+
+
+
+
+
+.explainLikert div input{
+  
+    border: 1px white solid;
+    padding-left: 2.5rem;
+    padding-bottom: 14px;
+    padding-top: 10px;
+    background-color:  #2D4859;
+    color:white;
+
+}
+
+
+
+
+
+.explainLikert div input:focus{
+    background-color: rgb(48, 95, 124);
+}
+
+
+/* .explainLikert div textarea:focus{
+    background-color: rgb(255, 255, 255);
+} */
 
 
 .labelAddPlace{
     margin: 4rem 0 0 0;
+    color:white;
 }
 
 #divNameOfPlace{
     display:flex;
+    height:30px;
 }
 .nameOfPlace{
     border:none;
-    border-bottom: 1px solid #2D4859;
+    border: 1px solid white;
     padding-left: 2.5rem;
     width:90%;
+    background-color:  #2D4859;
+    color:white;
 }
+
+.nameOfPlace:focus{
+    background-color: rgb(48, 95, 124);
+}
+
 
 #divArrowNameOfPlace{
     display:none;  
@@ -478,15 +525,22 @@ h2{
 .addFavPlaces textarea{
     margin-top: 1.5rem;
     resize: none;
-    border: 1px #2D4859 solid;
+    border: 1px white solid;
     padding-top: 0.5rem;
     padding-left: 2.5rem;
     padding-top: 2rem;
     height:3rem;
-    background-color: rgb(136, 248, 248);
+    background-color:  #2D4859;
     width:90%;
     line-height: 19px;
+    color:white;
+
 }
+.addFavPlaces textarea:focus{
+    background-color: rgb(48, 95, 124);
+}
+
+
 
 #divFavPlaceDescription{
     display:flex;
@@ -516,9 +570,9 @@ h2{
     border-color: transparent #2D4859 transparent transparent;
 }
 
-.addFavPlaces textarea:focus{
+/* .addFavPlaces textarea:focus{
     background-color: rgb(255, 255, 255);
-}
+} */
 
 .addFavPlaces span{
     display:flex;
@@ -526,6 +580,8 @@ h2{
     align-self: center;
 }
 .placeLabel{
+
+   
 
     display: block;
     position: relative;
@@ -550,6 +606,8 @@ h2{
 }
 
 #imageLabel{
+    border: 1px white solid;
+
     font-size: 1.3rem;
     padding:1rem;
     text-align: center
@@ -594,6 +652,7 @@ h2{
 }
 
 #addPlaceLabel{
+    border: 1px white solid;
     margin-top:2.5rem;
     margin-bottom:1rem;
     font-size: 1.3rem;
@@ -645,8 +704,9 @@ h2{
 
 #pathPrevQuestion{
     cursor:pointer;
-    stroke: #2D4859;
+    stroke: white;
     fill:#2D4859
+
   
 }
 #pathPrevQuestion:hover{
@@ -656,12 +716,15 @@ fill:rgb(245, 254, 255);
 #nextQuestionSvg{
     height:8rem;
     width:10rem;
+
+
 }
 
 #pathNextQuestion{
     cursor:pointer; 
-    stroke: #2D4859;
-    fill:#2D4859
+    stroke: white;
+    fill:#2D4859;
+
 }
 #pathNextQuestion:hover{
     fill:rgb(245, 254, 255);
@@ -704,16 +767,16 @@ fill:rgb(245, 254, 255);
         width:60%;
         height: 40%;
     }
-    .formWrapper{
+
+
+    /* .formWrapper{
         height:40%;
-    }
+    } */
 
 
     nav{
         display:none
     }
-
-
 
 
     .mob-wrapper{
@@ -738,6 +801,14 @@ fill:rgb(245, 254, 255);
       }
 
 
+    .formIllustration{
+        display:none;
+    }
+
+
+    .img_form_container{
+        width:80%;
+    }
 
 
 }
@@ -748,16 +819,47 @@ fill:rgb(245, 254, 255);
 @media (max-width: 860px){
 
 
-    .formIllustration{
-        display:none;
-    }
+
 
     .img_form_container{
         width:100%;
     }
+    
 
-    .formWrapper{
+    /* .formWrapper{
         height: auto;
+    } */
+    
+
+
+    .likertOptions{
+        flex-direction:column;
     }
+
+    .likertOptions h3{
+        padding-bottom:8px;
+    }
+
+    .form .lengthLivingInNeighborhood div{
+        margin:0;
+        padding-top:5px;
+    }
+
+    .form .lengthLivingInNeighborhood div input{
+        margin:0;
+    }
+
+    .form .lengthLivingInNeighborhood div label{
+        padding-top:0;
+    }
+
+
+    .addFavPlaces span{
+        width:80%;
+    }
+    #addPlaceLabel{
+        width:80%
+    }
+
 
 }

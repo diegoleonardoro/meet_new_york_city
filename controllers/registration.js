@@ -94,7 +94,8 @@ exports.register_User = asyncHandler(async (req, res, next) => {
 
     });
 
-    await sendEmailConfirmation({ email: user.email, emailToken: emailToken });
+    //await 
+    sendEmailConfirmation({ email: user.email, emailToken: emailToken });
 
 
 
@@ -119,18 +120,19 @@ exports.register_User = asyncHandler(async (req, res, next) => {
 
 
 
-
-
     // send the response data to the user
+
     res
         .status(200)
-        .cookie('token', accessToken, { httpOnly: true, secure:true })// token, options
+        .cookie('token', accessToken, { httpOnly: true, secure: true })// token, options
         .cookie('refreshToken', refreshToken, { httpOnly: true })
         .json({
             success: true,
         })
 
 
+
+        
     /*
     const responseData = user;
     setTimeout(() => {
@@ -253,7 +255,10 @@ const sendEmailConfirmation = async (user) => {
             pass: process.env.NODE_MAILER_GMAIL_PASSWORD //process.env.NODEMAILER_PASSWORD
         }
     });
-    await transport.sendMail({
+
+
+    //await
+    transport.sendMail({
         from: ' Diego ',
         to: user.email,
         subject: 'Confirm your email',

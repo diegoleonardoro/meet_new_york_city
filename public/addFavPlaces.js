@@ -2,7 +2,10 @@ import { changeImage } from '/addPicOfPlace.js';
 
 
 
-var divFavPlaceImage = document.getElementById('divFavPlaceImage');
+var divFavPlaceImage = document.getElementById('divFavPlaceImage'); // this represents the div that holds the image input and that label that is displayed if no image is uploades 
+
+
+
 //---------------------------------------//
 
 var platform = new H.service.Platform({
@@ -26,6 +29,9 @@ function getPlaceInfo(placeAddress, callback) { // I included the operation insi
 
 const nameOfPlace = document.getElementsByClassName('nameOfPlace')[0];
 const textareaFavPlaceDescription = document.getElementsByClassName('textareaFavPlaceDescription')[0];
+
+const formIllustration = document.getElementsByClassName('formIllustration')[0];
+const formIllustrationDisplayValue = getComputedStyle(formIllustration).display;
 
 let photoOfPlaceFlag = 1
 let favPlacePhoto = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag}`)[0];
@@ -73,61 +79,82 @@ favPlacePhoto.addEventListener('input', function (e) {
 addPlace.addEventListener('click', () => {
 
 
-    //console.log(nameOfPlace.value);
-    //console.log(textareaFavPlaceDescription.value);
-    //console.log(favPlacePhoto_InputsCompletionCheck);
 
-    // console.log(favPlacePhoto_InputsCompletionCheck);
-    // console.log(favPlacePhoto_InputsCompletionCheck.value);
 
+
+    //  -------------------------------- -------------------------------- // 
+    /* this block is in charge of displaying input message when 
+    the user does not type anything in the 'add fav places section' */
 
     if (nameOfPlace.value === '') {
-
         divArrowNameOfPlace.style.display = 'block';
-
     } else if (nameOfPlace.value != '') {
-
-
         divArrowNameOfPlace.style.display = 'none';
     }
     if (textareaFavPlaceDescription.value === '') {
-
         divArrowDescriptionOfPlace.style.display = 'block';
-
     } else if (textareaFavPlaceDescription.value != '') {
-
         divArrowDescriptionOfPlace.style.display = 'none';
-
     }
-    if (favPlacePhoto_InputsCompletionCheck.value === '') { //favPlacePhoto_InputsCompletionCheck == undefined
-
+    if (favPlacePhoto_InputsCompletionCheck.value === '') {
         divArrowPhotoOfPlace.style.display = 'block';
-
-    } else if (favPlacePhoto_InputsCompletionCheck.value != '') { // //favPlacePhoto_InputsCompletionCheck !== undefined
-
+    } else if (favPlacePhoto_InputsCompletionCheck.value != '') {
         divArrowPhotoOfPlace.style.display = 'none';
-
     }
+    //  -------------------------------- -------------------------------- // 
 
 
 
 
 
-    if (nameOfPlace.value != '' && textareaFavPlaceDescription.value != '' && favPlacePhoto_InputsCompletionCheck.value != '') {//favPlacePhoto.value != ''
 
+
+
+
+
+
+
+    /* This block starts when the user has typed in all input sections about the favorite place */
+    if (nameOfPlace.value != '' && textareaFavPlaceDescription.value != '' && favPlacePhoto_InputsCompletionCheck.value != '') {
+
+
+
+
+        //  -------------------------------- -------------------------------- // 
+        /* this block is in charge of clearing the typed text on the input of place name and description */
+        var inputAddFavoritePlacesAddress = document.getElementsByClassName('nameOfPlace')[0];
+        var inputAddFavoritePlacesDescription = document.getElementsByClassName('textareaFavPlaceDescription')[0];
+
+        var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;
+        var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;
+
+        inputAddFavoritePlacesAddress.value = '';
+        inputAddFavoritePlacesDescription.value = '';
+        //  -------------------------------- -------------------------------- // 
+
+
+
+
+
+
+
+        /*--------------------------------------------------------- */
+        /* this block is in charge of hiding the arrow that prompts user to upload photo whenever an image is selected */
         favPlacePhoto = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag}`)[0];
-
-
         favPlacePhoto.addEventListener('input', function (e) {
             divArrowPhotoOfPlace.style.display = 'none';
         });
+        /*--------------------------------------------------------- */
+
 
 
         photoOfPlaceFlag += 1;
 
-        var nhood = document.getElementById('neighborhoodName').value;
-        var zcode = document.getElementById('zipcodeInput').value;
-        var boro = document.getElementsByClassName('selectBoro')[0].value;
+        // var nhood = document.getElementById('neighborhoodName').value;
+        // var zcode = document.getElementById('zipcodeInput').value;
+        // var boro = document.getElementsByClassName('selectBoro')[0].value;
+
+
 
         flag += 1;
 
@@ -147,141 +174,173 @@ addPlace.addEventListener('click', () => {
             imageX,
             imageY;
 
+
+
         if (flag == 1) {
 
-            // 1-- this block gets the coordinates used to place the new path and rect in the map
-            cxL = parseFloat(cx) + 39.9443;
-            cyL = parseFloat(cy) - 88.8956;
-            let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-            newElement.setAttribute("d", "M " + " " + cx + " " + cy + " L" + " " + cxL.toString() + " " + cyL.toString());
-            newElement.style.stroke = "#000";
-            newElement.style.strokeWidth = "1px";
-            mapSvg.appendChild(newElement); // 2 -- append the new path element to the place circle in the map svg 
+ 
+
+            // if (formIllustrationDisplayValue === 'flex') {
 
 
 
-            //--------------------------------------//
-            rectX = cxL - 3.8173;
-            rectY = cyL - 43.9738;
-            let newRect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
-            newRect.setAttribute('width', 280)
-            newRect.setAttribute('height', 150)
-            newRect.setAttribute('fill', 'white')
-            newRect.setAttribute('stroke', 'black')
-            newRect.setAttribute('stroke-width', 1)
-            newRect.setAttribute('x', rectX)
-            newRect.setAttribute('y', rectY)
-            mapSvg.appendChild(newRect);
-            //--------------------------------------//
+                //  -------------------------------- -------------------------------- // 
+                // /* this block is in charge of placing the LINE PATH that connects the circle to the new RECT element */
+                cxL = parseFloat(cx) + 39.9443;
+                cyL = parseFloat(cy) - 88.8956;
+                let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+                newElement.setAttribute("d", "M " + " " + cx + " " + cy + " L" + " " + cxL.toString() + " " + cyL.toString());
+                newElement.style.stroke = "#000";
+                newElement.style.strokeWidth = "1px";
+                mapSvg.appendChild(newElement);
 
-            var inputAddFavoritePlacesAddress = document.getElementsByClassName('nameOfPlace')[0]; // 4 -- select the name of place input element 
-            var inputAddFavoritePlacesDescription = document.getElementsByClassName('textareaFavPlaceDescription')[0];// 5 -- select the place description input element 
-
-            var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;// 5 -- select the value of the name of place input element 
-            var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;// 6 -- select the value of the place description input element
-
-            inputAddFavoritePlacesAddress.value = ''; // 7 -- remove what the user typed in the name of place input element 
-            inputAddFavoritePlacesDescription.value = '';// 8 -- remove what the user typed in the place description input element 
+                //  -------------------------------- -------------------------------- // 
 
 
 
 
 
+                //  -------------------------------- -------------------------------- // 
+                /* this block is in charge of creating the rect element that will hold the name, description and photo of place */
+                rectX = cxL - 3.8173;
+                rectY = cyL - 43.9738;
+                let newRect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
+                newRect.setAttribute('width', 280)
+                newRect.setAttribute('height', 150)
+                newRect.setAttribute('fill', 'white')
+                newRect.setAttribute('stroke', 'black')
+                newRect.setAttribute('stroke-width', 1)
+                newRect.setAttribute('x', rectX)
+                newRect.setAttribute('y', rectY)
+                mapSvg.appendChild(newRect);
+                //  -------------------------------- -------------------------------- // 
 
 
-            textX = rectX + 10;
-            textY = rectY + 20;
 
 
 
-            let mainDivPlaceDesciptionForeignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
-            mainDivPlaceDesciptionForeignObject.setAttribute("x", textX);
-            mainDivPlaceDesciptionForeignObject.setAttribute("y", textY);
-            mainDivPlaceDesciptionForeignObject.setAttribute("width", "180");
-            mainDivPlaceDesciptionForeignObject.setAttribute("height", "80");
+                //  -------------------------------- -------------------------------- // 
+                /* this block is in charge of creting the div that will hold the name, description and photos of the place*/
+                textX = rectX + 10;
+                textY = rectY + 20;
+
+                let mainDivPlaceDesciptionForeignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+                mainDivPlaceDesciptionForeignObject.setAttribute("x", textX);
+                mainDivPlaceDesciptionForeignObject.setAttribute("y", textY);
+                mainDivPlaceDesciptionForeignObject.setAttribute("width", "180");
+                mainDivPlaceDesciptionForeignObject.setAttribute("height", "80");
+
+                const mainDivPlaceDesciption = document.createElement('div');
+                mainDivPlaceDesciption.setAttribute("width", "180");
+                mainDivPlaceDesciption.setAttribute("height", "80");
+
+                mainDivPlaceDesciptionForeignObject.appendChild(mainDivPlaceDesciption);
+                mapSvg.appendChild(mainDivPlaceDesciptionForeignObject);
+                //  -------------------------------- -------------------------------- // 
 
 
-            const mainDivPlaceDesciption = document.createElement('div');
-            mainDivPlaceDesciption.setAttribute("width", "180");
-            mainDivPlaceDesciption.setAttribute("height", "80");
 
 
-            mainDivPlaceDesciptionForeignObject.appendChild(mainDivPlaceDesciption);
-            mapSvg.appendChild(mainDivPlaceDesciptionForeignObject);
 
 
-            const divPlaceName = document.createElement('div');
-            divPlaceName.innerHTML = inputAddFavoritePlacesAddressValue
-            divPlaceName.setAttribute('class', 'favoritePlace' + flag);
-            divPlaceName.setAttribute('name', 'place');
-            mainDivPlaceDesciption.appendChild(divPlaceName);
+                //  -------------------------------- -------------------------------- // 
+                /* this block is in charge of creting the div that will hold the name of the place */
+                const divPlaceName = document.createElement('div');
+                divPlaceName.innerHTML = inputAddFavoritePlacesAddressValue
+                divPlaceName.setAttribute('class', 'favoritePlace' + flag);
+                divPlaceName.setAttribute('name', 'place');
+                mainDivPlaceDesciption.appendChild(divPlaceName);
+                //  -------------------------------- -------------------------------- // 
 
 
-            const divPlaceDescription = document.createElement('div');
-            divPlaceDescription.innerHTML = inputAddFavoritePlacesDescriptionValue;
-            divPlaceDescription.setAttribute('class', 'favoritePlace' + flag);
-            divPlaceDescription.setAttribute('name', 'description');
-            mainDivPlaceDesciption.appendChild(divPlaceDescription);
+
+                //  -------------------------------- -------------------------------- // 
+                /* this block is in charge of creating the div that will hold the description of the place*/
+                const divPlaceDescription = document.createElement('div');
+                divPlaceDescription.innerHTML = inputAddFavoritePlacesDescriptionValue;
+                divPlaceDescription.setAttribute('class', 'favoritePlace' + flag);
+                divPlaceDescription.setAttribute('name', 'description');
+                mainDivPlaceDesciption.appendChild(divPlaceDescription);
+                //  -------------------------------- -------------------------------- // 
 
 
-            var imageInput = document.getElementById('preview');
-            var imagesInput = document.getElementsByClassName('previewImage');
-
-            for (var i = 0; i < imagesInput.length; i++) {
-
-                if (imagesInput[i].className.indexOf(flag) > -1) {
-
-                   
-
-                    var newImg = document.createElement('img');
-                    newImg.src = imagesInput[i].src;
-                    newImg.setAttribute("width", imagesInput[i].width);
-                    newImg.setAttribute("height", imagesInput[i].height);
-                    newImg.setAttribute('name', 'image');
-
-                    mainDivPlaceDesciption.appendChild(newImg);
 
 
-                    console.log(newImg)
 
-                    imagesInput[i].src = '';
-                    imagesInput[i].setAttribute("width", 'auto');
-                    imagesInput[i].setAttribute("width", 'auto');
-
+                //  -------------------------------- -------------------------------- // 
+                /* this block is in charge of creating img elements that will hold every uploaded images   */
+                var imagesInput = document.getElementsByClassName('previewImage');
+                for (var i = 0; i < imagesInput.length; i++) {
+                    if (imagesInput[i].className.indexOf(flag) > -1) {
+                        var newImg = document.createElement('img');
+                        newImg.src = imagesInput[i].src;
+                        newImg.setAttribute("width", imagesInput[i].width);
+                        newImg.setAttribute("height", imagesInput[i].height);
+                        newImg.setAttribute('name', 'image');
+                        mainDivPlaceDesciption.appendChild(newImg);
+                        imagesInput[i].src = '';
+                        imagesInput[i].setAttribute("width", 'auto');
+                        imagesInput[i].setAttribute("width", 'auto');
+                    }
                 }
+                //  -------------------------------- -------------------------------- // 
 
 
-            }
-
-
-
-
+            // }
 
 
 
+            
 
-            var imageInputElement = document.getElementsByClassName('favoritePlace' + flag)[0];// 15 ---  select the input element that includes the first uploaded image 
 
-            var imageInputElementClone = imageInputElement.cloneNode(true);// 16 -- clone the image input element that inclues the first uploaded image 
-            imageInputElementClone.value = '';// 17 -- remove the value of the image input element that was cloned
 
+
+
+
+            //  -------------------------------- -------------------------------- // 
+            /* this block is in charge of selecting the input element of the first uploaded image and clonning it, removing its value and giving it a new class name that includes the 'a' flag. 
+             */
+            var imageInputElement = document.getElementsByClassName('favoritePlace' + flag)[0];// represents the first image input element of the uploaded 
+            var imageInputElementClone = imageInputElement.cloneNode(true);
+            imageInputElementClone.value = '';
             var a = flag + 1;
-            imageInputElementClone.setAttribute('class', 'labelPhoto ' + 'favoritePlace' + a);// 18 -- assign a class name to cloned image input element, which in this case is favoritePlace2
+            imageInputElementClone.setAttribute('class', 'labelPhoto ' + 'favoritePlace' + a);
+            //  -------------------------------- -------------------------------- // 
 
-            imageInputElementClone.addEventListener("change", function () {// 19 -- attach 'changeImage' as an event listener to the cloned image input element. 
+
+
+            //  -------------------------------- -------------------------------- // 
+            /* this block is in charge of adding 'changeImage' as an event listener to the newly created image input element */
+            /* 'changeImage' will display the images on the screen as soon as they are uploaded */
+            imageInputElementClone.addEventListener("change", function () {
                 changeImage(this);
             });
+            //  -------------------------------- -------------------------------- // 
 
+
+
+
+
+            //  -------------------------------- -------------------------------- // 
+            /* this block is in charge of inserting the newly created image input element as the first child of the div element that contains image input elements and the div that displays the 'add photo' label when there has not been photo uploaded  */
             divFavPlaceImage.prepend(imageInputElementClone);
-            imageInputElement.style.display = 'none';
+            imageInputElement.style.display = 'none';// 'imageInputElement' represents the first image input element of the uploaded 
+            /* prepend() method to prepend a list of Node objects or DOMString objects before the first child node of the parent node. */
+            //  -------------------------------- -------------------------------- // 
 
+
+
+
+            //  -------------------------------- -------------------------------- // 
+            /*  This block will be in charge of hiding the divArrowPhotoOfPlace whenever the user selets a an image
+                'divArrowPhotoOfPlace' represents the div that contains the label asking users to upload an image when they do not upload an image
+            */
             photoOfPlaceFlag_InputsCompletionCheck += 1;
             favPlacePhoto_InputsCompletionCheck = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag_InputsCompletionCheck}`)[0];
-
             favPlacePhoto_InputsCompletionCheck.addEventListener('input', function (e) {
                 divArrowPhotoOfPlace.style.display = 'none';
             })
-
+            //  -------------------------------- -------------------------------- // 
 
 
 
@@ -376,7 +435,7 @@ addPlace.addEventListener('click', () => {
             for (var i = 0; i < imagesInput.length; i++) {
 
                 if (imagesInput[i].className.indexOf(flag) > -1) {
-  
+
 
                     var newImg = document.createElement('img');
                     newImg.src = imagesInput[i].src;
@@ -386,9 +445,6 @@ addPlace.addEventListener('click', () => {
 
                     mainDivPlaceDesciption.appendChild(newImg);
 
-
-                    console.log(newImg)
-
                     imagesInput[i].src = '';
                     imagesInput[i].setAttribute("width", 'auto');
                     imagesInput[i].setAttribute("width", 'auto');
@@ -396,11 +452,6 @@ addPlace.addEventListener('click', () => {
 
 
             }
-
-
-
-
-
 
 
 
@@ -522,7 +573,7 @@ addPlace.addEventListener('click', () => {
 
                 if (imagesInput[i].className.indexOf(flag) > -1) {
 
-                
+
 
                     var newImg = document.createElement('img');
                     newImg.src = imagesInput[i].src;
@@ -540,15 +591,6 @@ addPlace.addEventListener('click', () => {
                     imagesInput[i].setAttribute("width", 'auto');
                 }
             }
-
-
-
-
-
-
-
-
-
 
 
             inputAddFavoritePlacesAddress.value = ' ';
@@ -586,8 +628,6 @@ addPlace.addEventListener('click', () => {
             favPlacePhoto_InputsCompletionCheck = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag_InputsCompletionCheck}`)[0];
 
 
-
-
             const _fav_Places = document.getElementsByClassName('_fav_Places')[0];
             _fav_Places.style.display = 'none';
 
@@ -605,9 +645,18 @@ addPlace.addEventListener('click', () => {
         }
 
 
-
-
     }
+
+
+
+
+
+
+
+
+
+
+
 });
 
 

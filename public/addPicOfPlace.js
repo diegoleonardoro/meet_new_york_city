@@ -1,8 +1,13 @@
 
 
-var tooltip = document.getElementsByClassName('cls-1r')[0];
+const tooltip = document.getElementsByClassName('cls-1r')[0];
 
-var divFavPlaceImage = document.getElementById('divFavPlaceImage');
+const divFavPlaceImage = document.getElementById('divFavPlaceImage');
+
+
+const formIllustration = document.getElementsByClassName('formIllustration')[0];
+
+const formIllustrationDisplayValue = getComputedStyle(formIllustration).display;
 
 
 //var tooltipText = document.getElementById('textToolTip');
@@ -61,6 +66,20 @@ let favPlacePhoto = document.getElementsByClassName(`favoritePlace${photoOfPlace
 
 addPlaceButton.addEventListener('click', () => {// 7. --- add an event listener to the button that adds the places to the svg map 
 
+
+
+    // if (formIllustrationDisplayValue === 'flex') {
+
+    //     console.log('hola')
+
+    // } else {
+
+    //     console.log('hello')
+
+    // }
+
+
+
     // 7.1 --- this event listener will check if all the input elements for the favorite place have a value.
 
 
@@ -74,18 +93,13 @@ addPlaceButton.addEventListener('click', () => {// 7. --- add an event listener 
 
 
     if (nameOfPlace.value != '' && textareaFavPlaceDescription.value != '' && favPlacePhotoTest !== undefined) {// 7.3 --- check if all the place input elements have a value 
-        /* //  && favPlacePhoto.value != ''  */
+
 
         addPlaceButtonflag = addPlaceButtonflag + 1; // 7.4 --- 'addPlaceButtonflag' original value is 1 and it will be included only in the class name of the first img element.
         photoOfPlaceFlag += 1;// 7.5 --- increase the value of the flag used to select the correct place image input element by one 
         favPlacePhoto = document.getElementsByClassName(`favoritePlace${photoOfPlaceFlag}`)[0];// 7.6  --- the new value of favPlacePhoto will be the newly added image input element. 
 
-
     };
-
-    /*
-    this event listener will  check if all the place inputs have a value and if so, it will give a new value to favPlacePhoto, which will be the new input element used to upload a photo of the next place
-    */
 
     addPlaceButtonflag2 = 0;
 
@@ -101,6 +115,15 @@ addPlaceButton.addEventListener('click', () => {// 7. --- add an event listener 
 
 
 export function changeImage(input) {
+
+
+    // console.log(formIllustration.style.display);
+
+
+
+
+    // if (formIllustrationDisplayValue === 'flex') {
+
 
     /* This function will be used as a call back function every time an image input element changes*/
 
@@ -159,6 +182,15 @@ export function changeImage(input) {
     input.style.display = 'none';
     flagImageInput = flagImageInput + 1;
 
+
+
+
+
+
+
+
+
+
     imageInputElementClone.addEventListener("change", function () {
         changeImage(this);
     });
@@ -166,6 +198,7 @@ export function changeImage(input) {
     var reader;
 
     if (input.files && input.files[0]) {
+
 
         reader = new FileReader();
         reader.onload = function (e) {
@@ -203,6 +236,35 @@ export function changeImage(input) {
         }
         reader.readAsDataURL(input.files[0]);
     }
+
+
+
+
+
+
+
+
+
+
+    // } else {
+
+    //     console.log('hello')
+
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

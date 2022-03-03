@@ -31,7 +31,7 @@ form.addEventListener("submit", function (err) {
 
 
     //  remove the header and form section 
-    const mainForm = document.getElementsByClassName('main-form-page')[0];
+    const mainForm = document.getElementsByClassName('img_form_container')[0];
     mainForm.style.display = 'none';
     // end of remove the header and form section 
 
@@ -134,9 +134,12 @@ form.addEventListener("submit", function (err) {
                     let numberOfPhotos = 0;
                     for (var v = 0; v < favoritePlace.length; v++) {
                         if (favoritePlace[v].type != 'file') {
+                            console.log(favoritePlace[v])
                             favPlaces[favoritePlace[v].getAttribute("name")] = favoritePlace[v].innerHTML;
                         } else {
                             if (favoritePlace[v].files.length > 0) {
+
+                                console.log(favoritePlace[v])
                                 numberOfPhotos = numberOfPhotos + 1;
 
                                 formData.append(favoritePlace[v].getAttribute("name"), favoritePlace[v].files[0]);
@@ -246,12 +249,13 @@ form.addEventListener("submit", function (err) {
 
 
 
-    //console.log('==========================')
-    //console.log('==========================')
+
 
     //for (var pair of formData.entries()) {
     //    console.log(pair[0] + ', ' + pair[1]);
     //}
+
+
 
     //let token = '';
     const xhr = new XMLHttpRequest();
@@ -276,7 +280,7 @@ form.addEventListener("submit", function (err) {
 
     setTimeout(() => {
         xhr.send(formData);
-    }, 10000000);
+    }, 1000);
 
 
 })
