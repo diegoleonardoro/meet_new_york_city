@@ -292,6 +292,7 @@ h2{
     margin-left:10%;
     display:flex;
     align-items: center;
+    
     width :100%;
     cursor: pointer;
 }
@@ -409,7 +410,7 @@ h2{
     color:white;
 }
 
-.explainLikert div{
+.likertScaleExplanation{
     padding-bottom: 20px;
 }
 
@@ -826,9 +827,9 @@ fill:rgb(245, 254, 255);
     }
     
 
-    /* .formWrapper{
-        height: auto;
-    } */
+    .formWrapper{
+        width:90%;
+    } 
     
 
 
@@ -840,9 +841,15 @@ fill:rgb(245, 254, 255);
         padding-bottom:8px;
     }
 
+
+    .form .lengthLivingInNeighborhood h2{
+        margin-bottom: 1.5rem;
+    }
+
     .form .lengthLivingInNeighborhood div{
         margin:0;
-        padding-top:5px;
+        padding-top:15px;
+        justify-content: center;
     }
 
     .form .lengthLivingInNeighborhood div input{
@@ -854,11 +861,51 @@ fill:rgb(245, 254, 255);
     }
 
 
+    .likert h2 {
+        margin-top: -45px;
+        margin-bottom:0;
+    }
+
     .addFavPlaces span{
         width:80%;
     }
+
     #addPlaceLabel{
         width:80%
+    }
+
+    .explainLikert {
+        margin-top:-25px;
+    }
+
+    .lastLikerExplanation{
+        padding-bottom: 0;
+    }
+
+    .explainLikert div input{
+        border:none;
+        border-bottom: 1px white solid;
+        height:5px;
+        padding-bottom: 2px;
+    }
+
+
+
+    .addFavPlaces textarea{
+        padding-top:0.5rem;
+        height:30px;
+    }
+
+    .labelAddPlace{
+        margin:1rem 0 0 0 ;
+    }
+
+    .addFavPlaces textarea{
+        padding-top:0.5rem;
+    }
+
+    #addPlaceLabel{
+        padding:0;
     }
 
 
