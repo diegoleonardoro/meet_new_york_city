@@ -222,7 +222,7 @@ export function changeImage(input) {
             image.src = e.target.result
             image.onload = function () {
 
-                
+
 
                 let maxWidth; // Max width for the image
                 let maxHeight;   // Max height for the image
@@ -235,12 +235,6 @@ export function changeImage(input) {
                     maxWidth = 50;
                     maxHeight = 50;
                 }
-
-
-
-
-
-
 
 
                 var ratio = 0;  // Used for aspect ratio
