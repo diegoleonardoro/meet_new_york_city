@@ -582,8 +582,6 @@ h2{
 }
 .placeLabel{
 
-   
-
     display: block;
     position: relative;
     width: 200px;
@@ -600,6 +598,19 @@ h2{
     transition: transform .2s ease-out;
     align-self: center;
 }
+
+.imageUploaded{
+    display:none;
+    font-size:3rem;
+    color: #98FF98;
+    align-self: center;
+}
+
+
+
+
+
+
 
 .placeLabel:hover{
     background: rgb(244, 249, 252);
@@ -756,6 +767,32 @@ fill:rgb(245, 254, 255);
 
 
 
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d( 0,-1px, 0);
+    }
+  
+    20%, 80% {
+      transform: translate3d( 0,2px, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d( 0,-4px, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d( 0,4px, 0);
+    }
+  }
+  
+  .apply-shake {
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  }
+
+
+
+
+
 /* tablet view */
 @media (max-width: 1299px){
 
@@ -820,8 +857,6 @@ fill:rgb(245, 254, 255);
 @media (max-width: 860px){
 
 
-
-
     .img_form_container{
         width:100%;
     }
@@ -831,8 +866,6 @@ fill:rgb(245, 254, 255);
         width:90%;
     } 
     
-
-
     .likertOptions{
         flex-direction:column;
     }
@@ -840,7 +873,6 @@ fill:rgb(245, 254, 255);
     .likertOptions h3{
         padding-bottom:8px;
     }
-
 
     .form .lengthLivingInNeighborhood h2{
         margin-bottom: 1.5rem;
@@ -859,7 +891,6 @@ fill:rgb(245, 254, 255);
     .form .lengthLivingInNeighborhood div label{
         padding-top:0;
     }
-
 
     .likert h2 {
         margin-top: -45px;
@@ -889,8 +920,6 @@ fill:rgb(245, 254, 255);
         padding-bottom: 2px;
     }
 
-
-
     .addFavPlaces textarea{
         padding-top:0.5rem;
         height:30px;
@@ -908,5 +937,8 @@ fill:rgb(245, 254, 255);
         padding:0;
     }
 
+    .previewImage{
+        left:90%;
+    }
 
 }

@@ -166,8 +166,20 @@ export function changeImage(input) {
     let newImagePreview = imagePreview.cloneNode();
 
     addPlaceButtonflag2 = 1;
+
+
     imagePreview.parentNode.insertBefore(newImagePreview, imagePreview.nextSibling);
     newImagePreview.style.transform = `rotate(${rotation}deg)`;
+
+
+
+
+    // if (formIllustrationDisplayValue === 'flex') {
+    //     newImagePreview.style.display = 'none';
+    // }
+
+
+
 
     var imageInputElementClone = input.cloneNode(true);//
 
@@ -176,17 +188,20 @@ export function changeImage(input) {
     //imageLabel.insertBefore(imageInputElementClone, input.nextSibling);// input is not a node of imageInputElementClone
 
 
+
+
+
+
+
+
+
     divFavPlaceImage.prepend(imageInputElementClone);
+
+
     //input.after(imageInputElementClone);
 
     input.style.display = 'none';
     flagImageInput = flagImageInput + 1;
-
-
-
-
-
-
 
 
 
@@ -207,8 +222,27 @@ export function changeImage(input) {
             image.src = e.target.result
             image.onload = function () {
 
-                var maxWidth = 100; // Max width for the image
-                var maxHeight = 100;    // Max height for the image
+                
+
+                let maxWidth; // Max width for the image
+                let maxHeight;   // Max height for the image
+
+
+                if (formIllustrationDisplayValue === 'flex') {
+                    maxWidth = 100;
+                    maxHeight = 100;
+                } else {
+                    maxWidth = 50;
+                    maxHeight = 50;
+                }
+
+
+
+
+
+
+
+
                 var ratio = 0;  // Used for aspect ratio
 
                 var width = this.width;

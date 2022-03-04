@@ -178,120 +178,115 @@ addPlace.addEventListener('click', () => {
 
         if (flag == 1) {
 
- 
+
 
             // if (formIllustrationDisplayValue === 'flex') {
 
 
 
-                //  -------------------------------- -------------------------------- // 
-                // /* this block is in charge of placing the LINE PATH that connects the circle to the new RECT element */
-                cxL = parseFloat(cx) + 39.9443;
-                cyL = parseFloat(cy) - 88.8956;
-                let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-                newElement.setAttribute("d", "M " + " " + cx + " " + cy + " L" + " " + cxL.toString() + " " + cyL.toString());
-                newElement.style.stroke = "#000";
-                newElement.style.strokeWidth = "1px";
-                mapSvg.appendChild(newElement);
+            //  -------------------------------- -------------------------------- // 
+            // /* this block is in charge of placing the LINE PATH that connects the circle to the new RECT element */
+            cxL = parseFloat(cx) + 39.9443;
+            cyL = parseFloat(cy) - 88.8956;
+            let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+            newElement.setAttribute("d", "M " + " " + cx + " " + cy + " L" + " " + cxL.toString() + " " + cyL.toString());
+            newElement.style.stroke = "#000";
+            newElement.style.strokeWidth = "1px";
+            mapSvg.appendChild(newElement);
 
-                //  -------------------------------- -------------------------------- // 
-
-
-
-
-
-                //  -------------------------------- -------------------------------- // 
-                /* this block is in charge of creating the rect element that will hold the name, description and photo of place */
-                rectX = cxL - 3.8173;
-                rectY = cyL - 43.9738;
-                let newRect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
-                newRect.setAttribute('width', 280)
-                newRect.setAttribute('height', 150)
-                newRect.setAttribute('fill', 'white')
-                newRect.setAttribute('stroke', 'black')
-                newRect.setAttribute('stroke-width', 1)
-                newRect.setAttribute('x', rectX)
-                newRect.setAttribute('y', rectY)
-                mapSvg.appendChild(newRect);
-                //  -------------------------------- -------------------------------- // 
+            //  -------------------------------- -------------------------------- // 
 
 
 
 
 
-                //  -------------------------------- -------------------------------- // 
-                /* this block is in charge of creting the div that will hold the name, description and photos of the place*/
-                textX = rectX + 10;
-                textY = rectY + 20;
-
-                let mainDivPlaceDesciptionForeignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
-                mainDivPlaceDesciptionForeignObject.setAttribute("x", textX);
-                mainDivPlaceDesciptionForeignObject.setAttribute("y", textY);
-                mainDivPlaceDesciptionForeignObject.setAttribute("width", "180");
-                mainDivPlaceDesciptionForeignObject.setAttribute("height", "80");
-
-                const mainDivPlaceDesciption = document.createElement('div');
-                mainDivPlaceDesciption.setAttribute("width", "180");
-                mainDivPlaceDesciption.setAttribute("height", "80");
-
-                mainDivPlaceDesciptionForeignObject.appendChild(mainDivPlaceDesciption);
-                mapSvg.appendChild(mainDivPlaceDesciptionForeignObject);
-                //  -------------------------------- -------------------------------- // 
+            //  -------------------------------- -------------------------------- // 
+            /* this block is in charge of creating the rect element that will hold the name, description and photo of place */
+            rectX = cxL - 3.8173;
+            rectY = cyL - 43.9738;
+            let newRect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
+            newRect.setAttribute('width', 280)
+            newRect.setAttribute('height', 150)
+            newRect.setAttribute('fill', 'white')
+            newRect.setAttribute('stroke', 'black')
+            newRect.setAttribute('stroke-width', 1)
+            newRect.setAttribute('x', rectX)
+            newRect.setAttribute('y', rectY)
+            mapSvg.appendChild(newRect);
+            //  -------------------------------- -------------------------------- // 
 
 
 
 
 
+            //  -------------------------------- -------------------------------- // 
+            /* this block is in charge of creting the div that will hold the name, description and photos of the place*/
+            textX = rectX + 10;
+            textY = rectY + 20;
 
-                //  -------------------------------- -------------------------------- // 
-                /* this block is in charge of creting the div that will hold the name of the place */
-                const divPlaceName = document.createElement('div');
-                divPlaceName.innerHTML = inputAddFavoritePlacesAddressValue
-                divPlaceName.setAttribute('class', 'favoritePlace' + flag);
-                divPlaceName.setAttribute('name', 'place');
-                mainDivPlaceDesciption.appendChild(divPlaceName);
-                //  -------------------------------- -------------------------------- // 
+            let mainDivPlaceDesciptionForeignObject = document.createElementNS("http://www.w3.org/2000/svg", 'foreignObject');
+            mainDivPlaceDesciptionForeignObject.setAttribute("x", textX);
+            mainDivPlaceDesciptionForeignObject.setAttribute("y", textY);
+            mainDivPlaceDesciptionForeignObject.setAttribute("width", "180");
+            mainDivPlaceDesciptionForeignObject.setAttribute("height", "80");
 
+            const mainDivPlaceDesciption = document.createElement('div');
+            mainDivPlaceDesciption.setAttribute("width", "180");
+            mainDivPlaceDesciption.setAttribute("height", "80");
 
-
-                //  -------------------------------- -------------------------------- // 
-                /* this block is in charge of creating the div that will hold the description of the place*/
-                const divPlaceDescription = document.createElement('div');
-                divPlaceDescription.innerHTML = inputAddFavoritePlacesDescriptionValue;
-                divPlaceDescription.setAttribute('class', 'favoritePlace' + flag);
-                divPlaceDescription.setAttribute('name', 'description');
-                mainDivPlaceDesciption.appendChild(divPlaceDescription);
-                //  -------------------------------- -------------------------------- // 
+            mainDivPlaceDesciptionForeignObject.appendChild(mainDivPlaceDesciption);
+            mapSvg.appendChild(mainDivPlaceDesciptionForeignObject);
+            //  -------------------------------- -------------------------------- // 
 
 
 
 
 
-                //  -------------------------------- -------------------------------- // 
-                /* this block is in charge of creating img elements that will hold every uploaded images   */
-                var imagesInput = document.getElementsByClassName('previewImage');
-                for (var i = 0; i < imagesInput.length; i++) {
-                    if (imagesInput[i].className.indexOf(flag) > -1) {
-                        var newImg = document.createElement('img');
-                        newImg.src = imagesInput[i].src;
-                        newImg.setAttribute("width", imagesInput[i].width);
-                        newImg.setAttribute("height", imagesInput[i].height);
-                        newImg.setAttribute('name', 'image');
-                        mainDivPlaceDesciption.appendChild(newImg);
-                        imagesInput[i].src = '';
-                        imagesInput[i].setAttribute("width", 'auto');
-                        imagesInput[i].setAttribute("width", 'auto');
-                    }
+
+            //  -------------------------------- -------------------------------- // 
+            /* this block is in charge of creting the div that will hold the name of the place */
+            const divPlaceName = document.createElement('div');
+            divPlaceName.innerHTML = inputAddFavoritePlacesAddressValue
+            divPlaceName.setAttribute('class', 'favoritePlace' + flag);
+            divPlaceName.setAttribute('name', 'place');
+            mainDivPlaceDesciption.appendChild(divPlaceName);
+            //  -------------------------------- -------------------------------- // 
+
+
+
+            //  -------------------------------- -------------------------------- // 
+            /* this block is in charge of creating the div that will hold the description of the place*/
+            const divPlaceDescription = document.createElement('div');
+            divPlaceDescription.innerHTML = inputAddFavoritePlacesDescriptionValue;
+            divPlaceDescription.setAttribute('class', 'favoritePlace' + flag);
+            divPlaceDescription.setAttribute('name', 'description');
+            mainDivPlaceDesciption.appendChild(divPlaceDescription);
+            //  -------------------------------- -------------------------------- // 
+
+
+
+
+
+            //  -------------------------------- -------------------------------- // 
+            /* this block is in charge of creating img elements that will hold every uploaded images   */
+            var imagesInput = document.getElementsByClassName('previewImage');
+            for (var i = 0; i < imagesInput.length; i++) {
+                if (imagesInput[i].className.indexOf(flag) > -1) {
+                    var newImg = document.createElement('img');
+                    newImg.src = imagesInput[i].src;
+                    newImg.setAttribute("width", imagesInput[i].width);
+                    newImg.setAttribute("height", imagesInput[i].height);
+                    newImg.setAttribute('name', 'image');
+                    mainDivPlaceDesciption.appendChild(newImg);
+                    imagesInput[i].src = '';
+                    imagesInput[i].setAttribute("width", 'auto');
+                    imagesInput[i].setAttribute("width", 'auto');
                 }
-                //  -------------------------------- -------------------------------- // 
+            }
+            //  -------------------------------- -------------------------------- // 
 
 
             // }
-
-
-
-            
-
 
 
 
