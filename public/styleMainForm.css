@@ -34,7 +34,7 @@ a{
     min-height: 60px;
     width:100%;
     box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
-  }
+}
   
 header{
     width:90%;
@@ -65,10 +65,13 @@ nav i{
     border-bottom: solid #2D4859 3.5px;
 }
 
-
 .mob-wrapper{/* menu wraper for mobile */
     display:none; 
- }
+}
+/* end of header */
+
+
+
 
  .img_form_container{
     display:flex;
@@ -77,6 +80,7 @@ nav i{
     padding-top: 50px;
     margin: 0 auto;
  }
+
 
 
 /* Form */

@@ -432,7 +432,7 @@ var y = d3.scalePoint()
     .padding(0.9);
 
 
-var neighborhoodFactors = ['Use public tansportation', 'Walk around neighborhood', 'Visit parks', 'Explore restaurants', 'Explore night life', 'Visit in the morning', 'Visit in the afternoon', 'Visit at night'];
+var neighborhoodFactors = ['Use public tansportation', 'Walk around neighborhood', 'Visit parks', 'Explore restaurants', 'Explore night life', 'Visit in the morning'];
 var satisfactionLevel = ['Not recommended', 'Neutral', 'Recommended'];
 
 x.domain(neighborhoodFactors);
@@ -621,8 +621,6 @@ d3.selectAll(".bar").each(function () {
 
 
 
-
-
 var listSelection = d3.select('#legends')
     .selectAll('li')
     .data(neighborhood_satisfaction)
@@ -646,8 +644,6 @@ var listSelection = d3.select('#legends')
     .text((d) => {
         return d.description;
     })
-
-
 
 
 

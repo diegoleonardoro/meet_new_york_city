@@ -170,25 +170,22 @@ form.addEventListener("submit", function (err) {
 
         } else if (form.elements[i].className.indexOf('recommendations') > -1) {
 
-
             // neighborhood recommendations (drop down menu )
-            formData.append(form.elements[i].name, form.elements[i].value);
-
-
-
+            neighborhoodSatisfaction[form.elements[i].name] = form.elements[i].value;
 
         } else if (form.elements[i].type === "radio" && form.elements[i].checked) {
+
             if (form.elements[i].name === "lengthLivingInNeighborhood") {
 
                 /// How long have you been living in this neighborhood?
                 formData.append(form.elements[i].name, form.elements[i].value);
 
-            } else if (form.elements[i].className.indexOf('likertScale') > -1) {
-
-                /// How do you feel with the following aspects of your neighborhood: 
-                neighborhoodSatisfaction[form.elements[i].name] = form.elements[i].value
-
-            }
+            } 
+            
+            // else if (form.elements[i].className.indexOf('likertScale') > -1) {
+            //     /// How do you feel with the following aspects of your neighborhood: 
+            //     neighborhoodSatisfaction[form.elements[i].name] = form.elements[i].value
+            // }
         } else if (form.elements[i].type === "text" && form.elements[i].className.indexOf('textAreaLikertExplain') === -1) {
 
             if (form.elements[i].name === "threeWordsToDecribeNeighborhood") {
@@ -231,7 +228,9 @@ form.addEventListener("submit", function (err) {
 
 
 
-    console.log(favoritePlaces);
+    // console.log(favoritePlaces);
+
+
 
 
     var neighborhoodSatisfaction_ = JSON.stringify(neighborhoodSatisfaction);
@@ -251,9 +250,9 @@ form.addEventListener("submit", function (err) {
 
 
 
-    //for (var pair of formData.entries()) {
-    //    console.log(pair[0] + ', ' + pair[1]);
-    //}
+    for (var pair of formData.entries()) {
+        console.log(pair[0] + ', ' + pair[1]);
+    }
 
 
 

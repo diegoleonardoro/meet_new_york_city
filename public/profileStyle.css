@@ -10,19 +10,85 @@ html{
     /*the default html font size is 16px, but we want to set the html font size to be 10px, so we can use rem  */
     /* 10px/16px = .625 * 100 = 62.5 %  */
     font-size : 62.5%;
-  }
+    height: 100%;
+}
+
 body{
     background-color: rgb(249, 254, 255); 
+    height: 100%;
     /*height: 100%;*/
 }
-  /* end of common styles */
-
-
-
-.profile-page{
-   
-  
+a{
+    text-decoration: none;
 }
+/* end of common styles */
+
+
+
+
+
+  
+/* header */
+.header-container{
+    background-color: rgb(242, 251, 255);
+    min-height: 60px;
+    width:100%;
+    box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
+}
+  
+header{
+    width:70%;
+    min-height:60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    display:flex;
+}
+
+nav i{
+    font-size : 25px;
+    color:#2D4859;
+}
+
+.navButton{
+    padding:10px 25px;
+    margin-left:20px;
+    color:black;
+    font-size : 15px;
+}
+
+.navButton:hover {
+    border-bottom: solid #2D4859 3.5px;
+}
+
+.mob-wrapper{/* menu wraper for mobile */
+    display:none; 
+}
+
+.user-image-header{
+    width:4rem;
+    height:4rem;
+
+}
+
+.user-image-header img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 50%;
+
+
+
+}
+
+/* end of header */
+
+
+
 
 
 /* profile navigation */
@@ -101,9 +167,6 @@ body{
       height:100%;
       object-fit: cover;
       border-radius: 50%;
-
-
-
   }
   .user-link{
     margin:0 1rem;
@@ -121,38 +184,25 @@ body{
 
 
 
-/* profile content */
 
-.self-intro-p{
-    padding-top:1rem;
-    line-height: 1.5;
-    font-size: 12px;
-}
-#content{
-    margin-left:6rem;
-    top:5rem;
-    position:relative;
-    display:grid;
-    grid-template-columns: 280px auto;
-    grid-template-rows: 10rem  auto auto;
-    /*justify-items: center;*/
+
+
+
+
+
+/* container of user introduction and neighborhood details */
+.intro-neighborhood-container{
+    display:flex;
 }
 
 
 
-#container_intro_contact{ /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
-    
-    /*
-    grid-column: 1/2;
-    grid-row: 1/-1;
-    border-right: 1px solid rgb(201, 201, 201);
-    padding-right:4rem;
-    */
-    padding-top:10rem;
+/* ---- container_intro_contact */
+#container_intro_contact{ 
+    padding-top:30px;
     position:fixed;
-    width:25rem;
-
-    
+    width:25rem;  
+    margin-left:35px;
 }
 #intro_contact{
     padding:2rem;
@@ -164,46 +214,51 @@ body{
 .profilePicIntro{
     margin-bottom:2rem;
 }
-#details{/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
+.self-intro-p{
+    padding-top:1rem;
+    line-height: 1.5;
+    font-size: 12px;
+}
+/* ---- end of container_intro_contact */
+
+
+
+
+
+/* ---- container neighborhood details */
+.neighborhood-info{
+    position:relative;
+    left:65%;
+    transform: translate(-60%, 0);
+    width:70%;
+}
+
+#details{
     height:3.5rem;
     display:flex;
     grid-column: 2/-1;
     grid-row: 1/2;
     align-self: end;
     justify-content: space-evenly;
-    /*align-items:center;*/
     padding-top:3rem;
     width:100%;
-    /*border-top: 1px solid rgb(201, 201, 201);*/
     font-size: 12px;
 }
 
-#map_chart{ /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
+#map_chart{ 
     height:auto;
-    grid-column: 2/-1;
-    grid-row: 2/3;  
+    /* grid-column: 2/-1;
+    grid-row: 2/3;   */
     display:flex;
     width:100%;
-    /*border-bottom: 1px solid black;*/
     justify-content: space-evenly;
     box-shadow: inset 0px 0px 16px 0px #cecece
-
-
 }
 
-
-
-
-.explore-detail-btn-wraper{
-    height:auto;
-}
 #section_map{
     padding-left:7rem;
     padding-right:3rem;
     padding-top:5rem;
-
-    /*width:50%;*/
-    /*padding-top:10rem;*/
 }
 #neighborhood_description{
     height:14rem;
@@ -217,14 +272,11 @@ body{
     vertical-align: middle;
 }
 
-
-
 #section_chart{
-    /*border-left:black solid 1px;*/
     padding:4rem;
     line-height:2rem;
-    /*width:50%;*/
 }
+
 #section_chart h3{
     position:relative;
     left:35%;
@@ -234,11 +286,9 @@ body{
     position:relative;
     list-style: none;
 }
+
 .factorDescription{
     margin-top: 1rem;
-    /*height:5rem;*/
-
-    /*overflow-y: scroll;*/
     padding: 1rem;
     margin-bottom:2rem;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -248,7 +298,102 @@ body{
     stroke: black;
     shape-rendering: crispEdges;
     stroke-opacity: .2;
-    }
+}
+/* ---- end of container neighborhood details */
+
+
+
+
+/* end of container of user introduction and neighborhood details */
+
+
+
+/* favorite places  */
+
+#fav_places{ 
+    position:relative;
+    left:65%;
+    transform: translate(-60%, 0);
+    width:70%;
+    top:100px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#favorite_places_header{
+    margin-left:4rem;
+    position: absolute;
+}
+
+
+.neighborhood-content{
+    padding-top: 2rem;
+    border: rgb(204, 204, 204) 1px solid;
+}
+
+.neighborhood-description{
+    display:flex;
+    /* flex-wrap: wrap;
+    justify-content: space-between; */
+    padding-top:30px;
+    margin:10px;
+}
+
+/* end of favorite places  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#content{
+    margin-left:6rem;
+    top:5rem;
+    position:relative;
+    display:grid;
+    grid-template-columns: 280px auto;
+    grid-template-rows: 10rem  auto auto;
+    /*justify-items: center;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .explore-detail-btn-wraper{
+    height:auto;
+} */
+
 
 
 /* end of profile content */
@@ -256,30 +401,11 @@ body{
 
 
 /* favorite places */
-#fav_places{ /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------------*/
-    grid-column: 2/-1;
-    grid-row: 3/-1;  
-    margin-top: 5rem;
-    display:grid;
-    grid-template-columns : 35rem 35rem 35rem;
-    grid-template-rows : 5rem 33rem;
-}
 
-#favorite_places_header{
-    grid-column: 1/-1;
-    grid-row: 1/2;
-    margin-left:4rem;
-   
-}
 
-.neighborhood-description{
-    display:flex;
-    border:0.1rem solid rgb(201, 201, 201);
-    margin-left:5%;   
-}
-.neighborhood-content{
-    padding-top: 2rem;
-}
+
+
+
 .neighborhood-content h4{
     padding-left:2rem;
     padding-bottom:2rem;

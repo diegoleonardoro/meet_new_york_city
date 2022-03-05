@@ -91,8 +91,6 @@ exports.createInput = asyncHandler(async (req, res, next) => {
     let z;
 
 
-
-
     for (let i = 0; i < favoritePlaces.length; i++) {// 1. iterate through all the favorite places 
 
         let photoArray = [];
@@ -109,41 +107,19 @@ exports.createInput = asyncHandler(async (req, res, next) => {
         }
 
         favoritePlaces[i]['placeImage'] = photoArray;
-
-        /*
-
-        if (i === 0) {
-            z = numOfPhotos;// 3. in the first iteration through all the favorite places, 'z' will be equal to the number of photos.
-        } else {
-            z = h + numOfPhotos;// 4. in the all the iterations but the first one, 'z' will be equal to the current number of photos plus the number of photos of the previous place
-        }
-
-        for (h; h < z; h++) {
-            let file = req.files[h];
-            photoArray.push(file);
-        }
-        h = numOfPhotos;
-
-        favoritePlaces[i]['placeImage'] = photoArray;
-         */
     }
 
 
     req.body.favoritePlaces = favoritePlaces;
     req.body.user = req.user.id;
 
-    // here, instead of creating an input, I would have to update the User with what he responded on the main form 
     const input = await Inputs.create(req.body); // <<<<--------------------------------------------------------
 
-    //console.log(req.body);
+    console.log(req.body);
 
     var inputData = Object.assign(req.body, { formResponded: '1' });
 
-    //console.log('image: ', inputData.favoritePlaces);
-
     const user = await User.findByIdAndUpdate({ _id: req.user.id.toObjectId() }, inputData)//.populate('input');
-
-
 
     const accessToken = jwt.sign({
         _id: user.id,

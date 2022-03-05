@@ -33,25 +33,17 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
     //const emailToken = req.params.emailToken;
 
-
-
-
-
     try {
         //const refreshToken = req.params.refreshToken;
 
         const refreshToken = req.cookies['refreshToken'];
 
-        console.log('refreshToken', refreshToken)
 
         try {
             const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
             const user = await User.findOne({ email: decodedRefreshToken.email });
             const existingRefreshTokens = user.security.tokens;
 
-            console.log('decodedRefreshToken', decodedRefreshToken)
-            console.log('user', user)
-            console.log('existingRefreshTokens', existingRefreshTokens)
 
             if (existingRefreshTokens.some(token => token.refreshToken === refreshToken)) {
 

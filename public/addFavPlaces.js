@@ -128,6 +128,13 @@ addPlace.addEventListener('click', () => {
         var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;
         var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;
 
+
+
+        console.log(inputAddFavoritePlacesAddressValue);
+        console.log(inputAddFavoritePlacesDescriptionValue);
+
+
+
         inputAddFavoritePlacesAddress.value = '';
         inputAddFavoritePlacesDescription.value = '';
         //  -------------------------------- -------------------------------- // 
@@ -371,14 +378,14 @@ addPlace.addEventListener('click', () => {
 
             //--------------------------------------//
 
-            var inputAddFavoritePlacesAddress = document.getElementsByClassName('nameOfPlace')[0];
-            var inputAddFavoritePlacesDescription = document.getElementsByClassName('textareaFavPlaceDescription')[0];
+            // var inputAddFavoritePlacesAddress = document.getElementsByClassName('nameOfPlace')[0];
+            // var inputAddFavoritePlacesDescription = document.getElementsByClassName('textareaFavPlaceDescription')[0];
 
-            var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;
-            var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;
+            // var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;
+            // var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;
 
-            inputAddFavoritePlacesAddress.value = '';
-            inputAddFavoritePlacesDescription.value = '';
+            // inputAddFavoritePlacesAddress.value = '';
+            // inputAddFavoritePlacesDescription.value = '';
 
 
 
@@ -519,14 +526,14 @@ addPlace.addEventListener('click', () => {
 
 
             //--------------------------------------//
-            var inputAddFavoritePlacesAddress = document.getElementsByClassName('nameOfPlace')[0];
-            var inputAddFavoritePlacesDescription = document.getElementsByClassName('textareaFavPlaceDescription')[0];
-
-            var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;
-            var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;
-            inputAddFavoritePlacesAddress.value = '';
-            inputAddFavoritePlacesDescription.value = '';
-
+            // var inputAddFavoritePlacesAddress = document.getElementsByClassName('nameOfPlace')[0];
+            // var inputAddFavoritePlacesDescription = document.getElementsByClassName('textareaFavPlaceDescription')[0];
+            // var inputAddFavoritePlacesAddressValue = inputAddFavoritePlacesAddress.value;
+            // var inputAddFavoritePlacesDescriptionValue = inputAddFavoritePlacesDescription.value;
+            // inputAddFavoritePlacesAddress.value = '';
+            // inputAddFavoritePlacesDescription.value = '';
+            
+            
             textX = rectX + 10;
             textY = rectY + 20;
 
