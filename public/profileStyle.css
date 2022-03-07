@@ -950,7 +950,34 @@ nav i{
     #section_chart{
         margin-top:0;
         width:90%;
+        padding:0;
+        margin-left:17px;
+        line-height:0;
     }
 
+
+    #section_chart h3{
+        display:inline-block;
+        left:50%;
+        transform:translate(-50%, 0);
+    }
+
+    #section_chart div{
+        padding-bottom: 20px;
+    }
+
+    .nhd-satisfact-svg{
+        width:390px
+    }
+
+    #legends{
+        left:0%;
+    }
+
+
+    #favorite_places_header{
+        position:relative;
+        line-height:30px;
+    }
 
 }
