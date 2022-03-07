@@ -802,6 +802,11 @@ nav i{
 
 
 
+
+
+
+/* Tablet view  */
+
 @media (max-width: 1410px){
 
     .nhd-satisfact-svg{
@@ -915,5 +920,37 @@ nav i{
         left:50%;
         transform:translate(-50%, 0)
     }
+}
+/* end of tablet view  */
+
+
+
+
+/* Mobile view */
+
+@media (max-width: 650px){
+    #map_chart{
+        display:block;
+    }
+
+    #neighborhood_description {
+        position:relative;
+    }
+
+    #section_map{
+        width:90%;
+        padding-left: 0;
+        padding-right:0;
+    }
+
+    #map_svg{
+        margin-top:0;
+    }
+
+    #section_chart{
+        margin-top:0;
+        width:90%;
+    }
+
 
 }
