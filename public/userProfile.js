@@ -208,7 +208,7 @@ function displayMap(callback) {
 
         // Display path that connects the circle to the neighborhood explanation box
         let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-        newElement.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + divLeftStyle + " " + 0);
+        newElement.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + divLeftStyle + " " + -100);
         newElement.style.stroke = "#000";
         newElement.style.strokeWidth = "1px";
         svg_map.appendChild(newElement);
@@ -417,7 +417,7 @@ let toggleClass = (d, i, toggle) => {
 };
 
 var svg = d3.select(".nhd-satisfact-svg"),
-    margin = { top: 22, right: 15, bottom: 30, left: 110 },
+    margin = { top: 22, right: 15, bottom: 30, left: 50 },
     width_bar_chart = 550 - margin.left - margin.right,
     height_bar_chart = 100 - margin.top - margin.bottom;
 

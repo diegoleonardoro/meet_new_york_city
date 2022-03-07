@@ -72,7 +72,6 @@ nav i{
 .user-image-header{
     width:4rem;
     height:4rem;
-
 }
 
 .user-image-header img{
@@ -80,11 +79,7 @@ nav i{
     height:100%;
     object-fit: cover;
     border-radius: 50%;
-
-
-
 }
-
 /* end of header */
 
 
@@ -259,14 +254,17 @@ nav i{
     padding-left:7rem;
     padding-right:3rem;
     padding-top:5rem;
+    width:40%;
 }
+
+
 #neighborhood_description{
     height:14rem;
     padding:1.5rem;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px inset, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px inset;
     line-height: 1.8;
     font-size: 11px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     width:35rem;
     display:table-cell;
     vertical-align: middle;
@@ -275,6 +273,7 @@ nav i{
 #section_chart{
     padding:4rem;
     line-height:2rem;
+    width:60%;
 }
 
 #section_chart h3{
@@ -318,6 +317,7 @@ nav i{
     top:100px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
 }
 
@@ -798,3 +798,122 @@ nav i{
 }
 
 /* end of post new place button */
+
+
+
+
+@media (max-width: 1410px){
+
+    .nhd-satisfact-svg{
+        width:450px
+    }
+
+    #legends{
+        width:90%;
+    }
+
+}
+
+
+@media (max-width: 1311px){
+
+    #container_intro_contact{
+        width:23rem;
+    }
+
+}
+
+
+@media (max-width: 1218px){
+
+    #container_intro_contact{
+        width:21rem;
+    }
+    .nhd-satisfact-svg{
+        width:350px
+    }
+}
+
+@media (max-width: 1117px){
+    #container_intro_contact{
+        width:19rem;
+    }
+    .nhd-satisfact-svg{
+        width:300px
+    }
+}
+
+@media (max-width: 1082px){
+
+    #map_chart{
+        /* display:block; */
+        display:flex;
+
+    }
+
+    #container_intro_contact{
+        position: relative;
+        width:90%;
+        margin:0 auto;
+    }
+
+    .self-intro-p{
+        display:inline;
+    }
+
+    .neighborhood-info{
+        position:relative;
+        width:90%;
+        margin:0 auto;
+        left:0%;
+        transform: translate(0, 0);
+    }
+
+    #section_map{
+        margin:0 auto;
+        width:50%;
+    }
+
+    #map_svg{
+
+     margin-top: 18%;
+
+    }
+
+
+    #nhd-places-map-svg{
+        width:200px;
+        position:relative;
+        left:50%;
+        transform:translate(-50%, 0);
+    }
+
+    #neighborhood_description{
+        height: auto;
+        width:80%;
+        /* display:block; */
+        position: absolute;
+    }
+
+    #section_chart{
+        width:50%;
+        margin-top:100px;
+    }
+
+    #section_chart h3{
+        left:0%;
+    }
+
+    #legends{
+        margin-top:50px;
+        left:-50%;
+        width: auto;
+    }
+
+
+    #fav_places{
+        left:50%;
+        transform:translate(-50%, 0)
+    }
+
+}
