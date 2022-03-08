@@ -50,7 +50,7 @@ form.addEventListener("submit", function (err) {
 
 
 
-    // function that selects the loading illustration windows and dynamically changes their color
+    // function that selects windows and dynamically changes their color
 
     var windowColors = ['black', 'white'];
 
@@ -90,7 +90,7 @@ form.addEventListener("submit", function (err) {
 
     chageBuildingsWindowsColors();
 
-    // end of  function that selects the loading illustration windows and dynamically changes their color
+    // end of function that selects windows and dynamically changes their color
 
 
 

@@ -217,12 +217,40 @@ header{
 }
 
 
+
+/* 
 #checkEmailContainer{
   display:none;
   position:relative;
   width:100%;
   height:auto;
+} */
+
+
+
+#divSvgNhoodText{
+  position:relative;
+  display:flex;
+  top:50%;
+  transform:translate(0, -50%);
+  flex-direction: column;
 }
+
+.loadingUserProfileIllustration{ /* (loading questionnnaire )*/
+
+  position:relative;
+  left:50%;
+  transform:translate(-50%, 0)
+
+}
+
+#loadingUserProfileText{
+  font-size: 275%;
+  font-family: 'Poppins', sans-serif;
+  margin-top:5%;
+  text-align: center;
+}
+
 
 
 
@@ -275,6 +303,10 @@ header{
     display:none;
   }
 
+  .loadingUserProfileIllustration{
+    width:400px;
+  }
+
 
 }
 
@@ -307,6 +339,10 @@ header{
 
   .img_container {
     display:none;
+  }
+  
+  .loadingUserProfileIllustration{
+    width:280px;
   }
 
 }
