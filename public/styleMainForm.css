@@ -921,6 +921,10 @@ fill:rgb(245, 254, 255);
         padding-bottom: 0;
     }
 
+    .explainLikert div h2{
+        font-size:10px;
+    }
+
     .explainLikert div input{
         border:none;
         border-bottom: 1px white solid;
