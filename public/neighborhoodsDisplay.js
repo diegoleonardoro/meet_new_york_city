@@ -42,7 +42,7 @@ function autocomplete(inp, arr) {
 
                             for (var r = 0; r < neighborhoodsData.length; r++) {
 
-                                if (typedNhood=== neighborhoodsData[r]['Name']) {
+                                if (typedNhood === neighborhoodsData[r]['Name']) {
 
                                     var lat = neighborhoodsData[r]['the_geom'][1];
                                     var lon = neighborhoodsData[r]['the_geom'][0];
@@ -77,7 +77,7 @@ function autocomplete(inp, arr) {
                                             .attr("fill", "#ffe577")
                                             .attr("id", "placeCircle");
 
-                                            
+
                                     })
                                 }
                             }
@@ -757,7 +757,81 @@ var neighborhoods = [
     "Highland Park",
     "Madison"
 ]
-autocomplete(document.getElementById("neighborhoodName"), neighborhoods);
+
+
+// autocomplete(document.getElementById("neighborhoodName"), neighborhoods);
+
+
+
+
+
+
+
+
+
+
+
+
+const filterNeighborhoods = document.getElementsByClassName('search-bar-input');
+for (var i = 0; i < filterNeighborhoods.length; i++) {
+
+    var inp = filterNeighborhoods[i]
+
+    inp.addEventListener("input", function (e) {
+
+        console.log('hola')
+
+        var val = this.value;
+        var neighborhoods = document.getElementsByClassName(this.id);
+
+        if (val.length > 2) {
+
+            for (var i = 0; i < neighborhoods.length; i++) {
+
+                let innertext = neighborhoods[i].innerText.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
+
+                if (innertext.substr(0, val.length).toUpperCase() != val.toUpperCase()) {
+                    neighborhoods[i].style.display = 'none';
+                }
+
+                if (innertext.substr(0, val.length).toUpperCase() === val.toUpperCase()) {
+                    neighborhoods[i].style.display = 'flex';
+                }
+            }
+        }
+
+        if (val.length === 1) {
+            for (var i = 0; i < neighborhoods.length; i++) {
+                neighborhoods[i].style.display = 'flex';
+            }
+        }
+    })
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

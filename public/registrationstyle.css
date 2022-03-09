@@ -24,19 +24,16 @@ a{
 
 
 
+/* nav bar */
 .header-container{
   background-color: rgb(242, 251, 255);
   min-height: 60px;
   margin-bottom: 30px;
-  /* position:fixed; */
   width:100%;
   box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
-  
 }
 
 header{
-  /* background-color: rgb(211, 163, 255); */
-  /* max-width: 1024px;   */
   width:90%;
   min-height:60px;
   margin: 0 auto;
@@ -44,7 +41,6 @@ header{
   justify-content: space-between;
   align-items: center;
 }
-
 
 .logo{
   display:flex;
@@ -72,6 +68,7 @@ header{
 .mob-wrapper{/* menu wraper for mobile */
    display:none; 
 }
+/* end of nav bar */
 
 
 .img_form_container{

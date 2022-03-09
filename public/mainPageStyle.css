@@ -1,9 +1,82 @@
 
+  /* common styles  */
+  *{
+    margin:0;
+    padding:0;
+    font-family: 'Josefin Sans', sans-serif;
+    outline:none;
+  }
+
   body, html {
       height: 100%;
       background-color: #edf3f7;
   }
-  
+
+  a{
+  text-decoration: none;
+}
+
+  /* end of common styles  */
+
+
+
+/* nav bar */
+.header-container{
+  background-color: rgb(242, 251, 255);
+  min-height: 60px;
+  margin-bottom: 30px;
+  width:100%;
+  box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
+}
+
+header{
+  width:60%;
+  min-height:60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  display:flex;
+  font-size : 15px;
+}
+
+.logo i{
+  font-size : 25px;
+  color:#2D4859;
+}
+.logoText{
+    padding: 7px 20px;
+}
+.navButton{
+  padding:10px 25px;
+  margin-left:20px;
+  color:black;
+  font-size : 15px;
+}
+
+.navButton:hover {
+  border-bottom: solid #2D4859 3.5px;
+}
+
+.mob-wrapper{/* menu wraper for mobile */
+   display:none; 
+}
+/* end of nav bar */
+
+
+
+
+
+
+
+
+
+
+
+/* 
  .main-page-nav{
     display:flex;
     width:100%;
@@ -18,9 +91,9 @@
     font-size:0.8rem;
     color:#2D4859;
     z-index: 10;
-  }
+  } */
 
-  .about {
+  /* .about {
     cursor: pointer;
     padding: 0.5rem 1rem;
   }
@@ -30,9 +103,9 @@
     background-color:#2D4859;
     border-radius: 3rem;
     color:white;
-  }
+  } */
 
-  .registerButton{
+  /* .registerButton{
     cursor: pointer;
     padding: 0.5rem 1rem;
   }
@@ -53,8 +126,8 @@
     background-color:#2D4859;
     border-radius: 3rem;
     color:white;
-  }
-
+  } */
+/* 
   .exploreNhoodsButoon_Illustration{
     display:flex;
    
@@ -70,7 +143,10 @@
     background-color: #2D4859;
     border-radius: 3rem;
     color:white;
-  }
+  } */
+
+
+
 
 
 
@@ -118,6 +194,8 @@
 
 
 
+
+
 /* buidling Silhouette for loading user information */
 
 .loadingContentText{
@@ -154,12 +232,19 @@
 /* end of buidling Silhouette for loading user information */
 
 
- 
 
 
 
 
 
+
+
+
+
+
+
+
+    /* search bar */
 
   .searchBarAutoCompleteDiv{
     display: flex;
@@ -175,17 +260,17 @@
 
 
   .search-bar-input{
+    margin:4px;
     height:2rem;
-    width:15rem;
+    width:100%; 
     border:0.1rem solid #2D4859;
     border-radius: 3rem;
     background-color: #f9fdff;
-    padding-left:4rem;
+    padding-left:1.5rem;
     transition: all 0.3s;
     color:black;
   }
 
-  
 
   .search-bar-input:focus{
       background-color: #ffffff;
@@ -195,10 +280,21 @@
 
   .search-bar i{
     position:absolute;
-    font-size: 1.6rem;
+    font-size: 0.5rem;
     left:1rem;
     color:#2D4859;
 }
+
+ /* end of search bar */
+
+
+
+
+
+
+
+
+
 
 
 /* -------------------------- auto complete items -----*/
@@ -236,6 +332,9 @@
 /* -------------------------- end of auto complete items -----*/
 
 
+
+
+/* 
   #MainSection{
     display: grid;
     grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
@@ -273,7 +372,7 @@
   
   #headerMainSection span{
     font-family: 'Architects Daughter', cursive;
-  }
+  } */
 
 
   
@@ -287,27 +386,36 @@
   }
   */
   
-  #neighborhoodStreet{
+
+
+  /* #neighborhoodStreet{
     height:100%;
     width: 50%;
     margin-top:10%;
     margin-left:42%;
+  } */
+
+
+
+  #nhoodsMapSvgWrapper{
+    width:90%;
+    height:50%;
+    position: relative;
+    left:50%;
+    transform: translate(-50%, 0);
+    background-color: rgb(198, 226, 243);
   }
 
- 
+
+
+
 
   #exploreNeighborhoodstext{
       margin-top:2%;
-      /*position: relative;*/
-      /*left:25%;
-      width:15.5%;*/
-
       padding:1%;
       margin-bottom: 2%;
-
       margin-left: 50%;
       transform:translate(-50%, 0%);
-     
       color: black;
       font-family: korolev-compressed, sans-serif;
       font-weight: 900;
@@ -317,43 +425,79 @@
   }
 
 
-  #nhoodsMapSvgWrapper{
+  #neighborhoodsSection{
+
+    display: flex;
+    height:100%; 
     width:100%;
-    height:100%;
-
-
-    background-color: rgb(198, 226, 243);
-
+    top: 6%;
+    justify-content: center;
 
   }
 
 
-#exploreNeighborhoodsSection{
-      /*margin-top:5%;*/
-      width:100%;
-
-      
-      height:100%;
-   
-   
-  }
 
 
-#manhattanTitle{
-    font-family: 'Poppins', sans-serif;
-    grid-area: manhattanTitle;
+.manhattanContainer{
+  height:100%; 
+  width:10%;
+}
+
+
+
+.boroughTitle{
     border-style: double;
     border-width: 0.3em;
-    width:61.3%;
-    padding-bottom:4%;
-    padding-top: 4% ;
-    padding-left:30%;
-    margin-bottom: 3%;
+    width:85%;
+    height: 25px;
+    vertical-align: middle;
+    line-height: 25px;
+
+    text-align: center;
+    margin:3px;
     background-color: #2D4859;
     color:white;
-
-   
 }
+
+
+.neighborhoodsContainer{
+  width:100%;
+  height:80%;
+
+  /* display:flex;
+  flex-wrap:wrap; */
+
+  overflow-y: scroll;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #exploreNeighborhoodsSection{
+        /*margin-top:5%;*/
+        width:100%;    
+        height:100%;
+      
+  }
+
+
+
 
 #brooklynTitle{
   font-family: 'Poppins', sans-serif;
@@ -412,42 +556,13 @@
 
 }
 
-  #neighborhoodsSection{
 
-    display: flex;
-    height:50%; 
-    width:100%;
-    display: grid;
 
-    position: relative;
-    top: 6%;
 
-    grid-template-areas: 
-      'manhattanTitle brooklynTitle bronxTitle queensTitle statenIslandTitle'
-      'manhattanNeighborhoodsContainer brooklynNeighborhoodsContainer bronxNeighborhoodsContainer queensNeighborhoodsContainer statenIslandNeighborhoodsContainer' ;
 
-      justify-content: center;
 
-  }
 
-  #manhattanNeighborhoodsContainer{
-    width:100%;
-    display:grid;
-    grid-template-columns: 50% 50% ;
-    grid-auto-rows: 17%;
-    gap:1%;
-    overflow-y: scroll;
-    grid-area: manhattanNeighborhoodsContainer;
-
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-
-    /*
-    left :50%;
-    transform:translate(50%, 0%);
-    */
-    
-  }
-
+ 
   
   #brooklynNeighborhoodsContainer{
     width:100%;
@@ -509,6 +624,13 @@
 
 
   .neighborhood {
+
+    width:100%;
+    padding:3px;
+    margin:3px;
+    height: 25px;
+
+
     background-color: white; /*rgb(223, 240, 241);*/
     text-align: center;
 
@@ -520,7 +642,6 @@
     transition: all 0.5s;
     font-size: 75%;
     font-family: 'Poppins', sans-serif;
-
 
  
   }
