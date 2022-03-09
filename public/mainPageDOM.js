@@ -25,7 +25,6 @@ var replaceHeaderWord = function () {
     }, 1000)
 
 
-
 }
 
 replaceHeaderWord()

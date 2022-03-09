@@ -397,6 +397,7 @@ header{
 
 
 
+/* select neighborhoods sections  */
   #nhoodsMapSvgWrapper{
     width:90%;
     height:50%;
@@ -404,29 +405,26 @@ header{
     left:50%;
     transform: translate(-50%, 0);
     background-color: rgb(198, 226, 243);
-  }
+    box-shadow:  0px 0px 15px -3px #000000;
+}
 
 
+#exploreNeighborhoodstext{
+    margin-top:2%;
+    padding:1%;
+    margin-bottom: 2%;
+    margin-left: 50%;
+    transform:translate(-50%, 0%);
+    color: black;
+    font-family: korolev-compressed, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 2em;
+    z-index: -1;
+}
 
 
-
-  #exploreNeighborhoodstext{
-      margin-top:2%;
-      padding:1%;
-      margin-bottom: 2%;
-      margin-left: 50%;
-      transform:translate(-50%, 0%);
-      color: black;
-      font-family: korolev-compressed, sans-serif;
-      font-weight: 900;
-      font-style: normal;
-      font-size: 2em;
-      z-index: -1;
-  }
-
-
-  #neighborhoodsSection{
-
+#neighborhoodsSection{
     display: flex;
     height:80%; 
     width:100%;
@@ -435,18 +433,7 @@ header{
     transform: translate(0, -50%);
     justify-content: space-evenly;
     
-
-  }
-
-
-
-
-.manhattanContainer{
-  height:100%; 
-  width:10%;
 }
-
-
 
 .boroughTitle{
     border-style: double;
@@ -455,257 +442,80 @@ header{
     height: 25px;
     vertical-align: middle;
     line-height: 25px;
-
     text-align: center;
     margin:3px;
     background-color: #2D4859;
     color:white;
 }
 
-
 .neighborhoodsContainer{
   width:100%;
   height:80%;
-
-  /* display:flex;
-  flex-wrap:wrap; */
-
   overflow-y: scroll;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  #exploreNeighborhoodsSection{
-        /*margin-top:5%;*/
-        width:100%;    
-        height:100%;
-      
-  }
-
-
-
-
-#brooklynTitle{
+.neighborhood {
+  width:100%;
+  padding:3px;
+  margin:3px;
+  height: 25px;
+  background-color: white; 
+  text-align: center;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-size: 75%;
   font-family: 'Poppins', sans-serif;
-  grid-area: brooklynTitle;
-  border-style: double;
-  border-width: 0.3em;
-  width:55%;
-  padding-bottom:4%;
-  padding-top: 4% ;
-  padding-left:37%;
-  margin-bottom: 3%;
-  background-color: #2D4859;
-  color:white;
 }
-
-#bronxTitle{
-  font-family: 'Poppins', sans-serif;
-  grid-area: bronxTitle;
-  border-style: double;
-  border-width: 0.3em;
-  width:61.3%;
-  padding-bottom:4%;
-  padding-top: 4% ;
-  padding-left:32%;
-  margin-bottom: 3%;
-  background-color: #2D4859;
-  color:white;
-}
-
-#queensTitle{
-  font-family: 'Poppins', sans-serif;
-  grid-area: queensTitle;
-  border-style: double;
-  border-width: 0.3em;
-  width:55.3%;
-  padding-bottom:4%;
-  padding-top: 4% ;
-  padding-left:37%;
-  margin-bottom: 3%;
-  background-color: #2D4859;
-  color:white;
-}
-
-#statenIslandTitle{
-  font-family: 'Poppins', sans-serif;
-  grid-area: statenIslandTitle;
-  border-style: double;
-  border-width: 0.3em;
-  width:61.3%;
-  padding-bottom:4%;
-  padding-top: 4% ;
-  padding-left:30%;
-  margin-bottom: 3%;
-  background-color: #2D4859;
-  color:white;
-
-}
-
-
-
-
-
-
-
- 
-  
-  #brooklynNeighborhoodsContainer{
-    width:100%;
-    display:grid;
-    grid-template-columns: 50% 50%;
-    grid-auto-rows:17%;
-    gap:1%;
-    overflow-y: scroll;
-    grid-area: brooklynNeighborhoodsContainer;
-
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-
-
-  }
-  #bronxNeighborhoodsContainer{
-    width:100%;
-    display:grid;
-    grid-template-columns: 50% 50%;
-    grid-auto-rows:17%;
-    gap:1%;
-    overflow-y: scroll;
-    grid-area: bronxNeighborhoodsContainer;
-
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-
-  }
-
-  #queensNeighborhoodsContainer{
-    width:100%;
-    display:grid;
-    grid-template-columns: 50% 50%;
-    grid-auto-rows:17%;
-    gap:1%;
-    overflow-y: scroll;
-    grid-area: queensNeighborhoodsContainer;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-
-  }
-
-
-  #statenIslandNeighborhoodsContainer{
-    width:100%;
-    display:grid;
-    grid-template-columns: 50% 50%;
-    grid-auto-rows:17%;
-    gap:1%;
-    overflow-y: scroll;
-    grid-area: statenIslandNeighborhoodsContainer;
-
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-
- 
-  
-  }
-  .neighborhoodTitle{
-    padding:2% 0%;
-  }
-
-
-
-  .neighborhood {
-
-    width:100%;
-    padding:3px;
-    margin:3px;
-    height: 25px;
-
-
-    background-color: white; /*rgb(223, 240, 241);*/
-    text-align: center;
-
-    display: flex;
-    align-items: center; /* Vertical center alignment */
-    justify-content: center;
-
-    cursor: pointer;
-    transition: all 0.5s;
-    font-size: 75%;
-    font-family: 'Poppins', sans-serif;
-
- 
-  }
-
 
 .neighborhood:hover  {
   font-size: 90%;
   background-color: rgb(239, 247, 252);
-
-
 }
 
 
+
+#exploreNeighborhoodsSection{
+    margin-top:8%;
+    padding-bottom:8%;
+    /* width:100%;    
+    height:80%; */
+}
+
 #map{
-  width: 100%;
-  height:60%;
+  width: 90%;
+  /* height:100%; */
   display:flex;
   justify-content: space-evenly;
   transition: display 0.5s;
-
-position:relative;
- top: 13%;
+  position:relative;
+  margin:0 auto;
 }
 
 #MapSVG_{
-  width:30%;
- 
-
-  border-radius: 25px;
-
- 
-  /*
-   transform:translate(0%, -50%);
-  transition: all 3s;
-  margin-left:33%;*/
-  /*position:absolute;*/
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  position: relative;
+  background: rgb(198, 226, 243);
+  box-shadow: inset rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  align-self: center;
 }
-
 
 .boundary{
-
-  /*
-  position: absolute;;
-  margin-top: 530%;
-  transform:translate(0%, -50%);
-  */
-
+  transform: translate(1px, 1px);
 }
 
+
 #neighborhoodDescription{
- /* transition: all 0.5s;*/
-  height : 80%;
+  height : 400px;
   width :30%;
-  /*margin-left: 55%;*/
-  /*position:absolute;
-  */
-  display:none;
   background-color: #2D4859;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
+
+
 
 #divSvgNhoodText{
   display: flex;
@@ -816,7 +626,7 @@ position:relative;
 
 
 /* map svg: */
-
+/* 
 @media only screen and (max-width:1834px){
 
   .boundary{
@@ -919,21 +729,21 @@ position:relative;
   .boundary{
     transform: scale(0.2);
   }
-}
+} */
 
 
 
 /* neighborhood description div: */
-@media only screen and (max-width:1504px){
+/* @media only screen and (max-width:1504px){
   #neighborhoodDescription{
     margin-top:0%;  
   }
-}
+} */
 
 
 
 /*Place image*/
-@media only screen and (max-width:1533px){
+/* @media only screen and (max-width:1533px){
   .placeImage{
 
   }
@@ -955,12 +765,12 @@ position:relative;
   .placeImage{
     transform: scale(0.7);
   }
-}
+} */
 
 
 
 /* Prev and Next person */
-@media only screen and (max-width:1470px){
+/* @media only screen and (max-width:1470px){
   .nextPerson{
     margin-left: 68%;
   }
@@ -980,4 +790,4 @@ position:relative;
     margin-left: 58%;
     transform: scale(0.7);
   }
-}
+} */

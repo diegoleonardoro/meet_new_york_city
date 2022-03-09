@@ -5,25 +5,27 @@ var neighborhoodButtons = document.getElementsByClassName('neighborhood');
 
 for (var i = 0; i < neighborhoodButtons.length; i++) {
 
-    neighborhoodButtons[i].addEventListener('click', function (e) {
+    neighborhoodButtons[i].addEventListener('click', function (e) {// 1. add an event listner to the neighborhood buttons.
 
-        var neighborhoodClicked = this.innerHTML.trim();
-
+        var neighborhoodClicked = this.innerHTML.trim();// 2. get the name of the neighborhood that was clicked.
 
         const readNeighborhoodCoords = new Promise((resolve, reject) => {
-            d3.csv('NHoodNameCentroids.csv', function (data) {
-                for (var i = 0; i < data.length; i++) {
+            d3.csv('NHoodNameCentroids.csv', function (data) {// 3. open the file that contains coordinates for each single neighborhood 
+
+                for (var i = 0; i < data.length; i++) {// 4. Iterate through the data that contains the neighborhoods coordinates and resolve with the information that matche the clicked input. 
                     var neighborhoodFromData = data[i]['Name'];
                     if (neighborhoodClicked === neighborhoodFromData) {
                         resolve(data[i]);
                     }
                 }
+
             })
         })
 
         readNeighborhoodCoords.then(value => {
             displayMap(value)
         })
+
 
     });
 }
@@ -33,8 +35,8 @@ function displayMap(flag) {
 
     flag = flag || 'hola';
 
-    var height = 500,
-        width = 600,
+    var height = 300,
+        width = 300,
         projection = d3.geoMercator(), // geoMercator() is a way of projecting the map. 
         nyc = void 0,
         map,
@@ -52,8 +54,7 @@ function displayMap(flag) {
 
         // ------------ Appending the SVG ------------ //
         var svg = d3.select("#MapSVG_")
-            .style("padding-top", "4%")
-            .style("background", 'rgb(223, 240, 241)')
+            // .style("padding-top", "4%")
             .style("opacity", "1")
             .style("overflow", 'visible');
 
@@ -88,8 +89,12 @@ function displayMap(flag) {
 
             map = svg.append('g')
                 .attr('class', 'boundary')
-                .attr('x', '50%')
-                .attr('y', '50%')
+
+
+                //  .attr('width', '300px')
+                //  .attr('height', '300px')
+                .attr('x', '50')
+                .attr('y', '50')
 
             nyc = map.selectAll('path').data(districts.features);
             nyc.enter()
@@ -111,7 +116,7 @@ function displayMap(flag) {
 
 
 
-    } else {
+    } else {// we will enter this else statement if the user clicks any of the neighborhoods. 
 
         let coordinates = flag['the_geom'];
         let neighborhood = flag['Name'];
@@ -165,37 +170,64 @@ function displayMap(flag) {
 
 
 
-
-
             let map_ = document.getElementsByClassName('boundary')[0];
             let neighborhoodDescription = document.getElementById('neighborhoodDescription');
 
+
+
+
+
             //remove previous circles 
             if (map_.children.length > 71) {
-                let circle = map_.children[map_.children.length - 1];
+                let line = map_.children[map_.children.length - 1];
+                let circle = map_.children[map_.children.length - 2];
+                map_.removeChild(line);
                 map_.removeChild(circle);
+
                 let paragraph1 = neighborhoodDescription.children[neighborhoodDescription.children.length - 1];
                 neighborhoodDescription.removeChild(paragraph1);
+
+
             };
+
+
+
 
             // remove previous neighborhood descriptions:
             while (neighborhoodDescription.firstChild) {
                 neighborhoodDescription.removeChild(neighborhoodDescription.firstChild);
             }
 
+            // append the neighborhood circle to the svg map 
             let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
             circle.setAttribute("cx", divLeftStyle);
             circle.setAttribute("cy", divTopStyle);
             circle.setAttribute("r", '10');
             circle.setAttribute("fill", '#ffe577');
-
             circle.setAttribute("class", 'selectedNeighborhood');
+            circle.setAttribute("id", 'selectedNeighborhood');
             map_.appendChild(circle);
+            // end of append the neighborhood circle to the svg map 
+
+
+
+
+            // Display path that connects the circle to the neighborhood explanation box
+            let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+            newElement.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + 500 + " " + divTopStyle);
+            newElement.style.stroke = "#000";
+            newElement.style.strokeWidth = "1px";
+            map_.appendChild(newElement);
+            // end of display path that connects the circle to the neighborhood explanation box
+
+
+
+
 
 
 
             // re position the map and place description containers
-            neighborhoodDescription.style.display = 'inline';
+            // neighborhoodDescription.style.display = 'inline';
             // end of re position the map and place description containers
 
 
@@ -240,6 +272,8 @@ function displayMap(flag) {
                 // append the nhoods loading illustration and text
                 var svgNhoodsIllustration = document.getElementsByClassName('svgNhoodsIllustration')[0];
 
+
+
                 var nhoodIllustrationSvg = svgNhoodsIllustration.cloneNode(true);
                 var firstPolygon = nhoodIllustrationSvg.children[0];
                 var lastPolygon = nhoodIllustrationSvg.children[nhoodIllustrationSvg.children.length - 1];
@@ -249,6 +283,8 @@ function displayMap(flag) {
                 lastPolygon.setAttribute('class', 'secondSilhouetteInfoLoading');
 
                 neighborhoodDescription.appendChild(nhoodIllustrationSvg);
+
+
 
                 var p4 = document.createElement('p');
                 p4.innerHTML = 'LOADING CONTENT';
@@ -381,7 +417,7 @@ function displayMap(flag) {
                     addHrefValueToButton.then((value) => {
 
                         divmap.style.display = 'none';
-        
+
                         loadingUserProfileIllustration.style.display = 'inline';
 
                         loadingUserProfileText.style.display = 'inline';

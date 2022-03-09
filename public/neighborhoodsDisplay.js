@@ -784,29 +784,32 @@ for (var i = 0; i < filterNeighborhoods.length; i++) {
         var val = this.value;
         var neighborhoods = document.getElementsByClassName(this.id);
 
-        if (val.length > 2) {
 
-            for (var i = 0; i < neighborhoods.length; i++) {
 
-                let innertext = neighborhoods[i].innerText.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
+        for (var i = 0; i < neighborhoods.length; i++) {
 
-                if (innertext.substr(0, val.length).toUpperCase() != val.toUpperCase()) {
-                    neighborhoods[i].style.display = 'none';
-                }
+            let innertext = neighborhoods[i].innerText.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
 
-                if (innertext.substr(0, val.length).toUpperCase() === val.toUpperCase()) {
-                    neighborhoods[i].style.display = 'flex';
-                }
+            if (innertext.substr(0, val.length).toUpperCase() != val.toUpperCase()) {
+                console.log(neighborhoods[i])
+                neighborhoods[i].style.display = 'none';
+            }
+
+            if (innertext.substr(0, val.length).toUpperCase() === val.toUpperCase()) {
+
+                neighborhoods[i].style.display = 'flex';
             }
         }
 
-        if (val.length === 1) {
+
+        if (val.length === 0) {
             for (var i = 0; i < neighborhoods.length; i++) {
                 neighborhoods[i].style.display = 'flex';
             }
         }
+
     })
-   
+
 }
 
 
