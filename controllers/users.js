@@ -31,6 +31,9 @@ const Inputs = conn.model("Inputs", require('../models/User_input'));
 
 
 
+// let newArr = [];
+
+
 
 
 
@@ -66,90 +69,135 @@ exports.getUser = asyncHandler(async (req, res, next) => {
 exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
     var neighborhood = req.params.neighborhood;
-    var input = await Inputs.find({ 'neighborhood': neighborhood }).populate({
-        path: 'user'
-    });
 
-    var user = await User.find({ 'neighborhood': neighborhood });
+    // var input = await Inputs.find({ 'neighborhood': neighborhood }).populate({
+    //     path: 'user'
+    // });
+
+    var users = await User.find({ 'neighborhood': neighborhood }); // 1. --- get all the uses 
+
+
+    // console.log(users);
+
+
+    // console.log('hola lalalaa')
 
     let responseArray = [];
 
-    let responseObject = {};
-    responseObject['name'] = user[0]['name'];
-    responseObject['lengthLivingInNeighborhood'] = user[0]['lengthLivingInNeighborhood'];
-    responseObject['neighborhoodSatisfactionScale'] = user[0]['neighborhoodSatisfaction'];
-    responseObject['publicTransportationTips'] = user[0]['publicTransportationTips'];
-    responseObject['safetyTips'] = user[0]['safetyTips'];
-    responseObject['favAspectsOfNeighborhood'] = user[0]['favAspectsOfNeighborhood'];
-    responseObject['slug'] = user[0]['slug'];
-    responseObject['favoritePlaces'] = user[0]['favoritePlaces'];
+    // ----------------------------------------------------------------------------------------------- USER
 
+    const createStream = (filename) => {
 
-    let numofPlaces = []
-    for (var l = 0; l < responseObject['favoritePlaces'].length; l++) {
-        numofPlaces.push(responseObject['favoritePlaces'][l]['numberOfPhotos']);
+        return new Promise((resolve, reject) => {
+            let readstream = gfs.createReadStream(filename);
+            let fileChunks = [];
+
+            readstream.on('data', function (chunk) {
+                fileChunks.push(chunk);
+            });
+
+            readstream.on('end', function () {
+                let concatFile = Buffer.concat(fileChunks);
+                let imageFormated = Buffer(concatFile).toString("base64");
+                // console.log(imageFormated);
+                resolve(imageFormated)
+            });
+        })
     }
-    responseObject['numofPlaces'] = numofPlaces;
 
 
 
-    let favPlaces = user[0].favoritePlaces;
-    let arr = [];
-    let amountOfPhotosPerPlace = [];
+    const iterateImages = async (currentPlaceImages) => {// this function is going to be called the total amounf of favorite places for all users
 
-    for (var w = 0; w < favPlaces.length; w++) {
-        let filesNamesArray = [];
-        amountOfPhotosPerPlace.push(favPlaces[w]['placeImage'].length);
-        let currentPlace = favPlaces[w];
-        for (var c = 0; c < currentPlace['placeImage'].length; c++) {
-            let filesNames = currentPlace['placeImage'][c].filename;
-            filesNamesArray.push(filesNames)
-            arr.push(filesNames)
+        let imagesFormattedArray = [];
+
+        for (var i = 0; i < currentPlaceImages.length; i++) {
+
+            let filename = currentPlaceImages[i].filename;
+
+            // console.log(filename);
+
+            let imageFormated = await createStream(filename);
+            // console.log(imageFormated);
+            imagesFormattedArray.push(imageFormated)
+            if (i === currentPlaceImages.length - 1) {
+                return imagesFormattedArray
+            }
+
         }
+
+    }
+
+
+    const getImagesOfPlace = async (favPlaces) => {// this function is going to be called for as many users there are.
+
+        let imagesStreamArray = [];
+
+        for (var w = 0; w < favPlaces.length; w++) {// we are going to iterate through all the favorite places of each user.
+
+            let currentPlaceImages = favPlaces[w]['placeImage'];
+            let imagesStream = await iterateImages(currentPlaceImages);
+            imagesStreamArray.push(imagesStream);
+
+            if (w === favPlaces.length - 1) {
+
+                return imagesStreamArray;
+            }
+
+        };
+    }
+
+
+
+    let arrayOfUsers = [];
+
+    const getImages = async () => {
+
+
+        let arrayOfFormattedImages = [];
+
+        for (var i = 0; i < users.length; i++) {
+            let userObj = {}
+            userObj['neighborhoodSatisfaction'] = users[i]['neighborhoodSatisfaction'];
+            userObj['neighborhoodFactorDescription'] = users[i]['neighborhoodFactorDescription'];
+            userObj['name'] = users[i]['name'];
+            userObj['profileImage'] = users[i]['profileImage'];
+            userObj['favoritePlaces'] = users[i]['favoritePlaces'];
+            userObj['borough'] = users[i]['borough'];
+            userObj['lengthLivingInNeighborhood'] = users[i]['lengthLivingInNeighborhood'];
+            userObj['neighborhood'] = users[i]['neighborhood'];
+            userObj['neighborhoodDescription'] = users[i]['neighborhoodDescription'];
+
+            let favPlaces = users[i]['favoritePlaces'];
+            let stream = await getImagesOfPlace(favPlaces);
+
+            userObj['imageFormatted'] = stream;
+            arrayOfUsers.push(userObj);
+
+        }
+
     };
 
-    let streamFlag = 0;
-    let imageFormated;
-    let newArr = [];
+    await getImages();
+
+    
+
+    // for (var i = 0; i < arrayOfUsers.length; i++) {
+    //     for (var e = 0; e < arrayOfUsers[i].imageFormatted.length; e++) {
+    //         console.log(arrayOfUsers[i].imageFormatted[e].length)
+    //     }
+    //     console.log('===========================')
+    // }
 
 
-    function createStream() {
 
-        let filename = arr[streamFlag];
+    // setTimeout(() => {
+    res.status(201).json({
+        success: true,
+        data: arrayOfUsers
+    })
+    // }, 15000);
 
-        let readstream = gfs.createReadStream(filename);
-        let fileChunks = [];
-        readstream.on('data', function (chunk) {
-            fileChunks.push(chunk);
-        });
-        readstream.on('end', function () {
-            let concatFile = Buffer.concat(fileChunks);
-            imageFormated = Buffer(concatFile).toString("base64");
-
-            newArr.push(imageFormated);
-
-            streamFlag = streamFlag + 1;
-
-            if (newArr.length < arr.length) {
-                createStream()
-            }
-        });
-    }
-    createStream();
-    //===============================//
-
-    setTimeout(() => {
-
-        responseObject['imagesFormated'] = newArr;
-
-        console.log(newArr.length);
-
-        res.status(201).json({
-            success: true,
-            data: responseObject
-        })
-
-    }, 15000);
 
     //responseObject['favoritePlaces'] = favPlacesArray;
     //responseArray.push(responseObject);
@@ -157,11 +205,11 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
     /* 
     let favPlacesArray = [];
     let favPlacesObject = {};
-    for (var u = 0; u < user[0]['favoritePlaces'].length; u++) {
-        let favPlace = user[0]['favoritePlaces'][u];
+    for (var u = 0; u < user[i][0]['favoritePlaces'].length; u++) {
+        let favPlace = user[i][0]['favoritePlaces'][u];
         favPlacesObject['placeDescrption'] = favPlace;
         let imagesArray = [];
-
+ 
         for (var t = 0; t < favPlace['placeImage'].length; t++) {
             //console.log(favPlace['placeImage'][t]);
             let imageBuffer = favPlace['placeImage'][t]['data']; //<<<<<<<<<
@@ -507,7 +555,7 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
     var slug = req.params.slug;
 
     let user = await User.find({ 'slug': slug }) // <<<<--------------------------------------------------------
-    let favPlaces = user[0]['favoritePlaces'];
+    let favPlaces = user[i][0]['favoritePlaces'];
 
     let arr = [];
     let amountOfPhotosPerPlace = [];

@@ -31,6 +31,12 @@ for (var i = 0; i < neighborhoodButtons.length; i++) {
 }
 
 
+
+
+
+
+
+
 function displayMap(flag) {
 
     flag = flag || 'hola';
@@ -128,12 +134,20 @@ function displayMap(flag) {
         latitude = latitude.toFixed(4);
         longitude = longitude.toFixed(4);
 
+
+        console.log(neighborhood)
+
         d3.json('geo-data.json', function (error, data) {
 
             if (error) return;
 
+
             //-----------Selecting the geometry features from the json OBJ------------------//
             var districts = topojson.feature(data, data.objects.districts);
+            //-----------------------------------------------------------------------------//
+
+
+
 
 
 
@@ -153,9 +167,11 @@ function displayMap(flag) {
             xhr.open('GET', `/users/neighborhood/${neighborhood}`);
             xhr.send();
 
+
+
+
+
             //---------------------------------------------------------------//
-
-
 
             var b, s, t;
             projection.scale(1).translate([0, 0]);
@@ -168,13 +184,8 @@ function displayMap(flag) {
             let divTopStyle = projection([latitude, longitude])[1];
 
 
-
-
             let map_ = document.getElementsByClassName('boundary')[0];
             let neighborhoodDescription = document.getElementById('neighborhoodDescription');
-
-
-
 
 
             //remove previous circles 
@@ -184,19 +195,17 @@ function displayMap(flag) {
                 map_.removeChild(line);
                 map_.removeChild(circle);
 
-                let paragraph1 = neighborhoodDescription.children[neighborhoodDescription.children.length - 1];
-                neighborhoodDescription.removeChild(paragraph1);
-
+                // let paragraph1 = neighborhoodDescription.children[neighborhoodDescription.children.length - 1];
+                // neighborhoodDescription.removeChild(paragraph1);
 
             };
 
 
-
-
             // remove previous neighborhood descriptions:
-            while (neighborhoodDescription.firstChild) {
-                neighborhoodDescription.removeChild(neighborhoodDescription.firstChild);
-            }
+            // while (neighborhoodDescription.firstChild) {
+            //     neighborhoodDescription.removeChild(neighborhoodDescription.firstChild);
+            // }
+
 
             // append the neighborhood circle to the svg map 
             let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
@@ -213,11 +222,12 @@ function displayMap(flag) {
 
 
             // Display path that connects the circle to the neighborhood explanation box
-            let newElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-            newElement.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + 500 + " " + divTopStyle);
-            newElement.style.stroke = "#000";
-            newElement.style.strokeWidth = "1px";
-            map_.appendChild(newElement);
+            let pathToNhoodDescription = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+            pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + 700 + " " + divTopStyle + " L" + " " + 700 + " " + 580);
+            pathToNhoodDescription.style.stroke = "#000";
+            pathToNhoodDescription.style.strokeWidth = "1px";
+            pathToNhoodDescription.style.fill = "none";
+            map_.appendChild(pathToNhoodDescription);
             // end of display path that connects the circle to the neighborhood explanation box
 
 
@@ -226,16 +236,10 @@ function displayMap(flag) {
 
 
 
-            // re position the map and place description containers
-            // neighborhoodDescription.style.display = 'inline';
-            // end of re position the map and place description containers
-
-
-
             neighborhoodDescription.style.border = "0.01rem solid";
             var p1 = document.createElement('p')
             p1.innerHTML = neighborhood;
-            p1.style.marginLeft = '5%';
+            // p1.style.marginLeft = '5%';
             p1.setAttribute('class', 'neighborhoodHeaderMain');
             neighborhoodDescription.appendChild(p1);
 
@@ -247,7 +251,7 @@ function displayMap(flag) {
                         if (data[i]['Name'] === neighborhood) {
                             var p2 = document.createElement('p')
                             p2.innerHTML = data[i]['Description'];
-                            p2.style.marginLeft = '5%';
+                            // p2.style.marginLeft = '5%';
                             p2.setAttribute('class', 'neighborhoodHeader');
                             neighborhoodDescription.appendChild(p2);
                             resolve('continue')
@@ -256,59 +260,53 @@ function displayMap(flag) {
                 })
             })
 
+
+
             getNhoodDescrption.then(value => {
 
 
-                let neighborhoodDescription = document.getElementById('neighborhoodDescription');
+                // let neighborhoodDescription = document.getElementById('neighborhoodDescription');
 
-
-                var p3 = document.createElement('p')
-                p3.innerHTML = `Here is who can show you ${neighborhood} around:`;
-                p3.style.marginLeft = '5%';
-                p3.setAttribute('class', 'neighborhoodHeader');
-                neighborhoodDescription.appendChild(p3);
-
+                // var p3 = document.createElement('p');
+                // p3.innerHTML = `Here is who can show you ${neighborhood} around:`;
+                // p3.style.marginLeft = '5%';
+                // p3.setAttribute('class', 'neighborhoodHeader');
+                // neighborhoodDescription.appendChild(p3);
 
                 // append the nhoods loading illustration and text
-                var svgNhoodsIllustration = document.getElementsByClassName('svgNhoodsIllustration')[0];
+                // var svgNhoodsIllustration = document.getElementsByClassName('svgNhoodsIllustration')[0];
 
+                // var nhoodIllustrationSvg = svgNhoodsIllustration.cloneNode(true);
+                // var firstPolygon = nhoodIllustrationSvg.children[0];
+                // var lastPolygon = nhoodIllustrationSvg.children[nhoodIllustrationSvg.children.length - 1];
+                // nhoodIllustrationSvg.setAttribute('class', 'nhoodIllustrationSvgLoadingInfo');
+                // firstPolygon.setAttribute('class', 'baseSilhouetteInfoLoading');
+                // lastPolygon.setAttribute('class', 'secondSilhouetteInfoLoading');
+                // neighborhoodDescription.appendChild(nhoodIllustrationSvg);
 
+                // var p4 = document.createElement('p');
+                // p4.innerHTML = 'LOADING CONTENT';
+                // p4.setAttribute('class', 'loadingContentText');
+                // neighborhoodDescription.appendChild(p4);
 
-                var nhoodIllustrationSvg = svgNhoodsIllustration.cloneNode(true);
-                var firstPolygon = nhoodIllustrationSvg.children[0];
-                var lastPolygon = nhoodIllustrationSvg.children[nhoodIllustrationSvg.children.length - 1];
+                // const loadingWords = ['hang on', 'almost there', 'it will be worth it', 'breathe']
+                // var flag = 0;
+                // function changeLoadingWord() {
+                //     var word = loadingWords[flag];
+                //     p4.innerHTML = 'LOADING CONTENT - ' + word;
+                //     flag++;
+                //     if (flag === loadingWords.length - 1) {
+                //         flag = 0;
+                //     }
+                //     var p4Style = getComputedStyle(p4);
+                //     if (p4Style.display === 'inline') {
+                //         setTimeout(() => {
+                //             changeLoadingWord();
+                //         }, 1000);
+                //     }
+                // }
+                // changeLoadingWord();
 
-                nhoodIllustrationSvg.setAttribute('class', 'nhoodIllustrationSvgLoadingInfo');
-                firstPolygon.setAttribute('class', 'baseSilhouetteInfoLoading');
-                lastPolygon.setAttribute('class', 'secondSilhouetteInfoLoading');
-
-                neighborhoodDescription.appendChild(nhoodIllustrationSvg);
-
-
-
-                var p4 = document.createElement('p');
-                p4.innerHTML = 'LOADING CONTENT';
-                p4.setAttribute('class', 'loadingContentText');
-                neighborhoodDescription.appendChild(p4);
-
-                const loadingWords = ['hang on', 'almost there', 'it will be worth it', 'breathe']
-                var flag = 0;
-                function changeLoadingWord() {
-                    var word = loadingWords[flag];
-                    p4.innerHTML = 'LOADING CONTENT - ' + word;
-                    flag++;
-                    if (flag === loadingWords.length - 1) {
-                        flag = 0;
-                    }
-                    var p4Style = getComputedStyle(p4);
-                    if (p4Style.display === 'inline') {
-                        setTimeout(() => {
-                            changeLoadingWord();
-                        }, 1000);
-                    }
-                }
-                changeLoadingWord();
-                // ------- end of append the nhoos loading illustration and text.
 
 
 
@@ -321,114 +319,162 @@ function displayMap(flag) {
 
             getResponseData.then(resValue => {
 
+                var container_neighborhoodGuides = document.getElementById('container_neighborhoodGuides');
+
                 //hide the loading text and the neighbohood illustration for loading 'who can show' data
-
-
                 //function stopChangeLoadingWord(){
                 //   clearInterval(changeLoadingWordInterval)
                 //}
 
-
-                document.getElementsByClassName('nhoodIllustrationSvgLoadingInfo')[0].style.display = 'none';
-                document.getElementsByClassName('loadingContentText')[0].style.display = 'none';
+                // document.getElementsByClassName('nhoodIllustrationSvgLoadingInfo')[0].style.display = 'none';
+                // document.getElementsByClassName('loadingContentText')[0].style.display = 'none';
 
 
                 neighborhoodUsers = JSON.parse(neighborhoodUsers);
+
+                neighborhoodUsers = neighborhoodUsers['data'];
+
+                console.log(neighborhoodUsers);
+
+
                 let whoCanShowArray = [];
-                let whoCanShow = '';
+                for (var i = 0; i < neighborhoodUsers.length; i++) {
+
+                    let whoCanShow = '';
+                    let userName = neighborhoodUsers[i]['name'];
+                    let neighborhood = neighborhoodUsers[i]['neighborhood'];
+                    let lengthLivingInNeighborhood = neighborhoodUsers[i]['lengthLivingInNeighborhood'];
+                    let neighborhoodDescription = neighborhoodUsers[i]['neighborhoodDescription'];
 
 
-                let userName = neighborhoodUsers['data']['name'];
-                let lengthLivingInNeighborhood = neighborhoodUsers['data']['lengthLivingInNeighborhood'];
-                let favAspectsOfNeighborhood = neighborhoodUsers['data']['favAspectsOfNeighborhood'];
-                let favoritePlaces = neighborhoodUsers['data']['favoritePlaces'];
 
-                let slug = neighborhoodUsers['data']['slug'];
 
-                let numofPlaces = neighborhoodUsers['data']['numofPlaces'][0];
-                let imagesFormated = neighborhoodUsers['data']['imagesFormated'];
-
-                whoCanShow =
-                    `<div class='whoCanShow'>
+                    whoCanShow =
+                        `<div class='whoCanShow'>
                             <p class='whoCanShowItem'> <b>Name:</b> ${userName} </p>
-                            <p class='whoCanShowItem'> <b>Description:</b> I have lived in this neighborhood for ${lengthLivingInNeighborhood}. ${favAspectsOfNeighborhood}</p>
-                            <p class='whoCanShowItem'> This is one of my favorite places in this neighborhood: </p>
+                            <p class='whoCanShowItem'> "I have lived in ${neighborhood} ${lengthLivingInNeighborhood}. I would describe ${neighborhood} as ${neighborhoodDescription}."</p>
+                            <p class='whoCanShowItem' id='whoCanShowItemLast'> These are some of ${userName}'s favorite places in ${neighborhood}: </p>
                             `
 
+                    let imagesDiv = [];// this array is going to hold the images for each place.
+                    for (var x = 0; x < neighborhoodUsers[i]['imageFormatted'].length; x++) {
 
-                let place = favoritePlaces[0]['place'];
-                let placDescription = favoritePlaces[0]['description'];
+                        let imagesFormattedInnerArray = neighborhoodUsers[i]['imageFormatted'][x];
+                        let imagesImgDom = '';
+
+                        for (var q = 0; q < imagesFormattedInnerArray.length; q++) {
+
+                            imagesImgDom = imagesImgDom +
+                                ` <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>`
+
+                        }
+
+                        let imagesDivDom = `<div class ='placeImagesDiv'> ${imagesImgDom} </div>`;
+                        imagesDiv.push(imagesDivDom);
+                    }
 
 
+                    let placesDivs = '';
+                    for (var e = 0; e < neighborhoodUsers[i]['favoritePlaces'].length; e++) {
 
-                whoCanShow = whoCanShow +
-                    `<div class='divOfFavPlace'>
-                                    <p class='whoCanShowItem'><b>Place: </b>${place} </p>
-                                    <p class='whoCanShowItem'> ${placDescription}</p>
-                                    <p class ='whoCanShowItem'><b>Images of place:</b></p>
-                                    <div>`
-                for (var v = 0; v < numofPlaces; v++) {
-                    whoCanShow = whoCanShow +
-                        `<img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormated[v]}>`
+                        let place = neighborhoodUsers[i]['favoritePlaces'][e];
+
+                        if (e === 0) {
+
+                            placesDivs = placesDivs +
+                                `<div class = 'divPlaceContainer shownPlace'>
+                                    <i class="fas fa-arrow-circle-left"></i>  
+                                    <div class='divOfFavPlace' >
+                                        <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
+                                        <p class='whoCanShowItem'> ${place['description']}</p>
+                                        <p class ='whoCanShowItem'><b>Images of place:</b></p>
+                                        ${imagesDiv[e]}
+                                    </div>
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </div>`
+                        } else {
+                            placesDivs = placesDivs +
+                                `<div class='divPlaceContainer hiddenPlace'>
+                                    <i class="fas fa-arrow-circle-left"></i>  
+                                    <div class='divOfFavPlace '>
+                                        <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
+                                        <p class='whoCanShowItem'> ${place['description']}</p>
+                                        <p class ='whoCanShowItem'><b>Images of place:</b></p>
+                                        ${imagesDiv[e]}
+                                    </div>
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </div>`
+
+                        }
+
+                    }
+
+                    whoCanShow = whoCanShow + placesDivs;
+                    whoCanShowArray.push(whoCanShow);
+
                 }
-                whoCanShow = whoCanShow +
-                    `
-                                </div>
-                            <div>
-                        </div>
-                        <button  type='submit' id ='visitUserProfile'> <a  id ='linkToUserProfile' href=''>  </a> Visit ${userName}'s profile   </button>`
 
 
 
-                whoCanShowArray.push(whoCanShow);
 
+
+                for (var i = 0; i < whoCanShowArray.length; i++) {
+                    container_neighborhoodGuides.innerHTML = container_neighborhoodGuides.innerHTML + whoCanShowArray[i];
+                }
+
+
+
+                // add an event listener to the div place arrows
+
+                var whoCanShowDivs = document.getElementsByClassName('whoCanShow div');
+                console.log(whoCanShowDivs)
+                const place_arrow_right = document.getElementsByClassName('fa-arrow-circle-right');
+
+                for (var i = 0; i < place_arrow_right.length; i++) {
+
+
+                    place_arrow_right[i].addEventListener('click', (e) => {
+                        let clickedArrow = e.target;
+                        const divPlaceContainers = clickedArrow.parentElement;
+                        console.log(divPlaceContainers)
+                    })
+
+
+                }
+
+
+
+
+                // end of add an event listener to the div place arrows
 
 
                 // Add an event listener to the profile button
                 // This event listener will query the database using the slug 
                 // to get the user profile page.
 
-
-                var divmap = document.getElementById('map');
-
-                setTimeout(() => {
-
-                    const profileButton = document.getElementById('visitUserProfile');
-
-                    const loadingUserProfileIllustration = document.getElementsByClassName('loadingUserProfileIllustration')[0];
-                    const loadingUserProfileText = document.getElementById('loadingUserProfileText');
-
-                    const divSvgNhoodText = document.getElementById('divSvgNhoodText');
-
-                    const addHrefValueToButton = new Promise((resolve, reject) => {
-
-                        profileButton.addEventListener('click', function (e) {
-
-                            e.stopPropagation();
-
-                            var linkToUserProfile = document.getElementById('linkToUserProfile');
-                            linkToUserProfile.href = `/users/user-profile/${slug}`;
-                            linkToUserProfile.click();
-
-                            resolve('continue')
-                        })
-                    })
-
-                    addHrefValueToButton.then((value) => {
-
-                        divmap.style.display = 'none';
-
-                        loadingUserProfileIllustration.style.display = 'inline';
-
-                        loadingUserProfileText.style.display = 'inline';
-
-                        loadingUserProfileText.innerHTML = `Loading ${userName}'s profile.`;
-
-                        chageBuildingsWindowsColors();
-                    })
-
-
-                }, 100);
+                // var divmap = document.getElementById('map');
+                // setTimeout(() => {
+                //     const profileButton = document.getElementById('visitUserProfile');
+                //     const loadingUserProfileIllustration = document.getElementsByClassName('loadingUserProfileIllustration')[0];
+                //     const loadingUserProfileText = document.getElementById('loadingUserProfileText');
+                //     const divSvgNhoodText = document.getElementById('divSvgNhoodText');
+                //     const addHrefValueToButton = new Promise((resolve, reject) => {
+                //         profileButton.addEventListener('click', function (e) {
+                //             e.stopPropagation();
+                //             var linkToUserProfile = document.getElementById('linkToUserProfile');
+                //             linkToUserProfile.href = `/users/user-profile/${slug}`;
+                //             linkToUserProfile.click();
+                //             resolve('continue');
+                //         })
+                //     })
+                //     addHrefValueToButton.then((value) => {
+                //         divmap.style.display = 'none';
+                //         loadingUserProfileIllustration.style.display = 'inline';
+                //         loadingUserProfileText.style.display = 'inline';
+                //         loadingUserProfileText.innerHTML = `Loading ${userName}'s profile.`;
+                //         chageBuildingsWindowsColors();
+                //     })
+                // }, 100);
 
                 // ------ end of  Add an event listener to the profile button
 
@@ -437,7 +483,10 @@ function displayMap(flag) {
 
 
                 // resize the photo of the place and add text 
-                neighborhoodDescription.innerHTML = neighborhoodDescription.innerHTML + whoCanShowArray[0];
+                // neighborhoodDescription.innerHTML = neighborhoodDescription.innerHTML + whoCanShowArray[0];
+
+
+
 
                 function resizePhotoOfPlace() {
                     var placeImages = document.getElementsByClassName('placeImage');
@@ -541,7 +590,6 @@ function chageBuildingsWindowsColors() {
     }, 1000);
 
 }
-
 
 
 

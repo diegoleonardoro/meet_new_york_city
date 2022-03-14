@@ -162,10 +162,8 @@ form.addEventListener("submit", function (err) {
         } else if (form.elements[i].className.indexOf('selectBoro') > -1) {
 
             //what borough:
-
             formData.append(form.elements[i].name, form.elements[i].value);
             borough = form.elements[i].value;
-
 
 
         } else if (form.elements[i].className.indexOf('recommendations') > -1) {
@@ -180,38 +178,41 @@ form.addEventListener("submit", function (err) {
                 /// How long have you been living in this neighborhood?
                 formData.append(form.elements[i].name, form.elements[i].value);
 
-            } 
-            
+            }
+
             // else if (form.elements[i].className.indexOf('likertScale') > -1) {
             //     /// How do you feel with the following aspects of your neighborhood: 
             //     neighborhoodSatisfaction[form.elements[i].name] = form.elements[i].value
             // }
         } else if (form.elements[i].type === "text" && form.elements[i].className.indexOf('textAreaLikertExplain') === -1) {
 
-            if (form.elements[i].name === "threeWordsToDecribeNeighborhood") {
+            // if (form.elements[i].name === "threeWordsToDecribeNeighborhood") {
 
-                // Describe your neighborhood in 3 words:
-                threeWordsToDecribeNeighborhood.push(form.elements[i].value);
+            //     // Describe your neighborhood in 3 words:
+            //     threeWordsToDecribeNeighborhood.push(form.elements[i].value);
 
-            } else if (form.elements[i].name === "neighborhoodTips" && form.elements[i].value != '') {
+            // } else if (form.elements[i].name === "neighborhoodTips" && form.elements[i].value != '') {
 
-                // Share any tips for visitors to better enjoy your neighborhood:
-                neighborhoodTips.push(form.elements[i].value)
+            //     // Share any tips for visitors to better enjoy your neighborhood:
+            //     neighborhoodTips.push(form.elements[i].value)
 
-            } else {
+            // } else {
 
-                // What neighborhood do you live in?
-                /// How would you describe your neighborhood to someone who is visiting for the first time?
-                // what zipcode 
-                formData.append(form.elements[i].name, form.elements[i].value);
+            // What neighborhood do you live in?
+            /// How would you describe your neighborhood to someone who is visiting for the first time?
+            // what zipcode 
 
-                if (form.elements[i].id.indexOf('zipcodeInput') > -1) {
-                    zipcode = form.elements[i].value;
-                } else if (form.elements[i].id.indexOf('neighborhoodName') > -1) {
-                    neighborhood = form.elements[i].value;
-                }
+            console.log(form.elements[i]);
 
+            formData.append(form.elements[i].name, form.elements[i].value);
+
+            if (form.elements[i].id.indexOf('zipcodeInput') > -1) {
+                zipcode = form.elements[i].value;
+            } else if (form.elements[i].id.indexOf('neighborhoodName') > -1) {
+                neighborhood = form.elements[i].value;
             }
+
+            // }
         } else if (form.elements[i].className.indexOf('textAreaLikertExplain') > -1 && form.elements[i].value != '') {
 
             // likert scale explanation 

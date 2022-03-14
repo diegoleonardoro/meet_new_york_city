@@ -82,7 +82,6 @@ function autocomplete(inp, arr) {
                                 }
                             }
                         })
-
                     }
                     // end of if the input typed by the user is equal to any of the neighborhoods in the list
 
@@ -238,6 +237,10 @@ function autocomplete(inp, arr) {
 
 
 
+
+
+
+
                                     // make an http request that gets data of who can show the selected neighborhood 
                                     const xhr = new XMLHttpRequest();
                                     let neighborhoodUsers
@@ -254,6 +257,10 @@ function autocomplete(inp, arr) {
                                     // end of make an http request that gets data of who can show the selected neighborhood 
 
 
+
+
+
+                                    
 
 
                                     // use the data from the previous http request and insert it into the place description container
@@ -759,39 +766,27 @@ var neighborhoods = [
 ]
 
 
-// autocomplete(document.getElementById("neighborhoodName"), neighborhoods);
+autocomplete(document.getElementById("neighborhoodName"), neighborhoods);// this button belongs to the form
 
 
 
+const filterNeighborhoods = document.getElementsByClassName('neighborhoods-search-bar-input');// this buttons belong to the main page
 
-
-
-
-
-
-
-
-
-const filterNeighborhoods = document.getElementsByClassName('search-bar-input');
 for (var i = 0; i < filterNeighborhoods.length; i++) {
 
-    var inp = filterNeighborhoods[i]
-
+    var inp = filterNeighborhoods[i];
+  
     inp.addEventListener("input", function (e) {
-
-        console.log('hola')
 
         var val = this.value;
         var neighborhoods = document.getElementsByClassName(this.id);
-
-
 
         for (var i = 0; i < neighborhoods.length; i++) {
 
             let innertext = neighborhoods[i].innerText.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
 
             if (innertext.substr(0, val.length).toUpperCase() != val.toUpperCase()) {
-                console.log(neighborhoods[i])
+             
                 neighborhoods[i].style.display = 'none';
             }
 
