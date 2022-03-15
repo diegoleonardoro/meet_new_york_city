@@ -42,6 +42,21 @@ nav{
   display:flex;
 }
 
+
+
+#neighborhoodName{
+  margin:4px;
+  height:2rem;
+  width:140px; 
+  border:0.1rem solid #2D4859;
+  border-radius: 3rem;
+  background-color: #f9fdff;
+  padding-left:1.5rem;
+  transition: all 0.3s;
+  color:black;
+  
+}
+
 .logo{
   display:flex;
   font-size : 15px;
@@ -59,10 +74,15 @@ nav{
   margin-left:20px;
   color:black;
   font-size : 15px;
+  width:50px;
 }
 
 .navButton:hover {
   border-bottom: solid #2D4859 3.5px;
+}
+
+._searchBarAutoCompleteDiv{
+  margin-left:15px;
 }
 
 .mob-wrapper{/* menu wraper for mobile */
@@ -234,16 +254,6 @@ nav{
 }
 
 /* end of buidling Silhouette for loading user information */
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -471,7 +481,7 @@ nav{
   align-items: center; 
   justify-content: center;
   cursor: pointer;
-  transition: all 0.5s;
+  transition: font-size 0.5s;
   font-size: 75%;
   font-family: 'Poppins', sans-serif;
 }
@@ -616,14 +626,26 @@ nav{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #divSvgNhoodText{
   display: flex;
   flex-direction: column;
   align-items: center;
   transform:translate(0%, 50%);
 }
-
-
 
 .loadingUserProfileIllustration{
   box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
@@ -634,7 +656,6 @@ nav{
     font-family: 'Poppins', sans-serif;
 }
 
-
 .neighborhoodHeaderMain{
   font-family: 'Poppins', sans-serif;
   font-size: 200%;
@@ -642,7 +663,6 @@ nav{
   /* margin-bottom:5%; */
   color:rgb(223, 240, 241); 
   padding: 0 30px;
-
 }
 
 .neighborhoodHeader{
@@ -651,9 +671,6 @@ nav{
   color:rgb(223, 240, 241); 
   padding: 0 30px;
 }
-
-
-
 
 
 #visitUserProfile{
@@ -680,7 +697,7 @@ nav{
 
 
 
-.prevPerson{ 
+/* .prevPerson{ 
   transition: all 0.5s;
   margin-left: 6%;
   margin-top: 3%;
@@ -693,173 +710,68 @@ nav{
   margin-left: 70%;
   margin-top: 3%;
   cursor:pointer;
-}
-
-
-
-/* map svg: */
-/* 
-@media only screen and (max-width:1834px){
-
-  .boundary{
-    transform: scale(0.8);
-  }
-
-}
-
-@media only screen and (max-width:1504px){
-
-  .boundary{
-    transform: scale(0.7);
-  }
-
-
-  #neighborhoodDescription{
-    margin-top:0%;  
-  }
-
-}
-
-
-
-@media only screen and (max-width:1296px){
-
-  #MapSVG{
-    height: 48%;
-  }
-
-  .boundary{
-    transform: scale(0.6);
-  }
-
-  #neighborhoodDescription{
-    background: green;
-    height:54%;
-    margin-top:0%; 
-  }
-
-  
-
-  .neighborhoodHeader{
-    font-size: 0.8em;
-  }
-
-  
-
-}
-
-@media only screen and (max-width:1100px){
-
-  .boundary{
-    transform: scale(0.5);
-  }
-
-  #MapSVG{
-    height: 39%;
-  }
-
-  #neighborhoodDescription{
-    height:44%;
-    background: blue;
-  }
-
-  .whoCanShowItem{
-    font-size: 0.74em;
-  }
-
-
-  .whoCanShow{
-    height: 60%
-  }
-
-}
-
-@media only screen and (max-width:950px){
-
-  .boundary{
-    transform: scale(0.4);
-  }
-
-  #MapSVG{
-
-    margin-left:35%;
-  }
-
-  #neighborhoodDescription{
-    margin-left:35%;
-    margin-top:45%;
-  }
-}
-
-@media only screen and (max-width:800px){
-  .boundary{
-    transform: scale(0.3);
-  }
-}
-
-@media only screen and (max-width:547px){
-  .boundary{
-    transform: scale(0.2);
-  }
 } */
 
 
+/* Tablet view  */
 
-/* neighborhood description div: */
-/* @media only screen and (max-width:1504px){
-  #neighborhoodDescription{
-    margin-top:0%;  
-  }
-} */
+@media (max-width: 1115px){
 
+    .navButton{
+      padding:10px 6px;
+    }
 
+    .neighborhood{
+      width:80%;
+      position:relative;
+      left:50%;
+      transform:translate(-50%, 0)
+    }
 
-/*Place image*/
-/* @media only screen and (max-width:1533px){
-  .placeImage{
+    #section_neighborhoodGuides{
 
-  }
+      margin:90px auto;
+
+    }
+
 }
 
-@media only screen and (max-width:1400px){
-  .placeImage{
 
+@media (max-width: 918px){
+
+  .boroughTitle{
+    width:80%;
+    position:relative;
+    left:50%;
+    transform: translate(-50%, 0)
   }
+
+
+.searchBarAutoCompleteDiv{
+  width:100%;
+  position:relative;
+  left:50%;
+  transform: translate(-50%, 0);
 }
 
-@media only screen and (max-width:1190px){
-  .placeImage{
-    transform: scale(0.9);
-  }
+.search-bar{
+  width:100%;
 }
 
-@media only screen and (max-width:1100px){
-  .placeImage{
-    transform: scale(0.7);
+
+  .neighborhoods-search-bar-input,
+  .neighborhoods-search-bar-input::-webkit-input-placeholder {
+      font-size: 9px;
+      line-height: 3;
   }
-} */
 
 
 
-/* Prev and Next person */
-/* @media only screen and (max-width:1470px){
-  .nextPerson{
-    margin-left: 68%;
-  }
 }
 
-@media only screen and (max-width:1296px){
-  .nextPerson{
-    margin-left: 63%;
+@media (max-width: 692px){
+
+  .neighborhood{
+    width:70%;
   }
 }
-
-@media only screen and (max-width:1100px){
-  .prevPerson{
-    transform: scale(0.7);
-  }
-  .nextPerson{
-    margin-left: 58%;
-    transform: scale(0.7);
-  }
-} */

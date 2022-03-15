@@ -213,9 +213,42 @@ function displayMap(flag) {
 
 
 
+            var documentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            console.log(documentWidth);
+
+            let xValuePathLine;
+
+            if (documentWidth > 1905) {
+
+                xValuePathLine = 700;
+
+            } else if (documentWidth > 1316) {
+
+                xValuePathLine = 600;
+
+            } else if (documentWidth > 1034) {
+
+                xValuePathLine = 500;
+
+            } else if (documentWidth > 740) {
+
+                xValuePathLine = 400;
+
+            } else if (documentWidth > 566) {
+
+                xValuePathLine = 350;
+
+            }
+
+            let xValuePathLine_1 = xValuePathLine + 30;
+            let yCaluePathLine_1 = xValuePathLine - 30;
+
+
+
             // Display path that connects the circle to the neighborhood explanation box
             let pathToNhoodDescription = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-            pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + 700 + " " + divTopStyle + " L" + " " + 700 + " " + 480 + " L" + " " + 730 + " " + 480 + " L" + " " + 700 + " " + 520 + " L" + " " + 670 + " " + 480 + " L" + " " + 700 + " " + 480);
+            pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + xValuePathLine + " " + divTopStyle + " L" + " " + xValuePathLine + " " + 480 + " L" + " " + xValuePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 520 + " L" + " " + yCaluePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 480);
+            
             pathToNhoodDescription.style.stroke = "#000";
             pathToNhoodDescription.style.strokeWidth = "1px";
             pathToNhoodDescription.style.fill = "none";

@@ -93,7 +93,7 @@ function autocomplete(inp, arr) {
                         closeAllLists();
 
                         // this if statement applies to the search neighborhood bar in the main page
-                        if (inp.className.indexOf('search-bar-input') > -1) {
+                        if (inp.className.indexOf('_search-bar-input') > -1) {
 
                             var chosenNeighborhood = inp.value;
 
@@ -260,7 +260,7 @@ function autocomplete(inp, arr) {
 
 
 
-                                    
+
 
 
                                     // use the data from the previous http request and insert it into the place description container
