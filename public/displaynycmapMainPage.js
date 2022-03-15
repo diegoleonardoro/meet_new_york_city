@@ -194,17 +194,10 @@ function displayMap(flag) {
                 let circle = map_.children[map_.children.length - 2];
                 map_.removeChild(line);
                 map_.removeChild(circle);
-
-                // let paragraph1 = neighborhoodDescription.children[neighborhoodDescription.children.length - 1];
-                // neighborhoodDescription.removeChild(paragraph1);
-
             };
 
 
-            // remove previous neighborhood descriptions:
-            // while (neighborhoodDescription.firstChild) {
-            //     neighborhoodDescription.removeChild(neighborhoodDescription.firstChild);
-            // }
+
 
 
             // append the neighborhood circle to the svg map 
@@ -220,19 +213,14 @@ function displayMap(flag) {
 
 
 
-
             // Display path that connects the circle to the neighborhood explanation box
             let pathToNhoodDescription = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-            pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + 700 + " " + divTopStyle + " L" + " " + 700 + " " + 580);
+            pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + 700 + " " + divTopStyle + " L" + " " + 700 + " " + 480 + " L" + " " + 730 + " " + 480 + " L" + " " + 700 + " " + 520 + " L" + " " + 670 + " " + 480 + " L" + " " + 700 + " " + 480);
             pathToNhoodDescription.style.stroke = "#000";
             pathToNhoodDescription.style.strokeWidth = "1px";
             pathToNhoodDescription.style.fill = "none";
             map_.appendChild(pathToNhoodDescription);
             // end of display path that connects the circle to the neighborhood explanation box
-
-
-
-
 
 
 
@@ -259,6 +247,20 @@ function displayMap(flag) {
                     }
                 })
             })
+
+
+
+
+
+
+            const section_neighborhoodGuides = document.getElementById('section_neighborhoodGuides');
+            const section_header = document.createElement('h2');
+            section_header.innerHTML = `Here is who can show you ${neighborhood} around: `
+            section_neighborhoodGuides.prepend(section_header);
+
+
+
+
 
 
 
@@ -329,15 +331,23 @@ function displayMap(flag) {
                 // document.getElementsByClassName('nhoodIllustrationSvgLoadingInfo')[0].style.display = 'none';
                 // document.getElementsByClassName('loadingContentText')[0].style.display = 'none';
 
-
                 neighborhoodUsers = JSON.parse(neighborhoodUsers);
-
                 neighborhoodUsers = neighborhoodUsers['data'];
 
-                console.log(neighborhoodUsers);
+
+
+
+
+
+
+
+
+
+
 
 
                 let whoCanShowArray = [];
+
                 for (var i = 0; i < neighborhoodUsers.length; i++) {
 
                     let whoCanShow = '';
@@ -379,11 +389,22 @@ function displayMap(flag) {
 
                         let place = neighborhoodUsers[i]['favoritePlaces'][e];
 
-                        if (e === 0) {
+
+                        if (neighborhoodUsers[i]['favoritePlaces'].length === 1) {
 
                             placesDivs = placesDivs +
-                                `<div class = 'divPlaceContainer shownPlace'>
-                                    <i class="fas fa-arrow-circle-left"></i>  
+                                `<div class = 'divPlaceContainer shownPlace'> 
+                                <div class='divOfFavPlace' >
+                                    <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
+                                    <p class='whoCanShowItem'> ${place['description']}</p>
+                                    <p class ='whoCanShowItem'><b>Images of place:</b></p>
+                                    ${imagesDiv[e]}
+                                </div>
+                            </div>`
+                        } else if (e === 0) {
+
+                            placesDivs = placesDivs +
+                                `<div class = 'divPlaceContainer shownPlace'> 
                                     <div class='divOfFavPlace' >
                                         <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
                                         <p class='whoCanShowItem'> ${place['description']}</p>
@@ -392,7 +413,7 @@ function displayMap(flag) {
                                     </div>
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </div>`
-                        } else {
+                        } else if (e === neighborhoodUsers[i]['favoritePlaces'].length - 1) {
                             placesDivs = placesDivs +
                                 `<div class='divPlaceContainer hiddenPlace'>
                                     <i class="fas fa-arrow-circle-left"></i>  
@@ -402,8 +423,21 @@ function displayMap(flag) {
                                         <p class ='whoCanShowItem'><b>Images of place:</b></p>
                                         ${imagesDiv[e]}
                                     </div>
-                                    <i class="fas fa-arrow-circle-right"></i>
                                 </div>`
+
+                        } else {
+                            placesDivs = placesDivs +
+                                `<div class='divPlaceContainer hiddenPlace'>
+                                <i class="fas fa-arrow-circle-left"></i>  
+                                <div class='divOfFavPlace '>
+                                    <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
+                                    <p class='whoCanShowItem'> ${place['description']}</p>
+                                    <p class ='whoCanShowItem'><b>Images of place:</b></p>
+                                    ${imagesDiv[e]}
+                                </div>
+                                <i class="fas fa-arrow-circle-right"></i>
+                            </div>`
+
 
                         }
 
@@ -424,28 +458,84 @@ function displayMap(flag) {
 
 
 
-                // add an event listener to the div place arrows
-
-                var whoCanShowDivs = document.getElementsByClassName('whoCanShow div');
-                console.log(whoCanShowDivs)
+                // add an event listener to the next div place arrow
                 const place_arrow_right = document.getElementsByClassName('fa-arrow-circle-right');
-
                 for (var i = 0; i < place_arrow_right.length; i++) {
-
-
                     place_arrow_right[i].addEventListener('click', (e) => {
+
                         let clickedArrow = e.target;
-                        const divPlaceContainers = clickedArrow.parentElement;
-                        console.log(divPlaceContainers)
+                        let divPlaceContainers = clickedArrow.parentElement;
+
+                        let mainDiv = divPlaceContainers.parentElement;
+                        let mainDivdivPlaceContainer = mainDiv.getElementsByClassName('divPlaceContainer');
+
+                        for (var e = 0; e < mainDivdivPlaceContainer.length; e++) {
+
+                            if (mainDivdivPlaceContainer[e].className.indexOf('shownPlace') > -1) {
+
+                                // if (e != mainDivdivPlaceContainer.length - 1) {
+
+                                mainDivdivPlaceContainer[e].className = 'divPlaceContainer hiddenPlace';
+                                mainDivdivPlaceContainer[e + 1].className = 'divPlaceContainer shownPlace';
+
+                                break;
+
+                                // }
+                            }
+
+                        }
                     })
-
-
                 }
+                // end of add an event listener to the next div place arrow
 
 
 
 
-                // end of add an event listener to the div place arrows
+                // add an event listener to the previous  div place arrow
+                const place_arrow_left = document.getElementsByClassName('fa-arrow-circle-left');
+                for (var i = 0; i < place_arrow_left.length; i++) {
+
+                    place_arrow_left[i].addEventListener('click', (e) => {
+
+                        let clickedArrow = e.target;
+                        let divPlaceContainers = clickedArrow.parentElement;
+
+                        let mainDiv = divPlaceContainers.parentElement;
+                        let mainDivdivPlaceContainer = mainDiv.getElementsByClassName('divPlaceContainer');
+
+                        for (var e = 0; e < mainDivdivPlaceContainer.length; e++) {
+
+                            if (mainDivdivPlaceContainer[e].className.indexOf('shownPlace') > -1) {
+
+                                // if (e != mainDivdivPlaceContainer.length - 1) {
+
+                                mainDivdivPlaceContainer[e].className = 'divPlaceContainer hiddenPlace';
+                                mainDivdivPlaceContainer[e - 1].className = 'divPlaceContainer shownPlace';
+
+                                break;
+
+                                // }
+                            }
+
+                        }
+
+                    })
+                }
+                // end of add an event listener to the previous  div place arrow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 // Add an event listener to the profile button
