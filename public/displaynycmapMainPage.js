@@ -214,7 +214,10 @@ function displayMap(flag) {
 
 
             var documentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            console.log(documentWidth);
+      
+
+
+            let pathLineFlag = 'hola'
 
             let xValuePathLine;
 
@@ -234,11 +237,13 @@ function displayMap(flag) {
 
                 xValuePathLine = 400;
 
-            } else if (documentWidth > 566) {
+            } else  {
 
-                xValuePathLine = 350;
+                pathLineFlag = 'jiji'
 
             }
+
+
 
             let xValuePathLine_1 = xValuePathLine + 30;
             let yCaluePathLine_1 = xValuePathLine - 30;
@@ -247,8 +252,41 @@ function displayMap(flag) {
 
             // Display path that connects the circle to the neighborhood explanation box
             let pathToNhoodDescription = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-            pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + xValuePathLine + " " + divTopStyle + " L" + " " + xValuePathLine + " " + 480 + " L" + " " + xValuePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 520 + " L" + " " + yCaluePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 480);
-            
+
+            if (pathLineFlag === 'hola') {
+                pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + xValuePathLine + " " + divTopStyle + " L" + " " + xValuePathLine + " " + 480 + " L" + " " + xValuePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 520 + " L" + " " + yCaluePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 480);
+            } else {
+
+                let y_1 = divTopStyle + 600;
+
+                let y_2 = divTopStyle + 660;
+
+                let x_1 = divLeftStyle + 41 ;
+
+                let x_2 = divLeftStyle - 41;
+
+                let x_3 = divLeftStyle - 82;
+
+                console.log(divLeftStyle);
+
+                pathToNhoodDescription.setAttribute(
+                    "d", "M " + " " + divLeftStyle + " " + divTopStyle 
+                    + " L" + " " + divLeftStyle + " " + y_1 
+                    + " L" + " " + x_1  + " " + y_1 
+                    + " L" + " " + divLeftStyle + " " + y_2 
+                    + " L" + " " + x_2 + " " + y_1 
+                    + " L" + " " + divLeftStyle + " " + y_1);
+            }
+
+
+
+
+
+
+
+
+
+
             pathToNhoodDescription.style.stroke = "#000";
             pathToNhoodDescription.style.strokeWidth = "1px";
             pathToNhoodDescription.style.fill = "none";

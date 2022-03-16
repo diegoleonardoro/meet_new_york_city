@@ -720,6 +720,7 @@ nav{
 
 /* Tablet view  */
 
+
 @media (max-width: 1115px){
 
     .navButton{
@@ -792,8 +793,6 @@ nav{
 
 
 
-
-
 @media (max-width: 692px){
   nav{
     display:none;
@@ -818,8 +817,6 @@ nav{
     background-color: #2D4859;
     color:white;
   }
-
-
   #neighborhoodDescription{
     margin-left:5%;
   }
@@ -833,7 +830,6 @@ nav{
   }
 
 }
-
 
 
 @media (max-width: 692px){
@@ -850,6 +846,14 @@ nav{
     height:350px;
   }
 
+}
+
+
+@media (max-width: 515px){
+
+  .neighborhoodsContainer {
+    height:50%;
+  }
 
 }
 
@@ -857,10 +861,10 @@ nav{
 
 
 
-@media (max-width: 515px){
+@media (max-height: 980px){
 
-  .neighborhoodsContainer {
-    height:50%;
+  #nhoodsMapSvgWrapper{
+    height:85%;
   }
 
 }
