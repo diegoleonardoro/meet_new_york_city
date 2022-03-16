@@ -864,7 +864,34 @@ nav{
 @media (max-height: 980px){
 
   #nhoodsMapSvgWrapper{
-    height:85%;
+    height:100%;
+  }
+
+}
+
+
+@media (max-height: 619px){
+
+  #nhoodsMapSvgWrapper{
+    height:120%;
+  }
+
+}
+
+
+@media (max-height: 500px){
+
+  #nhoodsMapSvgWrapper{
+    height:140%;
+  }
+
+}
+
+
+@media (max-height: 410px){
+
+  #nhoodsMapSvgWrapper{
+    height:160%;
   }
 
 }
