@@ -784,7 +784,13 @@ nav{
     transform:translate(-50%, -50%);
   }
 
+  #neighborhoodDescription{
+    width:40%;
+  }
+
 }
+
+
 
 
 
@@ -814,24 +820,41 @@ nav{
   }
 
 
+  #neighborhoodDescription{
+    margin-left:5%;
+  }
 
-
-}
-
-
-@media (max-width: 692px){
-
-  .neighborhood{
+ .neighborhood{
     width:70%;
   }
 
   #neighborhoodsSection {
-  
     transform: translate(-50%, -58%);
+  }
+
+}
+
+
+
+@media (max-width: 692px){
+
+  #map{
+    flex-direction:column;
+  }
+
+  #neighborhoodDescription{
+    align-self:center;
+    margin-top:5%;
+    width:60%;
+    margin-left:0;
+    height:350px;
   }
 
 
 }
+
+
+
 
 
 @media (max-width: 515px){
