@@ -859,6 +859,11 @@ nav{
     width:110%;
   }
 
+  #nhoodsMapSvgWrapper {
+    transform: translate(-45%, 0);
+  }
+
+
 }
 
 
