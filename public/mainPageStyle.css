@@ -440,6 +440,7 @@ nav{
 
 #neighborhoodsSection{
     display: flex;
+    flex-wrap: wrap;
     height:80%; 
     width:100%;
     position:relative;
@@ -447,6 +448,10 @@ nav{
     transform: translate(0, -50%);
     justify-content: space-evenly;
     
+}
+
+.boroughContainer{
+  height:80%;
 }
 
 .boroughTitle{
@@ -735,7 +740,16 @@ nav{
     }
 
 }
+@media (max-width: 1006px){
+  .boroughContainer{
+    height: 40%;
+  }
 
+  #nhoodsMapSvgWrapper {
+    height:70%;
+  }
+
+}
 
 @media (max-width: 918px){
 
@@ -747,17 +761,16 @@ nav{
   }
 
 
-.searchBarAutoCompleteDiv{
-  width:100%;
-  position:relative;
-  left:50%;
-  transform: translate(-50%, 0);
-}
+  .searchBarAutoCompleteDiv{
+    width:100%;
+    position:relative;
+    left:50%;
+    transform: translate(-50%, 0);
+  }
 
-.search-bar{
-  width:100%;
-}
-
+  .search-bar{
+    width:100%;
+  }
 
   .neighborhoods-search-bar-input,
   .neighborhoods-search-bar-input::-webkit-input-placeholder {
@@ -765,13 +778,66 @@ nav{
       line-height: 3;
   }
 
+  #neighborhoodsSection{
+    width:90%;
+    left:50%;
+    transform:translate(-50%, -50%);
+  }
+
+}
+
+
+
+@media (max-width: 692px){
+  nav{
+    display:none;
+  }
+
+  .mob-wrapper{
+    display:block;
+    padding-right: 40px;
+    z-index: 1;
+  }
+
+  .mob-nav{
+    display:none;
+    position: absolute;
+  }
+
+  .navButtonSmaller{
+    display:block;
+    padding: 10px 5px; 
+    margin-left: -35px;
+    text-align: center; 
+    background-color: #2D4859;
+    color:white;
+  }
+
+
 
 
 }
+
 
 @media (max-width: 692px){
 
   .neighborhood{
     width:70%;
   }
+
+  #neighborhoodsSection {
+  
+    transform: translate(-50%, -58%);
+  }
+
+
+}
+
+
+@media (max-width: 515px){
+
+  .neighborhoodsContainer {
+    height:50%;
+  }
+
 }
