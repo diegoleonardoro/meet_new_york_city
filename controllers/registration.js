@@ -61,7 +61,11 @@ exports.Registration_Interface = (req, res, next) => {
 exports.register_User = asyncHandler(async (req, res, next) => {
 
 
-    req.body.profileImage = req.file;
+
+    if (req.file) {
+        req.body.profileImage = req.file;
+    }
+
 
     const user = await User.create(req.body);
 
@@ -277,7 +281,7 @@ const sendEmailConfirmation = async (user) => {
             user: process.env.NODE_MAILER_GMAIL_USER, //your gmail account you used to set the project up in google cloud console"
             clientId: process.env.GMAIL_CLIENT_ID,
             clientSecret: process.env.GMAIL_CLIENT_SECRET,
-            refreshToken: process.env.GMAIL_REFRESH_TOKEN ,
+            refreshToken: process.env.GMAIL_REFRESH_TOKEN,
             accessToken: myAccessToken //access token variable we defined earlier
         }
     });
