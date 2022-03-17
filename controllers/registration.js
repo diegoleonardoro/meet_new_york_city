@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2
+
 
 
 //const Grid = require("gridfs-stream");
@@ -132,7 +135,7 @@ exports.register_User = asyncHandler(async (req, res, next) => {
 
 
 
-        
+
     /*
     const responseData = user;
     setTimeout(() => {
@@ -197,7 +200,6 @@ exports.login = asyncHandler(async (req, res, next) => {
 
 const sendTokenResponse = (user, statusCode, res, accessToken, refreshToken) => {
 
-
     //const token = user.getSignedJwtToken();// getSignedJwtToken() is a User schema method which creates a token based on the user _id
     const options = {
         expiresIn: process.env.JWT_COOKIE_EXPIRE,
@@ -235,34 +237,88 @@ const sendTokenResponse = (user, statusCode, res, accessToken, refreshToken) => 
 
     }
 
-    //return accessToken;
 }
 
 
 
+
+const myOAuth2Client = new OAuth2(
+    "740814692567-aj9v93eh19s502kv89e3qcj7mtd82i2d.apps.googleusercontent.com",
+    "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",
+    "https://developers.google.com/oauthplayground"
+)
+
+
+myOAuth2Client.setCredentials({
+    refresh_token: "1//04gmlT4LGtnsVCgYIARAAGAQSNwF-L9Irtm3oN8HJwxsJvaFbUIEXKxmd4k3ErgW-boaHlAHq6cI66HpOsgelTdJEiB_kOJW7mv8"
+});
+
+
+const myAccessToken = myOAuth2Client.getAccessToken();
+
+
+
+
+
+
+
+
+
+
+
+
 const sendEmailConfirmation = async (user) => {
+
+
     const transport = nodemailer.createTransport({
-        //host: process.env.NODEMAILER_HOST,
-        //port: process.env.NODEMAILER_PORT,
-        //host: 'smtp.gmail.com',
-        //port: '465',
-        //secure: true,
-        service: 'gmail',
-        port: 8000,
-        secure: false,
+        service: "gmail",
         auth: {
-            user: process.env.NODE_MAILER_GMAIL_USER,//process.env.NODEMAILER_USER,
-            pass: process.env.NODE_MAILER_GMAIL_PASSWORD //process.env.NODEMAILER_PASSWORD
+            type: "OAuth2",
+            user: process.env.NODE_MAILER_GMAIL_USER, //your gmail account you used to set the project up in google cloud console"
+            clientId: process.env.GMAIL_CLIENT_ID,
+            clientSecret: process.env.GMAIL_CLIENT_SECRET,
+            refreshToken: process.env.GMAIL_REFRESH_TOKEN ,
+            accessToken: myAccessToken //access token variable we defined earlier
         }
     });
 
 
-    //await
-    transport.sendMail({
-        from: ' Diego ',
-        to: user.email,
-        subject: 'Confirm your email',
-        text: `Click the link to confirm your email http://meet-nyc.herokuapp.com/users/${user.emailToken}`,
-        //meet-nyc.herokuapp.com
-    })
+    const mailOptions = {
+        from: 'diego@meetnewyork.city', // sender
+        to: user.email, // receiver
+        subject: 'Welcome to Meet New York City', // Subject
+        html: '<p> Click here to confirm your address:  </p>'// html body
+    }
+
+
+
+
+    transport.sendMail(mailOptions)
+
+
+
+
+
+
+    // const transport = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     // host: "smtp.gmail.com",
+    //     port: 2525,
+    //     secure: false,
+    //     auth: {
+    //         user: process.env.NODE_MAILER_GMAIL_USER,
+    //         pass: process.env.NODE_MAILER_GMAIL_PASSWORD
+    //     }
+    // });
+
+    // //await
+    // transport.sendMail({
+    //     from: ' Diego ',
+    //     to: user.email,
+    //     subject: 'Confirm your email',
+    //     text: `Click the link to confirm your email http://meet-nyc.herokuapp.com/users/${user.emailToken}`,
+    //     //meet-nyc.herokuapp.com
+    // })
+
+
 }

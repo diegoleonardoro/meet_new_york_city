@@ -78,8 +78,6 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
 
     // console.log(users);
-
-
     // console.log('hola lalalaa')
 
     let responseArray = [];
@@ -191,12 +189,12 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
 
 
-    // setTimeout(() => {
+ 
     res.status(201).json({
         success: true,
         data: arrayOfUsers
     })
-    // }, 15000);
+ 
 
 
     //responseObject['favoritePlaces'] = favPlacesArray;
