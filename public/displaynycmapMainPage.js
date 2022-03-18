@@ -188,13 +188,14 @@ function displayMap(flag) {
             let neighborhoodDescription = document.getElementById('neighborhoodDescription');
 
 
-            //remove previous circles 
+            //remove previous circle 
             if (map_.children.length > 71) {
                 let line = map_.children[map_.children.length - 1];
                 let circle = map_.children[map_.children.length - 2];
                 map_.removeChild(line);
                 map_.removeChild(circle);
             };
+            //end of remove previous circle 
 
 
 
@@ -214,7 +215,7 @@ function displayMap(flag) {
 
 
             var documentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-      
+
 
 
             let pathLineFlag = 'hola'
@@ -237,7 +238,7 @@ function displayMap(flag) {
 
                 xValuePathLine = 400;
 
-            } else  {
+            } else {
 
                 pathLineFlag = 'jiji'
 
@@ -250,7 +251,7 @@ function displayMap(flag) {
 
 
 
-            // Display path that connects the circle to the neighborhood explanation box
+            // display path that connects the circle to the neighborhood explanation box
             let pathToNhoodDescription = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 
             if (pathLineFlag === 'hola') {
@@ -261,30 +262,20 @@ function displayMap(flag) {
 
                 let y_2 = divTopStyle + 660;
 
-                let x_1 = divLeftStyle + 41 ;
+                let x_1 = divLeftStyle + 41;
 
                 let x_2 = divLeftStyle - 41;
 
                 let x_3 = divLeftStyle - 82;
 
-                console.log(divLeftStyle);
-
                 pathToNhoodDescription.setAttribute(
-                    "d", "M " + " " + divLeftStyle + " " + divTopStyle 
-                    + " L" + " " + divLeftStyle + " " + y_1 
-                    + " L" + " " + x_1  + " " + y_1 
-                    + " L" + " " + divLeftStyle + " " + y_2 
-                    + " L" + " " + x_2 + " " + y_1 
+                    "d", "M " + " " + divLeftStyle + " " + divTopStyle
+                    + " L" + " " + divLeftStyle + " " + y_1
+                    + " L" + " " + x_1 + " " + y_1
+                    + " L" + " " + divLeftStyle + " " + y_2
+                    + " L" + " " + x_2 + " " + y_1
                     + " L" + " " + divLeftStyle + " " + y_1);
             }
-
-
-
-
-
-
-
-
 
 
             pathToNhoodDescription.style.stroke = "#000";
@@ -294,11 +285,21 @@ function displayMap(flag) {
             // end of display path that connects the circle to the neighborhood explanation box
 
 
+            
+
+
+            // remove the p element of the previously selected neighborhood
+            while (neighborhoodDescription.firstChild) {
+                neighborhoodDescription.removeChild(neighborhoodDescription.firstChild);
+            }
+            // end of remove the p element of the previously selected neighborhood
+
+
+
 
             neighborhoodDescription.style.border = "0.01rem solid";
             var p1 = document.createElement('p')
             p1.innerHTML = neighborhood;
-            // p1.style.marginLeft = '5%';
             p1.setAttribute('class', 'neighborhoodHeaderMain');
             neighborhoodDescription.appendChild(p1);
 

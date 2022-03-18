@@ -822,6 +822,7 @@ nav{
     background-color: #2D4859;
     color:white;
   }
+
   #neighborhoodDescription{
     margin-left:5%;
   }
@@ -841,15 +842,19 @@ nav{
 
   #map{
     flex-direction:column;
+    width:auto;
   }
 
   #neighborhoodDescription{
     align-self:center;
     margin-top:5%;
-    width:60%;
+    width:90%;
     margin-left:0;
     height:350px;
   }
+
+
+
 
 }
 
