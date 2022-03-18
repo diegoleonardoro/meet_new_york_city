@@ -178,7 +178,7 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
     await getImages();
 
-    
+
 
     // for (var i = 0; i < arrayOfUsers.length; i++) {
     //     for (var e = 0; e < arrayOfUsers[i].imageFormatted.length; e++) {
@@ -189,12 +189,12 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
 
 
- 
+
     res.status(201).json({
         success: true,
         data: arrayOfUsers
     })
- 
+
 
 
     //responseObject['favoritePlaces'] = favPlacesArray;
@@ -240,33 +240,29 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
     }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
 
 
-    /*
-    const refreshToken = jwt.sign({
-        _id: user[0].id,
-        email: user[0].email
-    }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
-    */
 
 
     const profileImgFormatted = [];
 
-    function createStream() {
-        let readstream = gfs.createReadStream(req.user.profileImage.filename);
-        let fileChunks = [];
-        readstream.on('data', function (chunk) {
-            fileChunks.push(chunk);
-        });
-        readstream.on('end', function () {
-            let concatFile = Buffer.concat(fileChunks);
-            imageFormated = Buffer(concatFile).toString("base64");
-            profileImgFormatted.push(imageFormated);
-        });
+    if (req.user.profileImage) {
+        function createStream() {
+            let readstream = gfs.createReadStream(req.user.profileImage.filename);
+            let fileChunks = [];
+            readstream.on('data', function (chunk) {
+                fileChunks.push(chunk);
+            });
+            readstream.on('end', function () {
+                let concatFile = Buffer.concat(fileChunks);
+                imageFormated = Buffer(concatFile).toString("base64");
+                profileImgFormatted.push("data:image/png;base64,"+imageFormated);
+            });
+        }
+        createStream();
     }
-    createStream();
+
+
 
     const responseData = req.user;
-
-
 
     res
         .status(200)
@@ -275,6 +271,11 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
 
     setTimeout(() => {
+
+        if (profileImgFormatted.length === 0){
+            profileImgFormatted.push("https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/2feca4c9330929232091f910dbff7f87.jpg") 
+        }
+
         // here, instead of rendering the questionnaire, render the main page with the user logged in. 
         res.render("questionnaire", { user: responseData, profileImage: profileImgFormatted });
 

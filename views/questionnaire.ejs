@@ -33,8 +33,10 @@
 <body>
 
     <script>
+        
         let user = <% - JSON.stringify(user) %>;
         let profileImage = <% - JSON.stringify(profileImage) %>;
+        
     </script>
 
 
@@ -66,7 +68,7 @@
 
             <div class='user'>
                 <div class='user-image-wrapper'>
-                    <img src="data:image/png;base64,<%= profileImage%>" />
+                    <img src="<%= profileImage%>" />
                 </div>
                 <a href='#' class='user-link'>
                     <%= user.name %></a>

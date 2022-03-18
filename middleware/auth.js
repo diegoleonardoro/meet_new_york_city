@@ -31,13 +31,9 @@ const User = conn.model("User", require('../models/User'));
 
 exports.protect = asyncHandler(async (req, res, next) => {
 
-    //const emailToken = req.params.emailToken;
-
     try {
-        //const refreshToken = req.params.refreshToken;
 
         const refreshToken = req.cookies['refreshToken'];
-
 
         try {
             const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
