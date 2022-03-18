@@ -471,6 +471,7 @@ nav{
   width:100%;
   height:80%;
   overflow-y: scroll;
+  background-color: rgb(224, 240, 250);
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
@@ -858,11 +859,23 @@ nav{
   .header-container{
     width:110%;
   }
-
-  #nhoodsMapSvgWrapper {
-    /* transform: translate(-45%, 0); */
+  
+  
+  #nhoodsMapSvgWrapper{
+    height:130%;
   }
 
+  #MapSVG_{
+    margin-top:50px;
+  }
+
+  header{
+    width:80%;
+  }
+
+  #neighborhoodDescription{
+    margin-top:15%;
+  }
 
 }
 
