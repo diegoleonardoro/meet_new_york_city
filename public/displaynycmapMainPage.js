@@ -149,11 +149,6 @@ function displayMap(flag) {
             var districts = topojson.feature(data, data.objects.districts);
             //-----------------------------------------------------------------------------//
 
-
-
-
-
-
             // query the database to see all the people from that neighborhood:
             const xhr = new XMLHttpRequest();
 
@@ -361,11 +356,22 @@ function displayMap(flag) {
 
 
 
+
+            // select the section that displays the tour guides and give it display value of 'block'
             section_neighborhoodGuides.style.display = 'block';
             const section_header = document.createElement('h2');
             section_header.setAttribute('id', 'tourguidesHeader')
             section_header.innerHTML = `Here is who can show you ${neighborhood} around: `
             section_neighborhoodGuides.prepend(section_header);
+
+            //--- set opacity of all the profile containers to 1
+            const svgLoadingProfiles = document.getElementById('svgLoadingProfiles');
+            for (var i = 0; i < svgLoadingProfiles.children.length; i++) {
+                svgLoadingProfiles.children[i].style.opacity = '1';
+            }
+            //--- end of set opacity of all the profile containers to 1
+
+            // end of select the section that displays the tour guides and give it display value of 'block'
 
 
 
@@ -438,9 +444,6 @@ function displayMap(flag) {
 
 
 
-            // end of select the section_neighborhoodGuides and display it 
-
-
 
 
 
@@ -505,27 +508,13 @@ function displayMap(flag) {
 
             getResponseData.then(resValue => {
 
-
                 var container_neighborhoodGuides = document.getElementById('container_neighborhoodGuides');
-
-
-
-
-
-                //hide the loading text and the neighbohood illustration for loading 'who can show' data
-                //function stopChangeLoadingWord(){
-                //   clearInterval(changeLoadingWordInterval)
-                //}
-                // document.getElementsByClassName('nhoodIllustrationSvgLoadingInfo')[0].style.display = 'none';
-                // document.getElementsByClassName('loadingContentText')[0].style.display = 'none';
 
                 let neighborhoodUsers = JSON.parse(resValue);
                 neighborhoodUsers = neighborhoodUsers['data'];
 
 
                 if (neighborhoodUsers.length > 0) {
-
-
 
                     const loadingTourguides = document.getElementById('loadingTourguides');
                     loadingTourguides.style.display = 'none';
@@ -539,7 +528,6 @@ function displayMap(flag) {
                         let neighborhood = neighborhoodUsers[i]['neighborhood'];
                         let lengthLivingInNeighborhood = neighborhoodUsers[i]['lengthLivingInNeighborhood'];
                         let neighborhoodDescription = neighborhoodUsers[i]['neighborhoodDescription'];
-
 
                         whoCanShow =
                             `<div class='whoCanShow'>
@@ -557,19 +545,16 @@ function displayMap(flag) {
 
                                 imagesImgDom = imagesImgDom +
                                     ` <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>`
-
                             }
 
                             let imagesDivDom = `<div class ='placeImagesDiv'> ${imagesImgDom} </div>`;
                             imagesDiv.push(imagesDivDom);
                         }
 
-
                         let placesDivs = '';
                         for (var e = 0; e < neighborhoodUsers[i]['favoritePlaces'].length; e++) {
 
                             let place = neighborhoodUsers[i]['favoritePlaces'][e];
-
 
                             if (neighborhoodUsers[i]['favoritePlaces'].length === 1) {
 
@@ -631,6 +616,7 @@ function displayMap(flag) {
                         container_neighborhoodGuides.innerHTML = container_neighborhoodGuides.innerHTML + whoCanShowArray[i];
                     }
 
+
                     // add an event listener to the next div place arrow
                     const place_arrow_right = document.getElementsByClassName('fa-arrow-circle-right');
                     for (var i = 0; i < place_arrow_right.length; i++) {
@@ -688,6 +674,9 @@ function displayMap(flag) {
                     }
                     // end of add an event listener to the previous  div place arrow
 
+
+
+                    // resize the photo of the place and add text
                     function resizePhotoOfPlace() {
                         var placeImages = document.getElementsByClassName('placeImage');
                         let maxWidth = 100;
@@ -710,9 +699,10 @@ function displayMap(flag) {
                     setTimeout(() => {
                         resizePhotoOfPlace()
                     }, 100);
-                    // ------ end of  resize the photo of the place and add tex
+                    // ------ end of  resize the photo of the place and add text
 
-                } else {
+
+                } else {// if there are no tour guides for the selected neighborhood/
 
                     loadingTourguidesFlag = false;
 
@@ -721,21 +711,16 @@ function displayMap(flag) {
                     tourguidesHeader.innerHTML = 'No tour guides for this neighborhood';
 
 
-                    const svgLoadingProfiles = document.getElementById('svgLoadingProfiles');
 
                     const loadingTourguides = document.getElementById('loadingTourguides')
-                    loadingTourguides.style.marginTop ='1%';
-                    for (var i = 0; i < svgLoadingProfiles.children.length; i++) {
+                    loadingTourguides.style.marginTop = '1%';
 
-                        //console.log(svgLoadingProfiles.children[i])
+                    const svgLoadingProfiles = document.getElementById('svgLoadingProfiles');
+                    for (var i = 0; i < svgLoadingProfiles.children.length; i++) {
                         svgLoadingProfiles.children[i].style.opacity = '0.2';
                     }
 
-         
-
                 }
-
-
             });
         })
     }
