@@ -545,10 +545,31 @@ nav{
   display: none;
   width:90%;
   margin:0 auto;
-  padding:30px;
+  /* padding:30px; */
 }
 
-#section_neighborhoodGuides h2{
+#loadingTourguides{
+  display: none;
+  margin-top:6%;
+}
+
+#loadingTourguides h2{
+  text-align:center;
+  margin-bottom:0.5%;
+}
+
+#loadingTourguides svg{
+
+  position:relative;
+  left:50%;
+  transform: translate(-50%, 0);
+  margin-bottom:10%;
+
+}
+
+
+
+#tourguidesHeader{
   display:inline;
   position:relative;
   margin-left:40%;
@@ -794,6 +815,15 @@ nav{
     width:40%;
   }
 
+
+  #section_neighborhoodGuides h2{
+     margin-left: 10%; 
+    /* margin-right: 110px;  */
+    text-align: center;
+    font-size: 12px;
+    
+  }
+
 }
 
 
@@ -836,6 +866,214 @@ nav{
   }
 
 }
+
+
+
+/* Styles for loading tour guides illustration*/
+.ee886a50-be8c-4dfd-9d7e-e0569e90cc07 {
+  fill: rgb(255, 203, 121);
+}
+
+.b84789bc-52b7-448f-95db-8870addfa2e5, .bc56eb0d-d86c-4a0d-9534-2eeb9a96c9cf, .ee886a50-be8c-4dfd-9d7e-e0569e90cc07 {
+  stroke: #000;
+}
+
+.b403bd8f-0557-4e93-bd33-2d342a93c80b, .b83322e5-8a77-47b9-8372-0ff2b0bae2de, .b84789bc-52b7-448f-95db-8870addfa2e5, .bc56eb0d-d86c-4a0d-9534-2eeb9a96c9cf, .bedddca1-db1e-4a02-b267-335282951834, .ee886a50-be8c-4dfd-9d7e-e0569e90cc07 {
+  stroke-miterlimit: 10;
+}
+
+.a3124e73-6a92-453f-a823-1262edadb382, .bc56eb0d-d86c-4a0d-9534-2eeb9a96c9cf {
+  fill: rgb(90, 99, 171);
+}
+
+.aeb75fa9-1c32-4ddc-a077-c3fadbc4cb7a {
+  fill: #fb9699;
+}
+
+.a9b98572-687a-43e2-b330-888ebbcfbf7b {
+  fill: #fa8185;
+}
+
+.b87c3a1e-4716-42a9-b517-a28cb6f1dcda {
+  fill: #1d2a68;
+}
+
+.b84789bc-52b7-448f-95db-8870addfa2e5, .bedddca1-db1e-4a02-b267-335282951834 {
+  fill: none;
+}
+
+.bedddca1-db1e-4a02-b267-335282951834 {
+  stroke: #fff;
+  stroke-width: 3px;
+}
+
+.ecaca6f2-c0b2-43bd-b717-b8c90258bf90 {
+  fill: #4f58a5;
+}
+
+.bd746994-2ddf-4fe5-ae7e-61f1ac70b1b9 {
+  fill: #ff8caa;
+}
+
+.a979725a-08bd-4f08-a132-ab54e56cdc3b {
+  fill: #ff8ba9;
+}
+
+.b97d0f4a-95a7-475f-8a57-1713f3c730b6 {
+  fill: #e25577;
+}
+
+.bbaeb6cb-c016-45f7-b829-2a847672e8f4 {
+  fill: #0055c9;
+}
+
+.b89fb43b-a6e4-4108-94fb-f1eb307a7628 {
+  fill: #0051c7;
+}
+
+.bc2ab54c-974a-4f6f-89eb-c5743c5fef99 {
+  fill: #0052c8;
+}
+
+.f1af22e2-81d6-46e5-b3ae-48ca2fda79ce {
+  fill: #0050c7;
+}
+
+.a5872169-1436-4885-b923-4c3581f1a0de {
+  fill: #e15276;
+}
+
+.ae02f42d-8e70-4a89-a2b6-c62452b738ce {
+  fill: #fffcde;
+}
+
+.fa35d329-2e17-43fc-8010-fe20c3e1749e {
+  fill: #fcd6be;
+}
+
+.b35bad58-d83c-47e2-9d44-cae204439656 {
+  fill: #f7b28f;
+}
+
+.a45fead9-49dd-4ed8-b80c-bc078a42aede {
+  fill: #f9c1a2;
+}
+
+.b47aa0fb-45d8-4ecf-a6e2-560cefb3e675 {
+  fill: #f5f7f9;
+}
+
+.b54c6106-5b36-4f82-830c-e62820c77515 {
+  fill: #ffd88f;
+}
+
+.be4f009c-94c6-44bd-9288-dd46c8a08c84 {
+  fill: #f9f0af;
+}
+
+.a3e8fa31-c076-4d1a-872d-d19a77b4ea31 {
+  fill: #ffc963;
+}
+
+.fe49b9a0-06e3-4a6d-a8c8-73eca589a449 {
+  fill: #0055d4;
+}
+
+.fabd4dc5-5afa-4b34-8a21-5ac64052b090 {
+  fill: #2fa4e3;
+}
+
+.be6709b2-64d3-40e2-bb16-9dadf977dd95 {
+  fill: #2ba1e1;
+}
+
+.ebe0ef6b-a1a9-4a11-afaa-ab01c6e2af08 {
+  fill: #60c2fa;
+}
+
+.a2d40354-5e7f-46a1-a1c4-11b4a6aed674 {
+  fill: #59befa;
+}
+
+.e9c01529-dfab-45c5-bc3b-1d8bed200d66 {
+  fill: #f9ce8a;
+}
+
+.b2ee80dd-3906-49f9-8690-27b7047ba10b {
+  fill: #005ad8;
+}
+
+.e05faa78-92ad-43a8-a0d6-10f1ecec2464 {
+  fill: #005bd8;
+}
+
+.b403bd8f-0557-4e93-bd33-2d342a93c80b {
+  fill: #ffb38d;
+  stroke: #c7b299;
+}
+
+.a222e787-2d7e-4598-a5ac-59a348cf1fb3 {
+  fill: #fffcdd;
+}
+
+.bd1020f5-14ba-4271-974a-6ecc410a4f7c {
+  fill: #61c2fa;
+}
+
+.e065f97a-465e-446e-8070-fdd070336ae1 {
+  fill: #0054c8;
+}
+
+.ee20dff4-c5a2-4993-b3f0-503aacddfe92 {
+  fill: #197cee;
+}
+
+.a58e933e-8b5c-4db8-b8d2-128e909cce51 {
+  fill: #177aed;
+}
+
+.a7e503f0-884a-46dc-9c0a-6ea4a13c727a {
+  fill: #1579ec;
+}
+
+.a3731420-4459-4b7e-8890-2572ce645e77 {
+  fill: #ff89a8;
+}
+
+.b83322e5-8a77-47b9-8372-0ff2b0bae2de {
+  fill: #e5e1ca;
+  stroke: #29abe2;
+}
+
+.a3a6070d-e07b-4abf-a3e5-d3ffc8969d7e {
+  fill: #ff9eac;
+}
+
+.b519d347-8d44-4b8b-95d1-7305223b033e {
+  fill: #ffd7b9;
+}
+
+.a11be7a2-4330-4a18-8194-5dc863c8b542 {
+  fill: #5fc1fa;
+}
+
+.b4ded82a-dcff-4061-a008-df1c3f29dcc6 {
+  fill: #c1461d;
+}
+
+.ad444736-dee5-4338-8e27-7b22d5aa7cae {
+  fill: #1e1d1a;
+}
+
+.ee112eb1-baf0-4926-b8a7-446e56c1fbeb {
+  fill: #6483a8;
+}
+
+.a0785aa0-75f6-470c-8d6e-9a9635ced284 {
+  fill: #ff8aa9;
+}
+
+/*end of styles for loading tour guides illustration*/
 
 
 @media (max-width: 692px){

@@ -126,6 +126,9 @@ function displayMap(flag) {
 
         let coordinates = flag['the_geom'];
         let neighborhood = flag['Name'];
+        let borough = flag['Borough'];
+
+
         coordinates = coordinates.match(/[+-]?\d+(\.\d+)?/g);
 
         let latitude = parseFloat(coordinates[0]);
@@ -135,7 +138,7 @@ function displayMap(flag) {
         longitude = longitude.toFixed(4);
 
 
-        console.log(neighborhood)
+        // console.log(neighborhood)
 
         d3.json('geo-data.json', function (error, data) {
 
@@ -153,12 +156,12 @@ function displayMap(flag) {
 
             // query the database to see all the people from that neighborhood:
             const xhr = new XMLHttpRequest();
-            let neighborhoodUsers
+
             let getResponseData = new Promise((resolve, reject) => {
                 xhr.onload = () => {
                     setTimeout(() => {
-                        neighborhoodUsers = xhr.response;
-                        resolve('Got server response')
+                        let neighborhoodUsers = xhr.response;
+                        resolve(neighborhoodUsers)
                     }, 100);
                 }
             })
@@ -241,9 +244,7 @@ function displayMap(flag) {
             } else {
 
                 pathLineFlag = 'jiji'
-
             }
-
 
 
             let xValuePathLine_1 = xValuePathLine + 30;
@@ -255,18 +256,40 @@ function displayMap(flag) {
             let pathToNhoodDescription = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 
             if (pathLineFlag === 'hola') {
+
                 pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + xValuePathLine + " " + divTopStyle + " L" + " " + xValuePathLine + " " + 480 + " L" + " " + xValuePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 520 + " L" + " " + yCaluePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 480);
+
             } else {
 
-                let y_1 = divTopStyle + 600;
+                let y_1,
+                    y_2,
+                    x_1,
+                    x_2
 
-                let y_2 = divTopStyle + 660;
 
-                let x_1 = divLeftStyle + 41;
+                if (borough === "Bronx") {
 
-                let x_2 = divLeftStyle - 41;
+                    y_1 = divTopStyle + 700;
 
-                let x_3 = divLeftStyle - 82;
+                    y_2 = divTopStyle + 760;
+
+                    x_1 = divLeftStyle + 41;
+
+                    x_2 = divLeftStyle - 41;
+
+                } else {
+
+                    y_1 = divTopStyle + 600;
+
+                    y_2 = divTopStyle + 660;
+
+                    x_1 = divLeftStyle + 41;
+
+                    x_2 = divLeftStyle - 41;
+
+                }
+
+
 
                 pathToNhoodDescription.setAttribute(
                     "d", "M " + " " + divLeftStyle + " " + divTopStyle
@@ -285,7 +308,7 @@ function displayMap(flag) {
             // end of display path that connects the circle to the neighborhood explanation box
 
 
-            
+
 
 
             // remove the p element of the previously selected neighborhood
@@ -325,10 +348,99 @@ function displayMap(flag) {
 
 
 
+            // select the section_neighborhoodGuides and display it 
             const section_neighborhoodGuides = document.getElementById('section_neighborhoodGuides');
+
+
+            // --- remove the h2 element that introduces the neighborhood guides
+            while (section_neighborhoodGuides.firstChild && section_neighborhoodGuides.firstChild.id != 'loadingTourguides' && section_neighborhoodGuides.firstChild.id != undefined) {
+                // console.log(section_neighborhoodGuides.firstChild.id)
+                section_neighborhoodGuides.removeChild(section_neighborhoodGuides.firstChild);
+            }
+            //--- end of remove the h2 element that introduces the neighborhood guides
+
+
+
+            section_neighborhoodGuides.style.display = 'block';
             const section_header = document.createElement('h2');
+            section_header.setAttribute('id', 'tourguidesHeader')
             section_header.innerHTML = `Here is who can show you ${neighborhood} around: `
             section_neighborhoodGuides.prepend(section_header);
+
+
+
+            // function that will change the background color of the frames:
+
+            const loadingTourguides = document.getElementById('loadingTourguides');
+            loadingTourguides.style.display = 'block';
+
+            const backgroundRects = document.getElementsByClassName('backgroundRect');
+
+
+
+
+
+
+            const sleep = (milliseconds) => {
+                return new Promise(resolve => setTimeout(resolve, milliseconds))
+            }
+
+            let loadingTourguidesFlag = true;
+
+            const changeColorOfTourGuidesIllustration = async () => {
+                for (var i = 0; i < backgroundRects.length; i++) {
+
+                    await sleep(100)
+
+                    console.log('hola')
+
+
+                    if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(255, 203, 121)') {
+
+                        backgroundRects[i].style.fill = 'rgb(252, 222, 175)';
+
+                    } else if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(252, 222, 175)') {
+
+                        backgroundRects[i].style.fill = 'rgb(255, 203, 121)';
+
+                    } else if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(90, 99, 171)') {
+
+                        backgroundRects[i].style.fill = 'rgb(158, 164, 211)';
+
+                    } else if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(158, 164, 211)') {
+
+                        backgroundRects[i].style.fill = 'rgb(90, 99, 171)';
+
+                    }
+
+
+
+
+                    if (loadingTourguides.style.display === 'block' && i === backgroundRects.length - 1 && loadingTourguidesFlag) {
+
+                        i = 0
+
+                    }
+
+
+
+                }
+
+            }
+
+            changeColorOfTourGuidesIllustration();
+
+            // end of function that will change the background color of the frames
+
+
+
+
+
+
+
+            // end of select the section_neighborhoodGuides and display it 
+
+
 
 
 
@@ -393,79 +505,76 @@ function displayMap(flag) {
 
             getResponseData.then(resValue => {
 
+
                 var container_neighborhoodGuides = document.getElementById('container_neighborhoodGuides');
+
+
+
+
 
                 //hide the loading text and the neighbohood illustration for loading 'who can show' data
                 //function stopChangeLoadingWord(){
                 //   clearInterval(changeLoadingWordInterval)
                 //}
-
                 // document.getElementsByClassName('nhoodIllustrationSvgLoadingInfo')[0].style.display = 'none';
                 // document.getElementsByClassName('loadingContentText')[0].style.display = 'none';
 
-                neighborhoodUsers = JSON.parse(neighborhoodUsers);
+                let neighborhoodUsers = JSON.parse(resValue);
                 neighborhoodUsers = neighborhoodUsers['data'];
 
 
+                if (neighborhoodUsers.length > 0) {
 
 
 
+                    const loadingTourguides = document.getElementById('loadingTourguides');
+                    loadingTourguides.style.display = 'none';
+
+                    let whoCanShowArray = [];
+
+                    for (var i = 0; i < neighborhoodUsers.length; i++) {
+
+                        let whoCanShow = '';
+                        let userName = neighborhoodUsers[i]['name'];
+                        let neighborhood = neighborhoodUsers[i]['neighborhood'];
+                        let lengthLivingInNeighborhood = neighborhoodUsers[i]['lengthLivingInNeighborhood'];
+                        let neighborhoodDescription = neighborhoodUsers[i]['neighborhoodDescription'];
 
 
-
-
-
-
-
-
-                let whoCanShowArray = [];
-
-                for (var i = 0; i < neighborhoodUsers.length; i++) {
-
-                    let whoCanShow = '';
-                    let userName = neighborhoodUsers[i]['name'];
-                    let neighborhood = neighborhoodUsers[i]['neighborhood'];
-                    let lengthLivingInNeighborhood = neighborhoodUsers[i]['lengthLivingInNeighborhood'];
-                    let neighborhoodDescription = neighborhoodUsers[i]['neighborhoodDescription'];
-
-
-
-
-                    whoCanShow =
-                        `<div class='whoCanShow'>
+                        whoCanShow =
+                            `<div class='whoCanShow'>
                             <p class='whoCanShowItem'> <b>Name:</b> ${userName} </p>
                             <p class='whoCanShowItem'> "I have lived in ${neighborhood} ${lengthLivingInNeighborhood}. I would describe ${neighborhood} as ${neighborhoodDescription}."</p>
                             <p class='whoCanShowItem' id='whoCanShowItemLast'> These are some of ${userName}'s favorite places in ${neighborhood}: </p>
                             `
+                        let imagesDiv = [];
+                        for (var x = 0; x < neighborhoodUsers[i]['imageFormatted'].length; x++) {
 
-                    let imagesDiv = [];// this array is going to hold the images for each place.
-                    for (var x = 0; x < neighborhoodUsers[i]['imageFormatted'].length; x++) {
+                            let imagesFormattedInnerArray = neighborhoodUsers[i]['imageFormatted'][x];
+                            let imagesImgDom = '';
 
-                        let imagesFormattedInnerArray = neighborhoodUsers[i]['imageFormatted'][x];
-                        let imagesImgDom = '';
+                            for (var q = 0; q < imagesFormattedInnerArray.length; q++) {
 
-                        for (var q = 0; q < imagesFormattedInnerArray.length; q++) {
+                                imagesImgDom = imagesImgDom +
+                                    ` <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>`
 
-                            imagesImgDom = imagesImgDom +
-                                ` <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>`
+                            }
 
+                            let imagesDivDom = `<div class ='placeImagesDiv'> ${imagesImgDom} </div>`;
+                            imagesDiv.push(imagesDivDom);
                         }
 
-                        let imagesDivDom = `<div class ='placeImagesDiv'> ${imagesImgDom} </div>`;
-                        imagesDiv.push(imagesDivDom);
-                    }
+
+                        let placesDivs = '';
+                        for (var e = 0; e < neighborhoodUsers[i]['favoritePlaces'].length; e++) {
+
+                            let place = neighborhoodUsers[i]['favoritePlaces'][e];
 
 
-                    let placesDivs = '';
-                    for (var e = 0; e < neighborhoodUsers[i]['favoritePlaces'].length; e++) {
+                            if (neighborhoodUsers[i]['favoritePlaces'].length === 1) {
 
-                        let place = neighborhoodUsers[i]['favoritePlaces'][e];
-
-
-                        if (neighborhoodUsers[i]['favoritePlaces'].length === 1) {
-
-                            placesDivs = placesDivs +
-                                `<div class = 'divPlaceContainer shownPlace'> 
+                                placesDivs = placesDivs +
+                                    `<div class = 'divPlaceContainer shownPlace'> 
                                 <div class='divOfFavPlace' >
                                     <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
                                     <p class='whoCanShowItem'> ${place['description']}</p>
@@ -473,10 +582,10 @@ function displayMap(flag) {
                                     ${imagesDiv[e]}
                                 </div>
                             </div>`
-                        } else if (e === 0) {
+                            } else if (e === 0) {
 
-                            placesDivs = placesDivs +
-                                `<div class = 'divPlaceContainer shownPlace'> 
+                                placesDivs = placesDivs +
+                                    `<div class = 'divPlaceContainer shownPlace'> 
                                     <div class='divOfFavPlace' >
                                         <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
                                         <p class='whoCanShowItem'> ${place['description']}</p>
@@ -485,9 +594,9 @@ function displayMap(flag) {
                                     </div>
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </div>`
-                        } else if (e === neighborhoodUsers[i]['favoritePlaces'].length - 1) {
-                            placesDivs = placesDivs +
-                                `<div class='divPlaceContainer hiddenPlace'>
+                            } else if (e === neighborhoodUsers[i]['favoritePlaces'].length - 1) {
+                                placesDivs = placesDivs +
+                                    `<div class='divPlaceContainer hiddenPlace'>
                                     <i class="fas fa-arrow-circle-left"></i>  
                                     <div class='divOfFavPlace '>
                                         <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
@@ -497,9 +606,9 @@ function displayMap(flag) {
                                     </div>
                                 </div>`
 
-                        } else {
-                            placesDivs = placesDivs +
-                                `<div class='divPlaceContainer hiddenPlace'>
+                            } else {
+                                placesDivs = placesDivs +
+                                    `<div class='divPlaceContainer hiddenPlace'>
                                 <i class="fas fa-arrow-circle-left"></i>  
                                 <div class='divOfFavPlace '>
                                     <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
@@ -510,173 +619,124 @@ function displayMap(flag) {
                                 <i class="fas fa-arrow-circle-right"></i>
                             </div>`
 
-
-                        }
-
-                    }
-
-                    whoCanShow = whoCanShow + placesDivs;
-                    whoCanShowArray.push(whoCanShow);
-
-                }
-
-
-
-
-
-                for (var i = 0; i < whoCanShowArray.length; i++) {
-                    container_neighborhoodGuides.innerHTML = container_neighborhoodGuides.innerHTML + whoCanShowArray[i];
-                }
-
-
-
-                // add an event listener to the next div place arrow
-                const place_arrow_right = document.getElementsByClassName('fa-arrow-circle-right');
-                for (var i = 0; i < place_arrow_right.length; i++) {
-                    place_arrow_right[i].addEventListener('click', (e) => {
-
-                        let clickedArrow = e.target;
-                        let divPlaceContainers = clickedArrow.parentElement;
-
-                        let mainDiv = divPlaceContainers.parentElement;
-                        let mainDivdivPlaceContainer = mainDiv.getElementsByClassName('divPlaceContainer');
-
-                        for (var e = 0; e < mainDivdivPlaceContainer.length; e++) {
-
-                            if (mainDivdivPlaceContainer[e].className.indexOf('shownPlace') > -1) {
-
-                                // if (e != mainDivdivPlaceContainer.length - 1) {
-
-                                mainDivdivPlaceContainer[e].className = 'divPlaceContainer hiddenPlace';
-                                mainDivdivPlaceContainer[e + 1].className = 'divPlaceContainer shownPlace';
-
-                                break;
-
-                                // }
-                            }
-
-                        }
-                    })
-                }
-                // end of add an event listener to the next div place arrow
-
-
-
-
-                // add an event listener to the previous  div place arrow
-                const place_arrow_left = document.getElementsByClassName('fa-arrow-circle-left');
-                for (var i = 0; i < place_arrow_left.length; i++) {
-
-                    place_arrow_left[i].addEventListener('click', (e) => {
-
-                        let clickedArrow = e.target;
-                        let divPlaceContainers = clickedArrow.parentElement;
-
-                        let mainDiv = divPlaceContainers.parentElement;
-                        let mainDivdivPlaceContainer = mainDiv.getElementsByClassName('divPlaceContainer');
-
-                        for (var e = 0; e < mainDivdivPlaceContainer.length; e++) {
-
-                            if (mainDivdivPlaceContainer[e].className.indexOf('shownPlace') > -1) {
-
-                                // if (e != mainDivdivPlaceContainer.length - 1) {
-
-                                mainDivdivPlaceContainer[e].className = 'divPlaceContainer hiddenPlace';
-                                mainDivdivPlaceContainer[e - 1].className = 'divPlaceContainer shownPlace';
-
-                                break;
-
-                                // }
                             }
 
                         }
 
-                    })
-                }
-                // end of add an event listener to the previous  div place arrow
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                // Add an event listener to the profile button
-                // This event listener will query the database using the slug 
-                // to get the user profile page.
-
-                // var divmap = document.getElementById('map');
-                // setTimeout(() => {
-                //     const profileButton = document.getElementById('visitUserProfile');
-                //     const loadingUserProfileIllustration = document.getElementsByClassName('loadingUserProfileIllustration')[0];
-                //     const loadingUserProfileText = document.getElementById('loadingUserProfileText');
-                //     const divSvgNhoodText = document.getElementById('divSvgNhoodText');
-                //     const addHrefValueToButton = new Promise((resolve, reject) => {
-                //         profileButton.addEventListener('click', function (e) {
-                //             e.stopPropagation();
-                //             var linkToUserProfile = document.getElementById('linkToUserProfile');
-                //             linkToUserProfile.href = `/users/user-profile/${slug}`;
-                //             linkToUserProfile.click();
-                //             resolve('continue');
-                //         })
-                //     })
-                //     addHrefValueToButton.then((value) => {
-                //         divmap.style.display = 'none';
-                //         loadingUserProfileIllustration.style.display = 'inline';
-                //         loadingUserProfileText.style.display = 'inline';
-                //         loadingUserProfileText.innerHTML = `Loading ${userName}'s profile.`;
-                //         chageBuildingsWindowsColors();
-                //     })
-                // }, 100);
-
-                // ------ end of  Add an event listener to the profile button
-
-
-
-
-
-                // resize the photo of the place and add text 
-                // neighborhoodDescription.innerHTML = neighborhoodDescription.innerHTML + whoCanShowArray[0];
-
-
-
-
-                function resizePhotoOfPlace() {
-                    var placeImages = document.getElementsByClassName('placeImage');
-                    let maxWidth = 100;
-                    let maxHeight = 100;
-
-                    for (var i = 0; i < placeImages.length; i++) {
-                        let srcWidth = placeImages[i].width;
-                        let srcHeight = placeImages[i].height;
-
-                        let ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
-                        let newWidth = srcWidth * ratio;
-                        let newHeight = srcHeight * ratio;
-
-                        placeImages[i].style.widht = newWidth + 'px';
-                        placeImages[i].style.height = newHeight + 'px';
-                        placeImages[i].style.display = 'inline';
+                        whoCanShow = whoCanShow + placesDivs;
+                        whoCanShowArray.push(whoCanShow);
                     }
-                };
 
-                setTimeout(() => {
-                    resizePhotoOfPlace()
-                }, 100);
-                // ------ end of  resize the photo of the place and add text 
+                    for (var i = 0; i < whoCanShowArray.length; i++) {
+                        container_neighborhoodGuides.innerHTML = container_neighborhoodGuides.innerHTML + whoCanShowArray[i];
+                    }
+
+                    // add an event listener to the next div place arrow
+                    const place_arrow_right = document.getElementsByClassName('fa-arrow-circle-right');
+                    for (var i = 0; i < place_arrow_right.length; i++) {
+                        place_arrow_right[i].addEventListener('click', (e) => {
+
+                            let clickedArrow = e.target;
+                            let divPlaceContainers = clickedArrow.parentElement;
+
+                            let mainDiv = divPlaceContainers.parentElement;
+                            let mainDivdivPlaceContainer = mainDiv.getElementsByClassName('divPlaceContainer');
+
+                            for (var e = 0; e < mainDivdivPlaceContainer.length; e++) {
+
+                                if (mainDivdivPlaceContainer[e].className.indexOf('shownPlace') > -1) {
+
+                                    mainDivdivPlaceContainer[e].className = 'divPlaceContainer hiddenPlace';
+                                    mainDivdivPlaceContainer[e + 1].className = 'divPlaceContainer shownPlace';
+
+                                    break;
+
+                                }
+
+                            }
+                        })
+                    }
+                    // end of add an event listener to the next div place arrow
+
+
+                    // add an event listener to the previous  div place arrow
+                    const place_arrow_left = document.getElementsByClassName('fa-arrow-circle-left');
+                    for (var i = 0; i < place_arrow_left.length; i++) {
+
+                        place_arrow_left[i].addEventListener('click', (e) => {
+
+                            let clickedArrow = e.target;
+                            let divPlaceContainers = clickedArrow.parentElement;
+
+                            let mainDiv = divPlaceContainers.parentElement;
+                            let mainDivdivPlaceContainer = mainDiv.getElementsByClassName('divPlaceContainer');
+
+                            for (var e = 0; e < mainDivdivPlaceContainer.length; e++) {
+
+                                if (mainDivdivPlaceContainer[e].className.indexOf('shownPlace') > -1) {
+
+                                    // if (e != mainDivdivPlaceContainer.length - 1) {
+
+                                    mainDivdivPlaceContainer[e].className = 'divPlaceContainer hiddenPlace';
+                                    mainDivdivPlaceContainer[e - 1].className = 'divPlaceContainer shownPlace';
+
+                                    break;
+
+                                }
+                            }
+                        })
+                    }
+                    // end of add an event listener to the previous  div place arrow
+
+                    function resizePhotoOfPlace() {
+                        var placeImages = document.getElementsByClassName('placeImage');
+                        let maxWidth = 100;
+                        let maxHeight = 100;
+
+                        for (var i = 0; i < placeImages.length; i++) {
+                            let srcWidth = placeImages[i].width;
+                            let srcHeight = placeImages[i].height;
+
+                            let ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+                            let newWidth = srcWidth * ratio;
+                            let newHeight = srcHeight * ratio;
+
+                            placeImages[i].style.widht = newWidth + 'px';
+                            placeImages[i].style.height = newHeight + 'px';
+                            placeImages[i].style.display = 'inline';
+                        }
+                    };
+
+                    setTimeout(() => {
+                        resizePhotoOfPlace()
+                    }, 100);
+                    // ------ end of  resize the photo of the place and add tex
+
+                } else {
+
+                    loadingTourguidesFlag = false;
+
+                    const loadingProfilesHeader = document.getElementById('loadingProfilesHeader');
+                    loadingProfilesHeader.style.display = 'none';
+                    tourguidesHeader.innerHTML = 'No tour guides for this neighborhood';
+
+
+                    const svgLoadingProfiles = document.getElementById('svgLoadingProfiles');
+
+                    const loadingTourguides = document.getElementById('loadingTourguides')
+                    loadingTourguides.style.marginTop ='1%';
+                    for (var i = 0; i < svgLoadingProfiles.children.length; i++) {
+
+                        //console.log(svgLoadingProfiles.children[i])
+                        svgLoadingProfiles.children[i].style.opacity = '0.2';
+                    }
+
+         
+
+                }
+
 
             });
-
-
         })
     }
 };
@@ -752,6 +812,13 @@ function chageBuildingsWindowsColors() {
     }, 1000);
 
 }
+
+
+
+
+
+
+
 
 
 
