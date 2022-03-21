@@ -379,13 +379,7 @@ function displayMap(flag) {
 
             const loadingTourguides = document.getElementById('loadingTourguides');
             loadingTourguides.style.display = 'block';
-
             const backgroundRects = document.getElementsByClassName('backgroundRect');
-
-
-
-
-
 
             const sleep = (milliseconds) => {
                 return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -396,10 +390,7 @@ function displayMap(flag) {
             const changeColorOfTourGuidesIllustration = async () => {
                 for (var i = 0; i < backgroundRects.length; i++) {
 
-                    await sleep(100)
-
-                    console.log('hola')
-
+                    await sleep(100);
 
                     if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(255, 203, 121)') {
 
@@ -419,19 +410,11 @@ function displayMap(flag) {
 
                     }
 
-
-
-
                     if (loadingTourguides.style.display === 'block' && i === backgroundRects.length - 1 && loadingTourguidesFlag) {
-
                         i = 0
-
                     }
 
-
-
                 }
-
             }
 
             changeColorOfTourGuidesIllustration();
@@ -535,6 +518,10 @@ function displayMap(flag) {
                             <p class='whoCanShowItem'> "I have lived in ${neighborhood} ${lengthLivingInNeighborhood}. I would describe ${neighborhood} as ${neighborhoodDescription}."</p>
                             <p class='whoCanShowItem' id='whoCanShowItemLast'> These are some of ${userName}'s favorite places in ${neighborhood}: </p>
                             `
+
+
+
+
                         let imagesDiv = [];
                         for (var x = 0; x < neighborhoodUsers[i]['imageFormatted'].length; x++) {
 
@@ -543,20 +530,88 @@ function displayMap(flag) {
 
                             for (var q = 0; q < imagesFormattedInnerArray.length; q++) {
 
-                                imagesImgDom = imagesImgDom +
-                                    ` <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>`
+
+
+                                if (imagesFormattedInnerArray.length === 1) {// if there is only one image
+
+                                    imagesImgDom = imagesImgDom +
+                                        ` 
+                                    <div class ='imagesAndSvgsContainer visible_imagesAndSvgsContainer'>
+        
+                                        <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
+
+                                    </div> `
+
+                                } else if (q === 0) {// If we are in the first image, I want it to be visible, and the left arrow to have less opacity and not any functionality 
+
+
+                                    imagesImgDom = imagesImgDom +
+                                        ` 
+                                    <div class ='imagesAndSvgsContainer visible_imagesAndSvgsContainer'>
+         
+                                        <svg style='opacity:0.1' xmlns="http://www.w3.org/2000/svg"  width='15'  viewBox="0 0 73 131.58">
+                                            <path d="M870.57,479.23l-51.44-50.68a5.25,5.25,0,0,1-.24-7.21l47.64-53.69" transform="translate(-807.57 -357.65)"/>
+                                        </svg>
+                                    
+                                        <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
+
+                                        <svg class='_nextImageFavPlaceSvg' xmlns="http://www.w3.org/2000/svg" width='15' viewBox="0 0 72.33 130.17">
+                                            <path class="path_imgArr" d="M886.61,368l50.79,50a5.17,5.17,0,0,1,.24,7.12l-47,53" transform="translate(-876.61 -358)"/>
+                                        </svg>
+                                    </div> `
+
+                                } else if (q === imagesFormattedInnerArray.length - 1) { // If we are in the last image, it should not be visible and the right arrow should have less opacity and not funtionality 
+
+
+                                    imagesImgDom = imagesImgDom +
+                                        ` 
+                                    <div class ='imagesAndSvgsContainer nonVisible_imagesAndSvgsContainer'>
+
+                                        <svg  class='prevImageFavPlaceSvg'  xmlns="http://www.w3.org/2000/svg" width='15' viewBox="0 0 73 131.58">
+                                            <path class="path_prevImageArrow" d="M870.57,479.23l-51.44-50.68a5.25,5.25,0,0,1-.24-7.21l47.64-53.69" transform="translate(-807.57 -357.65)"/>
+                                        </svg>
+
+                                        <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
+
+                                        <svg style='opacity:0.1' width='15' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.33 130.17">
+                                            <path  d="M886.61,368l50.79,50a5.17,5.17,0,0,1,.24,7.12l-47,53" transform="translate(-876.61 -358)"/>
+                                        </svg>
+
+                                    </div> `
+                                } else { // if we are in any of the middle images, they should be unvisible and both arrows should have functionality 
+
+                                    imagesImgDom = imagesImgDom +
+                                        ` 
+                                    <div class ='imagesAndSvgsContainer nonVisible_imagesAndSvgsContainer'>
+
+                                        <svg class='prevImageFavPlaceSvg'  xmlns="http://www.w3.org/2000/svg" width='15'  viewBox="0 0 73 131.58">
+                                            <path class="path_prevImageArrow" d="M870.57,479.23l-51.44-50.68a5.25,5.25,0,0,1-.24-7.21l47.64-53.69" transform="translate(-807.57 -357.65)"/>
+                                        </svg>
+
+                                        <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
+
+                                        <svg  class='_nextImageFavPlaceSvg' xmlns="http://www.w3.org/2000/svg" width='15' viewBox="0 0 72.33 130.17">
+                                            <path class="path_imgArr" d="M886.61,368l50.79,50a5.17,5.17,0,0,1,.24,7.12l-47,53" transform="translate(-876.61 -358)"/>
+                                        </svg>      
+
+                                    </div> `
+
+                                }
+
                             }
 
                             let imagesDivDom = `<div class ='placeImagesDiv'> ${imagesImgDom} </div>`;
                             imagesDiv.push(imagesDivDom);
                         }
 
+
+
                         let placesDivs = '';
                         for (var e = 0; e < neighborhoodUsers[i]['favoritePlaces'].length; e++) {
 
                             let place = neighborhoodUsers[i]['favoritePlaces'][e];
 
-                            if (neighborhoodUsers[i]['favoritePlaces'].length === 1) {
+                            if (neighborhoodUsers[i]['favoritePlaces'].length === 1) {// if there is only one favorite place, then do not add prev and next arrows to the places
 
                                 placesDivs = placesDivs +
                                     `<div class = 'divPlaceContainer shownPlace'> 
@@ -567,7 +622,7 @@ function displayMap(flag) {
                                     ${imagesDiv[e]}
                                 </div>
                             </div>`
-                            } else if (e === 0) {
+                            } else if (e === 0) {// if its the first place then only add next arrow 
 
                                 placesDivs = placesDivs +
                                     `<div class = 'divPlaceContainer shownPlace'> 
@@ -579,7 +634,7 @@ function displayMap(flag) {
                                     </div>
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </div>`
-                            } else if (e === neighborhoodUsers[i]['favoritePlaces'].length - 1) {
+                            } else if (e === neighborhoodUsers[i]['favoritePlaces'].length - 1) {// if it is the last place then only add the previous arrow
                                 placesDivs = placesDivs +
                                     `<div class='divPlaceContainer hiddenPlace'>
                                     <i class="fas fa-arrow-circle-left"></i>  
@@ -591,7 +646,7 @@ function displayMap(flag) {
                                     </div>
                                 </div>`
 
-                            } else {
+                            } else {// if it is not the first nor the last place and there is more than one place, then add both arrows
                                 placesDivs = placesDivs +
                                     `<div class='divPlaceContainer hiddenPlace'>
                                 <i class="fas fa-arrow-circle-left"></i>  
@@ -673,6 +728,76 @@ function displayMap(flag) {
                         })
                     }
                     // end of add an event listener to the previous  div place arrow
+
+
+
+
+
+
+
+                    // add an event listener to the next image arrow 
+                    const nextImageFavPlacePaths = document.getElementsByClassName('path_imgArr');
+                    for (var i = 0; i < nextImageFavPlacePaths.length; i++) {
+
+                        nextImageFavPlacePaths[i].addEventListener('click', (e) => {
+
+                            let clickedArrow = e.target;
+                            let svg = clickedArrow.parentElement
+                            let div = svg.parentElement
+                            let placeImagesDiv = div.parentElement;
+
+                            for (var e = 0; e < placeImagesDiv.children.length; e++) {
+
+                                if (placeImagesDiv.children[e].className.indexOf('visible_imagesAndSvgsContainer') > -1) {
+
+                                    placeImagesDiv.children[e].className = 'imagesAndSvgsContainer nonVisible_imagesAndSvgsContainer';
+                                    placeImagesDiv.children[e + 1].className = 'imagesAndSvgsContainer visible_imagesAndSvgsContainer';
+                                    break;
+
+                                }
+                            }
+
+
+                        })
+                    }
+                    // end of add an event listener to the next image arrow 
+
+
+
+                    // add an event listener to the prev image arrow 
+                    const path_prevImageArrow = document.getElementsByClassName('path_prevImageArrow');
+                    for (var i = 0; i < path_prevImageArrow.length; i++) {
+
+
+                        path_prevImageArrow[i].addEventListener('click', (e) => {
+
+
+                            let clickedArrow = e.target;
+                            let svg = clickedArrow.parentElement
+                            let div = svg.parentElement
+                            let placeImagesDiv = div.parentElement;
+
+
+                            for (var e = 0; e < placeImagesDiv.children.length; e++) {
+
+                                if (placeImagesDiv.children[e].className.indexOf('visible_imagesAndSvgsContainer') > -1) {
+
+                                    placeImagesDiv.children[e].className = 'imagesAndSvgsContainer nonVisible_imagesAndSvgsContainer';
+                                    placeImagesDiv.children[e - 1].className = 'imagesAndSvgsContainer visible_imagesAndSvgsContainer';
+                                    break;
+
+                                }
+                            }
+
+                        })
+                    }
+
+
+
+                    // end of add an event listener to the prev image arrow 
+
+
+
 
 
 

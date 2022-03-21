@@ -599,11 +599,32 @@ nav{
 }
 
 .whoCanShowItem{
-  margin-left:5%;
+  /* margin-left:5%; */
   font-family: 'Poppins', sans-serif;
   font-size: 75%;
   padding:2px;
 }
+
+/* 
+.path_imgArr{
+    fill:none;
+    stroke:#000;
+    stroke-linecap:round;
+    stroke-miterlimit:10;
+    stroke-width:20px;
+    z-index: 10;
+}  */
+
+/* .prevImageArrow{
+  fill:none;
+  stroke:#000;
+  stroke-linecap:round;
+  stroke-miterlimit:10;
+  stroke-width:20px;
+} */
+
+
+
 
 #whoCanShowItemLast{
   margin-bottom:12px;
@@ -623,6 +644,25 @@ nav{
   border-radius: 25px;
   box-shadow: 0 0 0.7rem rgb(0 0 0 / 30%) inset;
 }
+
+
+._nextImageFavPlaceSvg{
+  cursor: pointer;
+}
+
+.prevImageFavPlaceSvg{
+  cursor: pointer;
+}
+
+.visible_imagesAndSvgsContainer{
+  display:flex;
+  margin:5px 10px;
+}
+
+.nonVisible_imagesAndSvgsContainer{
+  display:none;
+}
+
 
 .placeImage{
   display:none;
