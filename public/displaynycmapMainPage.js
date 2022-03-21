@@ -515,7 +515,7 @@ function displayMap(flag) {
                         whoCanShow =
                             `<div class='whoCanShow'>
                             <p class='whoCanShowItem'> <b>Name:</b> ${userName} </p>
-                            <p class='whoCanShowItem'> "I have lived in ${neighborhood} ${lengthLivingInNeighborhood}. I would describe ${neighborhood} as ${neighborhoodDescription}."</p>
+                            <p class='whoCanShowItem plc_description'> "I have lived in ${neighborhood} ${lengthLivingInNeighborhood}. I would describe ${neighborhood} as ${neighborhoodDescription}."</p>
                             <p class='whoCanShowItem' id='whoCanShowItemLast'> These are some of ${userName}'s favorite places in ${neighborhood}: </p>
                             `
 
@@ -538,7 +538,7 @@ function displayMap(flag) {
                                         ` 
                                     <div class ='imagesAndSvgsContainer visible_imagesAndSvgsContainer'>
         
-                                        <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
+                                        <img class='placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
 
                                     </div> `
 
@@ -553,7 +553,7 @@ function displayMap(flag) {
                                             <path d="M870.57,479.23l-51.44-50.68a5.25,5.25,0,0,1-.24-7.21l47.64-53.69" transform="translate(-807.57 -357.65)"/>
                                         </svg>
                                     
-                                        <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
+                                        <img class='placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
 
                                         <svg class='_nextImageFavPlaceSvg' xmlns="http://www.w3.org/2000/svg" width='15' viewBox="0 0 72.33 130.17">
                                             <path class="path_imgArr" d="M886.61,368l50.79,50a5.17,5.17,0,0,1,.24,7.12l-47,53" transform="translate(-876.61 -358)"/>
@@ -571,7 +571,7 @@ function displayMap(flag) {
                                             <path class="path_prevImageArrow" d="M870.57,479.23l-51.44-50.68a5.25,5.25,0,0,1-.24-7.21l47.64-53.69" transform="translate(-807.57 -357.65)"/>
                                         </svg>
 
-                                        <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
+                                        <img class='placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
 
                                         <svg style='opacity:0.1' width='15' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.33 130.17">
                                             <path  d="M886.61,368l50.79,50a5.17,5.17,0,0,1,.24,7.12l-47,53" transform="translate(-876.61 -358)"/>
@@ -588,7 +588,7 @@ function displayMap(flag) {
                                             <path class="path_prevImageArrow" d="M870.57,479.23l-51.44-50.68a5.25,5.25,0,0,1-.24-7.21l47.64-53.69" transform="translate(-807.57 -357.65)"/>
                                         </svg>
 
-                                        <img class='whoCanShowItem placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
+                                        <img class='placeImage'  src=data:image/png;base64,${imagesFormattedInnerArray[q]}>
 
                                         <svg  class='_nextImageFavPlaceSvg' xmlns="http://www.w3.org/2000/svg" width='15' viewBox="0 0 72.33 130.17">
                                             <path class="path_imgArr" d="M886.61,368l50.79,50a5.17,5.17,0,0,1,.24,7.12l-47,53" transform="translate(-876.61 -358)"/>
@@ -614,50 +614,55 @@ function displayMap(flag) {
                             if (neighborhoodUsers[i]['favoritePlaces'].length === 1) {// if there is only one favorite place, then do not add prev and next arrows to the places
 
                                 placesDivs = placesDivs +
-                                    `<div class = 'divPlaceContainer shownPlace'> 
-                                <div class='divOfFavPlace' >
-                                    <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
-                                    <p class='whoCanShowItem'> ${place['description']}</p>
-                                    <p class ='whoCanShowItem'><b>Images of place:</b></p>
-                                    ${imagesDiv[e]}
-                                </div>
-                            </div>`
-                            } else if (e === 0) {// if its the first place then only add next arrow 
+                                `<div class = 'divPlaceContainer shownPlace'> 
+                                    <i style='opacity:0.1' class="fas fa-arrow-circle-left"></i> 
+                                    <div class='divOfFavPlace' >
+                                        <p class='place_p'><b>Place: </b>${place['place']} </p>
+                                        <p class='place_p'> ${place['description']}</p>
+                                        <p class ='place_p'><b>Images of place:</b></p>
+                                        ${imagesDiv[e]}
+                                    </div>
+                                    <i style ='opacity:0.1' class="fas fa-arrow-circle-right"></i>
+                                </div>`
+                            } else if (e === 0) {// first place
 
                                 placesDivs = placesDivs +
-                                    `<div class = 'divPlaceContainer shownPlace'> 
+                                `<div class = 'divPlaceContainer shownPlace'>
+                                    <i style='opacity:0.1' class="fas fa-arrow-circle-left"></i>  
                                     <div class='divOfFavPlace' >
-                                        <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
-                                        <p class='whoCanShowItem'> ${place['description']}</p>
-                                        <p class ='whoCanShowItem'><b>Images of place:</b></p>
+                                        <p class='place_p'><b>Place: </b>${place['place']} </p>
+                                        <p class='place_p'> ${place['description']}</p>
+                                        <p class ='place_p'><b>Images of place:</b></p>
                                         ${imagesDiv[e]}
                                     </div>
-                                    <i class="fas fa-arrow-circle-right"></i>
+                                    <i class="fas fa-arrow-circle-right rightArowNextPlace"></i>
                                 </div>`
-                            } else if (e === neighborhoodUsers[i]['favoritePlaces'].length - 1) {// if it is the last place then only add the previous arrow
+                            } else if (e === neighborhoodUsers[i]['favoritePlaces'].length - 1) {//if it is the last place 
                                 placesDivs = placesDivs +
                                     `<div class='divPlaceContainer hiddenPlace'>
-                                    <i class="fas fa-arrow-circle-left"></i>  
+                                    <i class="fas fa-arrow-circle-left leftArowNextPlace"></i>  
                                     <div class='divOfFavPlace '>
-                                        <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
-                                        <p class='whoCanShowItem'> ${place['description']}</p>
-                                        <p class ='whoCanShowItem'><b>Images of place:</b></p>
+                                        <p class='place_p'><b>Place: </b>${place['place']} </p>
+                                        <p class='place_p'> ${place['description']}</p>
+                                        <p class ='place_p'><b>Images of place:</b></p>
                                         ${imagesDiv[e]}
                                     </div>
+
+                                    <i style ='opacity:0.1' class="fas fa-arrow-circle-right"></i>
                                 </div>`
 
                             } else {// if it is not the first nor the last place and there is more than one place, then add both arrows
                                 placesDivs = placesDivs +
-                                    `<div class='divPlaceContainer hiddenPlace'>
-                                <i class="fas fa-arrow-circle-left"></i>  
-                                <div class='divOfFavPlace '>
-                                    <p class='whoCanShowItem'><b>Place: </b>${place['place']} </p>
-                                    <p class='whoCanShowItem'> ${place['description']}</p>
-                                    <p class ='whoCanShowItem'><b>Images of place:</b></p>
-                                    ${imagesDiv[e]}
-                                </div>
-                                <i class="fas fa-arrow-circle-right"></i>
-                            </div>`
+                                `<div class='divPlaceContainer hiddenPlace'>
+                                    <i class="fas fa-arrow-circle-left leftArowNextPlace"></i>  
+                                    <div class='divOfFavPlace '>
+                                        <p class='place_p'><b>Place: </b>${place['place']} </p>
+                                        <p class='place_p'> ${place['description']}</p>
+                                        <p class ='place_p '><b>Images of place:</b></p>
+                                        ${imagesDiv[e]}
+                                    </div>
+                                    <i class="fas fa-arrow-circle-right rightArowNextPlace"></i>
+                                </div>`
 
                             }
 
@@ -673,7 +678,7 @@ function displayMap(flag) {
 
 
                     // add an event listener to the next div place arrow
-                    const place_arrow_right = document.getElementsByClassName('fa-arrow-circle-right');
+                    const place_arrow_right = document.getElementsByClassName('rightArowNextPlace');
                     for (var i = 0; i < place_arrow_right.length; i++) {
                         place_arrow_right[i].addEventListener('click', (e) => {
 
@@ -701,7 +706,7 @@ function displayMap(flag) {
 
 
                     // add an event listener to the previous  div place arrow
-                    const place_arrow_left = document.getElementsByClassName('fa-arrow-circle-left');
+                    const place_arrow_left = document.getElementsByClassName('leftArowNextPlace');
                     for (var i = 0; i < place_arrow_left.length; i++) {
 
                         place_arrow_left[i].addEventListener('click', (e) => {
