@@ -84,6 +84,9 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
     // ----------------------------------------------------------------------------------------------- USER
 
+
+
+    // Create stream for images of places 
     const createStream = (filename) => {
 
         return new Promise((resolve, reject) => {
@@ -97,53 +100,76 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
             readstream.on('end', function () {
                 let concatFile = Buffer.concat(fileChunks);
                 let imageFormated = Buffer(concatFile).toString("base64");
-                // console.log(imageFormated);
+
                 resolve(imageFormated)
             });
         })
+
     }
-
-
 
     const iterateImages = async (currentPlaceImages) => {// this function is going to be called the total amounf of favorite places for all users
 
         let imagesFormattedArray = [];
-
         for (var i = 0; i < currentPlaceImages.length; i++) {
-
             let filename = currentPlaceImages[i].filename;
-
-            // console.log(filename);
-
             let imageFormated = await createStream(filename);
-            // console.log(imageFormated);
+
             imagesFormattedArray.push(imageFormated)
             if (i === currentPlaceImages.length - 1) {
                 return imagesFormattedArray
             }
-
         }
-
     }
 
-
     const getImagesOfPlace = async (favPlaces) => {// this function is going to be called for as many users there are.
-
         let imagesStreamArray = [];
 
         for (var w = 0; w < favPlaces.length; w++) {// we are going to iterate through all the favorite places of each user.
-
             let currentPlaceImages = favPlaces[w]['placeImage'];
             let imagesStream = await iterateImages(currentPlaceImages);
             imagesStreamArray.push(imagesStream);
-
             if (w === favPlaces.length - 1) {
-
                 return imagesStreamArray;
             }
-
         };
     }
+    // end of create stream for images of places 
+
+
+
+
+
+    // Stream for profile image
+
+    const profileImgStream = async (profileImgFileName) => {
+
+
+        return new Promise((resolve, reject) => {
+            let readstream = gfs.createReadStream(profileImgFileName);
+            let fileChunks = [];
+
+            readstream.on('data', function (chunk) {
+                fileChunks.push(chunk);
+            });
+
+            readstream.on('end', function () {
+                let concatFile = Buffer.concat(fileChunks);
+                let imageFormated = Buffer(concatFile).toString("base64");
+
+                resolve(imageFormated)
+            });
+        })
+
+
+    }
+
+
+
+
+    // end of stream for profile image
+
+
+
 
 
 
@@ -155,11 +181,11 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
         let arrayOfFormattedImages = [];
 
         for (var i = 0; i < users.length; i++) {
+
             let userObj = {}
             userObj['neighborhoodSatisfaction'] = users[i]['neighborhoodSatisfaction'];
             userObj['neighborhoodFactorDescription'] = users[i]['neighborhoodFactorDescription'];
             userObj['name'] = users[i]['name'];
-            userObj['profileImage'] = users[i]['profileImage'];
             userObj['favoritePlaces'] = users[i]['favoritePlaces'];
             userObj['borough'] = users[i]['borough'];
             userObj['lengthLivingInNeighborhood'] = users[i]['lengthLivingInNeighborhood'];
@@ -169,7 +195,21 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
             let favPlaces = users[i]['favoritePlaces'];
             let stream = await getImagesOfPlace(favPlaces);
 
+
+            let profileImage = users[i]['profileImage'];
+
+            let proFileImgStream = '';
+            if (profileImage) {
+                proFileImgStream = await profileImgStream(profileImage.filename)
+            }
+
+
+
+
+
             userObj['imageFormatted'] = stream;
+            userObj['profileImg'] = proFileImgStream;
+
             arrayOfUsers.push(userObj);
 
         }
@@ -179,46 +219,10 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
     await getImages();
 
 
-
-    // for (var i = 0; i < arrayOfUsers.length; i++) {
-    //     for (var e = 0; e < arrayOfUsers[i].imageFormatted.length; e++) {
-    //         console.log(arrayOfUsers[i].imageFormatted[e].length)
-    //     }
-    //     console.log('===========================')
-    // }
-
-
-
-
     res.status(201).json({
         success: true,
         data: arrayOfUsers
     })
-
-
-
-    //responseObject['favoritePlaces'] = favPlacesArray;
-    //responseArray.push(responseObject);
-    // }
-    /* 
-    let favPlacesArray = [];
-    let favPlacesObject = {};
-    for (var u = 0; u < user[i][0]['favoritePlaces'].length; u++) {
-        let favPlace = user[i][0]['favoritePlaces'][u];
-        favPlacesObject['placeDescrption'] = favPlace;
-        let imagesArray = [];
- 
-        for (var t = 0; t < favPlace['placeImage'].length; t++) {
-            //console.log(favPlace['placeImage'][t]);
-            let imageBuffer = favPlace['placeImage'][t]['data']; //<<<<<<<<<
-            imagesArray.push(Buffer.from(imageBuffer, "base64").toString('base64'))
-        }
-        //let imageBuffer = favPlace['placeImage'][0]['data'];
-        favPlacesObject['placeImageBuffer'] = imagesArray;
-        //Buffer.from(imageBuffer, "base64").toString('base64')
-        favPlacesArray.push(favPlacesObject);
-    }
-    */
 
 
 });
@@ -254,7 +258,7 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
             readstream.on('end', function () {
                 let concatFile = Buffer.concat(fileChunks);
                 imageFormated = Buffer(concatFile).toString("base64");
-                profileImgFormatted.push("data:image/png;base64,"+imageFormated);
+                profileImgFormatted.push("data:image/png;base64," + imageFormated);
             });
         }
         createStream();
@@ -272,8 +276,8 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
     setTimeout(() => {
 
-        if (profileImgFormatted.length === 0){
-            profileImgFormatted.push("https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/2feca4c9330929232091f910dbff7f87.jpg") 
+        if (profileImgFormatted.length === 0) {
+            profileImgFormatted.push("https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/2feca4c9330929232091f910dbff7f87.jpg")
         }
 
         // here, instead of rendering the questionnaire, render the main page with the user logged in. 
