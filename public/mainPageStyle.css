@@ -577,7 +577,7 @@ nav{
 
 
 #container_neighborhoodGuides{
-  background-color: rgb(236, 248, 255);
+  /* background-color: rgb(236, 248, 255); */
   display:flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -593,8 +593,9 @@ nav{
   justify-content:center;
   position: relative;
   padding: 10px;
-  background: rgb(198, 226, 243);
-  box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
+  background: white;
+  /* box-shadow: 0 0 0.7rem rgb(0,0,0,0.3); */
+  border: rgb(185, 185, 185) solid 0.2px;
   margin:15px 20px;
   width:30%;
   height:400px;
@@ -602,11 +603,9 @@ nav{
 
 .profileImgNameContainer{
   display:flex;
-  width:90%;
   position: relative;
-  left:50%;
-  transform: translate(-50%, 0);
   align-items: center;
+  justify-content: center;
   margin-bottom:10px;
 }
 
@@ -649,7 +648,7 @@ nav{
   font-family: 'Poppins', sans-serif;
   font-size: 75%;
   padding:2px;
-  width:100%;
+  /* width:100%; */
 }
 
 .plc_description{
@@ -661,7 +660,8 @@ nav{
   left: 50%;
   transform:translate(-50%, 0);
   border: solid 0.3px rgb(110, 110, 110);
-  padding:5px;
+  border-radius: 5px;
+  padding:9px;
   background-color: white;
 }
 
@@ -713,11 +713,12 @@ nav{
   display:flex;
   justify-content: center;
   flex-direction: column;
-  background-color: rgb(241, 250, 250);
+  /* background-color: rgb(241, 250, 250); */
   padding: 2% 0;
   border: solid 0.3px rgb(175, 175, 175);
   height:180px;
   width:80%;
+  border-radius: 20px;
 }
 
 .placeImagesDiv{
