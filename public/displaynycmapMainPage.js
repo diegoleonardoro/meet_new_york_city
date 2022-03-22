@@ -26,7 +26,6 @@ for (var i = 0; i < neighborhoodButtons.length; i++) {
             displayMap(value)
         })
 
-
     });
 }
 
@@ -118,7 +117,199 @@ function displayMap(flag) {
             nyc.exit().remove();
 
 
+
+
+
+
+
+
+
+            //==================================================================//
+            //==================================================================//
+            //======= BLOCK THAT WILL DISPLAY INITIAL NEIGHBORHOOD ON THE MAP =========//
+            //==================================================================//
+            //==================================================================//
+
+            let map_ = document.getElementsByClassName('boundary')[0];
+            const initialNeighborhood = 'Marble Hill';
+            const borough = 'Manhattan';
+            const latitude = -73.91065;
+            const longitude = 40.876550;
+
+            let divLeftStyle = projection([latitude, longitude])[0];
+            let divTopStyle = projection([latitude, longitude])[1];
+
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+            circle.setAttribute("cx", divLeftStyle);
+            circle.setAttribute("cy", divTopStyle);
+            circle.setAttribute("r", '10');
+            circle.setAttribute("fill", '#ffe577');
+            circle.setAttribute("class", 'selectedNeighborhood');
+            circle.setAttribute("id", 'selectedNeighborhood');
+            map_.appendChild(circle);
+
+
+            // display path that connects the circle to the neighborhood explanation box
+            var documentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            let pathLineFlag = 'hola'
+
+            let xValuePathLine;
+
+            if (documentWidth > 1905) {
+
+                xValuePathLine = 700;
+
+            } else if (documentWidth > 1316) {
+
+                xValuePathLine = 600;
+
+            } else if (documentWidth > 1034) {
+
+                xValuePathLine = 500;
+
+            } else if (documentWidth > 740) {
+
+                xValuePathLine = 400;
+
+            } else {
+
+                pathLineFlag = 'jiji'
+            }
+
+            let xValuePathLine_1 = xValuePathLine + 15;
+            let yCaluePathLine_1 = xValuePathLine - 15;
+
+            let pathToNhoodDescription = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+
+            if (pathLineFlag === 'hola') {
+
+                pathToNhoodDescription.setAttribute(
+                    "d", "M " + " " + divLeftStyle
+                    + " " + divTopStyle + " L" + " "
+                    + xValuePathLine + " " + divTopStyle
+                    + " L" + " " + xValuePathLine + " "
+                    + 480 + " L" + " " + xValuePathLine_1
+                    + " " + 480 + " L" + " " + xValuePathLine
+                    + " " + 520 + " L" + " " + yCaluePathLine_1
+                    + " " + 480 + " L" + " " + xValuePathLine
+                    + " " + 480);
+
+            } else {
+
+                let y_1,
+                    y_2,
+                    x_1,
+                    x_2
+
+                if (borough === "Bronx") {
+
+                    y_1 = divTopStyle + 700;
+
+                    y_2 = divTopStyle + 760;
+
+                    x_1 = divLeftStyle + 41;
+
+                    x_2 = divLeftStyle - 41;
+
+                } else {
+
+                    y_1 = divTopStyle + 600;
+
+                    y_2 = divTopStyle + 660;
+
+                    x_1 = divLeftStyle + 41;
+
+                    x_2 = divLeftStyle - 41;
+
+                }
+
+                pathToNhoodDescription.setAttribute(
+                    "d", "M " + " " + divLeftStyle + " " + divTopStyle
+                    + " L" + " " + divLeftStyle + " " + y_1
+                    + " L" + " " + x_1 + " " + y_1
+                    + " L" + " " + divLeftStyle + " " + y_2
+                    + " L" + " " + x_2 + " " + y_1
+                    + " L" + " " + divLeftStyle + " " + y_1);
+            }
+
+            pathToNhoodDescription.style.stroke = "#000";
+            pathToNhoodDescription.style.strokeWidth = "1px";
+            pathToNhoodDescription.style.fill = "none";
+            map_.appendChild(pathToNhoodDescription);
+            // end of display path that connects the circle to the neighborhood explanation box
+
+
+
+
+            const neighborhoodDescription = document.getElementById('neighborhoodDescription');
+            const p1 = document.createElement('p')
+            p1.innerHTML = initialNeighborhood;
+            p1.setAttribute('class', 'neighborhoodHeaderMain');
+            neighborhoodDescription.appendChild(p1);
+
+
+            d3.json('nhoodCoords.json', function (error, data) {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i]['Name'] === initialNeighborhood) {
+                        var p2 = document.createElement('p')
+                        p2.innerHTML = data[i]['Description'];
+                        p2.setAttribute('class', 'neighborhoodHeader');
+                        neighborhoodDescription.appendChild(p2);
+                     
+                    }
+                }
+            })
+
+
+           //==================================================================//
+            //==================================================================//
+            //======= END OF BLOCK THAT WILL DISPLAY INITIAL NEIGHBORHOOD ON THE MAP =========//
+            //==================================================================//
+            //==================================================================//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -161,6 +352,8 @@ function displayMap(flag) {
             var districts = topojson.feature(data, data.objects.districts);
             //-----------------------------------------------------------------------------//
 
+
+
             // query the database to see all the people from that neighborhood:
             const xhr = new XMLHttpRequest();
 
@@ -176,12 +369,9 @@ function displayMap(flag) {
             // create and send the reqeust
             xhr.open('GET', `/users/neighborhood/${neighborhood}`);
             xhr.send();
-
-
-
-
-
             //---------------------------------------------------------------//
+
+
 
             var b, s, t;
             projection.scale(1).translate([0, 0]);
@@ -193,19 +383,20 @@ function displayMap(flag) {
             let divLeftStyle = projection([latitude, longitude])[0];
             let divTopStyle = projection([latitude, longitude])[1];
 
-
             let map_ = document.getElementsByClassName('boundary')[0];
             let neighborhoodDescription = document.getElementById('neighborhoodDescription');
 
 
-            //remove previous circle 
+            
+
+            // remove previous circle and svg path that conned to the neighborhood description
             if (map_.children.length > 71) {
                 let line = map_.children[map_.children.length - 1];
                 let circle = map_.children[map_.children.length - 2];
                 map_.removeChild(line);
                 map_.removeChild(circle);
             };
-            //end of remove previous circle 
+            // end of remove previous circle and svg path that conned to the neighborhood description
 
 
 
@@ -224,9 +415,10 @@ function displayMap(flag) {
 
 
 
+
+            // display path that connects the circle to the neighborhood explanation box
+
             var documentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-
 
             let pathLineFlag = 'hola'
 
@@ -253,18 +445,23 @@ function displayMap(flag) {
                 pathLineFlag = 'jiji'
             }
 
-
             let xValuePathLine_1 = xValuePathLine + 15;
             let yCaluePathLine_1 = xValuePathLine - 15;
 
-
-
-            // display path that connects the circle to the neighborhood explanation box
             let pathToNhoodDescription = document.createElementNS("http://www.w3.org/2000/svg", 'path');
 
             if (pathLineFlag === 'hola') {
 
-                pathToNhoodDescription.setAttribute("d", "M " + " " + divLeftStyle + " " + divTopStyle + " L" + " " + xValuePathLine + " " + divTopStyle + " L" + " " + xValuePathLine + " " + 480 + " L" + " " + xValuePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 520 + " L" + " " + yCaluePathLine_1 + " " + 480 + " L" + " " + xValuePathLine + " " + 480);
+                pathToNhoodDescription.setAttribute(
+                    "d", "M " + " " + divLeftStyle
+                    + " " + divTopStyle + " L" + " "
+                    + xValuePathLine + " " + divTopStyle
+                    + " L" + " " + xValuePathLine + " "
+                    + 480 + " L" + " " + xValuePathLine_1
+                    + " " + 480 + " L" + " " + xValuePathLine
+                    + " " + 520 + " L" + " " + yCaluePathLine_1
+                    + " " + 480 + " L" + " " + xValuePathLine
+                    + " " + 480);
 
             } else {
 
@@ -272,7 +469,6 @@ function displayMap(flag) {
                     y_2,
                     x_1,
                     x_2
-
 
                 if (borough === "Bronx") {
 
@@ -296,8 +492,6 @@ function displayMap(flag) {
 
                 }
 
-
-
                 pathToNhoodDescription.setAttribute(
                     "d", "M " + " " + divLeftStyle + " " + divTopStyle
                     + " L" + " " + divLeftStyle + " " + y_1
@@ -306,7 +500,6 @@ function displayMap(flag) {
                     + " L" + " " + x_2 + " " + y_1
                     + " L" + " " + divLeftStyle + " " + y_1);
             }
-
 
             pathToNhoodDescription.style.stroke = "#000";
             pathToNhoodDescription.style.strokeWidth = "1px";
@@ -334,6 +527,9 @@ function displayMap(flag) {
             neighborhoodDescription.appendChild(p1);
 
 
+
+
+
             // Get neighborhood description data:
             const getNhoodDescrption = new Promise((resolve, reject) => {
                 d3.json('nhoodCoords.json', function (error, data) {
@@ -341,7 +537,6 @@ function displayMap(flag) {
                         if (data[i]['Name'] === neighborhood) {
                             var p2 = document.createElement('p')
                             p2.innerHTML = data[i]['Description'];
-                            // p2.style.marginLeft = '5%';
                             p2.setAttribute('class', 'neighborhoodHeader');
                             neighborhoodDescription.appendChild(p2);
                             resolve('continue')
@@ -349,8 +544,6 @@ function displayMap(flag) {
                     }
                 })
             })
-
-
 
 
 
