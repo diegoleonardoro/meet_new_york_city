@@ -1,6 +1,6 @@
 # Meet NYC
 
-> Platform for meeting people in NYC 
+> Platform to explore NYC 
 
 ## Usage
 
