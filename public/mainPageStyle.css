@@ -616,7 +616,11 @@ nav{
   margin-right: 10px;
   cursor: pointer;
 }
-
+#path_visitProfileSvg{
+  fill: grey;
+  stroke-width: 3;
+  /* stroke:red; */
+}
 
 .profilePicIntro{
   /* margin-bottom:10px; */
