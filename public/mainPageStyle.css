@@ -414,7 +414,7 @@ nav{
 /* select neighborhoods sections  */
   #nhoodsMapSvgWrapper{
     width:90%;
-    height:50%;
+    height:100%;
     position: relative;
 
     margin:0 auto;
@@ -595,8 +595,8 @@ nav{
   padding: 10px;
   background: rgb(198, 226, 243);
   box-shadow: 0 0 0.7rem rgb(0,0,0,0.3);
-  margin:15px;
-  width:40%;
+  margin:15px 20px;
+  width:30%;
   height:400px;
 }
 
@@ -706,21 +706,18 @@ nav{
 
 .divPlaceContainer{
   align-self: center;
+  width: 90%;
 }
 
 .divOfFavPlace{
   display:flex;
-  /* align-items: center; */
   justify-content: center;
   flex-direction: column;
   background-color: rgb(241, 250, 250);
   padding: 2% 0;
-  /* border-radius: 25px; */
   border: solid 0.3px rgb(175, 175, 175);
-
-
   height:180px;
-  width:380px;
+  width:80%;
 }
 
 .placeImagesDiv{
@@ -1271,7 +1268,7 @@ nav{
 @media (max-height: 980px){
 
   #nhoodsMapSvgWrapper{
-    height:130%;
+    height:60%;
   }
 
 }
@@ -1279,9 +1276,9 @@ nav{
 
 @media (max-height: 619px){
 
-  #nhoodsMapSvgWrapper{
-    height:120%;
-  }
+  /* #nhoodsMapSvgWrapper{
+    height:100%;
+  } */
 
 }
 
