@@ -254,8 +254,8 @@ function displayMap(flag) {
             }
 
 
-            let xValuePathLine_1 = xValuePathLine + 30;
-            let yCaluePathLine_1 = xValuePathLine - 30;
+            let xValuePathLine_1 = xValuePathLine + 15;
+            let yCaluePathLine_1 = xValuePathLine - 15;
 
 
 
