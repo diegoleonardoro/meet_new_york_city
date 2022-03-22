@@ -124,6 +124,18 @@ function displayMap(flag) {
 
     } else {// we will enter this else statement if the user clicks any of the neighborhoods. 
 
+
+
+
+        // scroll to the explore neighborhood section 
+        const exploreNeighborhoodsSection = document.getElementById('exploreNeighborhoodsSection');
+        const scrollBy_y = exploreNeighborhoodsSection.getBoundingClientRect().y;
+        window.scrollBy(0, scrollBy_y);
+        // end of scroll to the explore neighborhood section 
+
+
+
+
         let coordinates = flag['the_geom'];
         let neighborhood = flag['Name'];
         let borough = flag['Borough'];
@@ -491,7 +503,7 @@ function displayMap(flag) {
 
             getResponseData.then(resValue => {
 
-                
+
 
                 var container_neighborhoodGuides = document.getElementById('container_neighborhoodGuides');
 
@@ -516,14 +528,14 @@ function displayMap(flag) {
 
                         let imgSrc
 
-                        if(neighborhoodUsers[i]['profileImg']!=''){
+                        if (neighborhoodUsers[i]['profileImg'] != '') {
                             imgSrc = `data:image/png;base64,${neighborhoodUsers[i]['profileImg']}`
-                        }else{
+                        } else {
                             imgSrc = 'https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/2feca4c9330929232091f910dbff7f87.jpg'
                         }
 
                         whoCanShow =
-                        `<div class='whoCanShow'>
+                            `<div class='whoCanShow'>
 
                             <div class='profileImgNameContainer'>
 
@@ -640,7 +652,7 @@ function displayMap(flag) {
                             if (neighborhoodUsers[i]['favoritePlaces'].length === 1) {// if there is only one favorite place, then do not add prev and next arrows to the places
 
                                 placesDivs = placesDivs +
-                                `<div class = 'divPlaceContainer shownPlace'> 
+                                    `<div class = 'divPlaceContainer shownPlace'> 
                                     <i style='opacity:0.1' class="fas fa-arrow-circle-left"></i> 
                                     <div class='divOfFavPlace' >
                                         <p class='place_p'><b>Place: </b>${place['place']} </p>
@@ -653,7 +665,7 @@ function displayMap(flag) {
                             } else if (e === 0) {// first place
 
                                 placesDivs = placesDivs +
-                                `<div class = 'divPlaceContainer shownPlace'>
+                                    `<div class = 'divPlaceContainer shownPlace'>
                                     <i style='opacity:0.1' class="fas fa-arrow-circle-left"></i>  
                                     <div class='divOfFavPlace' >
                                         <p class='place_p'><b>Place: </b>${place['place']} </p>
@@ -679,7 +691,7 @@ function displayMap(flag) {
 
                             } else {// if it is not the first nor the last place and there is more than one place, then add both arrows
                                 placesDivs = placesDivs +
-                                `<div class='divPlaceContainer hiddenPlace'>
+                                    `<div class='divPlaceContainer hiddenPlace'>
                                     <i class="fas fa-arrow-circle-left leftArowNextPlace"></i>  
                                     <div class='divOfFavPlace '>
                                         <p class='place_p'><b>Place: </b>${place['place']} </p>
