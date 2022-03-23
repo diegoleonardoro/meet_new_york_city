@@ -1,7 +1,7 @@
 
-export function changeColorOfTourGuidesIllustration(loadingTourguidesFlag) {
+export function changeColorOfTourGuidesIllustration() {
 
- 
+
 
 
     const loadingTourguides = document.getElementById('loadingTourguides');
@@ -13,12 +13,23 @@ export function changeColorOfTourGuidesIllustration(loadingTourguidesFlag) {
     }
 
 
-    const changeColors = async (loadingTourguidesFlag) => {
+    const tourguidesHeader = document.getElementById('tourguidesHeader');
+
+    const changeColors = async () => {
+
+
+
+        let flag = true;
 
 
         for (var i = 0; i < backgroundRects.length; i++) {
 
-            await sleep(500);
+
+            if (tourguidesHeader.innerHTML ==='No tour guides for this neighborhood'){
+                flag =false;
+            }
+
+            await sleep(100);
 
             if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(255, 203, 121)') {
 
@@ -38,14 +49,16 @@ export function changeColorOfTourGuidesIllustration(loadingTourguidesFlag) {
 
             }
 
-            if (loadingTourguides.style.display === 'block' && i === backgroundRects.length - 1 && loadingTourguidesFlag) {
+            if (loadingTourguides.style.display === 'block' && i === backgroundRects.length - 1 && flag ) {
                 i = 0
             }
+
+
 
         }
     }
 
-    changeColors(loadingTourguidesFlag);
+    changeColors();
 
 
 
@@ -426,7 +439,7 @@ export function displayTourGuides(resValue) {
 
         const svgLoadingProfiles = document.getElementById('svgLoadingProfiles');
         for (var i = 0; i < svgLoadingProfiles.children.length; i++) {
-            svgLoadingProfiles.children[i].style.opacity = '0.2';
+            svgLoadingProfiles.children[i].style.opacity = '0.4';
         }
 
     }

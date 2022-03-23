@@ -317,9 +317,9 @@ function displayMap(flag) {
 
 
 
-            let loadingTourguidesFlag = true;
-            changeColorOfTourGuidesIllustration(loadingTourguidesFlag)
-
+        
+            
+            changeColorOfTourGuidesIllustration()
             getResponseData.then(resValue => {
 
                 if (resValue.length === 0) {
@@ -327,9 +327,7 @@ function displayMap(flag) {
                     loadingTourguidesFlag = false;
 
                 }
-
                 displayTourGuides(resValue);
-
 
             });
 
@@ -697,14 +695,13 @@ function displayMap(flag) {
                 // changeLoadingWord();
 
 
-
-
             })
 
 
-            let loadingTourguidesFlag = true;
-            
-            changeColorOfTourGuidesIllustration(loadingTourguidesFlag)
+
+         
+
+            changeColorOfTourGuidesIllustration()
 
             getResponseData.then(resValue => {
 
