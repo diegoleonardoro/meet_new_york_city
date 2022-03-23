@@ -1299,11 +1299,11 @@ nav{
 }
 
 
-@media (max-height: 619px){
+@media (max-height: 700px){
 
-  /* #nhoodsMapSvgWrapper{
+   #nhoodsMapSvgWrapper{
     height:100%;
-  } */
+  } 
 
 }
 
