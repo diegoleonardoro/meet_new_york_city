@@ -136,6 +136,30 @@ function displayMap(flag) {
             const latitude = -73.91065;
             const longitude = 40.876550;
 
+
+
+            //---------------------------------------------------------------//
+            //---------------------------------------------------------------//
+            // query the database to see all the people from that neighborhood:
+            const xhr = new XMLHttpRequest();
+
+            let getResponseData = new Promise((resolve, reject) => {
+                xhr.onload = () => {
+                    setTimeout(() => {
+                        let neighborhoodUsers = xhr.response;
+                        resolve(neighborhoodUsers)
+                    }, 100);
+                }
+            })
+
+            // create and send the reqeust
+            xhr.open('GET', `/users/neighborhood/${initialNeighborhood}`);
+            xhr.send();
+            //---------------------------------------------------------------//
+            //---------------------------------------------------------------//
+
+
+
             let divLeftStyle = projection([latitude, longitude])[0];
             let divTopStyle = projection([latitude, longitude])[1];
 
@@ -256,17 +280,79 @@ function displayMap(flag) {
                         p2.innerHTML = data[i]['Description'];
                         p2.setAttribute('class', 'neighborhoodHeader');
                         neighborhoodDescription.appendChild(p2);
-                     
+
                     }
                 }
             })
 
 
-           //==================================================================//
+            //==================================================================//
             //==================================================================//
             //======= END OF BLOCK THAT WILL DISPLAY INITIAL NEIGHBORHOOD ON THE MAP =========//
             //==================================================================//
             //==================================================================//
+
+
+
+
+
+
+            const section_neighborhoodGuides = document.getElementById('section_neighborhoodGuides');
+            // select the section that displays the tour guides and give it display value of 'block'
+            section_neighborhoodGuides.style.display = 'block';
+            const section_header = document.createElement('h2');
+            section_header.setAttribute('id', 'tourguidesHeader')
+            section_header.innerHTML = `Here is who can show you ${initialNeighborhood} around: `
+            section_neighborhoodGuides.prepend(section_header);
+
+
+            // function that will change the background color of the frames:
+            const loadingTourguides = document.getElementById('loadingTourguides');
+            loadingTourguides.style.display = 'block';
+            const backgroundRects = document.getElementsByClassName('backgroundRect');
+
+            const sleep = (milliseconds) => {
+                return new Promise(resolve => setTimeout(resolve, milliseconds))
+            }
+
+            let loadingTourguidesFlag = true;
+
+            const changeColorOfTourGuidesIllustration = async () => {
+
+
+                for (var i = 0; i < backgroundRects.length; i++) {
+                    console.log('hola')
+                    await sleep(100);
+
+                    if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(255, 203, 121)') {
+
+                        backgroundRects[i].style.fill = 'rgb(252, 222, 175)';
+
+                    } else if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(252, 222, 175)') {
+
+                        backgroundRects[i].style.fill = 'rgb(255, 203, 121)';
+
+                    } else if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(90, 99, 171)') {
+
+                        backgroundRects[i].style.fill = 'rgb(158, 164, 211)';
+
+                    } else if (window.getComputedStyle(backgroundRects[i])['fill'] === 'rgb(158, 164, 211)') {
+
+                        backgroundRects[i].style.fill = 'rgb(90, 99, 171)';
+
+                    }
+
+                    if (loadingTourguides.style.display === 'block' && i === backgroundRects.length - 1 && loadingTourguidesFlag) {
+                        i = 0
+                    }
+
+                }
+            }
+
+            changeColorOfTourGuidesIllustration();
+            // end of function that will change the background color of the frames
+
+
 
 
 
@@ -387,7 +473,7 @@ function displayMap(flag) {
             let neighborhoodDescription = document.getElementById('neighborhoodDescription');
 
 
-            
+
 
             // remove previous circle and svg path that conned to the neighborhood description
             if (map_.children.length > 71) {
@@ -561,7 +647,6 @@ function displayMap(flag) {
 
 
 
-
             // select the section that displays the tour guides and give it display value of 'block'
             section_neighborhoodGuides.style.display = 'block';
             const section_header = document.createElement('h2');
@@ -577,6 +662,11 @@ function displayMap(flag) {
             //--- end of set opacity of all the profile containers to 1
 
             // end of select the section that displays the tour guides and give it display value of 'block'
+
+
+
+
+
 
 
 
