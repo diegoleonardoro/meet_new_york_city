@@ -241,9 +241,9 @@ function displayMap(flag) {
 
                 } else {
 
-                    y_1 = divTopStyle + 600;
+                    y_1 = divTopStyle + 730;
 
-                    y_2 = divTopStyle + 660;
+                    y_2 = divTopStyle + 780;
 
                     x_1 = divLeftStyle + 41;
 
