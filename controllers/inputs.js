@@ -1,10 +1,5 @@
-const path = require("path");
-const ErrorResponse = require("../utils/errorResponse");
-//const Inputs = require("../models/User_input");
+
 const asyncHandler = require("../middleware/async");
-const geoCoder = require("../utils/geoCoder");
-const fs = require('fs');
-//const User = require("../models/User");
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
@@ -140,34 +135,6 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 
 
 
-})
-
-
-
-
-// @desc    Get inputs withing a radious 
-// @rouse   GET  /inputs/radious/:zipcode/:distance
-// @access  Private 
-exports.getInputsInRadious = asyncHandler(async (req, res, next) => {
-    const { zipcode, distance } = req.params;
-
-    // Get lat and lon from geocoder 
-    const loc = await geoCoder.geocode(zipcode);
-    const lat = loc[0].latitude;
-    const lng = loc[0].longitude;
-
-    // Calc radious using radians
-    // Divide dist by radius of Earth 
-    // Earth Radius = 3,963 mi / 6,378 km
-    const radius = distance / 3963;
-    const inputs = await Inputs.find({ // <<<<--------------------------------------------------------
-        location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
-    })
-    res.status(200).json({
-        success: true,
-        count: inputs.length,
-        data: inputs
-    })
 })
 
 

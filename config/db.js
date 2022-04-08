@@ -5,7 +5,6 @@ const Grid = require("gridfs-stream");
 
 const connectDB = async () => {
 
-
     const conn = await mongoose.createConnection(process.env.MONGO_URI, {
         //options that will stop some warnings from happening:
         useNewUrlParser: true,
@@ -15,7 +14,6 @@ const connectDB = async () => {
 
     });
 
-
     //init gfs
     let gfs;
     conn.once("open", () => {
@@ -23,10 +21,6 @@ const connectDB = async () => {
         gfs.collection('uploads');
     });
 
-    //return conn.db;
-
-
-    //console.log(`MongoDB connected: ${conn.connection.host}`);
 
 }
 

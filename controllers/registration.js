@@ -11,10 +11,6 @@ const OAuth2 = google.auth.OAuth2
 
 
 
-//const Grid = require("gridfs-stream");
-//const connectDB = require("../config/db");
-//const conn = connectDB();
-//const User = conn.model("User", require('../models/User'));
 
 
 
@@ -24,19 +20,6 @@ const conn = mongoose.createConnection(process.env.MONGO_URI, {
     useFindAndModify: false,
     useUnifiedTopology: true,
 });
-
-
-
-// Initialize GrigFs to retreive images from database
-/*
-let gfs;
-conn.once("open", () => {
-    gfs = Grid(conn.db, mongoose.mongo);
-    gfs.collection('uploads');
-});
- */
-// ========= ========= ========= ========= =========
-
 
 const User = conn.model("User", require('../models/User'));
 
@@ -55,17 +38,17 @@ exports.Registration_Interface = (req, res, next) => {
 }
 
 
+
+
 //@desc     renders the registration templave
 //@route    POST /register
 //@access   public
 exports.register_User = asyncHandler(async (req, res, next) => {
 
 
-
     if (req.file) {
         req.body.profileImage = req.file;
     }
-
 
     const user = await User.create(req.body);
 
@@ -83,9 +66,6 @@ exports.register_User = asyncHandler(async (req, res, next) => {
     }, process.env.JWT_SECRET_REFRESH_TOKEN, { expiresIn: process.env.REFRESH_JWT_EXPIRE });
 
 
-
-
-
     await User.updateOne({ email: user.email }, {
         $set: {
             'emailToken': emailToken
@@ -98,36 +78,9 @@ exports.register_User = asyncHandler(async (req, res, next) => {
             },
         },
 
-
     });
 
-    //await 
     sendEmailConfirmation({ email: user.email, emailToken: emailToken });
-
-
-
-    //Create the function to access the profile image:
-    /*
-    const profileImgFormatted = [];
-    function createStream() {
-        let readstream = gfs.createReadStream(user[0].profileImage.filename);
-        let fileChunks = [];
-        readstream.on('data', function (chunk) {
-            fileChunks.push(chunk);
-        });
-        readstream.on('end', function () {
-            let concatFile = Buffer.concat(fileChunks);
-            imageFormated = Buffer(concatFile).toString("base64");
-            profileImgFormatted.push(imageFormated);
-        });
-    }
-    createStream();
-    */
-    // ====== ====== ====== ====== ====== ====== ======
-
-
-
-    // send the response data to the user
 
     res
         .status(200)
@@ -136,20 +89,10 @@ exports.register_User = asyncHandler(async (req, res, next) => {
         .json({
             success: true,
         })
-
-
-
-
-    /*
-    const responseData = user;
-    setTimeout(() => {
-        res.render("questionnaire", { user: responseData, profileImage: profileImgFormatted });
-    }, 2000);
-    */
-    // ====== ====== ====== ====== ====== 
-
-
 })
+
+
+
 
 
 //@desc     Login user 
@@ -265,12 +208,6 @@ const myAccessToken = myOAuth2Client.getAccessToken();
 
 
 
-
-
-
-
-
-
 const sendEmailConfirmation = async (user) => {
 
 
@@ -295,34 +232,6 @@ const sendEmailConfirmation = async (user) => {
     }
 
 
-
-
     transport.sendMail(mailOptions)
-
-
-
-
-
-
-    // const transport = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     // host: "smtp.gmail.com",
-    //     port: 2525,
-    //     secure: false,
-    //     auth: {
-    //         user: process.env.NODE_MAILER_GMAIL_USER,
-    //         pass: process.env.NODE_MAILER_GMAIL_PASSWORD
-    //     }
-    // });
-
-    // //await
-    // transport.sendMail({
-    //     from: ' Diego ',
-    //     to: user.email,
-    //     subject: 'Confirm your email',
-    //     text: `Click the link to confirm your email http://meet-nyc.herokuapp.com/users/${user.emailToken}`,
-    //     //meet-nyc.herokuapp.com
-    // })
-
 
 }

@@ -1,29 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");  // This is a MiddleWare. It lets us read and request bodies.
-
 const connectDB = require("./config/db"); // function that connects to the server. 
-
 const dotenv = require("dotenv");
 const errorHandler = require("./middleware/error");
-const morgan = require("morgan");
-const fileupload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
-const colors = require("colors");
 const path = require("path");
-const mongoSanitize = require('express-mongo-sanitize');
-const helmet = require('helmet');
-const xss = require('xss-clean');
-const rateLimit = require('express-rate-limit');
-const hpp = require('hpp');
-const ejs = require("ejs");
-const multer = require("multer");
-const util = require("util");
 const cors = require("cors");
-var engines = require('consolidate');
-
 const methodOverride = require('method-override');
 
-const as = require('./')
 
 
 
@@ -79,7 +63,7 @@ const PORT = process.env.PORT || 3000;
 
 const server = app.listen(
     PORT,
-    console.log(`Server running in ${process.env.NODE_ENV} mode in ${PORT}`.yellow.bold)
+    console.log(`Server running in ${process.env.NODE_ENV} mode in ${PORT}`)
 );
 
 process.on("unhandledRejection", (err, promise) => {

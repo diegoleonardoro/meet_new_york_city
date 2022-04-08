@@ -2,10 +2,6 @@ const express = require("express");
 
 const {
     getUsers,
-    getUser,
-    createUser,
-    updateUser,
-    deleteUser,
     getFormInterface,
     userProfile,
     getNeighborhood,
@@ -23,22 +19,13 @@ const advancedResults = require("../middleware/advancedResults");
 // Base route: "/users"
 router.route('/')
     .get(advancedResults(User), getUsers)
-    .post(createUser);
 
-    
 router.route('/neighborhood/:neighborhood')
     .get(getNeighborhood);
 
 
-
-
 router.route('/questionnaire')//:refreshToken
     .get(protect, getFormInterface)
-    .put(updateUser)
-    .delete(deleteUser);
-
-
-
 
 router.route('/profile')///:id
     .get(protect, userProfile)

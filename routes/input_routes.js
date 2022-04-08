@@ -18,11 +18,6 @@ const {
 
 
 
-//init gfs
-//let gfs;
-////gfs = new mongoose.mongo.GridFSBucket(connectDB(), {
-//   bucketName: "../uploads"
-//});
 
 const storage = new GridFsStorage({
     url: process.env.MONGO_URI,
@@ -64,10 +59,6 @@ const router = express.Router();
 const { protect, authorize } = require("../middleware/auth")
 
 // Routes and their controllers:
-router
-    .route("/radius/:zipcode/:distance")
-    .get(getInputsInRadious);
-
 router
     .route('/userId')
     .post(protect, uploadFile.array('placeImage'), createInput);

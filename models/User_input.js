@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify"); // A slug is a part of the URL when you are accessing a resource.
-const geocoder = require("../utils/geoCoder");
+
 
 var slug = require('mongoose-slug-generator');
 

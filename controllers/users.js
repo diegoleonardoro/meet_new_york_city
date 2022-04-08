@@ -9,9 +9,6 @@ const jwt = require('jsonwebtoken');
 //const Inputs = require("../models/User_input");
 
 
-
-
-
 const conn = mongoose.createConnection(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -31,14 +28,6 @@ const Inputs = conn.model("Inputs", require('../models/User_input'));
 
 
 
-// let newArr = [];
-
-
-
-
-
-
-const path = require('path');
 
 //@desc     Get all users
 //@route    GET /auth/users
@@ -70,21 +59,7 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
     var neighborhood = req.params.neighborhood;
 
-    // var input = await Inputs.find({ 'neighborhood': neighborhood }).populate({
-    //     path: 'user'
-    // });
-
-    var users = await User.find({ 'neighborhood': neighborhood }); // 1. --- get all the uses 
-
-
-    // console.log(users);
-    // console.log('hola lalalaa')
-
-    let responseArray = [];
-
-    // ----------------------------------------------------------------------------------------------- USER
-
-
+    var users = await User.find({ 'neighborhood': neighborhood });
 
     // Create stream for images of places 
     const createStream = (filename) => {
@@ -104,7 +79,6 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
                 resolve(imageFormated)
             });
         })
-
     }
 
     const iterateImages = async (currentPlaceImages) => {// this function is going to be called the total amounf of favorite places for all users
@@ -142,8 +116,6 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
     // Stream for profile image
 
     const profileImgStream = async (profileImgFileName) => {
-
-
         return new Promise((resolve, reject) => {
             let readstream = gfs.createReadStream(profileImgFileName);
             let fileChunks = [];
@@ -160,25 +132,13 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
             });
         })
 
-
     }
-
-
-
-
     // end of stream for profile image
-
-
-
-
 
 
     let arrayOfUsers = [];
 
     const getImages = async () => {
-
-
-        let arrayOfFormattedImages = [];
 
         for (var i = 0; i < users.length; i++) {
 
@@ -195,17 +155,12 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
             let favPlaces = users[i]['favoritePlaces'];
             let stream = await getImagesOfPlace(favPlaces);
 
-
             let profileImage = users[i]['profileImage'];
 
             let proFileImgStream = '';
             if (profileImage) {
                 proFileImgStream = await profileImgStream(profileImage.filename)
             }
-
-
-
-
 
             userObj['imageFormatted'] = stream;
             userObj['profileImg'] = proFileImgStream;
@@ -218,14 +173,13 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 
     await getImages();
 
-
     res.status(201).json({
         success: true,
         data: arrayOfUsers
     })
 
-
 });
+
 
 
 
@@ -235,16 +189,10 @@ exports.getNeighborhood = asyncHandler(async (req, res, next) => {
 //@access   Private 
 exports.getFormInterface = asyncHandler(async (req, res, next) => {
 
-
-    //const user = await User.find({ _id: req.user[0]._id });
-
     const accessToken = await jwt.sign({
         _id: req.user.id,
         email: req.user.email
     }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_COOKIE_EXPIRE });
-
-
-
 
     const profileImgFormatted = [];
 
@@ -264,15 +212,11 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
         createStream();
     }
 
-
-
     const responseData = req.user;
 
     res
         .status(200)
-        .cookie('token', accessToken)// token, options
-    //.cookie('refreshToken', refreshToken)
-
+        .cookie('token', accessToken)
 
     setTimeout(() => {
 
@@ -280,11 +224,9 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
             profileImgFormatted.push("https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/2feca4c9330929232091f910dbff7f87.jpg")
         }
 
-        // here, instead of rendering the questionnaire, render the main page with the user logged in. 
         res.render("questionnaire", { user: responseData, profileImage: profileImgFormatted });
 
     }, 2000);
-
 
 
 })
@@ -299,7 +241,6 @@ exports.getFormInterface = asyncHandler(async (req, res, next) => {
 //@route    GET /users/profile
 //@access   Private 
 exports.userProfile = asyncHandler(async (req, res, next) => {
-
 
     let favPlaces = req.user.favoritePlaces;
 
@@ -353,7 +294,6 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             });
         }
 
-
         if (req.user.profileImage && profilePicFlag) {
 
             profilePicFlag = false;
@@ -378,7 +318,6 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 
 
 
-
     const accessToken = await jwt.sign({
         _id: req.user.id,
         email: req.user.email
@@ -387,10 +326,7 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
 
     res
         .status(200)
-        .cookie('token', accessToken)// token, options
-
-
-
+        .cookie('token', accessToken)
 
     setTimeout(() => {
 
@@ -403,15 +339,8 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
         }
 
         var introduction1 = `My name is ${req.user.name}. ${livingInNhood}, and if you want to visit, I can show around.`
-        //var introduction2 = `<b>I would describe ${req.user.neighborhood} as follows:</b> `
         var introduction2 = `I would describe ${req.user.neighborhood} as follows: ${req.user.neighborhoodDescription}`
-        //var introduction4 = `<b>In three words, I would say ${req.user.neighborhood} is: </b>`
-        //var introduction4 = `${req.user.threeWordsToDecribeNeighborhood}`.split(',')
         var introduction3 = `Please message me if you want me to show you ${req.user.neighborhood} around.`
-
-
-        //console.log(introduction2)
-        //console.log(introduction3)
 
         var intro = [introduction1, introduction2, introduction3];
 
@@ -430,120 +359,11 @@ exports.userProfile = asyncHandler(async (req, res, next) => {
             'amountOfPhotosPerPlace': amountOfPhotosPerPlace,
             'profilePicture': profileImgFormatted,
             'borough': req.user.borough
-
         }
 
         res.render("user_profile", { user });
 
     }, 10000);
-
-
-
-
-
-
-    //gfs.files.find({ filename: { $in: arr } }).toArray((err, files) => {
-    /* 
-    // Check if files
-    if (!files || files.length === 0) {
-        //res.render('index', { arr: false });
-    } else {
-        files.map(file => {
-            if (
-                file.contentType === 'image/jpeg' ||
-                file.contentType === 'image/png'
-            ) {
-                file.isImage = true;
-            } else {
-                file.isImage = false;
-            }
-        });
-        //res.render('index', { arr: arr });
-    }
-    */
-
-
-    //console.log('arr: ', arr);
-    //console.log('files: ', files);
-
-    // });
-
-    /* 
-    let mainArray = [];
-    const iterateArrayOfImages = function () {
-        for (var t = 0; t < arr.length; t++) {
-            let placeName = arr[t];
-            let readstream = gfs.createReadStream(placeName);
-            let fileChunks = [];
-            let imageFormated;
-            readstream.on('data', function (chunk) {
-                fileChunks.push(chunk);
-            });
-            readstream.on('end', function () {
-                let concatFile = Buffer.concat(fileChunks);
-                imageFormated = Buffer(concatFile).toString("base64");
-                mainArray.push(imageFormated);
-            });
-        }
-    }
-    iterateArrayOfImages();
- 
-    setTimeout(() => { 
- 
-        let mainArrayDivided = [];
-        let c = 0;
-        let z
- 
-        for (var q = 0; q < amountOfPhotosPerPlace.length; q++) {
-            var amountOfPhotosForPlace = amountOfPhotosPerPlace[q];
-            if (q === 0) {
-                z = amountOfPhotosForPlace
-            } else {
-                z = c + amountOfPhotosForPlace;
-            }
-            let arre = [];
-            for (c; c < z; c++) {
-                if (z === 2) {
-                }
-                let item = mainArray[c];
-                arre.push(item);
-            }
-            c = amountOfPhotosForPlace;
-            mainArrayDivided.push(arre)
-        }
- 
-        let livingInNhood;
-        if (req.user[0].lengthLivingInNeighborhood === 'do not live there') {
-            livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
-        } else {
-            livingInNhood = `I have been living in this neighborhood ${req.user[0].lengthLivingInNeighborhood},and I know it well enough to take you to the best places.`
-        }
- 
-        var introduction1 = `Hello! <span class='introHighlight'> My name is ${req.user[0].name}, and if you want to visit ${req.user[0].neighborhood} I can show around</span> . ${livingInNhood}`
-        var introduction2 = `<b>I would describe ${req.user[0].neighborhood} as follows:</b> `
-        var introduction3 = `${req.user[0].neighborhoodDescription}`
-        var introduction4 = `<b>In three words, I would say ${req.user[0].neighborhood} is:</b>`
-        var introduction5 = `${req.user[0].threeWordsToDecribeNeighborhood}`.split(',')
-        var introduction6 = `Please keep exploring my profile if you want to learn more about ${req.user[0].neighborhood}, and get to know New York City like very few visitors do.`
- 
-        var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
- 
-        let user = {
-            'name': req.user[0].name,
-            'neighborhood': req.user[0].neighborhood,
-            'threeWordsToDecribeNeighborhood': req.user[0].threeWordsToDecribeNeighborhood,
-            'neighborhoodTips': req.user[0].neighborhoodTips,
-            'neighborhoodDescription': req.user[0].neighborhoodDescription,
-            'neighborhoodSatisfaction': req.user[0].neighborhoodSatisfaction,
-            'neighborhoodFactorDescription': req.user[0].neighborhoodFactorDescription,
-            'favoritePlaces': req.user[0].favoritePlaces,
-            'lengthLivingInNeighborhood': req.user[0].lengthLivingInNeighborhood,
-            'imagesFormated': mainArray,
-            'intro': intro
-        }
-        res.render("user_profile", { user });
-    }, 15000);
-    */
 
 })
 
@@ -557,7 +377,7 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
 
     var slug = req.params.slug;
 
-    let user = await User.find({ 'slug': slug }) // <<<<--------------------------------------------------------
+    let user = await User.find({ 'slug': slug })
     let favPlaces = user[i][0]['favoritePlaces'];
 
     let arr = [];
@@ -582,7 +402,6 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
     let newArr = [];
     function createStream() {
 
-
         let filename = arr[streamFlag];
         let readstream = gfs.createReadStream(filename);
         let fileChunks = [];
@@ -605,9 +424,6 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
     }
 
     createStream();
-
-
-
 
 
     setTimeout(() => {
@@ -646,108 +462,9 @@ exports.user_ProfilePublic = asyncHandler(async (req, res, next) => {
         }
         res.render("user_profile", { user });
 
-
-
     }, 10000);
 
-    /* 
-        let favPlaces = input[0].favoritePlaces;
-        let imagesFormated = [];
-        for (var i = 0; i < favPlaces.length; i++) {
-            let images = [];
-            for (var t = 0; t < favPlaces[i].placeImage.length; t++) {
-                let img = Buffer.from(favPlaces[i].placeImage[t].data.buffer, 'base64');
-                let formated_image
-                if (t === 0) {
-                    formated_image = `<img src="data:image/png;base64,${img.toString("base64")}"/>`;
-                } else {
-                    formated_image = `<img style="display:none;" src="data:image/png;base64,${img.toString("base64")}"/>`;
-                }
-                images.push(formated_image);
-            }
-            imagesFormated.push(images)
-        }
-    
-        let livingInNhood;
-        if (input[0].lengthLivingInNeighborhood === 'do not live there') {
-            livingInNhood = 'I do not live in this neighborhood, but I know it well enough to take you to the best places.'
-        } else {
-            livingInNhood = `I have been living in this neighborhood ${input[0].lengthLivingInNeighborhood},and I know it well enough to take you to the best places.`
-        }
-    
-    
-        var introduction1 = `Hello! <span class='introHighlight'> My name is ${input[0]['user'].name}, and if you want to visit ${input[0].neighborhood} I can show around</span> . ${livingInNhood}`
-        var introduction2 = `<b>I would describe ${input[0].neighborhood} as follows:</b> `
-        var introduction3 = `${input[0].neighborhoodDescription}`
-        var introduction4 = `<b>In three words, I would describe ${input[0].neighborhood} as:</b>`
-        var introduction5 = `${input[0].threeWordsToDecribeNeighborhood}`.split(',')
-        var introduction6 = `Please keep exploring my profile if you want to learn more about ${input[0].neighborhood}, and get to know New York City like very few visitors do.`
-    
-        var intro = [introduction1, [introduction2, introduction3], [introduction4, introduction5], introduction6];
-
-        console.log(input);
-    
-        user = {
-            'name': input[0]['user'].name,
-            'neighborhood': input[0].neighborhood,
-            'threeWordsToDecribeNeighborhood': input[0].threeWordsToDecribeNeighborhood,
-            'neighborhoodTips': input[0].neighborhoodTips,
-            'neighborhoodDescription': input[0].neighborhoodDescription,
-            'neighborhoodSatisfaction': input[0].neighborhoodSatisfaction,
-            'neighborhoodFactorDescription': input[0].neighborhoodFactorDescription,
-            'favoritePlaces': input[0].favoritePlaces,
-            'lengthLivingInNeighborhood': input[0].lengthLivingInNeighborhood,
-            'imagesFormated': imagesFormated,
-            'intro': intro
-        }
-        res.render("user_profile", { user });        
-*/
-
 });
-
-
-
-
-//@desc     Create user
-//@route    POST /auth/users
-//@access   Private/Admin
-exports.createUser = asyncHandler(async (req, res, next) => {
-    const user = await User.create(req.body);
-    res.status(201).json({
-        success: true,
-        data: user
-    })
-});
-
-
-//@desc     Update user
-//@route    PUT /auth/users/:id
-//@access   Private/Admin
-exports.updateUser = asyncHandler(async (req, res, next) => {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true
-    })
-    res.status(200).json({
-        success: true,
-        data: user
-    })
-});
-
-
-
-//@desc     Delete user
-//@route    DELETE /auth/users/:id
-//@access   Private/Admin
-exports.deleteUser = asyncHandler(async (req, res, next) => {
-    await User.findByIdAndDelete(req.params.id);
-    res.status(200).json({
-        success: true,
-        data: {}
-    })
-});
-
-
 
 
 

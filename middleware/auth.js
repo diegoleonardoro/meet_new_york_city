@@ -27,8 +27,6 @@ const conn = mongoose.createConnection(process.env.MONGO_URI, {
 const User = conn.model("User", require('../models/User'));
 
 
-
-
 exports.protect = asyncHandler(async (req, res, next) => {
 
     try {
@@ -60,41 +58,6 @@ exports.protect = asyncHandler(async (req, res, next) => {
     } catch (error) {
         res.staus(400).json({ error: { status: 400, message: "BAD_REQUEST" } })
     }
-
-
-
-
-    /*
-    if (req.headers.cookie) {
-        const parseCookie = str =>
-            str
-                .split(';')
-                .map(v => v.split('='))
-                .reduce((acc, v) => {
-                    acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-                    return acc;
-                }, {});
-
-        const cookie = parseCookie(req.headers.cookie);
-        const refreshToken = cookie['refreshToken'];
-
-        const decodedRefreshToken = jwt.verify(refreshToken, process.env.JWT_SECRET_REFRESH_TOKEN);
-        var id_ = decodedRefreshToken._id;
-
-        req.user = await User.find({ _id: id_ });
-
-        next();
-
-    } else if (emailToken) {
-        req.user = await User.find({ emailToken: emailToken });
-        if (req.user) {
-            next();
-        }
-    }
-    */
-
-
-
 
 })
 
