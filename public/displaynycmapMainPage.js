@@ -77,9 +77,7 @@ function displayMap(flag) {
 
             // ------ Assign a unique value to each element in the "districts" OBJ --------//
             var GeoID = function (d) {
-
                 return "c" + d.id;
-
             }
 
 
@@ -97,12 +95,11 @@ function displayMap(flag) {
 
             map = svg.append('g')
                 .attr('class', 'boundary')
-
-
                 //  .attr('width', '300px')
                 //  .attr('height', '300px')
                 .attr('x', '50')
                 .attr('y', '50')
+
 
             nyc = map.selectAll('path').data(districts.features);
             nyc.enter()
@@ -118,11 +115,6 @@ function displayMap(flag) {
 
             //nyc.attr('fill', '#F2D272');
             nyc.exit().remove();
-
-
-
-
-
 
 
 
@@ -296,10 +288,6 @@ function displayMap(flag) {
             //==================================================================//
 
 
-
-
-
-
             const section_neighborhoodGuides = document.getElementById('section_neighborhoodGuides');
             // select the section that displays the tour guides and give it display value of 'block'
             section_neighborhoodGuides.style.display = 'block';
@@ -308,17 +296,6 @@ function displayMap(flag) {
             section_header.innerHTML = `Here is who can show you ${initialNeighborhood} around: `
             section_neighborhoodGuides.prepend(section_header);
 
-
-
-
-
-
-
-
-
-
-        
-            
             changeColorOfTourGuidesIllustration()
             getResponseData.then(resValue => {
 
@@ -332,48 +309,7 @@ function displayMap(flag) {
             });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     } else {// we will enter this else statement if the user clicks any of the neighborhoods. 
@@ -388,8 +324,6 @@ function displayMap(flag) {
         // end of scroll to the explore neighborhood section 
 
 
-
-
         let coordinates = flag['the_geom'];
         let neighborhood = flag['Name'];
         let borough = flag['Borough'];
@@ -402,7 +336,6 @@ function displayMap(flag) {
 
         latitude = latitude.toFixed(4);
         longitude = longitude.toFixed(4);
-
 
         // console.log(neighborhood)
 

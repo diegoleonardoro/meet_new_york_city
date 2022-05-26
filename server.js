@@ -10,7 +10,6 @@ const methodOverride = require('method-override');
 
 
 
-
 // Load env variables:
 dotenv.config({ path: './config/config.env' });
 
@@ -20,7 +19,7 @@ connectDB();
 // Create an Express instance
 const app = express();
 
-// Set eja as the view engine 
+// Set ejs as the view engine 
 app.set("view engine", "ejs");
 
 // bodyParser is used to parse incoming request bodies 

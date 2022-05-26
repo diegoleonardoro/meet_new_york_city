@@ -72,14 +72,13 @@ function displayMap() {
             .attr("fill", "#A0A0A0")
             .style("opacity", "0.3")
 
-        console.log(coordsObj);
+
 
         var divLeftStyle = projection([coordsObj.lng.toString(), coordsObj.lat.toString()])[0]
         var divTopStyle = projection([coordsObj.lng.toString(), coordsObj.lat.toString()])[1]
 
 
-        console.log(divLeftStyle);
-        console.log(divTopStyle);
+
 
         map.append("circle")
             .attr("cx", divLeftStyle)
@@ -298,7 +297,7 @@ function displayMap() {
         const graphYvalues = ['Extremely dissatisfied ', 'Somewhat dissatisfied', 'neutral', 'Somewhat satisfied', 'Extremely satisfied']
         //console.log(chartData_);
 
-        console.log(chartData_)
+       
 
 
         //--------------------------------------------------------------------------------------------------------------------------//

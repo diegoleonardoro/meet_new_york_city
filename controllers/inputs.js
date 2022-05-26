@@ -69,30 +69,16 @@ exports.getAllInputs = asyncHandler(async (req, res, next) => {
 //@access   Private
 exports.createInput = asyncHandler(async (req, res, next) => {
 
-    //console.log(req.files);
-    //console.log('=============================');
-
-
     req.body.neighborhoodSatisfaction = JSON.parse(req.body.neighborhoodSatisfaction);
     req.body.neighborhoodFactorDescription = JSON.parse(req.body.neighborhoodFactorDescription);
     req.body.favoritePlaces = JSON.parse(req.body.favoritePlaces);
 
-
-
     var favoritePlaces = req.body.favoritePlaces;
-
-
-    let h = 0;
-    let z;
-
 
     for (let i = 0; i < favoritePlaces.length; i++) {// 1. iterate through all the favorite places 
 
         let photoArray = [];
-
         let numOfPhotos = favoritePlaces[i]['numberOfPhotos'];// 2. access the amount of photos per place
-
-
         for (var u = 0; u < numOfPhotos; u++) {
 
             let file = req.files[0];
@@ -110,9 +96,9 @@ exports.createInput = asyncHandler(async (req, res, next) => {
 
     const input = await Inputs.create(req.body); // <<<<--------------------------------------------------------
 
-    console.log(req.body);
 
     var inputData = Object.assign(req.body, { formResponded: '1' });
+
 
     const user = await User.findByIdAndUpdate({ _id: req.user.id.toObjectId() }, inputData)//.populate('input');
 
